@@ -1,0 +1,28 @@
+tmp/
+
+# IDEs
+.project
+.buildpath
+.settings/
+.idea/
+
+# Ruby
+pkg/
+vendor/
+.bundle
+Gemfile.lock
+coverage/
+
+# OS X
+.DS_Store
+
+# TextMate
+.tm_properties
+tmtags
+tmtagsHistory
+
+# CTags
+tags
+
+# Vim
+.vimrc

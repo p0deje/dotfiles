@@ -1,0 +1,11 @@
+[ui]
+username = Alex Rodionov <p0deje@gmail.com>
+verbose = True
+ignore = ~/.hgignore
+
+[trusted]
+users = p0deje, root
+groups = p0deje, root
+
+[alias]
+br = branch
