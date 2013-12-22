@@ -54,6 +54,8 @@ filetype plugin on  " required!: filetype-specific plugins
 
 NeoBundleCheck  " check all bundles on startup
 
+set shell=/bin/bash  " fish is too good for plugins
+
 set guifont=Monaco\ for\ Powerline:h12 " use Monaco support Powerline
 
 let g:airline_left_sep  = ''  " airline separators
