@@ -153,6 +153,7 @@ autocmd BufReadPost *
 
 " highlight custom files
 autocmd BufRead,BufNewFile *file set filetype=ruby
+autocmd BufRead,BufNewFile *.load set filetype=fish
 
 " Puppet tweaks
 autocmd FileType puppet set commentstring=#\ %s
