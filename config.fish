@@ -3,7 +3,7 @@ set fish_path $HOME/.oh-my-fish
 
 # Fish configuration
 set fish_theme agnoster
-set fish_plugins brew extract rake rbenv
+set fish_plugins autojump brew extract rake rbenv
 set fish_greeting ""
 
 # oh-my-fish
