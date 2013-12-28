@@ -16,6 +16,11 @@ var keys = {
   hints:         'e:cmd',
   undo:          'z:' + modal,
   restart:       'r:' + modal,
+
+  chrome:        'c:alt',
+  iterm:         't:alt',
+  macvim:        'v:alt',
+
   grid:          'g:' + modal,
   fullscreen:    'f:' + modal,
   center:        'c:' + modal,
@@ -29,7 +34,15 @@ slate.bind(keys.undo, slate.operation('undo'));
 slate.bind(keys.restart, slate.operation('relaunch'));
 
 /**
- * Window management.
+ * Application switching.
+ */
+
+slate.bind(keys.chrome, slate.operation('focus', { 'app': 'Google Chrome' }));
+slate.bind(keys.iterm, slate.operation('focus', { 'app': 'iTerm' }));
+slate.bind(keys.macvim, slate.operation('focus', { 'app': 'MacVim' }));
+
+/**
+ * Window resizing.
  */
 
 var grid = slate.operation('grid', {
