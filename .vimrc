@@ -165,6 +165,18 @@ autocmd FileType puppet set commentstring=#\ %s
 " Autoclose pipe in Ruby
 autocmd FileType ruby let b:AutoClosePairs = AutoClose#DefaultPairsModified("|", "")
 
+" Ruby string interpolation
+function! s:InsertInterpolation()
+  let before = getline('.')[col('^'):col('.')]
+  let after  = getline('.')[col('.'):col('$')]
+  " check that we're in double-quotes string
+  if before =~# '"' && after =~# '"'
+    execute "normal! a{}\<Esc>h"
+  endif
+endfunction
+autocmd FileType ruby inoremap <silent> # #<Esc>:call <SID>InsertInterpolation()<Cr>a
+autocmd FileType ruby vnoremap <Leader># c#{<C-R>"}<Esc>
+
 " vim session settings
 let g:session_autosave        = 'yes'
 let g:session_autoload        = 'no'
@@ -287,9 +299,6 @@ nmap <Leader>an ^ciwAnd<Esc>
 
 " Tabular
 nmap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
-
-" Ruby string interpolation
-vmap <Leader># c#{<C-R>"}<Esc>
 
 " Select inside regex start and end of line
 vnoremap ir :<C-U>silent! normal! [z^f^lvt$]z<CR>
