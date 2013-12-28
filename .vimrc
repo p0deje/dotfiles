@@ -120,8 +120,12 @@ set guicursor+=a:blinkon0  " disable blinking
 " Enable spelling check
 set spell
 
+" Use very magic
+nnoremap / /\v
+cnoremap %s/ %s/\v
+
 " Use old regexp engine
-" This speeds up Ruby syntax highlightning
+" This speeds up Ruby syntax highlighting
 set regexpengine=1
 
 if has("gui_running")
