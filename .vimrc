@@ -30,7 +30,7 @@ NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }  " integration wit
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'                   " railscasts but sexy
 NeoBundle 'p0deje/vim-numbertoggle'                            " relative numbers
 NeoBundle 'ProportionalResize', { 'depends': 'ingo-library' }  " autoresize splits
-NeoBundle 'Raimondi/delimitMate'                               " autocose quotes, brackets, etc
+NeoBundle 'Townk/vim-autoclose'                                " autoclose quotes, brackets, etc
 NeoBundle 'rking/ag.vim'                                       " integration with Ag
 NeoBundle 'rodjek/vim-puppet'                                  " puppet support
 NeoBundle 'scrooloose/nerdtree'                                " project tree navigation
@@ -162,6 +162,9 @@ autocmd BufRead,BufNewFile *.load set filetype=fish
 " Puppet tweaks
 autocmd FileType puppet set commentstring=#\ %s
 
+" Autoclose pipe in Ruby
+autocmd FileType ruby let b:AutoClosePairs = AutoClose#DefaultPairsModified("|", "")
+
 " vim session settings
 let g:session_autosave        = 'yes'
 let g:session_autoload        = 'no'
@@ -185,10 +188,6 @@ let g:gist_clip_command    = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_show_privates   = 1
 let g:gist_post_private    = 1
-
-" delimitMate
-let delimitMate_expand_Cr    = 1
-let delimitMate_expand_Space = 1
 
 " strip trailing whitespaces
 let g:DeleteTrailingWhitespace = 1
