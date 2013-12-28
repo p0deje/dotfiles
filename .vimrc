@@ -202,15 +202,6 @@ let g:NERDTreeWinSize  = 50
 let NERDTreeIgnore     = ['tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
 
-" Removes useless buffers.
-function! DeleteHiddenBuffers()
-    let tpbl=[]
-    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-        silent execute 'bwipeout' buf
-    endfor
-endfunction
-
 " automatic alignment of | symbol (used in Gherkin) by tabularize plugin
 " taken from https://gist.github.com/tpope/287147
 function! s:align()
