@@ -233,14 +233,18 @@ inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<Cr>a
 nmap <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
 nmap <Leader>of :NERDTreeFind<Cr><C-w>=
 
-" Quickly edit vimrc
-nmap <Leader>rc :e ~/.vimrc<Cr>
-
-" Copy run test in VM command to system (TextMate port)
+" Copy run test in VM command to system
 nmap <Leader>cu :exec "silent !echo -n ve cucumber " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 nmap <Leader>sp :exec "silent !echo -n ve rspec " . @% . ":" . line(".") . " \| pbcopy"<Cr>
-" Copy Github link (only toptal) (TextMate port)
-nmap <Leader>gh :exec "silent !echo -n https://github.com/toptal/toptal/blob/development/" . @% . shellEscape("\#L", 1) . line(".") . " \| pbcopy"<Cr>
+
+" Copy Github link
+function! GitUrl()
+  let repo = fugitive#repo().config('remote.origin.url')
+  let repo = substitute(repo, '^git@github.com:\(.\+\)\.git$', '\1', '')
+  let branch = fugitive#head()
+  return "https://github.com/" . repo . "/blob/" . branch . "/" . @% . "#L" . line(".")
+endfunction
+nmap <Leader>gh :exec "silent !echo -n " . shellescape(GitUrl(), 1) . " \| pbcopy"<Cr>
 
 " CtrlP
 nmap <Leader><Tab> :CtrlPBuffer<Cr>
