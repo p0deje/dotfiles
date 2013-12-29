@@ -299,6 +299,7 @@ nmap <Leader>an ^ciwAnd<Esc>
 
 " Tabular
 nmap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
+nmap <Leader>t<Bar> :Tab /<Bar><Cr>
 
 " Select inside regex start and end of line
 vnoremap ir :<C-U>silent! normal! [z^f^lvt$]z<CR>
