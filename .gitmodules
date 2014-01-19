@@ -1,3 +1,7 @@
 [submodule ".oh-my-fish"]
 	path = .oh-my-fish
 	url = git@github.com:bpinto/oh-my-fish.git
+
+[submodule ".rbenv/plugins/rbenv-ctags"]
+	path = .rbenv/plugins/rbenv-ctags
+	url = git@github.com:tpope/rbenv-ctags.git
