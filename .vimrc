@@ -45,7 +45,7 @@ NeoBundle 'tpope/vim-fugitive'                                 " integration wit
 NeoBundle 'tpope/vim-rails'                                    " integration with rails
 NeoBundle 'tpope/vim-surround'                                 " surrounds text with quotes, brackets, etc.
 NeoBundle 'tpope/vim-unimpaired'                               " used for text bubbling
-NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-managemenet for vim
+NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
 
 syntax enable       " required!: syntax highlighting
 filetype indent on  " required!: filetype-specific indenting
