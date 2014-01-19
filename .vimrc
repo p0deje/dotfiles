@@ -267,6 +267,9 @@ nmap <M-J> <C-w>J
 nmap <M-K> <C-w>K
 nmap <M-L> <C-w>L
 
+" Close tab
+nmap <M-w> :tabclose<Cr>
+
 " Better splits
 nmap <Leader>hs :split<Cr>
 nmap <Leader>vs :vsplit<Cr>
