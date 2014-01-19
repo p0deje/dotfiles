@@ -18,7 +18,6 @@ NeoBundle 'dag/vim-fish'                                       " fish syntax hig
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                       " fuzzy command search
 NeoBundle 'godlygeek/tabular'                                  " better alignment
 NeoBundle 'henrik/vim-qargs'                                   " perform operations on quick list
-NeoBundle 'janx/vim-rubytest'                                  " ruby tests runner
 NeoBundle 'jgdavey/vim-blockle'                                " switch between Ruby blocks
 NeoBundle 'jistr/vim-nerdtree-tabs'                            " keep NERDTree open in tabs
 NeoBundle 'kchmck/vim-coffee-script'                           " CoffeeScript support
