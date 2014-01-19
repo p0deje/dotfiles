@@ -308,4 +308,3 @@ nmap <Leader>t<Bar> :Tab /<Bar><Cr>
 
 " Select inside regex start and end of line
 vnoremap ir :<C-U>silent! normal! [z^f^lvt$]z<CR>
-omap af :normal Vir<CR>
