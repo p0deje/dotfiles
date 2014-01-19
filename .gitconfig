@@ -39,3 +39,6 @@
 
 [push]
 	default = simple
+
+[github]
+	user = p0deje
