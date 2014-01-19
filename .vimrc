@@ -210,7 +210,7 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " NERDTree
 let g:NERDTreeWinPos   = 'right'
 let g:NERDTreeWinSize  = 50
-let NERDTreeIgnore     = ['tags$', '\.DS_Store$']
+let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
 
 " automatic alignment of | symbol (used in Gherkin) by tabularize plugin
