@@ -254,8 +254,8 @@ nmap <Leader>pc :CtrlPCmdPalette<Cr>
 nmap <Leader>pp :CtrlPYankring<Cr>
 
 " Session
-nmap <Leader>os :OpenSession<Space>
-nmap <Leader>ss :exe 'SaveSession ' .split(getcwd(), '/')[-1]<Cr>
+nmap <Leader>os :OpenSession!<Space>
+nmap <Leader>ss :exe 'SaveSession! ' .split(getcwd(), '/')[-1]<Cr>
 
 " Window navigation
 nmap <M-h> <C-w>h
