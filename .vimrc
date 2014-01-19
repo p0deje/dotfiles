@@ -37,6 +37,7 @@ NeoBundle 'sgur/ctrlp-extensions.vim'                          " ctrlp extension
 NeoBundle 'Shougo/vimproc'                                     " recommended to install with NeoBundle
 NeoBundle 'taiansu/nerdtree-ag'                                " search folder from NERDTree
 NeoBundle 'terryma/vim-multiple-cursors'                       " sublime-inspired multiple cursors
+NeoBundle 'tpope/vim-abolish'                                  " coercion (case converting)
 NeoBundle 'tpope/vim-bundler'                                  " integration with ruby bundler
 NeoBundle 'tpope/vim-commentary'                               " comment and uncomment
 NeoBundle 'tpope/vim-cucumber'                                 " integration with cucumber
