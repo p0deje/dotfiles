@@ -226,8 +226,7 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<Cr>a
-
+autocmd FileType cucumber inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<Cr>a
 
 " NERDTree
 nmap <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
