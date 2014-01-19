@@ -246,9 +246,6 @@ nmap <Leader>gh :exec "silent !echo -n " . shellescape(GithubUrl(), 1) . " \| pb
 
 " CtrlP
 nmap <Leader><Tab> :CtrlPBuffer<Cr>
-nmap <Leader>pa :CtrlP app<Cr>
-nmap <Leader>pf :CtrlP features<Cr>
-nmap <Leader>pv :CtrlP vendor<Cr>
 nmap <Leader>pc :CtrlPCmdPalette<Cr>
 nmap <Leader>pp :CtrlPYankring<Cr>
 
