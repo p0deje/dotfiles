@@ -28,7 +28,6 @@ NeoBundle 'markcornick/vim-vagrant'                            " integration wit
 NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }  " integration with Gist
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'                   " railscasts but sexy
 NeoBundle 'p0deje/vim-numbertoggle'                            " relative numbers
-NeoBundle 'ProportionalResize', { 'depends': 'ingo-library' }  " autoresize splits
 NeoBundle 'Townk/vim-autoclose'                                " autoclose quotes, brackets, etc
 NeoBundle 'rking/ag.vim'                                       " integration with Ag
 NeoBundle 'rodjek/vim-puppet'                                  " puppet support
