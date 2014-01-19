@@ -13,13 +13,14 @@ slate.configAll({
 
 var modal = 'ctrl,shift,m';
 var keys = {
-  hints:         'e:cmd',
-  undo:          'z:' + modal,
-  restart:       'r:' + modal,
+  hints:   'e:cmd',
+  undo:    'z:' + modal,
+  restart: 'r:' + modal,
 
-  chrome:        'c:alt',
-  iterm:         't:alt',
-  macvim:        'v:alt',
+  chrome:  'c:alt',
+  hipchat: 'b:alt',
+  iterm:   't:alt',
+  macvim:  'v:alt',
 
   grid:          'g:' + modal,
   fullscreen:    'f:' + modal,
@@ -38,6 +39,7 @@ slate.bind(keys.restart, slate.operation('relaunch'));
  */
 
 slate.bind(keys.chrome, slate.operation('focus', { 'app': 'Google Chrome' }));
+slate.bind(keys.hipchat, slate.operation('focus', { 'app': 'HipChat' }));
 slate.bind(keys.iterm, slate.operation('focus', { 'app': 'iTerm' }));
 slate.bind(keys.macvim, slate.operation('focus', { 'app': 'MacVim' }));
 
