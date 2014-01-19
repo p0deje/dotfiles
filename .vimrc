@@ -237,13 +237,13 @@ nmap <Leader>cu :exec "silent !echo -n ve cucumber " . @% . ":" . line(".") . " 
 nmap <Leader>sp :exec "silent !echo -n ve rspec " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 
 " Copy Github link
-function! GitUrl()
+function! GithubUrl()
   let repo = fugitive#repo().config('remote.origin.url')
   let repo = substitute(repo, '^git@github.com:\(.\+\)\.git$', '\1', '')
   let branch = fugitive#head()
   return "https://github.com/" . repo . "/blob/" . branch . "/" . @% . "#L" . line(".")
 endfunction
-nmap <Leader>gh :exec "silent !echo -n " . shellescape(GitUrl(), 1) . " \| pbcopy"<Cr>
+nmap <Leader>gh :exec "silent !echo -n " . shellescape(GithubUrl(), 1) . " \| pbcopy"<Cr>
 
 " CtrlP
 nmap <Leader><Tab> :CtrlPBuffer<Cr>
