@@ -176,9 +176,6 @@ let g:session_autosave        = 'yes'
 let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
 
-" Disable automatic startup of NERDTree as it collides with session autoload
-let g:nerdtree_tabs_open_on_gui_startup = 0
-
 " CtrlP
 let g:ctrlp_extensions   = ['yankring']
 let g:ctrlp_use_caching  = 1
