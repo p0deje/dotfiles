@@ -15,8 +15,8 @@ end
 set -x EDITOR mvim
 set -x BUNDLER_EDITOR mvim
 set -x LOLCOMMITS_FORK true
-set -x PATH "/usr/local/heroku/bin:$PATH"
 set -x Z_SCRIPT_PATH (brew --prefix)/etc/profile.d/z.sh
+set -gx PATH /usr/local/packer /usr/local/heroku/bin $PATH
 
 alias be 'bundle exec'
 alias ve 'vagrant exec'
