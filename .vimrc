@@ -102,11 +102,6 @@ set hlsearch
 set incsearch
 highlight Search guibg=DarkYellow
 
-" Get off my lawn
-nnoremap <Left>  :echoe "Use h"<Cr>
-nnoremap <Right> :echoe "Use l"<Cr>
-nnoremap <Up>    :echoe "Use k"<Cr>
-nnoremap <Down>  :echoe "Use j"<Cr>
 
 " Ag tweaks
 let g:agprg='ag --smart-case --column'
