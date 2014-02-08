@@ -302,3 +302,9 @@ omap ir :normal Vir<CR>
 " Select inside |
 vnoremap i<Bar> :<C-U>silent! normal! T<Bar>vt<Bar><CR>
 omap i<Bar> :normal Vi<Bar><CR>
+
+" Stop using arrows in command mode
+cmap <C-h> <Left>
+cmap <C-l> <Right>
+cmap <C-k> <Up>
+cmap <C-j> <Down>
