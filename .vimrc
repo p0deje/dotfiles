@@ -102,6 +102,8 @@ set hlsearch
 set incsearch
 highlight Search guibg=DarkYellow
 
+" Let's not be retarded
+let mapleader = ','
 
 " Ag tweaks
 let g:agprg='ag --smart-case --column'
