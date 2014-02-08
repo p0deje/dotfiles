@@ -298,3 +298,7 @@ nmap <Leader>t<Bar> :Tab /<Bar><Cr>
 " Select inside regex start and end of line
 vnoremap ir :<C-U>silent! normal! ^f^lvt$<CR>
 omap ir :normal Vir<CR>
+
+" Select inside |
+vnoremap i<Bar> :<C-U>silent! normal! T<Bar>vt<Bar><CR>
+omap i<Bar> :normal Vi<Bar><CR>
