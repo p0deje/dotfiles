@@ -286,7 +286,7 @@ vmap <C-M-k> [egv
 vmap <C-M-j> ]egv
 
 " Clear search
-nmap <silent> <Leader>cs :let @/ = ""<Cr>
+nmap <silent> c/ :let @/ = ""<Cr>
 
 " Cucumber goodness
 nmap <Leader>gi ^ciwGiven<Esc>
