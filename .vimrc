@@ -262,8 +262,8 @@ nmap <M-L> <C-w>L
 nmap <M-w> :tabclose<Cr>
 
 " Better splits
-nmap <Leader>hs :split<Cr>
-nmap <Leader>vs :vsplit<Cr>
+nmap <Leader>hh :split<Cr>
+nmap <Leader>vv :vsplit<Cr>
 
 " Git
 nmap <Leader>gs :Gstatus<Cr>
@@ -293,6 +293,8 @@ nmap <Leader>gi ^ciwGiven<Esc>
 nmap <Leader>wh ^ciwWhen<Esc>
 nmap <Leader>th ^ciwThen<Esc>
 nmap <Leader>an ^ciwAnd<Esc>
+nmap <Leader>sv :vsplit<Cr><C-]>
+nmap <Leader>sh <C-w><C-]>
 
 " Tabular
 nmap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
