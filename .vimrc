@@ -226,6 +226,7 @@ nmap <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
 nmap <Leader>of :NERDTreeFind<Cr><C-w>=
 
 " Copy run test in VM command to system
+nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 nmap <Leader>cu :exec "silent !echo -n ve cucumber " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 nmap <Leader>sp :exec "silent !echo -n ve rspec " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 
