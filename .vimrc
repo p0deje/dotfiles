@@ -203,7 +203,7 @@ let g:multi_cursor_exit_from_insert_mode = 0
 
 " NERDTree
 let g:NERDTreeWinPos   = 'right'
-let g:NERDTreeWinSize  = 50
+let g:NERDTreeWinSize  = 40
 let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
 
