@@ -301,15 +301,36 @@ nmap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
 nmap <Leader>t<Bar> :Tab /<Bar><Cr>
 
 " Select inside regex start and end of line
-vnoremap ir :<C-U>silent! normal! ^f^lvt$<CR>
-omap ir :normal Vir<CR>
+vnoremap ir :<C-U>silent! normal! ^f^lvt$<Cr>
+omap ir :normal Vir<Cr>
 
 " Select inside |
-vnoremap i<Bar> :<C-U>silent! normal! T<Bar>vt<Bar><CR>
-omap i<Bar> :normal vi<Bar><CR>
+vnoremap i<Bar> :<C-U>silent! normal! T<Bar>vt<Bar><Cr>
+omap i<Bar> :normal vi<Bar><Cr>
 
 " Stop using arrows in command mode
 cmap <C-h> <Left>
 cmap <C-l> <Right>
 cmap <C-k> <Up>
 cmap <C-j> <Down>
+
+" Ag motions
+" Stolen from http://vimbits.com/bits/153 and slightly modified
+
+nnoremap <silent> <Leader>a :set opfunc=<SID>AgMotion<Cr>g@
+xnoremap <silent> <Leader>a :<C-U>call <SID>AgMotion(visualmode())<Cr>
+
+function! s:CopyMotionForType(type)
+  if a:type ==# 'v'
+    silent execute "normal! `<" . a:type . "`>y"
+  elseif a:type ==# 'char'
+    silent execute "normal! `[v`]y"
+  endif
+endfunction
+
+function! s:AgMotion(type) abort
+  let reg_save = @@
+  call s:CopyMotionForType(a:type)
+  execute "normal! :Ag! " . shellescape(@@) . "\<Cr>"
+  let @@ = reg_save
+endfunction
