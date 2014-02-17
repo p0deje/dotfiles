@@ -28,7 +28,9 @@ var keys = {
   center:        'c:' + modal,
   halfLeft:      'h:' + modal,
   halfRight:     'l:' + modal,
-  ninetyPercent: '9:' + modal,
+
+  extra_small: '8:' + modal,
+  small:       '9:' + modal,
 }
 
 slate.bind(keys.hints, slate.operation('hint'));
@@ -49,55 +51,56 @@ slate.bind(keys.messages, slate.operation('focus', { 'app': 'Messages'      }));
  * Window resizing.
  */
 
-var grid = slate.operation('grid', {
+slate.bind(keys.grid, slate.operation('grid', {
   'grids': {
     '2560x1440': {
       'width': 48,
       'height': 24,
     }
   }
-});
-slate.bind(keys.grid, grid);
+}));
 
-var fullscreen = slate.operation('move', {
+slate.bind(keys.fullscreen, slate.operation('move', {
   "x": "screenOriginX",
   "y": "screenOriginY",
   "width": "screenSizeX",
   "height": "screenSizeY",
-});
-slate.bind(keys.fullscreen, fullscreen);
+}));
 
-var center = slate.operation('move', {
+slate.bind(keys.center, slate.operation('move', {
   "x": "screenOriginX + (screenSizeX - windowSizeX) / 2",
   "y": "screenOriginY + (screenSizeY - windowSizeY) / 2",
   "width": "windowSizeX",
   "height": "windowSizeY",
-});
-slate.bind(keys.center, center);
+}));
 
-var halfLeft = slate.operation('move', {
+slate.bind(keys.halfLeft, slate.operation('move', {
   "x": "screenOriginX",
   "y": "screenOriginY",
   "width": "screenSizeX / 2",
   "height": "screenSizeY",
-});
-slate.bind(keys.halfLeft, halfLeft);
+}));
 
-var halfRight = slate.operation('move', {
+slate.bind(keys.halfRight, slate.operation('move', {
   "x": "screenOriginX + (screenSizeX / 2)",
   "y": "screenOriginY",
   "width": "screenSizeX / 2",
   "height": "screenSizeY",
-});
-slate.bind(keys.halfRight, halfRight);
+}));
 
-var ninetyPercent = slate.operation('move', {
-  "x": "screenOriginX + (screenSizeX / 90)",
-  "y": "screenOriginY + (screenSizeY / 90)",
-  "width": "screenSizeX - (screenSizeX / 90)",
-  "height": "screenSizeY - (screenSizeY / 90)",
-});
-slate.bind(keys.ninetyPercent, ninetyPercent);
+slate.bind(keys.extra_small, slate.operation('move', {
+  "x": "screenOriginX + (screenSizeX / 20)",
+  "y": "screenOriginY + (screenSizeY / 20)",
+  "width": "screenSizeX - (screenSizeX / 20 * 2)",
+  "height": "screenSizeY - (screenSizeY / 20 * 2)",
+}));
+
+slate.bind(keys.small, slate.operation('move', {
+  "x": "screenOriginX + (screenSizeX / 80)",
+  "y": "screenOriginY + (screenSizeY / 80)",
+  "width": "screenSizeX - (screenSizeX / 80 * 2)",
+  "height": "screenSizeY - (screenSizeY / 80 * 2)",
+}));
 
 
 /**
