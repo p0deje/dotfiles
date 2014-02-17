@@ -185,8 +185,14 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " GitGutter
 let g:gitgutter_signs = 1
-let g:gitgutter_eager = 0
-let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_eager = 1
+
+" better colors for GitGutter
+highlight clear DiffAdd " make sure syntax highlighting is on
+highlight DiffAdd guibg=#0B240A
+highlight DiffChange guibg=#362F18
+highlight DiffDelete guibg=#260000
 
 " Gist
 let g:gist_clip_command    = 'pbcopy'
