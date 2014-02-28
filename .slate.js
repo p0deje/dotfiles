@@ -22,6 +22,7 @@ var keys = {
   iterm:    't:alt',
   macvim:   'v:alt',
   messages: 'm:alt',
+  skype:    's:alt',
 
   grid:          'g:' + modal,
   fullscreen:    'f:' + modal,
@@ -46,6 +47,7 @@ slate.bind(keys.hipchat,  slate.operation('focus', { 'app': 'HipChat'       }));
 slate.bind(keys.iterm,    slate.operation('focus', { 'app': 'iTerm'         }));
 slate.bind(keys.macvim,   slate.operation('focus', { 'app': 'MacVim'        }));
 slate.bind(keys.messages, slate.operation('focus', { 'app': 'Messages'      }));
+slate.bind(keys.skype,    slate.operation('focus', { 'app': 'Skype'         }));
 
 /**
  * Window resizing.
