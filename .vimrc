@@ -33,7 +33,6 @@ NeoBundle 'Townk/vim-autoclose'                                " autoclose quote
 NeoBundle 'rking/ag.vim'                                       " integration with Ag
 NeoBundle 'rodjek/vim-puppet'                                  " puppet support
 NeoBundle 'scrooloose/nerdtree'                                " project tree navigation
-NeoBundle 'sgur/ctrlp-extensions.vim'                          " ctrlp extensions
 NeoBundle 'Shougo/vimproc'                                     " recommended to install with NeoBundle
 NeoBundle 'taiansu/nerdtree-ag'                                " search folder from NERDTree
 NeoBundle 'terryma/vim-multiple-cursors'                       " sublime-inspired multiple cursors
@@ -47,6 +46,7 @@ NeoBundle 'tpope/vim-rails'                                    " integration wit
 NeoBundle 'tpope/vim-repeat'                                   " support . for plugins
 NeoBundle 'tpope/vim-surround'                                 " surrounds text with quotes, brackets, etc.
 NeoBundle 'tpope/vim-unimpaired'                               " used for text bubbling
+NeoBundle 'YankRing.vim'                                       " clipboard history
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
 
 syntax enable       " required!: syntax highlighting
@@ -181,14 +181,18 @@ let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
 
 " CtrlP
-let g:ctrlp_extensions  = ['yankring']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_custom_ignore ={
+let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.DS_Store',
 \ }
+
+" YankRing
+let g:yankring_replace_n_pkey = '<M-p>'
+let g:yankring_replace_n_nkey = '<M-n>'
+nnoremap <silent> <Leader>p :YRShow<Cr>
 
 " GitGutter
 let g:gitgutter_signs = 1
@@ -257,8 +261,7 @@ nmap <Leader>gh :exec "silent !echo -n " . shellescape(GithubUrl(), 1) . " \| pb
 
 " CtrlP
 nmap <Leader><Tab> :CtrlPBuffer<Cr>
-nmap <Leader>pc :CtrlPCmdPalette<Cr>
-nmap <Leader>pp :CtrlPYankring<Cr>
+nmap <Leader>cp :CtrlPCmdPalette<Cr>
 
 " Session
 nmap <Leader>os :OpenSession!<Space>
