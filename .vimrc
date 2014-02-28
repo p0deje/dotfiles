@@ -223,6 +223,7 @@ let g:NERDTreeWinPos   = 'right'
 let g:NERDTreeWinSize  = 40
 let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
+let g:nerdtree_tabs_smart_startup_focus = 2
 
 " automatic alignment of | symbol (used in Gherkin) by tabularize plugin
 " taken from https://gist.github.com/tpope/287147
