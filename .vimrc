@@ -260,12 +260,12 @@ endfunction
 nmap <Leader>gh :exec "silent !echo -n " . shellescape(GithubUrl(), 1) . " \| pbcopy"<Cr>
 
 " CtrlP
-nmap <Leader><Tab> :CtrlPBuffer<Cr>
-nmap <Leader>cp :CtrlPCmdPalette<Cr>
+nmap <Tab> :CtrlPBuffer<Cr>
+nmap cp :CtrlPCmdPalette<Cr>
 
 " Session
 nmap <Leader>os :OpenSession!<Space>
-nmap <Leader>ss :exe 'SaveSession! ' .split(getcwd(), '/')[-1]<Cr>
+nmap <Leader>ss :exe 'SaveSession! ' . split(getcwd(), '/')[-1]<Cr>
 
 " Window navigation
 nmap <M-h> <C-w>h
