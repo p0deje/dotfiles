@@ -235,8 +235,8 @@ endfunction
 autocmd FileType cucumber inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<Cr>a
 
 " NERDTree
-nmap <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
-nmap <Leader>of :NERDTreeFind<Cr><C-w>=
+nmap <silent> <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
+nmap <silent> <Leader>of :NERDTreeFind<Cr><C-w>=
 
 " Copy run test in VM command to system
 nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
