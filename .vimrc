@@ -238,6 +238,9 @@ autocmd FileType cucumber inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<C
 nmap <silent> <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
 nmap <silent> <Leader>of :NERDTreeFind<Cr><C-w>=
 
+" Disable terrible Ex mode
+nnoremap Q <nop>
+
 " Copy run test in VM command to system
 nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 nmap <Leader>cu :exec "silent !echo -n ve cucumber " . @% . ":" . line(".") . " \| pbcopy"<Cr>
