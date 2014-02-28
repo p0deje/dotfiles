@@ -27,6 +27,7 @@ NeoBundle 'kshenoy/vim-signature'                              " highlight posit
 NeoBundle 'Lokaltog/vim-easymotion'                            " quick navigation on text
 NeoBundle 'markcornick/vim-vagrant'                            " integration with vagrant
 NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }  " integration with Gist
+NeoBundle 'mhinz/vim-startify'                                 " startup screen
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'                   " railscasts but sexy
 NeoBundle 'p0deje/vim-numbertoggle'                            " relative numbers
 NeoBundle 'Townk/vim-autoclose'                                " autoclose quotes, brackets, etc
@@ -265,6 +266,7 @@ nmap <Tab> :CtrlPBuffer<Cr>
 nmap cp :CtrlPCmdPalette<Cr>
 
 " Session
+let g:startify_session_dir = '~/.vim/sessions'
 nmap <Leader>os :OpenSession!<Space>
 nmap <Leader>ss :exe 'SaveSession! ' . split(getcwd(), '/')[-1]<Cr>
 
