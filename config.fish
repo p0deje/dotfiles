@@ -21,6 +21,3 @@ set -gx PATH /usr/local/packer /usr/local/heroku/bin $PATH
 alias be 'bundle exec'
 alias ve 'vagrant exec'
 alias vim 'mvim'
-alias wow 'git status'
-alias such 'git'
-alias very 'git'
