@@ -18,6 +18,7 @@ NeoBundle 'dag/vim-fish'                                       " fish syntax hig
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                       " fuzzy command search
 NeoBundle 'godlygeek/tabular'                                  " better alignment
 NeoBundle 'henrik/vim-qargs'                                   " perform operations on quick list
+NeoBundle 'JazzCore/ctrlp-cmatcher'                            " faster and better matcher for CtrlP
 NeoBundle 'jgdavey/vim-blockle'                                " switch between Ruby blocks
 NeoBundle 'jistr/vim-nerdtree-tabs'                            " keep NERDTree open in tabs
 NeoBundle 'kchmck/vim-coffee-script'                           " CoffeeScript support
@@ -180,9 +181,14 @@ let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
 
 " CtrlP
-let g:ctrlp_extensions   = ['yankring']
-let g:ctrlp_use_caching  = 1
+let g:ctrlp_extensions  = ['yankring']
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_custom_ignore ={
+  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.DS_Store',
+\ }
 
 " GitGutter
 let g:gitgutter_signs = 1
