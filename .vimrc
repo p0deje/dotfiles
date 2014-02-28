@@ -43,6 +43,7 @@ NeoBundle 'tpope/vim-cucumber'                                 " integration wit
 NeoBundle 'tpope/vim-endwise'                                  " automatically end structures
 NeoBundle 'tpope/vim-fugitive'                                 " integration with Git
 NeoBundle 'tpope/vim-rails'                                    " integration with rails
+NeoBundle 'tpope/vim-repeat'                                   " support . for plugins
 NeoBundle 'tpope/vim-surround'                                 " surrounds text with quotes, brackets, etc.
 NeoBundle 'tpope/vim-unimpaired'                               " used for text bubbling
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
