@@ -184,6 +184,8 @@ let g:session_autosave        = 'yes'
 let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
 let g:session_autosave_periodic = 3
+nnoremap <Leader>os :OpenSession!<Space>
+nnoremap <Leader>ss :exe 'SaveSession! ' . split(getcwd(), '/')[-1]<Cr>
 
 " Startify
 let g:startify_session_dir = '~/.vim/sessions'
@@ -200,6 +202,8 @@ let g:startify_list_order = [
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
+nmap <Tab> :CtrlPBuffer<Cr>
+nmap cp :CtrlPCmdPalette<Cr>
 
 " YankRing
 let g:yankring_replace_n_pkey = '<M-p>'
@@ -271,15 +275,6 @@ function! GithubUrl()
   return "https://github.com/" . repo . "/blob/" . branch . "/" . @% . "#L" . line(".")
 endfunction
 nmap <Leader>gh :exec "silent !echo -n " . shellescape(GithubUrl(), 1) . " \| pbcopy"<Cr>
-
-" CtrlP
-nmap <Tab> :CtrlPBuffer<Cr>
-nmap cp :CtrlPCmdPalette<Cr>
-
-" Session
-let g:startify_session_dir = '~/.vim/sessions'
-nmap <Leader>os :OpenSession!<Space>
-nmap <Leader>ss :exe 'SaveSession! ' . split(getcwd(), '/')[-1]<Cr>
 
 " Window navigation
 nmap <M-h> <C-w>h
