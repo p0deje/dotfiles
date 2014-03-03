@@ -197,13 +197,9 @@ let g:startify_list_order = [
 \ ]
 
 " CtrlP
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.DS_Store',
-\ }
+let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
 
 " YankRing
 let g:yankring_replace_n_pkey = '<M-p>'
