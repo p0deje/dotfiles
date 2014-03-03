@@ -185,6 +185,17 @@ let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
 let g:session_autosave_periodic = 3
 
+" Startify
+let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_list_order = [
+  \ ['   Sessions:'],
+  \ 'sessions',
+  \ ['   Recent files:'],
+  \ 'files',
+  \ ['   Recent files in current directory:'],
+  \ 'dir',
+\ ]
+
 " CtrlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
