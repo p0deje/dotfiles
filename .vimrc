@@ -183,6 +183,7 @@ autocmd FileType ruby vnoremap <Leader># c#{<C-R>"}<Esc>
 let g:session_autosave        = 'yes'
 let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
+let g:session_autosave_periodic = 3
 
 " CtrlP
 let g:ctrlp_show_hidden = 1
