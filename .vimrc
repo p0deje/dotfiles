@@ -48,6 +48,7 @@ NeoBundle 'tpope/vim-repeat'                                   " support . for p
 NeoBundle 'tpope/vim-surround'                                 " surrounds text with quotes, brackets, etc.
 NeoBundle 'tpope/vim-unimpaired'                               " used for text bubbling
 NeoBundle 'YankRing.vim'                                       " clipboard history
+NeoBundle 'Yggdroot/indentLine'                                " indentation guides
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
 
 syntax enable       " required!: syntax highlighting
@@ -88,7 +89,8 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set backspace=2       " BackSpace deletes like most programs in insert mode
+set backspace=2
+let g:indentLine_char = '│'
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
