@@ -294,6 +294,7 @@ nmap <Leader>hh :split<Cr>
 nmap <Leader>vv :vsplit<Cr>
 
 " Git
+command! Gpush :Git push
 nmap <Leader>gs :Gstatus<Cr>
 nmap <Leader>gc :Gcommit<Cr>O
 function! GitDiff()
