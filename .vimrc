@@ -17,6 +17,7 @@ NeoBundle 'DeleteTrailingWhitespace'                           " remove trailing
 NeoBundle 'dag/vim-fish'                                       " fish syntax highlighting
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                       " fuzzy command search
 NeoBundle 'godlygeek/tabular'                                  " better alignment
+NeoBundle 'gcmt/wildfire.vim'                                  " select closes text object
 NeoBundle 'henrik/vim-qargs'                                   " perform operations on quick list
 NeoBundle 'JazzCore/ctrlp-cmatcher'                            " faster and better matcher for CtrlP
 NeoBundle 'jgdavey/vim-blockle'                                " switch between Ruby blocks
