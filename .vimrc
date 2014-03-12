@@ -37,6 +37,7 @@ NeoBundle 'rodjek/vim-puppet'                                  " puppet support
 NeoBundle 'scrooloose/nerdtree'                                " project tree navigation
 NeoBundle 'Shougo/vimproc'                                     " recommended to install with NeoBundle
 NeoBundle 'taiansu/nerdtree-ag'                                " search folder from NERDTree
+NeoBundle 't9md/vim-choosewin'                                 " interactive panes switching
 NeoBundle 'terryma/vim-multiple-cursors'                       " sublime-inspired multiple cursors
 NeoBundle 'tpope/vim-abolish'                                  " coercion (case converting)
 NeoBundle 'tpope/vim-bundler'                                  " integration with ruby bundler
@@ -215,6 +216,9 @@ nnoremap <silent> <Leader>p :YRShow<Cr>
 let g:gitgutter_signs = 1
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_eager = 1
+
+" ChooseWin
+nmap <Space> <Plug>(choosewin)
 
 " better colors for GitGutter
 highlight clear DiffAdd " make sure syntax highlighting is on
