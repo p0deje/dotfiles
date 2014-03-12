@@ -18,6 +18,7 @@ NeoBundle 'dag/vim-fish'                                       " fish syntax hig
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                       " fuzzy command search
 NeoBundle 'godlygeek/tabular'                                  " better alignment
 NeoBundle 'gcmt/wildfire.vim'                                  " select closes text object
+NeoBundle 'gcmt/tube.vim'                                      " integration with iTerm
 NeoBundle 'henrik/vim-qargs'                                   " perform operations on quick list
 NeoBundle 'JazzCore/ctrlp-cmatcher'                            " faster and better matcher for CtrlP
 NeoBundle 'jgdavey/vim-blockle'                                " switch between Ruby blocks
@@ -267,10 +268,16 @@ nmap <silent> <Leader>of :NERDTreeFind<Cr><C-w>=
 " Disable terrible Ex mode
 nnoremap Q <nop>
 
-" Copy run test in VM command to system
+" Tube
+let g:tube_terminal = "iterm"
+
+" Run test in VM command to system
+function! FilenameWithLine(name, selection)
+  return @% . ":" . line(".")
+endfunction
+nmap <Leader>cu :TubeClr ve cucumber #{FilenameWithLine}<Cr>
+nmap <Leader>sp :TubeClr ve rspec #{FilenameWithLine}<Cr>
 nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
-nmap <Leader>cu :exec "silent !echo -n ve cucumber " . @% . ":" . line(".") . " \| pbcopy"<Cr>
-nmap <Leader>sp :exec "silent !echo -n ve rspec " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 
 " Copy Github link
 function! GithubUrl()
