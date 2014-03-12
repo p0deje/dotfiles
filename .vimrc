@@ -295,16 +295,15 @@ nmap <Leader>hh :split<Cr>
 nmap <Leader>vv :vsplit<Cr>
 
 " Git
-command! Gpush :Git push
-nmap <Leader>gs :Gstatus<Cr>
-nmap <Leader>gc :Gcommit<Cr>O
 function! GitDiff()
   tabnew
   0read !git diff && git diff --cached
   set filetype=diff
-  exe 'write! /tmp/' . split(getcwd(), '/')[-1] . '.diff'
+  exe 'silent! write! /tmp/' . split(getcwd(), '/')[-1] . '.diff'
+  normal! gg
 endfunction
-nmap <Leader>gd :call GitDiff()<Cr>gg
+command! Gpatch :call GitDiff()
+command! Gpush :Git push
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
