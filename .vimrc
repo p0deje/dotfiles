@@ -276,8 +276,8 @@ let g:tube_terminal = "iterm"
 function! FilenameWithLine(name, selection)
   return @% . ":" . line(".")
 endfunction
-nmap <Leader>cu :TubeClr ve cucumber #{FilenameWithLine}<Cr>
-nmap <Leader>sp :TubeClr ve rspec #{FilenameWithLine}<Cr>
+nmap <Leader>cu :TubeClr terminal-notifier -message "Starting features for #{FilenameWithLine}" -title "iTerm" ; ve cucumber #{FilenameWithLine}<Cr>
+nmap <Leader>sp :TubeClr terminal-notifier -message "Starting specs for #{FilenameWithLine}" -title "iTerm" ; ve rspec #{FilenameWithLine}<Cr>
 nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 
 " Copy Github link
