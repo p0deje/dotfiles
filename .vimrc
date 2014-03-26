@@ -220,6 +220,8 @@ let g:gitgutter_highlight_lines = 0
 let g:gitgutter_eager = 1
 
 " ChooseWin
+let g:choosewin_overlay_enable = 1
+let g:choosewin_statusline_replace = 0
 nmap <Space> <Plug>(choosewin)
 
 " better colors for GitGutter
