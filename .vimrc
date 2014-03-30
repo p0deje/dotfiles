@@ -275,10 +275,14 @@ nnoremap Q <nop>
 let g:tube_terminal = "iterm"
 
 " Run test in VM command to system
+function! Filename(name, selection)
+  return @%
+endfunction
 function! FilenameWithLine(name, selection)
   return @% . ":" . line(".")
 endfunction
-nmap <Leader>cu :TubeClr ve cucumber #{FilenameWithLine}<Cr>
+nmap <Leader>cua :TubeClr ve cucumber #{Filename}<Cr>
+nmap <Leader>cul :TubeClr ve cucumber #{FilenameWithLine}<Cr>
 nmap <Leader>sp :TubeClr ve rspec #{FilenameWithLine}<Cr>
 nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
 
