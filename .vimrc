@@ -34,7 +34,7 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user'
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'                                       " railscasts but sexy
 NeoBundle 'p0deje/vim-numbertoggle'                                                " relative numbers
 NeoBundle 'p0deje/vim-ruby-interpolation'                                          " ruby string interpolation
-NeoBundle 'Townk/vim-autoclose'                                                    " autoclose quotes, brackets, etc
+NeoBundle 'jiangmiao/auto-pairs'                                                   " autoclose quotes, brackets, etc
 NeoBundle 'rking/ag.vim'                                                           " integration with Ag
 NeoBundle 'rodjek/vim-puppet'                                                      " puppet support
 NeoBundle 'scrooloose/nerdtree'                                                    " project tree navigation
@@ -174,7 +174,9 @@ autocmd BufRead,BufNewFile *.load set filetype=fish
 autocmd FileType puppet set commentstring=#\ %s
 
 " Autoclose pipe in Ruby
-autocmd FileType ruby let b:AutoClosePairs = AutoClose#DefaultPairsModified("|", "")
+autocmd FileType ruby
+  \ let b:AutoPairs = g:AutoPairs |
+  \ let b:AutoPairs['|'] = '|'
 
 " vim session settings
 let g:session_autosave        = 'yes'
