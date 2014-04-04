@@ -10,51 +10,52 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'  " let NeoBundle manage itself
 
-NeoBundle 'airblade/vim-gitgutter'                             " sublime-inspired git gutter
-NeoBundle 'airblade/vim-rooter'                                " automatic working directory update
-NeoBundle 'bling/vim-airline'                                  " light version of powerline
-NeoBundle 'DeleteTrailingWhitespace'                           " remove trailing whitespaces
-NeoBundle 'dag/vim-fish'                                       " fish syntax highlighting
-NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                       " fuzzy command search
-NeoBundle 'godlygeek/tabular'                                  " better alignment
-NeoBundle 'gcmt/wildfire.vim'                                  " select closes text object
-NeoBundle 'gcmt/tube.vim'                                      " integration with iTerm
-NeoBundle 'henrik/vim-qargs'                                   " perform operations on quick list
-NeoBundle 'JazzCore/ctrlp-cmatcher'                            " faster and better matcher for CtrlP
-NeoBundle 'jgdavey/vim-blockle'                                " switch between Ruby blocks
-NeoBundle 'jistr/vim-nerdtree-tabs'                            " keep NERDTree open in tabs
-NeoBundle 'kchmck/vim-coffee-script'                           " CoffeeScript support
-NeoBundle 'kien/ctrlp.vim'                                     " fuzzy file search
-NeoBundle 'kshenoy/vim-signature'                              " highlight position of marks
-NeoBundle 'Lokaltog/vim-easymotion'                            " quick navigation on text
-NeoBundle 'markcornick/vim-vagrant'                            " integration with vagrant
-NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }  " integration with Gist
-NeoBundle 'mhinz/vim-startify'                                 " startup screen
-NeoBundle 'oguzbilgic/sexy-railscasts-theme'                   " railscasts but sexy
-NeoBundle 'p0deje/vim-numbertoggle'                            " relative numbers
-NeoBundle 'Townk/vim-autoclose'                                " autoclose quotes, brackets, etc
-NeoBundle 'rking/ag.vim'                                       " integration with Ag
-NeoBundle 'rodjek/vim-puppet'                                  " puppet support
-NeoBundle 'scrooloose/nerdtree'                                " project tree navigation
-NeoBundle 'Shougo/vimproc'                                     " recommended to install with NeoBundle
-NeoBundle 'taiansu/nerdtree-ag'                                " search folder from NERDTree
-NeoBundle 't9md/vim-choosewin'                                 " interactive panes switching
-NeoBundle 'terryma/vim-multiple-cursors'                       " sublime-inspired multiple cursors
-NeoBundle 'tpope/vim-abolish'                                  " coercion (case converting)
-NeoBundle 'tpope/vim-bundler'                                  " integration with ruby bundler
-NeoBundle 'tpope/vim-commentary'                               " comment and uncomment
-NeoBundle 'tpope/vim-cucumber'                                 " integration with cucumber
-NeoBundle 'tpope/vim-endwise'                                  " automatically end structures
-NeoBundle 'tpope/vim-fugitive'                                 " integration with Git
-NeoBundle 'tpope/vim-rails'                                    " integration with rails
-NeoBundle 'tpope/vim-repeat'                                   " support . for plugins
-NeoBundle 'tpope/vim-surround'                                 " surrounds text with quotes, brackets, etc.
-NeoBundle 'tpope/vim-unimpaired'                               " used for text bubbling
-NeoBundle 'YankRing.vim'                                       " clipboard history
-NeoBundle 'Yggdroot/indentLine'                                " indentation guides
-NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
+NeoBundle 'airblade/vim-gitgutter'                                                 " sublime-inspired git gutter
+NeoBundle 'airblade/vim-rooter'                                                    " automatic working directory update
+NeoBundle 'bling/vim-airline'                                                      " light version of powerline
+NeoBundle 'DeleteTrailingWhitespace'                                               " remove trailing whitespaces
+NeoBundle 'dag/vim-fish'                                                           " fish syntax highlighting
+NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                                           " fuzzy command search
+NeoBundle 'godlygeek/tabular'                                                      " better alignment
+NeoBundle 'gcmt/wildfire.vim'                                                      " select closes text object
+NeoBundle 'gcmt/tube.vim'                                                          " integration with iTerm
+NeoBundle 'henrik/vim-qargs'                                                       " perform operations on quick list
+NeoBundle 'JazzCore/ctrlp-cmatcher'                                                " faster and better matcher for CtrlP
+NeoBundle 'jgdavey/vim-blockle'                                                    " switch between Ruby blocks
+NeoBundle 'jistr/vim-nerdtree-tabs'                                                " keep NERDTree open in tabs
+NeoBundle 'kchmck/vim-coffee-script'                                               " CoffeeScript support
+NeoBundle 'kien/ctrlp.vim'                                                         " fuzzy file search
+NeoBundle 'kshenoy/vim-signature'                                                  " highlight position of marks
+NeoBundle 'Lokaltog/vim-easymotion'                                                " quick navigation on text
+NeoBundle 'markcornick/vim-vagrant'                                                " integration with vagrant
+NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }                      " integration with Gist
+NeoBundle 'mhinz/vim-startify'                                                     " startup screen
 NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' } " ruby block text-object
+NeoBundle 'oguzbilgic/sexy-railscasts-theme'                                       " railscasts but sexy
+NeoBundle 'p0deje/vim-numbertoggle'                                                " relative numbers
 NeoBundle 'p0deje/vim-ruby-interpolation'                                          " ruby string interpolation
+NeoBundle 'Townk/vim-autoclose'                                                    " autoclose quotes, brackets, etc
+NeoBundle 'rking/ag.vim'                                                           " integration with Ag
+NeoBundle 'rodjek/vim-puppet'                                                      " puppet support
+NeoBundle 'scrooloose/nerdtree'                                                    " project tree navigation
+NeoBundle 'Shougo/vimproc'                                                         " recommended to install with NeoBundle
+NeoBundle 'taiansu/nerdtree-ag'                                                    " search folder from NERDTree
+NeoBundle 't9md/vim-choosewin'                                                     " interactive panes switching
+NeoBundle 'terryma/vim-multiple-cursors'                                           " sublime-inspired multiple cursors
+NeoBundle 'tpope/vim-abolish'                                                      " coercion (case converting)
+NeoBundle 'tpope/vim-bundler'                                                      " integration with ruby bundler
+NeoBundle 'tpope/vim-commentary'                                                   " comment and uncomment
+NeoBundle 'tpope/vim-cucumber'                                                     " integration with cucumber
+NeoBundle 'tpope/vim-endwise'                                                      " automatically end structures
+NeoBundle 'tpope/vim-fugitive'                                                     " integration with Git
+NeoBundle 'tpope/vim-rails'                                                        " integration with rails
+NeoBundle 'tpope/vim-repeat'                                                       " support . for plugins
+NeoBundle 'tpope/vim-surround'                                                     " surrounds text with quotes, brackets, etc.
+NeoBundle 'tpope/vim-unimpaired'                                                   " used for text bubbling
+NeoBundle 'vim-ruby/vim-ruby'                                                      " use latest vim-ruby
+NeoBundle 'YankRing.vim'                                                           " clipboard history
+NeoBundle 'Yggdroot/indentLine'                                                    " indentation guides
+NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' }                     " session-management for vim
 
 syntax enable       " required!: syntax highlighting
 filetype indent on  " required!: filetype-specific indenting
