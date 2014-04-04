@@ -53,6 +53,7 @@ NeoBundle 'tpope/vim-unimpaired'                               " used for text b
 NeoBundle 'YankRing.vim'                                       " clipboard history
 NeoBundle 'Yggdroot/indentLine'                                " indentation guides
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
+NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' } " ruby block text-object
 
 syntax enable       " required!: syntax highlighting
 filetype indent on  " required!: filetype-specific indenting
