@@ -341,8 +341,8 @@ nmap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
 nmap <Leader>t<Bar> :Tab /<Bar><Cr>
 
 " Select inside regex start and end of line
-vnoremap ir :<C-U>silent! normal! ^f^lvt$<Cr>
-omap ir :normal Vir<Cr>
+vnoremap i/ :<C-U>silent! normal! ^f^lvt$<Cr>
+omap i/ :normal Vir<Cr>
 
 " Select inside |
 vnoremap i<Bar> :<C-U>silent! normal! T<Bar>vt<Bar><Cr>
