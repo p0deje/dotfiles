@@ -135,6 +135,9 @@ cnoremap %s/ %s/\v
 " This speeds up Ruby syntax highlighting
 set regexpengine=1
 
+" % support
+runtime macros/matchit.vim
+
 if has("gui_running")
   " enable Option meta key
   set macmeta
