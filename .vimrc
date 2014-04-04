@@ -54,6 +54,7 @@ NeoBundle 'YankRing.vim'                                       " clipboard histo
 NeoBundle 'Yggdroot/indentLine'                                " indentation guides
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' } " session-management for vim
 NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' } " ruby block text-object
+NeoBundle 'p0deje/vim-ruby-interpolation'                                          " ruby string interpolation
 
 syntax enable       " required!: syntax highlighting
 filetype indent on  " required!: filetype-specific indenting
@@ -170,18 +171,6 @@ autocmd FileType puppet set commentstring=#\ %s
 
 " Autoclose pipe in Ruby
 autocmd FileType ruby let b:AutoClosePairs = AutoClose#DefaultPairsModified("|", "")
-
-" Ruby string interpolation
-function! s:InsertInterpolation()
-  let before = getline('.')[col('^'):col('.')]
-  let after  = getline('.')[col('.'):col('$')]
-  " check that we're in double-quotes string
-  if before =~# '"' && after =~# '"'
-    execute "normal! a{}\<Esc>h"
-  endif
-endfunction
-autocmd FileType ruby inoremap <silent> # #<Esc>:call <SID>InsertInterpolation()<Cr>a
-autocmd FileType ruby vnoremap <Leader># c#{<C-R>"}<Esc>
 
 " vim session settings
 let g:session_autosave        = 'yes'
