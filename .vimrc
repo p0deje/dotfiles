@@ -20,6 +20,7 @@ NeoBundle 'godlygeek/tabular'                                                   
 NeoBundle 'gcmt/wildfire.vim'                                                      " select closes text object
 NeoBundle 'gcmt/tube.vim'                                                          " integration with iTerm
 NeoBundle 'henrik/vim-qargs'                                                       " perform operations on quick list
+NeoBundle 'honza/vim-snippets'                                                     " shippets
 NeoBundle 'JazzCore/ctrlp-cmatcher'                                                " faster and better matcher for CtrlP
 NeoBundle 'jgdavey/vim-blockle'                                                    " switch between Ruby blocks
 NeoBundle 'jistr/vim-nerdtree-tabs'                                                " keep NERDTree open in tabs
@@ -38,6 +39,7 @@ NeoBundle 'jiangmiao/auto-pairs'                                                
 NeoBundle 'rking/ag.vim'                                                           " integration with Ag
 NeoBundle 'rodjek/vim-puppet'                                                      " puppet support
 NeoBundle 'scrooloose/nerdtree'                                                    " project tree navigation
+NeoBundle 'SirVer/ultisnips'                                                       " snippets
 NeoBundle 'Shougo/vimproc'                                                         " recommended to install with NeoBundle
 NeoBundle 'taiansu/nerdtree-ag'                                                    " search folder from NERDTree
 NeoBundle 't9md/vim-choosewin'                                                     " interactive panes switching
