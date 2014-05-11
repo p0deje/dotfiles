@@ -56,6 +56,7 @@ NeoBundle 'tpope/vim-repeat'                                                    
 NeoBundle 'tpope/vim-surround'                                                     " surrounds text with quotes, brackets, etc.
 NeoBundle 'tpope/vim-unimpaired'                                                   " used for text bubbling
 NeoBundle 'vim-ruby/vim-ruby'                                                      " use latest vim-ruby
+NeoBundle 'wellle/targets.vim'                                                     " improved text objects
 NeoBundle 'YankRing.vim'                                                           " clipboard history
 NeoBundle 'Yggdroot/indentLine'                                                    " indentation guides
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' }                     " session-management for vim
