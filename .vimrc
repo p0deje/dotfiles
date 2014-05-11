@@ -281,30 +281,6 @@ nmap <silent> <Leader>of :NERDTreeFind<Cr><C-w>=
 " Disable terrible Ex mode
 nnoremap Q <nop>
 
-" Tube
-let g:tube_terminal = "iterm"
-
-" Run test in VM command to system
-function! Filename(name, selection)
-  return @%
-endfunction
-function! FilenameWithLine(name, selection)
-  return @% . ":" . line(".")
-endfunction
-nmap <Leader>cua :TubeClr ve cucumber #{Filename}<Cr>
-nmap <Leader>cul :TubeClr ve cucumber #{FilenameWithLine}<Cr>
-nmap <Leader>sp :TubeClr ve rspec #{FilenameWithLine}<Cr>
-nmap <Leader>fp :exec "silent !echo -n " . @% . ":" . line(".") . " \| pbcopy"<Cr>
-
-" Copy Github link
-function! GithubUrl()
-  let repo = fugitive#repo().config('remote.origin.url')
-  let repo = substitute(repo, '^git@github.com:\(.\+\)\.git$', '\1', '')
-  let branch = fugitive#head()
-  return "https://github.com/" . repo . "/blob/" . branch . "/" . @% . "#L" . line(".")
-endfunction
-nmap <Leader>gh :exec "silent !echo -n " . shellescape(GithubUrl(), 1) . " \| pbcopy"<Cr>
-
 " Window navigation
 nmap <M-h> <C-w>h
 nmap <M-j> <C-w>j
@@ -370,6 +346,37 @@ cmap <C-h> <Left>
 cmap <C-l> <Right>
 cmap <C-k> <Up>
 cmap <C-j> <Down>
+
+
+" Copy various stuff
+
+function! s:Pbcopy(string)
+  call system('echo -n ' . shellescape(a:string) . ' | pbcopy')
+  echo "Copied: " . a:string
+endfunction
+
+function! s:RelativeFilePath()
+  let l:full_path = expand('%')
+  let l:directory = expand('%:h')
+  return substitute(l:full_path, l:directory . '/', '', '')
+endfunction
+
+function! s:CopyFileLine()
+  let l:path = <SID>RelativeFilePath()
+  let l:line = line('.')
+  call <SID>Pbcopy(l:path . ':' . l:line)
+endfunction
+command! CopyFileLine :call <SID>CopyFileLine()
+
+function! s:CopyGithubLink()
+  let l:repo = fugitive#repo().config('remote.origin.url')
+  let l:repo = substitute(repo, '^git@github.com:\(.\+\)\.git$', '\1', '')
+  let l:branch = fugitive#head()
+  let l:path = <SID>RelativeFilePath()
+  call <SID>Pbcopy("https://github.com/" . l:repo . "/blob/" . l:branch . "/" . l:path . "#L" . line("."))
+endfunction
+command! CopyGithubLink :call <SID>CopyGithubLink()
+
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
