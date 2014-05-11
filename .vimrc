@@ -43,6 +43,7 @@ NeoBundle 'scrooloose/nerdtree'                                                 
 NeoBundle 'scrooloose/syntastic'                                                   " syntax checking
 NeoBundle 'SirVer/ultisnips'                                                       " snippets
 NeoBundle 'Shougo/vimproc'                                                         " recommended to install with NeoBundle
+NeoBundle 'skalnik/vim-vroom', { 'depends': 'tpope/vim-dispatch' }                 " ruby test runner
 NeoBundle 'taiansu/nerdtree-ag'                                                    " search folder from NERDTree
 NeoBundle 't9md/vim-choosewin'                                                     " interactive panes switching
 NeoBundle 'terryma/vim-multiple-cursors'                                           " sublime-inspired multiple cursors
@@ -231,6 +232,13 @@ highlight clear DiffAdd " make sure syntax highlighting is on
 highlight DiffAdd guibg=#0B240A
 highlight DiffChange guibg=#362F18
 highlight DiffDelete guibg=#260000
+
+let g:vroom_use_bundle_exec = 1
+let g:vroom_use_dispatch = 1
+let g:dispatch_compilers = {
+  \ 'bundle exec rspec': 'rspec',
+  \ 'bundle exec cucumber': 'cucumber'
+\ }
 
 " Gist
 let g:gist_clip_command    = 'pbcopy'
