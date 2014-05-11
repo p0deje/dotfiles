@@ -1,28 +1,17 @@
-tmp/
-
-# IDEs
-.project
-.buildpath
-.settings/
-.idea/
-
-# Ruby
-pkg/
-vendor/
-.bundle
-Gemfile.lock
-coverage/
-
-# OS X
 .DS_Store
-
-# TextMate
-.tm_properties
+.buildpath
+.bundle
+coverage/
+.idea/
+Gemfile.lock
+pkg/
+.project
+.settings/
+tags
+tmp/
 tmtags
 tmtagsHistory
-
-# CTags
-tags
-
-# Vim
+.tm_properties
 .vimrc
+vendor/
+.zeus.sock
