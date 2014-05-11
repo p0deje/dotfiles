@@ -250,9 +250,6 @@ let g:gist_post_private    = 1
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-" Multiple cursors
-let g:multi_cursor_exit_from_insert_mode = 0
-
 " NERDTree
 let g:NERDTreeWinPos   = 'right'
 let g:NERDTreeWinSize  = 40
