@@ -206,7 +206,7 @@ let g:startify_list_order = [
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
-nmap <Tab> :CtrlPBuffer<Cr>
+nmap <Tab> :CtrlP<Cr>
 nmap cp :CtrlPCmdPalette<Cr>
 
 " YankRing
