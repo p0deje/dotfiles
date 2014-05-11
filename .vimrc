@@ -32,6 +32,7 @@ NeoBundle 'markcornick/vim-vagrant'                                             
 NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }                      " integration with Gist
 NeoBundle 'mhinz/vim-startify'                                                     " startup screen
 NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' } " ruby block text-object
+NeoBundle 'noprompt/vim-yardoc'                                                    " YARD highlighting
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'                                       " railscasts but sexy
 NeoBundle 'p0deje/vim-numbertoggle'                                                " relative numbers
 NeoBundle 'p0deje/vim-ruby-interpolation'                                          " ruby string interpolation
@@ -110,6 +111,7 @@ colorscheme sexy-railscasts
 highlight SignColumn guibg=#222222
 highlight FoldColumn guibg=#222222
 highlight LineNr guifg=#666666 guibg=#222222
+highlight link yardGenericTag rubyMethodExceptional
 
 " Search tweaks
 set hlsearch
