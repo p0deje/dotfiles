@@ -40,6 +40,7 @@ NeoBundle 'jiangmiao/auto-pairs'                                                
 NeoBundle 'rking/ag.vim'                                                           " integration with Ag
 NeoBundle 'rodjek/vim-puppet'                                                      " puppet support
 NeoBundle 'scrooloose/nerdtree'                                                    " project tree navigation
+NeoBundle 'scrooloose/syntastic'                                                   " syntax checking
 NeoBundle 'SirVer/ultisnips'                                                       " snippets
 NeoBundle 'Shougo/vimproc'                                                         " recommended to install with NeoBundle
 NeoBundle 'taiansu/nerdtree-ag'                                                    " search folder from NERDTree
