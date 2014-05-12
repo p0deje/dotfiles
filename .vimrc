@@ -306,7 +306,7 @@ function! GitDiff()
   normal! gg
 endfunction
 command! Gpatch :call GitDiff()
-command! Gpush :Git push
+command! -nargs=* Gpush :Git push <args>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
