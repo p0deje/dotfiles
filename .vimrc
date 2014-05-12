@@ -338,6 +338,10 @@ cmap <C-l> <Right>
 cmap <C-k> <Up>
 cmap <C-j> <Down>
 
+" Select inside regex start and end of line
+vnoremap ix :<C-U>silent! normal! ^f^lvt$<Cr>
+omap ix :normal Vix<Cr>
+
 
 " Copy various stuff
 
