@@ -228,6 +228,8 @@ let g:choosewin_overlay_enable = 1
 let g:choosewin_statusline_replace = 0
 nmap <Space> <Plug>(choosewin)
 
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
 " better colors for GitGutter
 highlight clear DiffAdd " make sure syntax highlighting is on
 highlight DiffAdd guibg=#0B240A
