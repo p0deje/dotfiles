@@ -238,6 +238,7 @@ highlight DiffDelete guibg=#260000
 
 let g:vroom_use_bundle_exec = 1
 let g:vroom_use_dispatch = 1
+let g:vroom_cucumber_path = 'cucumber'
 let g:dispatch_compilers = {
   \ 'bundle exec rspec': 'rspec',
   \ 'bundle exec cucumber': 'cucumber',
