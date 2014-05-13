@@ -297,8 +297,7 @@ nmap <M-L> <C-w>L
 nmap <M-w> :tabclose<Cr>
 
 " Better splits
-nmap <Leader>hh :split<Cr>
-nmap <Leader>vv :vsplit<Cr>
+nmap <Bar> :vsplit<Cr>
 
 " Git
 function! GitDiff()
