@@ -354,7 +354,7 @@ endfunction
 
 function! s:RelativeFilePath()
   let l:full_path = expand('%')
-  let l:directory = expand('%:h')
+  let l:directory = getcwd()
   return substitute(l:full_path, l:directory . '/', '', '')
 endfunction
 
