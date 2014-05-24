@@ -193,6 +193,9 @@ let g:session_autosave        = 'yes'
 let g:session_autoload        = 'no'
 let g:session_default_to_last = 'yes'
 let g:session_autosave_periodic = 3
+if exists('g:vroom_use_binstubs')
+  let g:session_persist_globals = ['g:vroom_use_binstubs']
+end
 nnoremap <Leader>os :OpenSession!<Space>
 nnoremap <Leader>ss :exe 'SaveSession! ' . split(getcwd(), '/')[-1]<Cr>
 
