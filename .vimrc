@@ -119,7 +119,7 @@ highlight link yardGenericTag rubyMethodExceptional
 " Search tweaks
 set hlsearch
 set incsearch
-highlight Search guibg=DarkYellow
+highlight Search guibg=#222222 guifg=Orange
 
 " Let's not be retarded
 let mapleader = ','
