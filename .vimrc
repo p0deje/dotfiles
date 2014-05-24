@@ -183,8 +183,10 @@ autocmd FileType puppet set commentstring=#\ %s
 
 " Autoclose pipe in Ruby
 autocmd FileType ruby
-  \ let b:AutoPairs = g:AutoPairs |
-  \ let b:AutoPairs['|'] = '|'
+  \ let b:AutoPairs = {'|': '|'} |
+  \ for key in keys(g:AutoPairs) |
+  \   let b:AutoPairs[key] = g:AutoPairs[key] |
+  \ endfor
 
 " vim session settings
 let g:session_autosave        = 'yes'
