@@ -22,3 +22,5 @@ alias be 'bundle exec'
 alias ve 'vagrant exec'
 alias vim 'mvim'
 alias git 'hub'
+
+eval (direnv hook fish)
