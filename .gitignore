@@ -2,8 +2,9 @@
 .buildpath
 .bundle
 coverage/
-.idea/
+.envrc
 Gemfile.lock
+.idea/
 pkg/
 .project
 .settings/
