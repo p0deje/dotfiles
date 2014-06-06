@@ -44,6 +44,7 @@ NeoBundle 'scrooloose/syntastic'                                                
 NeoBundle 'SirVer/ultisnips'                                                       " snippets
 NeoBundle 'Shougo/vimproc'                                                         " recommended to install with NeoBundle
 NeoBundle 'skalnik/vim-vroom', { 'depends': 'tpope/vim-dispatch' }                 " ruby test runner
+NeoBundle 'slim-template/vim-slim'                                                 " Slim syntax
 NeoBundle 'taiansu/nerdtree-ag'                                                    " search folder from NERDTree
 NeoBundle 't9md/vim-choosewin'                                                     " interactive panes switching
 NeoBundle 'terryma/vim-multiple-cursors'                                           " sublime-inspired multiple cursors
