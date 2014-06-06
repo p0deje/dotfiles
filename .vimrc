@@ -13,6 +13,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'  " let NeoBundle manage itself
 NeoBundle 'airblade/vim-gitgutter'                                                 " sublime-inspired git gutter
 NeoBundle 'airblade/vim-rooter'                                                    " automatic working directory update
 NeoBundle 'bling/vim-airline'                                                      " light version of powerline
+NeoBundle 'AndrewRadev/splitjoin.vim'                                              " singleline vs multiline
 NeoBundle 'DeleteTrailingWhitespace'                                               " remove trailing whitespaces
 NeoBundle 'dag/vim-fish'                                                           " fish syntax highlighting
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'                                           " fuzzy command search
