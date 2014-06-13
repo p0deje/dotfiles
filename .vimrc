@@ -15,7 +15,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'AndrewRadev/splitjoin.vim'
@@ -36,6 +35,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'markcornick/vim-vagrant'
 NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }
 NeoBundle 'mhinz/vim-startify'
+NeoBundle 'mhinz/vim-signify'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' }
 NeoBundle 'noprompt/vim-yardoc'
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'
@@ -196,21 +196,17 @@ let g:yankring_history_dir = '~/.vim/history'
 let g:yankring_replace_n_pkey = '<M-p>'
 let g:yankring_replace_n_nkey = '<M-n>'
 
-let g:gitgutter_signs = 1
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_eager = 1
-
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
-" better colors for GitGutter
-highlight clear DiffAdd " make sure syntax highlighting is on
-highlight DiffAdd guibg=#0B240A
-highlight DiffChange guibg=#362F18
-highlight DiffDelete guibg=#260000
+let g:signify_vcs_list = ['git']
+let g:signify_sign_change = '~'
+highlight SignifySignAdd guibg=#222222 guifg=#11BF02
+highlight SignifySignChange guibg=#222222 guifg=#BF8602
+highlight SignifySignDelete guibg=#222222 guifg=#BF0202
 
 let g:vroom_use_bundle_exec = 1
 let g:vroom_use_dispatch = 1
