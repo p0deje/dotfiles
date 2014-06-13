@@ -202,6 +202,10 @@ let g:gitgutter_eager = 1
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+
 " better colors for GitGutter
 highlight clear DiffAdd " make sure syntax highlighting is on
 highlight DiffAdd guibg=#0B240A
