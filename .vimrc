@@ -245,9 +245,6 @@ nnoremap <Leader>ag :Ag!<Space>
 nnoremap / /\v
 cnoremap %s/ %s/\v
 
-nnoremap <Leader>os :OpenSession!<Space>
-nnoremap <Leader>ss :exe 'SaveSession! ' . split(getcwd(), '/')[-1]<Cr>
-
 nnoremap <Tab> :CtrlP<Cr>
 nnoremap cp :CtrlPCmdPalette<Cr>
 
@@ -356,8 +353,6 @@ augroup Filetypes
     \ nnoremap <buffer> <Leader>wh ^ciwWhen<Esc> |
     \ nnoremap <buffer> <Leader>th ^ciwThen<Esc> |
     \ nnoremap <buffer> <Leader>an ^ciwAnd<Esc> |
-    \ nnoremap <buffer> <Leader>sv :vsplit<Cr><C-]> |
-    \ nnoremap <buffer> <Leader>sh <C-w><C-]>
 augroup END
 
 augroup Misc
