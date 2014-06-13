@@ -200,9 +200,6 @@ let g:gitgutter_signs = 1
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_eager = 1
 
-let g:choosewin_overlay_enable = 1
-let g:choosewin_statusline_replace = 0
-
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " better colors for GitGutter
