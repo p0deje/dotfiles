@@ -36,6 +36,7 @@ NeoBundle 'markcornick/vim-vagrant'
 NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
+NeoBundle 'moll/vim-bbye'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' }
 NeoBundle 'noprompt/vim-yardoc'
 NeoBundle 'oguzbilgic/sexy-railscasts-theme'
@@ -371,6 +372,8 @@ augroup END
 
 " Commands {{{1
 " -------------
+
+command! ClearBuffers :bufdo :Bdelete
 
 function! s:GitDiff()
   tabnew
