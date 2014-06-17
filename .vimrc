@@ -289,8 +289,6 @@ cnoremap <C-l> <Right>
 cnoremap <C-k> <Up>
 cnoremap <C-j> <Down>
 
-vnoremap ix :<C-U>silent! normal! ^f^lvt$<Cr>
-omap ix :normal Vix<Cr>
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
@@ -338,16 +336,22 @@ augroup Filetypes
     \ let b:surround_{char2nr('#')} = "#{\r}" |
     \ let b:surround_{char2nr('d')} = "do \r end" |
 
-  " automatic alignment of | symbol (used in Gherkin) by Tabularize plugin
+  " inside regexp text object
+  " useful for working with Cucumber step definitions
+  autocmd FileType ruby
+    \ vnoremap <buffer> ix :<C-U>silent! normal! ^f^lvt$<Cr> |
+    \ omap <buffer> ix :normal Vix<Cr> |
+
+  " automatic alignment of | symbol
   " taken from https://gist.github.com/tpope/287147
   function! s:align()
     let p = '^\s*|\s.*\s|\s*$'
     if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-      let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-      let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+      let column = strlen(substitute(getline('.')[0:col('.')], '[^|]', '', 'g'))
+      let position = strlen(matchstr(getline('.')[0:col('.')], '.*|\s*\zs.*'))
       Tabularize/|/l1
       normal! 0
-      call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+      call search(repeat('[^|]*|', column).'\s\{-\}'.repeat('.', position), 'ce', line('.'))
     endif
   endfunction
   autocmd FileType cucumber
