@@ -331,6 +331,11 @@ augroup Filetypes
     \   let b:AutoPairs[key] = g:AutoPairs[key] |
     \ endfor
 
+  " Surround improvements
+  autocmd FileType ruby
+    \ let b:surround_{char2nr('#')} = "#{\r}" |
+    \ let b:surround_{char2nr('d')} = "do \r end" |
+
   " automatic alignment of | symbol (used in Gherkin) by Tabularize plugin
   " taken from https://gist.github.com/tpope/287147
   function! s:align()
