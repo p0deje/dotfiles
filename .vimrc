@@ -289,6 +289,10 @@ cnoremap <C-l> <Right>
 cnoremap <C-k> <Up>
 cnoremap <C-j> <Down>
 
+nnoremap <M-Left> <C-W><
+nnoremap <M-Right> <C-W>>
+nnoremap <M-Up> <C-W>+
+nnoremap <M-Down> <C-W>-
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
