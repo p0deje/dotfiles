@@ -279,7 +279,7 @@ vmap <C-M-k> [egv
 vmap <C-M-j> ]egv
 
 " Clear search
-nnoremap <silent> c/ :let @/ = ""<Cr>
+nnoremap <silent> <C-L> :let @/ = ""<Cr>
 
 nnoremap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
 nnoremap <Leader>t<Bar> :Tab /<Bar><Cr>
