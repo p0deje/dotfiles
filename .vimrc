@@ -16,8 +16,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-rooter'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'
@@ -352,6 +352,8 @@ augroup Filetypes
   endfunction
   autocmd FileType cucumber
     \ inoremap <buffer> <silent> <Bar> <Bar><Esc>:call <SID>align()<Cr>a |
+
+  autocmd FileType cucumber
     \ nnoremap <buffer> <Leader>gi ^ciwGiven<Esc> |
     \ nnoremap <buffer> <Leader>wh ^ciwWhen<Esc> |
     \ nnoremap <buffer> <Leader>th ^ciwThen<Esc> |
