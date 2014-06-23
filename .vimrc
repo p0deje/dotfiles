@@ -48,7 +48,7 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', { 'build': { 'mac': 'make -f make_mac.mak' } }
 NeoBundle 'skalnik/vim-vroom', { 'depends': 'tpope/vim-dispatch' }
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'taiansu/nerdtree-ag'
