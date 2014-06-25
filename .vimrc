@@ -95,6 +95,7 @@ set ruler                " show the cursor position all the time
 set laststatus=2         " Always display the status line
 set showcmd              " display incomplete commands
 set autowrite            " Automatically :write before running commands
+set autoread             " Automatically reload changed files
 set exrc                 " enable per-directory .vimrc files
 set secure               " disable unsafe commands in local .vimrc files
 set history=50           " history size
