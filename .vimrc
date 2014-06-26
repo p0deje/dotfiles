@@ -290,10 +290,10 @@ cnoremap <C-l> <Right>
 cnoremap <C-k> <Up>
 cnoremap <C-j> <Down>
 
-nnoremap <C-S-h> <C-W><
-nnoremap <C-S-l> <C-W>>
-nnoremap <C-S-k> <C-W>+
-nnoremap <C-S-j> <C-W>-
+nnoremap <M-S-Left> <C-W><
+nnoremap <M-S-Right> <C-W>>
+nnoremap <M-S-Up> <C-W>+
+nnoremap <M-S-Down> <C-W>-
 
 nnoremap gst :Gstatus<Cr>
 
