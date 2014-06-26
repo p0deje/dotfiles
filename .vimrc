@@ -295,6 +295,8 @@ nnoremap <M-Right> <C-W>>
 nnoremap <M-Up> <C-W>+
 nnoremap <M-Down> <C-W>-
 
+nnoremap gst :Gstatus<Cr>
+
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
 
