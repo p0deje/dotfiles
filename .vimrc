@@ -414,12 +414,3 @@ function! s:CopyFileLine()
   call <SID>Pbcopy(l:path . ':' . l:line)
 endfunction
 command! CopyFileLine :call <SID>CopyFileLine()
-
-function! s:CopyGithubLink()
-  let l:repo = fugitive#repo().config('remote.origin.url')
-  let l:repo = substitute(repo, '^git@github.com:\(.\+\)\.git$', '\1', '')
-  let l:branch = fugitive#head()
-  let l:path = <SID>RelativeFilePath()
-  call <SID>Pbcopy("https://github.com/" . l:repo . "/blob/" . l:branch . "/" . l:path . "#L" . line("."))
-endfunction
-command! CopyGithubLink :call <SID>CopyGithubLink()
