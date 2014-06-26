@@ -200,7 +200,6 @@ let g:yankring_replace_n_nkey = '<M-n>'
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
-map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
@@ -236,6 +235,8 @@ let g:nerdtree_tabs_smart_startup_focus = 2
 
 " Mappings {{{1
 " -------------
+
+map <Leader> <Plug>(easymotion-prefix)
 
 nnoremap <Leader>ag :Ag!<Space>
 
