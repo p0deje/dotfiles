@@ -388,16 +388,6 @@ augroup END
 " Commands {{{1
 " -------------
 
-function! s:GitDiff()
-  tabnew
-  0read !git diff && git diff --cached
-  set filetype=diff
-  exe 'silent! write! /tmp/' . split(getcwd(), '/')[-1] . '.diff'
-  normal! gg
-endfunction
-command! Gpatch :call <SID>GitDiff()
-command! -nargs=* Gpush :Git push <args>
-
 " Copy various stuff
 
 function! s:Pbcopy(string)
