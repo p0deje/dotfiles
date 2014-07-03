@@ -1,9 +1,7 @@
 slate.configAll({
   'defaultToCurrentScreen': true,
   'modalEscapeKey': 'esc',
-  'windowHintsDuration': 10,
-  'windowHintsFontName': 'Monaco',
-  'windowHintsFontColor': [255, 255, 0, 1],
+  'windowHintsFontColor': [255, 210, 70, 1],
   'windowHintsIgnoreHiddenWindows': false,
   'windowHintsShowIcons': true,
   'windowHintsSpread': true,
