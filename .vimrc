@@ -219,9 +219,8 @@ let g:vroom_use_bundle_exec = 1
 let g:vroom_use_dispatch = 1
 let g:vroom_cucumber_path = 'cucumber'
 let g:dispatch_compilers = {
-  \ 'bundle exec rspec': 'rspec',
-  \ 'bundle exec cucumber': 'cucumber',
-  \ 'bundle exec rake': 'rake'
+  \ 'bundle exec': '',
+  \ 'clear': '',
 \ }
 
 let g:gist_clip_command    = 'pbcopy'
