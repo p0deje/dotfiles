@@ -16,6 +16,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-rooter'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'DeleteTrailingWhitespace'
@@ -38,7 +39,6 @@ NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' }
 NeoBundle 'noprompt/vim-yardoc'
-NeoBundle 'oguzbilgic/sexy-railscasts-theme'
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundle 'p0deje/vim-ruby-interpolation'
 NeoBundle 'jiangmiao/auto-pairs'
@@ -153,18 +153,23 @@ if has("gui_running")
   autocmd FocusLost * silent! wa
 
   " Make MacVim nicer
-  set transparency=4
+  set transparency=2
 endif
 
 
 " Plugin options {{{1
 " -------------------
 
-colorscheme sexy-railscasts
-highlight SignColumn guibg=#222222
-highlight FoldColumn guibg=#222222
-highlight LineNr guifg=#666666 guibg=#222222
-highlight link yardGenericTag rubyMethodExceptional
+set background=dark
+let g:solarized_contrast = "high"
+let g:solarized_hitrail = 1
+let g:solarized_visibility = "low"
+colorscheme solarized
+
+highlight SignColumn guibg=#002b36
+highlight FoldColumn guibg=#002b36
+highlight LineNr guibg=#002b36
+highlight VertSplit guifg=#073642 guibg=#073642
 
 let g:indentLine_char = '│'
 
@@ -205,9 +210,9 @@ let g:EasyMotion_use_smartsign_us = 1
 
 let g:signify_vcs_list = ['git']
 let g:signify_sign_change = '~'
-highlight SignifySignAdd guibg=#222222 guifg=#11BF02
-highlight SignifySignChange guibg=#222222 guifg=#BF8602
-highlight SignifySignDelete guibg=#222222 guifg=#BF0202
+highlight SignifySignAdd guibg=#002b36 guifg=#579900
+highlight SignifySignChange guibg=#002b36 guifg=#b58900
+highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
 
 let g:vroom_use_bundle_exec = 1
 let g:vroom_use_dispatch = 1
