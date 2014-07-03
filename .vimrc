@@ -204,6 +204,7 @@ let g:yankring_replace_n_pkey = '<M-p>'
 let g:yankring_replace_n_nkey = '<M-n>'
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_always_populate_loc_list = 1
 
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
