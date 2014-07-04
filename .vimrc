@@ -20,15 +20,16 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'DeleteTrailingWhitespace'
+NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'
-NeoBundle 'godlygeek/tabular'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'gcmt/tube.vim'
 NeoBundle 'henrik/vim-qargs'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'JazzCore/ctrlp-cmatcher'
 NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kshenoy/vim-signature'
@@ -287,8 +288,7 @@ vmap <C-M-j> ]egv
 " Clear search
 nnoremap <silent> <C-L> :let @/ = ""<Cr>
 
-nnoremap <Leader>t: :Tab /\w:\zs/l0l1<Cr>
-nnoremap <Leader>t<Bar> :Tab /<Bar><Cr>
+vmap E <Plug>(EasyAlign)
 
 cnoremap <C-h> <Left>
 cnoremap <C-l> <Right>
@@ -355,20 +355,7 @@ augroup Filetypes
     \ vnoremap <buffer> ix :<C-U>silent! normal! ^f^lvt$h<Cr> |
     \ omap <buffer> ix :normal Vix<Cr> |
 
-  " automatic alignment of | symbol
-  " taken from https://gist.github.com/tpope/287147
-  function! s:align()
-    let p = '^\s*|\s.*\s|\s*$'
-    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-      let column = strlen(substitute(getline('.')[0:col('.')], '[^|]', '', 'g'))
-      let position = strlen(matchstr(getline('.')[0:col('.')], '.*|\s*\zs.*'))
-      Tabularize/|/l1
-      normal! 0
-      call search(repeat('[^|]*|', column).'\s\{-\}'.repeat('.', position), 'ce', line('.'))
-    endif
-  endfunction
-  autocmd FileType cucumber
-    \ inoremap <buffer> <silent> <Bar> <Bar><Esc>:call <SID>align()<Cr>a |
+  autocmd FileType cucumber :TableModeEnable
 
   autocmd FileType cucumber
     \ nnoremap <buffer> <Leader>gi ^ciwGiven<Esc> |
