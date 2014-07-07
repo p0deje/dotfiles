@@ -290,6 +290,8 @@ nnoremap <silent> <C-L> :let @/ = ""<Cr>
 
 vmap E <Plug>(EasyAlign)
 
+nnoremap Y y$
+
 cnoremap <C-h> <Left>
 cnoremap <C-l> <Right>
 cnoremap <C-k> <Up>
