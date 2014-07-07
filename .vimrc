@@ -238,6 +238,9 @@ let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
 let g:nerdtree_tabs_smart_startup_focus = 2
 
+" Clear <M-p> mapping
+let g:AutoPairsShortcutToggle = ''
+
 
 " Mappings {{{1
 " -------------
