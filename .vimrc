@@ -20,7 +20,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'DeleteTrailingWhitespace'
-NeoBundle 'dhruvasagar/vim-table-mode'
+NeoBundle 'p0deje/vim-table-mode'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'fisadev/vim-ctrlp-cmdpalette'
 NeoBundle 'gcmt/wildfire.vim'
@@ -245,6 +245,7 @@ let g:AutoPairsShortcutToggle = ''
 " Leave "m" for vim-easyclip
 let g:SignatureMap = { 'Leader': 'gm' }
 
+let g:table_mode_disable_mappings = 1
 
 " Mappings {{{1
 " -------------
@@ -324,6 +325,8 @@ nnoremap N Nzvzz
 nmap M m$
 nmap <M-p> <plug>EasyClipSwapPasteForward
 nmap <M-P> <plug>EasyClipSwapPasteBackwards
+
+imap <Bar> <Plug>(table-mode-tableize)
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
