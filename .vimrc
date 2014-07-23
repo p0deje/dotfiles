@@ -396,6 +396,8 @@ augroup END
 " Commands {{{1
 " -------------
 
+command! PrettyPrintJson :%!python -m json.tool
+
 " Copy various stuff
 
 function! s:Pbcopy(string)
