@@ -308,6 +308,16 @@ nnoremap <M-S-Down> <C-W>-
 
 nnoremap gst :Gstatus<Cr>
 
+vnoremap * y/<C-r>"<Cr>
+
+" don't move on * and #
+nnoremap * *<C-O>
+nnoremap # #<C-O>
+
+" keep search matches in the middle of the window
+nnoremap n nzvzz
+nnoremap N Nzvzz
+
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
 
