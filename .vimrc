@@ -92,7 +92,7 @@ set number               " show line numbers
 set cursorline           " highlight current line
 set lazyredraw           " faster scrolling
 set noswapfile           " no *.swp artifacts
-set scrolloff=5          " Keep at least 5 lines visible when scrolling
+set scrolloff=10         " Keep at least 10 lines visible when scrolling
 set nowrap               " Disabled wrapping
 set ruler                " show the cursor position all the time
 set laststatus=2         " Always display the status line
