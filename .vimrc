@@ -52,6 +52,7 @@ NeoBundle 'Shougo/vimproc', { 'build': { 'mac': 'make -f make_mac.mak' } }
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'skalnik/vim-vroom', { 'depends': 'tpope/vim-dispatch' }
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'svermeulen/vim-easyclip', 'develop', { 'depends': 'tpope/vim-repeat' }
 NeoBundle 'taiansu/nerdtree-ag'
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -68,7 +69,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'YankRing.vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' }
 
@@ -242,6 +242,12 @@ let g:nerdtree_tabs_smart_startup_focus = 2
 " Clear <M-p> mapping
 let g:AutoPairsShortcutToggle = ''
 
+" Leave "m" for vim-easyclip
+let g:SignatureMap = { 'Leader': 'gm' }
+
+nmap M m$
+nmap <M-p> <plug>EasyClipSwapPasteForward
+nmap <M-P> <plug>EasyClipSwapPasteBackwards
 
 " Mappings {{{1
 " -------------
