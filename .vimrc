@@ -245,9 +245,6 @@ let g:AutoPairsShortcutToggle = ''
 " Leave "m" for vim-easyclip
 let g:SignatureMap = { 'Leader': 'gm' }
 
-nmap M m$
-nmap <M-p> <plug>EasyClipSwapPasteForward
-nmap <M-P> <plug>EasyClipSwapPasteBackwards
 
 " Mappings {{{1
 " -------------
@@ -323,6 +320,10 @@ nnoremap # #<C-O>
 " keep search matches in the middle of the window
 nnoremap n nzvzz
 nnoremap N Nzvzz
+
+nmap M m$
+nmap <M-p> <plug>EasyClipSwapPasteForward
+nmap <M-P> <plug>EasyClipSwapPasteBackwards
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
