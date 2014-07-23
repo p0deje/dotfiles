@@ -67,6 +67,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wellle/targets.vim'
@@ -106,13 +107,6 @@ set foldcolumn=1         " increase vsplits margin
 set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
 set wildmenu             " better completion for cmd mode
-
-" Indentation
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set backspace=2
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
