@@ -243,6 +243,8 @@ let g:SignatureMap = { 'Leader': 'gm' }
 
 let g:table_mode_disable_mappings = 1
 
+let g:targets_pairs = '()b {}B [] <>a'
+
 " Mappings {{{1
 " -------------
 
