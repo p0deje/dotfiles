@@ -377,7 +377,7 @@ augroup Filetypes
   " useful for working with Cucumber step definitions
   autocmd FileType ruby
     \ vnoremap <buffer> ix :<C-U>silent! normal! ^f^lvt$h<Cr> |
-    \ omap <buffer> ix :normal Vix<Cr> |
+    \ omap <buffer> ix :normal Vix<Cr>
 
   autocmd FileType cucumber :TableModeEnable
 
