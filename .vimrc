@@ -65,6 +65,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
@@ -244,6 +245,23 @@ let g:SignatureMap = { 'Leader': 'gm' }
 let g:table_mode_disable_mappings = 1
 
 let g:targets_pairs = '()b {}B [] <>a'
+
+let g:projectionist_heuristics = {
+  \ "features/*": {
+  \   "features/*.feature": { "type": "feature" },
+  \   "features/step_definitions/*_steps.rb": { "type": "step" }
+  \ },
+  \ "lib/|spec/*": {
+  \   "lib/*.rb": {
+  \     "type": "lib",
+  \     "alternate": "spec/{}_spec.rb"
+  \   },
+  \   "spec/*_spec.rb": {
+  \     "type": "spec",
+  \     "alternate": "lib/{}.rb"
+  \   }
+  \ }
+\ }
 
 " Mappings {{{1
 " -------------
