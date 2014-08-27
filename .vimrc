@@ -18,6 +18,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'p0deje/vim-table-mode'
@@ -343,6 +344,8 @@ nmap <M-p> <plug>EasyClipSwapPasteForward
 nmap <M-P> <plug>EasyClipSwapPasteBackwards
 
 imap <Bar> <Plug>(table-mode-tableize)
+
+nnoremap css :Switch<Cr>
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
