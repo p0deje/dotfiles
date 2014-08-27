@@ -409,6 +409,10 @@ augroup Filetypes
     \ nnoremap <buffer> <Leader>wh ^ciwWhen<Esc> |
     \ nnoremap <buffer> <Leader>th ^ciwThen<Esc> |
     \ nnoremap <buffer> <Leader>an ^ciwAnd<Esc> |
+
+  autocmd FileType startify
+    \ setlocal buftype= |
+    \ setlocal cursorline |
 augroup END
 
 augroup Misc
