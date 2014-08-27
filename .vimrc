@@ -182,8 +182,6 @@ let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
 let g:airline_left_sep  = ''
 let g:airline_right_sep = '◀'
 
-let g:rooter_manual_only = 1  " do not switch CtrlP root
-
 let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_list_order = [
   \ ['   Sessions:'],
