@@ -229,7 +229,7 @@ let g:gist_post_private    = 1
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-let g:NERDTreeWinPos   = 'right'
+let g:NERDTreeWinPos   = 'left'
 let g:NERDTreeWinSize  = 40
 let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
@@ -261,6 +261,8 @@ let g:projectionist_heuristics = {
   \   }
   \ }
 \ }
+
+let g:gundo_right = 1
 
 " Mappings {{{1
 " -------------
@@ -342,6 +344,8 @@ nmap <M-p> <plug>EasyClipSwapPasteForward
 nmap <M-P> <plug>EasyClipSwapPasteBackwards
 
 imap <Bar> <Plug>(table-mode-tableize)
+
+nnoremap gut :GundoToggle<Cr>
 
 nnoremap css :Switch<Cr>
 
