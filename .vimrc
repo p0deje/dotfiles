@@ -172,10 +172,10 @@ highlight VertSplit guifg=#073642 guibg=#073642
 
 let g:indentLine_char = '│'
 
-let g:agprg='ag --smart-case --column'
+let g:agprg = 'ag --smart-case --column'
 
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_match_func  = {'match' : 'matcher#cmatch'}
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
 
 let g:airline_left_sep  = ''
