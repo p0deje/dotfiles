@@ -350,6 +350,9 @@ nnoremap gut :GundoToggle<Cr>
 
 nnoremap css :Switch<Cr>
 
+nnoremap <silent> [oq :copen<Cr>
+nnoremap <silent> ]oq :cclose<Cr>
+
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
 
