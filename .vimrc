@@ -435,23 +435,3 @@ augroup END
 " -------------
 
 command! PrettyPrintJson :%!python -m json.tool
-
-" Copy various stuff
-
-function! s:Pbcopy(string)
-  call system('echo -n ' . shellescape(a:string) . ' | pbcopy')
-  echo "Copied: " . a:string
-endfunction
-
-function! s:RelativeFilePath()
-  let l:full_path = expand('%')
-  let l:directory = getcwd()
-  return substitute(l:full_path, l:directory . '/', '', '')
-endfunction
-
-function! s:CopyFileLine()
-  let l:path = <SID>RelativeFilePath()
-  let l:line = line('.')
-  call <SID>Pbcopy(l:path . ':' . l:line)
-endfunction
-command! CopyFileLine :call <SID>CopyFileLine()
