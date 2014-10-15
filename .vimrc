@@ -130,7 +130,6 @@ highlight Search guibg=#222222 guifg=Orange
 let mapleader = ','
 
 " Cursor customization
-set guicursor+=n:hor10     " show only horizontal bar in normal mode
 set guicursor+=a:blinkon0  " disable blinking
 
 " Enable spelling check
