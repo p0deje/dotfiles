@@ -186,6 +186,8 @@ let g:agprg = 'ag --smart-case --column'
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
+let g:ctrlp_map = '<Tab>'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 let g:airline_left_sep  = ''
 let g:airline_right_sep = '◀'
@@ -288,7 +290,6 @@ nnoremap <Leader>ag :Ag!<Space>
 nnoremap / /\v
 cnoremap %s/ %s/\v
 
-nnoremap <Tab> :CtrlP<Cr>
 nnoremap <silent> <Leader>p :YRShow<Cr>
 
 nmap <Space> <Plug>(choosewin)
