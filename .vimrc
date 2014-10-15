@@ -258,7 +258,9 @@ let g:targets_pairs = '()b {}B [] <>a'
 
 let g:projectionist_heuristics = {
   \ "features/*": {
+  \   "features": { "type": "feature" },
   \   "features/*.feature": { "type": "feature" },
+  \   "features/step_definitions": { "type": "step" },
   \   "features/step_definitions/*_steps.rb": { "type": "step" }
   \ },
   \ "lib/|spec/*": {
