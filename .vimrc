@@ -365,10 +365,10 @@ imap <Bar> <Plug>(table-mode-tableize)
 
 nnoremap gut :GundoToggle<Cr>
 
-nnoremap css :Switch<Cr>
-
 nnoremap <silent> [oq :copen<Cr>
 nnoremap <silent> ]oq :cclose<Cr>
+
+command! W w
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
@@ -423,6 +423,9 @@ augroup Filetypes
     \ omap <buffer> ix :normal Vix<Cr>
 
   autocmd FileType cucumber :TableModeEnable
+
+  autocmd FileType cucumber
+    \ command! AlignBars :normal viiE*\|
 
   autocmd FileType cucumber
     \ nnoremap <buffer> <Leader>gi ^ciwGiven<Esc> |
