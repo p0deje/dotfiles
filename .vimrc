@@ -113,6 +113,10 @@ set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
 set wildmenu             " better completion for cmd mode
 
+set wildignorecase
+set ignorecase
+set smartcase
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
