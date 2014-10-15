@@ -147,6 +147,8 @@ if has("gui_running")
   " enable Option meta key
   set macmeta
 
+  set clipboard=unnamed
+
   " remove MacVim scrollbars
   set guioptions-=R
   set guioptions-=r
@@ -270,6 +272,10 @@ let g:projectionist_heuristics = {
 \ }
 
 let g:gundo_right = 1
+
+let g:EasyClipAutoFormat = 1
+let g:EasyClipDoSystemSync = 0
+
 
 " Mappings {{{1
 " -------------
