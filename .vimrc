@@ -356,6 +356,10 @@ nnoremap N Nzvzz
 nmap M m$
 nmap <M-p> <plug>EasyClipSwapPasteForward
 nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
+" Substitute operator
+nmap <silent> gr <plug>SubstituteOverMotionMap
+nmap grr <plug>SubstituteLine
+xmap gr <plug>XEasyClipPaste
 
 imap <Bar> <Plug>(table-mode-tableize)
 
