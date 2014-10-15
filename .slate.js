@@ -11,25 +11,22 @@ slate.configAll({
 
 var modal = 'ctrl,shift,m';
 var keys = {
-  hints:   'e:cmd',
-  undo:    'z:' + modal,
+  hints: 'e:cmd',
+  undo: 'z:' + modal,
   restart: 'r:' + modal,
 
-  chrome:   'c:alt',
-  hipchat:  'b:alt',
-  iterm:    't:alt',
-  macvim:   'v:alt',
+  chrome: 'c:alt',
+  hipchat: 'b:alt',
+  iterm: 't:alt',
+  macvim: 'v:alt',
   messages: 'm:alt',
-  skype:    's:alt',
+  skype: 's:alt',
 
-  grid:          'g:' + modal,
-  fullscreen:    'f:' + modal,
-  center:        'c:' + modal,
-  halfLeft:      'h:' + modal,
-  halfRight:     'l:' + modal,
-
-  extra_small: '8:' + modal,
-  small:       '9:' + modal,
+  grid: 'g:' + modal,
+  fullscreen: 'f:' + modal,
+  center: 'c:' + modal,
+  halfLeft: 'h:' + modal,
+  halfRight: 'l:' + modal,
 }
 
 slate.bind(keys.hints, slate.operation('hint'));
@@ -87,26 +84,3 @@ slate.bind(keys.halfRight, slate.operation('move', {
   "width": "screenSizeX / 2",
   "height": "screenSizeY",
 }));
-
-slate.bind(keys.extra_small, slate.operation('move', {
-  "x": "screenOriginX + (screenSizeX / 20)",
-  "y": "screenOriginY + (screenSizeY / 20)",
-  "width": "screenSizeX - (screenSizeX / 20 * 2)",
-  "height": "screenSizeY - (screenSizeY / 20 * 2)",
-}));
-
-slate.bind(keys.small, slate.operation('move', {
-  "x": "screenOriginX + (screenSizeX / 80)",
-  "y": "screenOriginY + (screenSizeY / 80)",
-  "width": "screenSizeX - (screenSizeX / 80 * 2)",
-  "height": "screenSizeY - (screenSizeY / 80 * 2)",
-}));
-
-
-/**
- * Different monitors.
- */
-
-var macbook = '3360x2100';
-var thunderbolt = '2560x1440';
-
