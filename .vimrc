@@ -23,7 +23,6 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'p0deje/vim-table-mode'
 NeoBundle 'dag/vim-fish'
-NeoBundle 'fisadev/vim-ctrlp-cmdpalette'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'gcmt/tube.vim'
 NeoBundle 'henrik/vim-qargs'
@@ -277,8 +276,6 @@ nnoremap / /\v
 cnoremap %s/ %s/\v
 
 nnoremap <Tab> :CtrlP<Cr>
-nnoremap cp :CtrlPCmdPalette<Cr>
-
 nnoremap <silent> <Leader>p :YRShow<Cr>
 
 nmap <Space> <Plug>(choosewin)
