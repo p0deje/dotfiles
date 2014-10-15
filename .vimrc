@@ -355,7 +355,7 @@ nnoremap N Nzvzz
 
 nmap M m$
 nmap <M-p> <plug>EasyClipSwapPasteForward
-nmap <M-P> <plug>EasyClipSwapPasteBackwards
+nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
 
 imap <Bar> <Plug>(table-mode-tableize)
 
