@@ -198,7 +198,6 @@ let g:airline_right_sep = '◀'
 
 let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_session_persistence = 1
-let g:startify_change_to_vcs_root = 1
 let g:startify_relative_path = 1
 let g:startify_list_order = [
   \ ['   Sessions:'],
@@ -208,7 +207,6 @@ let g:startify_list_order = [
   \ ['   Recent files in current directory:'],
   \ 'dir',
 \ ]
-
 
 let g:yankring_history_dir = '~/.vim/history'
 let g:yankring_replace_n_pkey = '<M-p>'
