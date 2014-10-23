@@ -8,6 +8,7 @@ Gemfile.lock
 pkg/
 .project
 .settings/
+.smartgf_tags*
 tags
 tmp/
 tmtags
