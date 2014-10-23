@@ -78,7 +78,6 @@ NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' }
 
 call neobundle#end()
 
@@ -142,6 +141,11 @@ set spell
 " This speeds up Ruby syntax highlighting
 set regexpengine=1
 
+set sessionoptions-=blank
+set sessionoptions-=help
+set sessionoptions+=resize
+set sessionoptions+=winpos
+
 " % support
 runtime macros/matchit.vim
 
@@ -193,6 +197,9 @@ let g:airline_left_sep  = ''
 let g:airline_right_sep = '◀'
 
 let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_session_persistence = 1
+let g:startify_change_to_vcs_root = 1
+let g:startify_relative_path = 1
 let g:startify_list_order = [
   \ ['   Sessions:'],
   \ 'sessions',
@@ -202,10 +209,6 @@ let g:startify_list_order = [
   \ 'dir',
 \ ]
 
-let g:session_autosave = 'yes'
-let g:session_autoload = 'no'
-let g:session_default_to_last = 'yes'
-let g:session_autosave_periodic = 3
 
 let g:yankring_history_dir = '~/.vim/history'
 let g:yankring_replace_n_pkey = '<M-p>'
@@ -245,6 +248,7 @@ let g:NERDTreeWinSize  = 40
 let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
 let g:nerdtree_tabs_smart_startup_focus = 2
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " Clear <M-p> mapping
 let g:AutoPairsShortcutToggle = ''
