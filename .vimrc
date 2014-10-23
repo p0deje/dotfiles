@@ -39,10 +39,10 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'markcornick/vim-vagrant'
-NeoBundle 'mattn/gist-vim', { 'depends': 'mattn/webapi-vim' }
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends': 'kana/vim-textobj-user' }
+NeoBundle 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundle 'p0deje/vim-ruby-interpolation'
@@ -54,11 +54,11 @@ NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Shougo/vimproc', { 'build': { 'mac': 'make -f make_mac.mak' } }
+NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim'
-NeoBundle 'skalnik/vim-vroom', { 'depends': 'tpope/vim-dispatch' }
+NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
 NeoBundle 'slim-template/vim-slim'
-NeoBundle 'svermeulen/vim-easyclip', 'develop', { 'depends': 'tpope/vim-repeat' }
+NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
 NeoBundle 'taiansu/nerdtree-ag'
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -253,7 +253,7 @@ let g:nerdtree_tabs_smart_startup_focus = 2
 let g:AutoPairsShortcutToggle = ''
 
 " Leave "m" for vim-easyclip
-let g:SignatureMap = { 'Leader': 'gm' }
+let g:SignatureMap = {'Leader': 'gm'}
 
 let g:table_mode_disable_mappings = 1
 
@@ -261,10 +261,10 @@ let g:targets_pairs = '()b {}B [] <>a'
 
 let g:projectionist_heuristics = {
   \ "features/*": {
-  \   "features": { "type": "feature" },
-  \   "features/*.feature": { "type": "feature" },
-  \   "features/step_definitions": { "type": "step" },
-  \   "features/step_definitions/*_steps.rb": { "type": "step" }
+  \   "features": {"type": "feature"},
+  \   "features/*.feature": {"type": "feature"},
+  \   "features/step_definitions": {"type": "step"},
+  \   "features/step_definitions/*_steps.rb": {"type": "step"}
   \ },
   \ "lib/|spec/*": {
   \   "lib/*.rb": {
