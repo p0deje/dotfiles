@@ -78,7 +78,6 @@ NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' }
 
 call neobundle#end()
@@ -181,8 +180,6 @@ highlight SignColumn guibg=#002b36
 highlight FoldColumn guibg=#002b36
 highlight LineNr guibg=#002b36
 highlight VertSplit guifg=#073642 guibg=#073642
-
-let g:indentLine_char = '│'
 
 let g:agprg = 'ag --smart-case --column'
 
