@@ -11,7 +11,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -79,6 +79,8 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'xolox/vim-session', { 'depends': 'xolox/vim-misc' }
+
+call neobundle#end()
 
 syntax enable       " required!: syntax highlighting
 filetype indent on  " required!: filetype-specific indenting
