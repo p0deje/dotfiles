@@ -61,7 +61,7 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
 NeoBundle 'taiansu/nerdtree-ag'
 NeoBundle 't9md/vim-choosewin'
-NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tommcdo/vim-fugitive-blame-ext'
 NeoBundle 'tpope/vim-abolish'
@@ -286,9 +286,11 @@ let g:EasyClipDoSystemSync = 0
 let g:neocomplete#enable_at_startup = 1
 
 " Enable/disable completion when multiple cursors are used
+
 function! Multiple_cursors_before()
   exe 'NeoCompleteLock'
 endfunction
+
 function! Multiple_cursors_after()
   exe 'NeoCompleteUnlock'
 endfunction
