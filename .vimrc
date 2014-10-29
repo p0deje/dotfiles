@@ -28,7 +28,6 @@ NeoBundle 'dag/vim-fish'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'gcmt/tube.vim'
 NeoBundle 'henrik/vim-qargs'
-NeoBundle 'honza/vim-snippets'
 NeoBundle 'JazzCore/ctrlp-cmatcher'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'junegunn/vim-easy-align'
@@ -52,8 +51,8 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet.vim', {'depends': 'Shougo/neosnippet-snippets'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
@@ -385,6 +384,11 @@ nnoremap <silent> ]oq :cclose<Cr>
 
 " Complete with <Tab>
 imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+
+" Expand snippets
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
