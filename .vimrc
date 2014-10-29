@@ -53,6 +53,7 @@ NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
@@ -282,6 +283,16 @@ let g:gundo_right = 1
 let g:EasyClipAutoFormat = 1
 let g:EasyClipDoSystemSync = 0
 
+let g:neocomplete#enable_at_startup = 1
+
+" Enable/disable completion when multiple cursors are used
+function! Multiple_cursors_before()
+  exe 'NeoCompleteLock'
+endfunction
+function! Multiple_cursors_after()
+  exe 'NeoCompleteUnlock'
+endfunction
+
 
 " Mappings {{{1
 " -------------
@@ -370,7 +381,8 @@ nnoremap gut :GundoToggle<Cr>
 nnoremap <silent> [oq :copen<Cr>
 nnoremap <silent> ]oq :cclose<Cr>
 
-command! W w
+" Complete with <Tab>
+imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Ag motions
 " Stolen from http://vimbits.com/bits/153 and slightly modified
