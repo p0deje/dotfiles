@@ -470,3 +470,8 @@ augroup END
 " -------------
 
 command! PrettyPrintJson :%!python -m json.tool
+
+command! W w
+command! Q q
+command! WQ wq
+command! Wq wq
