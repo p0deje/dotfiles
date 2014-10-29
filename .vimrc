@@ -416,6 +416,7 @@ augroup Filetypes
   autocmd BufRead,BufNewFile *.load set filetype=fish
   autocmd BufRead,BufNewFile *.ejs set filetype=html
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+  autocmd BufNewFile,BufReadPost *.jelly set filetype=xml
 
   autocmd FileType puppet set commentstring=#\ %s
 
