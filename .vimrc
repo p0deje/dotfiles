@@ -424,6 +424,9 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufReadPost *.jelly set filetype=xml
 
+  " hit K to get help on current word
+  autocmd FileType vim setlocal keywordprg=:help
+
   autocmd FileType puppet set commentstring=#\ %s
 
   " Autoclose pipe in Ruby
@@ -481,4 +484,3 @@ command! W w
 command! Q q
 command! WQ wq
 command! Wq wq
-command! wQ wq
