@@ -1,0 +1,5 @@
+--tag-relative
+--fields=+l
+--exclude=.git
+--exclude=coverage
+--exclude=tmp
