@@ -207,10 +207,6 @@ let g:startify_list_order = [
   \ 'dir',
 \ ]
 
-let g:yankring_history_dir = '~/.vim/history'
-let g:yankring_replace_n_pkey = '<M-p>'
-let g:yankring_replace_n_nkey = '<M-n>'
-
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_java_checkers = []
 let g:syntastic_always_populate_loc_list = 1
@@ -233,17 +229,17 @@ let g:dispatch_compilers = {
   \ 'clear': '',
 \ }
 
-let g:gist_clip_command    = 'pbcopy'
+let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
-let g:gist_show_privates   = 1
-let g:gist_post_private    = 1
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
 
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-let g:NERDTreeWinPos   = 'left'
-let g:NERDTreeWinSize  = 40
-let NERDTreeIgnore     = ['^tags$', '\.DS_Store$']
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 40
+let NERDTreeIgnore = ['^tags$', '\.DS_Store$']
 let NERDTreeShowHidden = 1
 let g:nerdtree_tabs_smart_startup_focus = 2
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -375,10 +371,7 @@ nmap <silent> gr <plug>SubstituteOverMotionMap
 nmap grr <plug>SubstituteLine
 xmap gr <plug>XEasyClipPaste
 
-imap <Bar> <Plug>(table-mode-tableize)
-
-nnoremap gut :GundoToggle<Cr>
-
+" unimpaired-like mappings for quickfix
 nnoremap <silent> [oq :copen<Cr>
 nnoremap <silent> ]oq :cclose<Cr>
 
