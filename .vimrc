@@ -453,6 +453,7 @@ augroup Filetypes
   autocmd FileType startify
     \ setlocal buftype= |
     \ setlocal cursorline |
+    \ setlocal nospell |
 augroup END
 
 augroup Misc
