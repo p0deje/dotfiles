@@ -439,10 +439,10 @@ augroup Filetypes
     \ vnoremap <buffer> ix :<C-U>silent! normal! ^f^lvt$h<Cr> |
     \ omap <buffer> ix :normal Vix<Cr>
 
+  " Cucumber tables sugar
   autocmd FileType cucumber :TableModeEnable
-
-  autocmd FileType cucumber
-    \ command! AlignBars :normal viiE*\|
+  autocmd FileType cucumber command! AlignBars :normal viiE*\|
+  autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
 
   autocmd FileType cucumber
     \ nnoremap <buffer> <Leader>gi ^ciwGiven<Esc> |
