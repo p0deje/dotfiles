@@ -430,7 +430,6 @@ augroup Filetypes
     \ endfor
 
   " Surround improvements
-  autocmd FileType ruby,haml let b:surround_{char2nr('#')} = "#{\r}"
   autocmd FileType ruby let b:surround_{char2nr('d')} = "do \r end"
 
   " inside regexp text object
