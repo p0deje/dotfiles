@@ -216,10 +216,10 @@ let g:EasyMotion_use_smartsign_us = 1
 
 let g:signify_vcs_list = ['git']
 let g:signify_sign_change = '~'
-let g:signify_update_on_focusgained = 1
 highlight SignifySignAdd guibg=#002b36 guifg=#579900
 highlight SignifySignChange guibg=#002b36 guifg=#b58900
 highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
+autocmd FocusGained,FocusLost * call sy#util#refresh_windows()
 
 let g:vroom_use_bundle_exec = 1
 let g:vroom_use_dispatch = 1
