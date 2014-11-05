@@ -306,20 +306,43 @@ nnoremap <silent> <Leader>p :YRShow<Cr>
 
 nmap <Space> <Plug>(choosewin)
 
-nnoremap <silent> <Leader>on :NERDTreeTabsToggle<Cr><C-w>=
-nnoremap <silent> <Leader>of :NERDTreeFind<Cr><C-w>=
-
 " Disable terrible Ex mode
 nnoremap Q <nop>
 
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-nnoremap <M-H> <C-w>H
-nnoremap <M-J> <C-w>J
-nnoremap <M-K> <C-w>K
-nnoremap <M-L> <C-w>L
+" window navigation
+nnoremap <M-h> :wincmd h<Cr>
+nnoremap <M-j> :wincmd j<Cr>
+nnoremap <M-k> :wincmd k<Cr>
+nnoremap <M-l> :wincmd l<Cr>
+
+function! s:DoNERDActionAndResize(action) abort
+  if a:action ==# 'Find'
+    execute 'NERDTreeTabsOpen'
+    execute 'NERDTreeTabsFind'
+  else
+    execute 'NERDTreeTabs' . a:action
+  endif
+  execute 'wincmd ='
+endfunction
+nnoremap <silent> <Leader>on :call <SID>DoNERDActionAndResize('Toggle')<Cr>
+nnoremap <silent> <Leader>of :call <SID>DoNERDActionAndResize('Find')<Cr>
+
+function! s:MoveWindowAndResize(direction) abort
+  let l:nerd_open = nerdtree#isTreeOpen()
+  if l:nerd_open
+    call s:DoNERDActionAndResize('Close')
+  endif
+  execute 'wincmd ' . a:direction
+  if l:nerd_open
+    call s:DoNERDActionAndResize('Open')
+    execute 'wincmd p'
+  endif
+endfunction
+nnoremap <silent> <M-H> :call <SID>MoveWindowAndResize('H')<Cr>
+nnoremap <silent> <M-J> :call <SID>MoveWindowAndResize('J')<Cr>
+nnoremap <silent> <M-K> :call <SID>MoveWindowAndResize('K')<Cr>
+nnoremap <silent> <M-L> :call <SID>MoveWindowAndResize('L')<Cr>
+nnoremap <silent> <M-T> :wincmd T<Cr>
 
 nnoremap <M-w> :tabclose<Cr>
 
