@@ -309,11 +309,10 @@ nmap <Space> <Plug>(choosewin)
 " Disable terrible Ex mode
 nnoremap Q <nop>
 
-" window navigation
-nnoremap <M-h> :wincmd h<Cr>
-nnoremap <M-j> :wincmd j<Cr>
-nnoremap <M-k> :wincmd k<Cr>
-nnoremap <M-l> :wincmd l<Cr>
+nnoremap <silent> <M-h> :wincmd h<Cr>
+nnoremap <silent> <M-j> :wincmd j<Cr>
+nnoremap <silent> <M-k> :wincmd k<Cr>
+nnoremap <silent> <M-l> :wincmd l<Cr>
 
 function! s:DoNERDActionAndResize(action) abort
   if a:action ==# 'Find'
