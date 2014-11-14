@@ -320,7 +320,10 @@ nnoremap <silent> <M-l> :wincmd l<Cr>
 
 function! s:DoNERDActionAndResize(action) abort
   if a:action ==# 'Find'
-    execute 'NERDTreeTabsOpen'
+    if !nerdtree#isTreeOpen()
+      execute 'NERDTreeTabsOpen'
+      execute 'wincmd p'
+    endif
     execute 'NERDTreeTabsFind'
   else
     execute 'NERDTreeTabs' . a:action
