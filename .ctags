@@ -1,5 +1,7 @@
---tag-relative
+--recurse=yes
+--tag-relative=yes
 --fields=+l
 --exclude=.git
 --exclude=coverage
+--exclude=public
 --exclude=tmp
