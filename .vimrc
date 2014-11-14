@@ -401,7 +401,7 @@ nmap grr <plug>SubstituteLine
 xmap gr <plug>XEasyClipPaste
 
 " unimpaired-like mappings for quickfix
-nnoremap <silent> [oq :copen<Cr>
+nmap <silent> [oq :cwindow<Cr><M-J>
 nnoremap <silent> ]oq :cclose<Cr>
 
 " Complete with <Tab>
