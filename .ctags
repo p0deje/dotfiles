@@ -1,7 +1,7 @@
 --recurse=yes
 --tag-relative=yes
---fields=+l
 --exclude=.git
 --exclude=coverage
+--exclude=node_modules
 --exclude=public
 --exclude=tmp
