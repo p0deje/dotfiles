@@ -3,5 +3,5 @@
 set -e
 PATH="/usr/local/bin:$PATH"
 trap "rm -f .git/tags.$$" EXIT
-ctags -Rf.git/tags.$$
+ctags -f.git/tags.$$
 mv .git/tags.$$ .git/tags
