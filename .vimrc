@@ -18,32 +18,29 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundleLazy 'AndrewRadev/switch.vim', {'autoload': {'commands': 'Switch'}}
+NeoBundleLazy 'AndrewRadev/linediff.vim', {'autoload': {'commands': 'Linediff'}}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bogado/file-line'
 NeoBundle 'DeleteTrailingWhitespace'
-NeoBundle 'p0deje/vim-table-mode'
+NeoBundleLazy 'p0deje/vim-table-mode', {'autoload': {'filetypes': 'cucumber'}}
 NeoBundle 'dag/vim-fish'
-NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'gcmt/tube.vim'
-NeoBundle 'henrik/vim-qargs'
-NeoBundle 'JazzCore/ctrlp-cmatcher'
+NeoBundleLazy 'henrik/vim-qargs', {'autoload': {'filetypes': 'qf'}}
+NeoBundleLazy 'JazzCore/ctrlp-cmatcher', {'autoload': {'commands': 'CtrlPMixed'}}
 NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'junegunn/vim-easy-align'
+NeoBundleLazy 'junegunn/vim-easy-align', {'autoload': {'mappings': '<Plug>(EasyAlign)'}}
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'markcornick/vim-vagrant'
-NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+NeoBundleLazy 'mattn/gist-vim', {'autoload': {'commands': 'Gist'}, 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user'}
-NeoBundle 'noprompt/vim-yardoc'
+" NeoBundle 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user'}
+NeoBundleLazy 'noprompt/vim-yardoc', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'p0deje/vim-numbertoggle'
-NeoBundle 'p0deje/vim-ruby-interpolation'
+NeoBundleLazy 'p0deje/vim-ruby-interpolation', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'qstrahl/vim-dentures'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'rking/ag.vim'
@@ -51,10 +48,10 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet.vim', {'depends': 'Shougo/neosnippet-snippets'}
+NeoBundleLazy 'Shougo/neocomplete.vim', {'autoload': {'insert': 1}}
+NeoBundleLazy 'Shougo/neosnippet.vim', {'autoload': {'insert': 1}, 'depends': 'Shougo/neosnippet-snippets'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
-NeoBundle 'sjl/gundo.vim'
+NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
 NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
@@ -62,12 +59,12 @@ NeoBundle 'taiansu/nerdtree-ag'
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'tommcdo/vim-fugitive-blame-ext'
+NeoBundleLazy 'tommcdo/vim-fugitive-blame-ext', {'autoload': {'filetypes': 'fugitiveblame'}}
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-endwise'
+NeoBundleLazy 'tpope/vim-endwise', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-rails'
