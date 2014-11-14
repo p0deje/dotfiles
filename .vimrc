@@ -300,7 +300,7 @@ endfunction
 
 map <Leader> <Plug>(easymotion-prefix)
 
-nnoremap <Leader>ag :Ag!<Space>
+nnoremap gag :Ag!<Space>
 
 " Use very magic
 nnoremap / /\v
@@ -409,26 +409,20 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" Ag motions
+" Ag operator
 " Stolen from http://vimbits.com/bits/153 and slightly modified
-
-function! s:CopyMotionForType(type)
+function! s:AgMotion(type) abort
+  let reg_save = @@
   if a:type ==# 'v'
     silent execute "normal! `<" . a:type . "`>y"
   elseif a:type ==# 'char'
     silent execute "normal! `[v`]y"
   endif
-endfunction
-
-function! s:AgMotion(type) abort
-  let reg_save = @@
-  call s:CopyMotionForType(a:type)
   execute "normal! :Ag! " . shellescape(@@) . "\<Cr>"
   let @@ = reg_save
 endfunction
-
-nnoremap <silent> <Leader>a :set opfunc=<SID>AgMotion<Cr>g@
-xnoremap <silent> <Leader>a :<C-U>call <SID>AgMotion(visualmode())<Cr>
+nnoremap <silent> ga :set opfunc=<SID>AgMotion<Cr>g@
+xnoremap <silent> ga :<C-U>call <SID>AgMotion(visualmode())<Cr>
 
 
 " Autocommands {{{1
