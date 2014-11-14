@@ -112,9 +112,7 @@ set history=50           " history size
 set foldcolumn=1         " increase vsplits margin
 set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
-set wildmenu             " better completion for cmd mode
 
-set wildignorecase
 set ignorecase
 set smartcase
 
@@ -147,6 +145,11 @@ set sessionoptions+=winpos
 
 " % support
 runtime macros/matchit.vim
+
+" better completion for cmd mode
+set wildmenu
+set wildignorecase
+set wildmode=full
 
 if has("gui_running")
   " enable Option meta key
@@ -183,6 +186,7 @@ highlight SignColumn guibg=#002b36
 highlight FoldColumn guibg=#002b36
 highlight LineNr guibg=#002b36
 highlight VertSplit guifg=#073642 guibg=#073642
+highlight WildMenu guifg=Orange
 
 let g:agprg = 'ag --smart-case --column'
 
