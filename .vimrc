@@ -23,8 +23,8 @@ NeoBundleLazy 'AndrewRadev/linediff.vim', {'autoload': {'commands': 'Linediff'}}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bogado/file-line'
 NeoBundle 'DeleteTrailingWhitespace'
-NeoBundleLazy 'p0deje/vim-table-mode', {'autoload': {'filetypes': 'cucumber'}}
-NeoBundle 'dag/vim-fish'
+NeoBundleLazy 'dhruvasagar/vim-table-mode', {'autoload': {'filetypes': 'cucumber'}}
+NeoBundleLazy 'dag/vim-fish', {'autoload': {'filetypes': '*.fish'}}
 NeoBundleLazy 'henrik/vim-qargs', {'autoload': {'filetypes': 'qf'}}
 NeoBundle 'JazzCore/ctrlp-cmatcher'
 NeoBundle 'jistr/vim-nerdtree-tabs'
@@ -42,10 +42,10 @@ NeoBundleLazy 'noprompt/vim-yardoc', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundleLazy 'p0deje/vim-ruby-interpolation', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'qstrahl/vim-dentures'
-NeoBundleLazy 'jiangmiao/auto-pairs', {'autoload': {'insert': 1}}
-NeoBundleLazy 'rking/ag.vim', {'autoload': {'commands': ['Ag!']}}
-NeoBundle 'rodjek/vim-puppet'
-NeoBundleLazy 'schickling/vim-bufonly', {'autoload': {'commands': 'BufOnly'}}
+NeoBundleLazy 'jiangmiao/auto-pairs', {'autoload': {'insert': 1, 'filetypes': 'ruby'}}
+NeoBundle 'rking/ag.vim'
+NeoBundleLazy 'rodjek/vim-puppet', {'autoload': {'filetypes': '*.pp'}}
+NeoBundleLazy 'schickling/vim-bufonly', {'autoload': {'commands': 'Bonly'}}
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'Shougo/neocomplete.vim', {'autoload': {'insert': 1}}
@@ -53,23 +53,24 @@ NeoBundleLazy 'Shougo/neosnippet.vim', {'autoload': {'insert': 1}, 'depends': 'S
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
 NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
-NeoBundle 'slim-template/vim-slim'
+NeoBundleLazy 'slim-template/vim-slim', {'autoload': {'filetypes': '*.slim'}}
 NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
 NeoBundleLazy 'taiansu/nerdtree-ag', {'autoload': {'filetypes': 'nerdtree'}}
-NeoBundleLazy 't9md/vim-choosewin', {'autoload': {'mappings': '<Space>'}}
-NeoBundleLazy 'kristijanhusak/vim-multiple-cursors', {'autoload': {'mappings': '<C-n>'}}
+NeoBundleLazy 't9md/vim-choosewin', {'autoload': {'mappings': '<Plug>'}}
+NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundleLazy 'tommcdo/vim-fugitive-blame-ext', {'autoload': {'filetypes': 'fugitiveblame'}}
 NeoBundleLazy 'tpope/vim-abolish', {'autoload': {'commands': ['Abolish', '%S']}}
 NeoBundle 'tpope/vim-bundler'
 NeoBundleLazy 'tpope/vim-commentary', {'autoload': {'mappings': 'gc'}}
-NeoBundle 'tpope/vim-cucumber'
+NeoBundleLazy 'tpope/vim-cucumber', {'autoload': {'filetypes': '*.feature'}}
 NeoBundleLazy 'tpope/vim-endwise', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
-NeoBundleLazy 'tpope/vim-surround', {'autoload': {'mappings': ['cs', 'ds', 'ys', 'yS']}}
+NeoBundleLazy 'tpope/vim-surround', {'autoload': {'mappings': [['n', 'cs'], ['n', 'ds'], ['n', 'ys'], ['n', 'yS'], ['v', 'S']]}}
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
@@ -120,7 +121,6 @@ set splitright
 " Search tweaks
 set hlsearch
 set incsearch
-highlight Search guibg=#222222 guifg=Orange
 
 " Let's not be retarded
 let mapleader = ','
@@ -138,7 +138,6 @@ set regexpengine=1
 set sessionoptions-=blank
 set sessionoptions-=help
 set sessionoptions+=resize
-set sessionoptions+=winpos
 
 " % support
 runtime macros/matchit.vim
@@ -148,164 +147,305 @@ set wildmenu
 set wildignorecase
 set wildmode=full
 
-if has("gui_running")
-  " enable Option meta key
+if has("gui_macvim")
   set macmeta
-
   set clipboard=unnamed
-
-  " remove MacVim scrollbars
   set guioptions-=R
   set guioptions-=r
   set guioptions-=L
-
-  " always show tab bar
   set showtabline=2
-
-  " autosave file on focus lost
-  autocmd FocusLost * silent! wa
-
-  " Make MacVim nicer
   set transparency=2
+  autocmd FocusLost * silent! wa
 endif
 
 
 " Plugin options {{{1
 " -------------------
 
-set background=dark
-let g:solarized_contrast = "high"
-let g:solarized_hitrail = 1
-let g:solarized_visibility = "low"
-colorscheme solarized
+if neobundle#tap('vim-colors-solarized')
+  let g:solarized_contrast = "high"
+  let g:solarized_hitrail = 1
+  let g:solarized_visibility = "low"
 
-highlight SignColumn guibg=#002b36
-highlight FoldColumn guibg=#002b36
-highlight LineNr guibg=#002b36
-highlight VertSplit guifg=#073642 guibg=#073642
-highlight WildMenu guifg=Orange
+  set background=dark
+  colorscheme solarized
 
-let g:agprg = 'ag --smart-case --column'
+  highlight FoldColumn guibg=#002b36
+  highlight LineNr guibg=#002b36
+  highlight Search guibg=#222222 guifg=Orange
+  highlight SignColumn guibg=#002b36
+  highlight VertSplit guifg=#073642 guibg=#073642
+  highlight WildMenu guifg=Orange
 
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
-let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
-let g:ctrlp_map = '<Tab>'
-let g:ctrlp_cmd = 'CtrlPMixed'
+  call neobundle#untap()
+endif
 
-let g:airline_left_sep  = ''
-let g:airline_right_sep = '◀'
+if neobundle#tap('ag.vim')
+  let g:agprg = 'ag --smart-case --column'
 
-let g:startify_session_dir = '~/.vim/sessions'
-let g:startify_session_persistence = 1
-let g:startify_relative_path = 1
-let g:startify_list_order = [
-  \ ['   Sessions:'],
-  \ 'sessions',
-  \ ['   Recent files:'],
-  \ 'files',
-  \ ['   Recent files in current directory:'],
-  \ 'dir',
-\ ]
+  nnoremap gag :Ag!<Space>
 
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_java_checkers = []
-let g:syntastic_always_populate_loc_list = 1
+  " Ag operator
+  " Taken from http://vimbits.com/bits/153 and slightly modified
+  function! s:AgMotion(type) abort
+    let reg_save = @@
+    if a:type ==# 'v'
+      silent execute "normal! `<" . a:type . "`>y"
+    elseif a:type ==# 'char'
+      silent execute "normal! `[v`]y"
+    endif
+    execute "normal! :Ag! " . shellescape(@@) . "\<Cr>"
+    let @@ = reg_save
+  endfunction
+  nnoremap <silent> ga :set opfunc=<SID>AgMotion<Cr>g@
+  xnoremap <silent> ga :<C-U>call <SID>AgMotion(visualmode())<Cr>
 
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
+  call neobundle#untap()
+endif
 
-let g:signify_vcs_list = ['git']
-let g:signify_sign_change = '~'
-highlight SignifySignAdd guibg=#002b36 guifg=#579900
-highlight SignifySignChange guibg=#002b36 guifg=#b58900
-highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
-autocmd FocusGained,FocusLost * call sy#util#refresh_windows()
+if neobundle#tap('ctrlp.vim') && neobundle#tap('ctrlp-cmatcher')
+  let g:ctrlp_switch_buffer = 'Et'
+  let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
+  let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
+  let g:ctrlp_map = '<Tab>'
+  let g:ctrlp_cmd = 'CtrlPMixed'
 
-let g:vroom_use_bundle_exec = 1
-let g:vroom_use_dispatch = 1
-let g:vroom_cucumber_path = 'cucumber'
-let g:dispatch_compilers = {
-  \ 'bundle exec': '',
-  \ 'clear': '',
-\ }
+  call neobundle#untap()
+endif
 
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+if neobundle#tap('vim-airline')
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_powerline_fonts = 1
 
-let g:DeleteTrailingWhitespace = 1
-let g:DeleteTrailingWhitespace_Action = 'delete'
+  call neobundle#untap()
+endif
 
-let g:NERDTreeWinPos = 'left'
-let g:NERDTreeWinSize = 40
-let NERDTreeIgnore = ['^tags$', '\.DS_Store$']
-let NERDTreeShowHidden = 1
-let g:nerdtree_tabs_smart_startup_focus = 2
-let g:nerdtree_tabs_open_on_gui_startup = 0
+if neobundle#tap('vim-startify')
+  let g:startify_session_dir = '~/.vim/sessions'
+  let g:startify_session_persistence = 1
+  let g:startify_relative_path = 1
+  let g:startify_list_order = [
+    \ ['   Sessions:'],
+    \ 'sessions',
+    \ ['   Recent files:'],
+    \ 'files',
+    \ ['   Recent files in current directory:'],
+    \ 'dir',
+  \ ]
 
-" Clear <M-p> mapping
-let g:AutoPairsShortcutToggle = ''
+  autocmd FileType startify
+        \ setlocal buftype= |
+        \ setlocal cursorline |
+        \ setlocal nospell |
 
-" Leave "m" for vim-easyclip
-let g:SignatureMap = {'Leader': 'gm'}
+  call neobundle#untap()
+endif
 
-let g:table_mode_disable_mappings = 1
+if neobundle#tap('syntastic')
+  let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+  let g:syntastic_java_checkers = []
+  let g:syntastic_always_populate_loc_list = 1
 
-let g:targets_pairs = '()b {}B [] <>a'
+  call neobundle#untap()
+endif
 
-let g:projectionist_heuristics = {
-  \ "features/*": {
-  \   "features": {"type": "feature"},
-  \   "features/*.feature": {"type": "feature"},
-  \   "features/step_definitions": {"type": "step"},
-  \   "features/step_definitions/*_steps.rb": {"type": "step"}
-  \ },
-  \ "lib/|spec/*": {
-  \   "lib/*.rb": {
-  \     "type": "lib",
-  \     "alternate": "spec/{}_spec.rb"
-  \   },
-  \   "spec/*_spec.rb": {
-  \     "type": "spec",
-  \     "alternate": "lib/{}.rb"
-  \   }
+if neobundle#tap('vim-easymotion')
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_use_smartsign_us = 1
+
+  map <Leader> <Plug>(easymotion-prefix)
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-signify')
+  let g:signify_vcs_list = ['git']
+  let g:signify_sign_change = '~'
+
+  highlight SignifySignAdd guibg=#002b36 guifg=#579900
+  highlight SignifySignChange guibg=#002b36 guifg=#b58900
+  highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
+
+  autocmd FocusGained,FocusLost * call sy#util#refresh_windows()
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-vroom') && neobundle#tap('vim-dispatch')
+  let g:vroom_use_bundle_exec = 1
+  let g:vroom_use_dispatch = 1
+  let g:vroom_cucumber_path = 'cucumber'
+
+  let g:dispatch_compilers = {
+    \ 'bundle exec': '',
+    \ 'clear': '',
   \ }
-\ }
 
-let g:gundo_right = 1
+  call neobundle#untap()
+endif
 
-let g:EasyClipAutoFormat = 1
-let g:EasyClipDoSystemSync = 0
+if neobundle#tap('gist-vim')
+  let g:gist_clip_command = 'pbcopy'
+  let g:gist_detect_filetype = 1
+  let g:gist_show_privates = 1
+  let g:gist_post_private = 1
 
-let g:neocomplete#enable_at_startup = 1
+  call neobundle#untap()
+endif
 
-" Enable/disable completion when multiple cursors are used
+if neobundle#tap('DeleteTrailingWhitespace')
+  let g:DeleteTrailingWhitespace = 1
+  let g:DeleteTrailingWhitespace_Action = 'delete'
 
-function! Multiple_cursors_before()
-  exe 'NeoCompleteLock'
-endfunction
+  call neobundle#untap()
+endif
 
-function! Multiple_cursors_after()
-  exe 'NeoCompleteUnlock'
-endfunction
+if neobundle#tap('nerdtree') && neobundle#tap('vim-nerdtree-tabs')
+  let g:NERDTreeWinSize = 40
+  let NERDTreeIgnore = ['^tags$', '\.DS_Store$']
+  let NERDTreeShowHidden = 1
+
+  let g:nerdtree_tabs_smart_startup_focus = 2
+  let g:nerdtree_tabs_open_on_gui_startup = 0
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('auto-pairs')
+  " Clear <M-p> mapping
+  let g:AutoPairsShortcutToggle = ''
+
+  " Autoclose pipe in Ruby
+  autocmd FileType ruby
+        \ let b:AutoPairs = {'|': '|'} |
+        \ for key in keys(g:AutoPairs) |
+        \   let b:AutoPairs[key] = g:AutoPairs[key] |
+        \ endfor
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-signature')
+  " Leave "m" for vim-easyclip
+  let g:SignatureMap = {'Leader': 'gm'}
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-table-mode')
+  let g:table_mode_disable_mappings = 1
+
+  autocmd FileType cucumber :TableModeEnable
+  autocmd FileType cucumber command! AlignBars :normal viiE*\|
+  autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-projectionist')
+  let g:projectionist_heuristics = {
+    \ "features/*": {
+    \   "features": {"type": "feature"},
+    \   "features/*.feature": {"type": "feature"},
+    \   "features/step_definitions": {"type": "step"},
+    \   "features/step_definitions/*_steps.rb": {"type": "step"}
+    \ }
+  \ }
+  call neobundle#untap()
+endif
+
+if neobundle#tap('gundo.vim')
+  let g:gundo_right = 1
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-easyclip')
+  let g:EasyClipAutoFormat = 1
+  let g:EasyClipDoSystemSync = 0
+
+  nmap M m$
+
+  nmap <M-p> <plug>EasyClipSwapPasteForward
+  nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
+
+  " Substitute operator
+  nmap <silent> gr <plug>SubstituteOverMotionMap
+  nmap grr <plug>SubstituteLine
+  xmap gr <plug>XEasyClipPaste
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('neocomplete.vim')
+  let g:neocomplete#enable_at_startup = 1
+
+  " Complete with <Tab>
+  imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-multiple-cursors')
+  " Enable/disable completion when multiple cursors are used
+  function! Multiple_cursors_before()
+    if exists('g:loaded_neocomplete')
+      exe 'NeoCompleteLock'
+    endif
+  endfunction
+  function! Multiple_cursors_after()
+    if exists('g:loaded_neocomplete')
+      silent exe 'NeoCompleteUnlock'
+    endif
+  endfunction
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-choosewin')
+  nmap <Space> <Plug>(choosewin)
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-easy-align')
+  vmap E <Plug>(EasyAlign)
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-fugitive')
+  nnoremap gst :Gstatus<Cr>
+  call neobundle#untap()
+endif
+
+if neobundle#tap('neosnippet.vim')
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-unimpaired')
+  " Bubble lines
+  nmap <C-M-k> [e
+  nmap <C-M-j> ]e
+  vmap <C-M-k> [egv
+  vmap <C-M-j> ]egv
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-surround')
+  autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
+  call neobundle#untap()
+endif
 
 
 " Mappings {{{1
 " -------------
 
-map <Leader> <Plug>(easymotion-prefix)
-
-nnoremap gag :Ag!<Space>
-
 " Use very magic
 nnoremap / /\v
 cnoremap %s/ %s/\v
-
-nnoremap <silent> <Leader>p :YRShow<Cr>
-
-nmap <Space> <Plug>(choosewin)
 
 " Disable terrible Ex mode
 nnoremap Q <nop>
@@ -354,16 +494,8 @@ nnoremap <Bar> :vsplit<Cr>
 " Visually select the text that was last edited/pasted
 nnoremap gV `[v`]
 
-" Bubble lines
-nmap <C-M-k> [e
-nmap <C-M-j> ]e
-vmap <C-M-k> [egv
-vmap <C-M-j> ]egv
-
 " Clear search
 nnoremap <silent> <C-L> :let @/ = ""<Cr>
-
-vmap E <Plug>(EasyAlign)
 
 nnoremap Y y$
 
@@ -377,8 +509,6 @@ nnoremap <M-S-Right> <C-W>>
 nnoremap <M-S-Up> <C-W>+
 nnoremap <M-S-Down> <C-W>-
 
-nnoremap gst :Gstatus<Cr>
-
 vnoremap * y/<C-r>"<Cr>
 
 " don't move on * and #
@@ -389,40 +519,9 @@ nnoremap # #<C-O>
 nnoremap n nzvzz
 nnoremap N Nzvzz
 
-nmap M m$
-nmap <M-p> <plug>EasyClipSwapPasteForward
-nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
-" Substitute operator
-nmap <silent> gr <plug>SubstituteOverMotionMap
-nmap grr <plug>SubstituteLine
-xmap gr <plug>XEasyClipPaste
-
 " unimpaired-like mappings for quickfix
 nmap <silent> [oq :cwindow<Cr><M-J>
 nnoremap <silent> ]oq :cclose<Cr>
-
-" Complete with <Tab>
-imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-
-" Expand snippets
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" Ag operator
-" Stolen from http://vimbits.com/bits/153 and slightly modified
-function! s:AgMotion(type) abort
-  let reg_save = @@
-  if a:type ==# 'v'
-    silent execute "normal! `<" . a:type . "`>y"
-  elseif a:type ==# 'char'
-    silent execute "normal! `[v`]y"
-  endif
-  execute "normal! :Ag! " . shellescape(@@) . "\<Cr>"
-  let @@ = reg_save
-endfunction
-nnoremap <silent> ga :set opfunc=<SID>AgMotion<Cr>g@
-xnoremap <silent> ga :<C-U>call <SID>AgMotion(visualmode())<Cr>
 
 
 " Autocommands {{{1
@@ -442,37 +541,17 @@ augroup Filetypes
 
   autocmd FileType puppet set commentstring=#\ %s
 
-  " Autoclose pipe in Ruby
-  autocmd FileType ruby
-    \ let b:AutoPairs = {'|': '|'} |
-    \ for key in keys(g:AutoPairs) |
-    \   let b:AutoPairs[key] = g:AutoPairs[key] |
-    \ endfor
-
-  " Surround improvements
-  autocmd FileType ruby let b:surround_{char2nr('d')} = "do \r end"
-
   " inside regexp text object
   " useful for working with Cucumber step definitions
   autocmd FileType ruby
     \ vnoremap <buffer> ix :<C-U>silent! normal! ^f^lvt$h<Cr> |
     \ omap <buffer> ix :normal Vix<Cr>
 
-  " Cucumber tables sugar
-  autocmd FileType cucumber :TableModeEnable
-  autocmd FileType cucumber command! AlignBars :normal viiE*\|
-  autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
-
   autocmd FileType cucumber
     \ nnoremap <buffer> <Leader>gi ^ciwGiven<Esc> |
     \ nnoremap <buffer> <Leader>wh ^ciwWhen<Esc> |
     \ nnoremap <buffer> <Leader>th ^ciwThen<Esc> |
     \ nnoremap <buffer> <Leader>an ^ciwAnd<Esc> |
-
-  autocmd FileType startify
-    \ setlocal buftype= |
-    \ setlocal cursorline |
-    \ setlocal nospell |
 augroup END
 
 augroup Misc
