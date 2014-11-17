@@ -25,6 +25,7 @@ NeoBundle 'bogado/file-line'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundleLazy 'dhruvasagar/vim-table-mode', {'autoload': {'filetypes': 'cucumber'}}
 NeoBundleLazy 'dag/vim-fish', {'autoload': {'filetypes': '*.fish'}}
+NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundleLazy 'henrik/vim-qargs', {'autoload': {'filetypes': 'qf'}}
 NeoBundle 'JazzCore/ctrlp-cmatcher'
 NeoBundle 'jistr/vim-nerdtree-tabs'
