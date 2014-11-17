@@ -28,6 +28,7 @@ NeoBundleLazy 'dag/vim-fish', {'autoload': {'filetypes': '*.fish'}}
 NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundleLazy 'henrik/vim-qargs', {'autoload': {'filetypes': 'qf'}}
 NeoBundle 'JazzCore/ctrlp-cmatcher'
+NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundleLazy 'junegunn/vim-easy-align', {'autoload': {'mappings': '<Plug>(EasyAlign)'}}
 NeoBundle 'kchmck/vim-coffee-script'
@@ -44,7 +45,6 @@ NeoBundleLazy 'noprompt/vim-yardoc', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundleLazy 'p0deje/vim-ruby-interpolation', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'qstrahl/vim-dentures'
-NeoBundleLazy 'jiangmiao/auto-pairs', {'autoload': {'insert': 1, 'filetypes': 'ruby'}}
 NeoBundle 'rking/ag.vim'
 NeoBundleLazy 'rodjek/vim-puppet', {'autoload': {'filetypes': '*.pp'}}
 NeoBundleLazy 'schickling/vim-bufonly', {'autoload': {'commands': 'Bonly'}}
