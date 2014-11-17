@@ -38,6 +38,7 @@ NeoBundleLazy 'majutsushi/tagbar', {'autoload': {'commands': 'Tagbar'}}
 NeoBundleLazy 'mattn/gist-vim', {'autoload': {'commands': 'Gist'}, 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {'autoload': {'filetypes': 'ruby'}, 'depends': 'kana/vim-textobj-user'}
 NeoBundleLazy 'noprompt/vim-yardoc', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'p0deje/vim-numbertoggle'
@@ -437,6 +438,15 @@ endif
 
 if neobundle#tap('vim-surround')
   autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-indent-guides')
+  let g:indent_guides_default_mapping = 0
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_start_level = 2
+
   call neobundle#untap()
 endif
 
