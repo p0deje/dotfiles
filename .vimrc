@@ -149,7 +149,7 @@ set wildmenu
 set wildignorecase
 set wildmode=full
 
-if has("gui_macvim")
+if has('gui_macvim')
   set macmeta
   set clipboard=unnamed
   set guioptions-=R
@@ -347,8 +347,8 @@ endif
 if neobundle#tap('vim-projectionist')
   let g:projectionist_heuristics = {
     \ "features/*": {
-    \   "features": {"type": "feature"},
     \   "features/*.feature": {"type": "feature"},
+    \   "features/support/env.rb": {"type": "feature"},
     \   "features/step_definitions": {"type": "step"},
     \   "features/step_definitions/*_steps.rb": {"type": "step"}
     \ }
