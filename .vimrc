@@ -17,62 +17,62 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundleLazy 'AndrewRadev/splitjoin.vim', {'autoload': {'mappings': ['gJ', 'gS']}}
-NeoBundleLazy 'AndrewRadev/switch.vim', {'autoload': {'commands': 'Switch'}}
-NeoBundleLazy 'AndrewRadev/linediff.vim', {'autoload': {'commands': 'Linediff'}}
+NeoBundle 'AndrewRadev/splitjoin.vim', {'lazy': 1, 'mappings': ['gJ', 'gS']}
+NeoBundle 'AndrewRadev/switch.vim', {'lazy': 1, 'commands': 'Switch'}
+NeoBundle 'AndrewRadev/linediff.vim', {'lazy': 1, 'commands': 'Linediff'}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bogado/file-line'
 NeoBundle 'DeleteTrailingWhitespace'
-NeoBundleLazy 'dhruvasagar/vim-table-mode', {'autoload': {'filetypes': 'cucumber'}}
+NeoBundle 'dhruvasagar/vim-table-mode', {'lazy': 1, 'filetypes': 'cucumber'}
 NeoBundle 'dag/vim-fish'
 NeoBundle 'gorkunov/smartpairs.vim'
-NeoBundleLazy 'henrik/vim-qargs', {'autoload': {'filetypes': 'qf'}}
+NeoBundle 'henrik/vim-qargs', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'JazzCore/ctrlp-cmatcher'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundleLazy 'junegunn/vim-easy-align', {'autoload': {'mappings': '<Plug>(EasyAlign)'}}
+NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundleLazy 'majutsushi/tagbar', {'autoload': {'commands': 'Tagbar'}}
-NeoBundleLazy 'mattn/gist-vim', {'autoload': {'commands': 'Gist'}, 'depends': 'mattn/webapi-vim'}
+NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
+NeoBundle 'mattn/gist-vim', {'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {'autoload': {'filetypes': 'ruby'}, 'depends': 'kana/vim-textobj-user'}
-NeoBundleLazy 'noprompt/vim-yardoc', {'autoload': {'filetypes': 'ruby'}}
+NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
+NeoBundle 'noprompt/vim-yardoc', {'lazy': 1, 'filetypes': 'ruby'}
 NeoBundle 'p0deje/vim-numbertoggle'
-NeoBundleLazy 'p0deje/vim-ruby-interpolation', {'autoload': {'filetypes': 'ruby'}}
+NeoBundle 'p0deje/vim-ruby-interpolation', {'lazy': 1, 'filetypes': 'ruby'}
 NeoBundle 'qstrahl/vim-dentures'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'rodjek/vim-puppet'
-NeoBundleLazy 'schickling/vim-bufonly', {'autoload': {'commands': 'Bonly'}}
+NeoBundle 'schickling/vim-bufonly', {'lazy': 1, 'commands': 'Bonly'}
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundleLazy 'Shougo/neocomplete.vim', {'autoload': {'insert': 1}}
-NeoBundleLazy 'Shougo/neosnippet.vim', {'autoload': {'insert': 1}, 'depends': 'Shougo/neosnippet-snippets'}
+NeoBundle 'Shougo/neocomplete.vim', {'lazy': 1, 'insert': 1}
+NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': 'Shougo/neosnippet-snippets'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
-NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
+NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
 NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
-NeoBundleLazy 'taiansu/nerdtree-ag', {'autoload': {'filetypes': 'nerdtree'}}
-NeoBundleLazy 't9md/vim-choosewin', {'autoload': {'mappings': '<Plug>'}}
+NeoBundle 'taiansu/nerdtree-ag', {'lazy': 1, 'filetypes': 'nerdtree'}
+NeoBundle 't9md/vim-choosewin', {'lazy': 1, 'mappings': '<Plug>'}
 NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
-NeoBundleLazy 'tommcdo/vim-fugitive-blame-ext', {'autoload': {'filetypes': 'fugitiveblame'}}
+NeoBundle 'tommcdo/vim-fugitive-blame-ext', {'lazy': 1, 'filetypes': 'fugitiveblame'}
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
-NeoBundleLazy 'tpope/vim-commentary', {'autoload': {'mappings': 'gc'}}
+NeoBundle 'tpope/vim-commentary', {'lazy': 1, 'mappings': 'gc'}
 NeoBundle 'tpope/vim-cucumber'
-NeoBundleLazy 'tpope/vim-endwise', {'autoload': {'filetypes': 'ruby'}}
+NeoBundle 'tpope/vim-endwise', {'lazy': 1, 'filetypes': 'ruby'}
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
-NeoBundleLazy 'tpope/vim-surround', {'autoload': {'mappings': [['n', 'cs'], ['n', 'ds'], ['n', 'ys'], ['n', 'yS'], ['v', 'S']]}}
+NeoBundle 'tpope/vim-surround', {'lazy': 1, 'mappings': [['n', 'cs'], ['n', 'ds'], ['n', 'ys'], ['n', 'yS'], ['v', 'S']]}
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
