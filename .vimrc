@@ -41,9 +41,9 @@ NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
-NeoBundle 'noprompt/vim-yardoc', {'lazy': 1, 'filetypes': 'ruby'}
+NeoBundle 'noprompt/vim-yardoc'
 NeoBundle 'p0deje/vim-numbertoggle'
-NeoBundle 'p0deje/vim-ruby-interpolation', {'lazy': 1, 'filetypes': 'ruby'}
+NeoBundle 'p0deje/vim-ruby-interpolation'
 NeoBundle 'qstrahl/vim-dentures'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'rodjek/vim-puppet'
