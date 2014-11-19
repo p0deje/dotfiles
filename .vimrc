@@ -62,7 +62,7 @@ NeoBundleLazy 't9md/vim-choosewin', {'autoload': {'mappings': '<Plug>'}}
 NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundleLazy 'tommcdo/vim-fugitive-blame-ext', {'autoload': {'filetypes': 'fugitiveblame'}}
-NeoBundleLazy 'tpope/vim-abolish', {'autoload': {'commands': ['Abolish', '%S']}}
+NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundleLazy 'tpope/vim-commentary', {'autoload': {'mappings': 'gc'}}
 NeoBundle 'tpope/vim-cucumber'
