@@ -24,7 +24,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'bogado/file-line'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundleLazy 'dhruvasagar/vim-table-mode', {'autoload': {'filetypes': 'cucumber'}}
-NeoBundleLazy 'dag/vim-fish', {'autoload': {'filetypes': '*.fish'}}
+NeoBundle 'dag/vim-fish'
 NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundleLazy 'henrik/vim-qargs', {'autoload': {'filetypes': 'qf'}}
 NeoBundle 'JazzCore/ctrlp-cmatcher'
@@ -46,7 +46,7 @@ NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundleLazy 'p0deje/vim-ruby-interpolation', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'qstrahl/vim-dentures'
 NeoBundle 'rking/ag.vim'
-NeoBundleLazy 'rodjek/vim-puppet', {'autoload': {'filetypes': '*.pp'}}
+NeoBundle 'rodjek/vim-puppet'
 NeoBundleLazy 'schickling/vim-bufonly', {'autoload': {'commands': 'Bonly'}}
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -55,7 +55,7 @@ NeoBundleLazy 'Shougo/neosnippet.vim', {'autoload': {'insert': 1}, 'depends': 'S
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundleLazy 'sjl/gundo.vim', {'autoload': {'commands': 'GundoToggle'}}
 NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
-NeoBundleLazy 'slim-template/vim-slim', {'autoload': {'filetypes': '*.slim'}}
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
 NeoBundleLazy 'taiansu/nerdtree-ag', {'autoload': {'filetypes': 'nerdtree'}}
 NeoBundleLazy 't9md/vim-choosewin', {'autoload': {'mappings': '<Plug>'}}
@@ -65,7 +65,7 @@ NeoBundleLazy 'tommcdo/vim-fugitive-blame-ext', {'autoload': {'filetypes': 'fugi
 NeoBundleLazy 'tpope/vim-abolish', {'autoload': {'commands': ['Abolish', '%S']}}
 NeoBundle 'tpope/vim-bundler'
 NeoBundleLazy 'tpope/vim-commentary', {'autoload': {'mappings': 'gc'}}
-NeoBundleLazy 'tpope/vim-cucumber', {'autoload': {'filetypes': '*.feature'}}
+NeoBundle 'tpope/vim-cucumber'
 NeoBundleLazy 'tpope/vim-endwise', {'autoload': {'filetypes': 'ruby'}}
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-projectionist'
