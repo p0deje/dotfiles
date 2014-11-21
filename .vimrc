@@ -275,13 +275,15 @@ if neobundle#tap('vim-signify')
 endif
 
 if neobundle#tap('vim-vroom') && neobundle#tap('vim-dispatch')
+  let g:vroom_clear_screen = 0
+  let g:vroom_cucumber_path = 'cucumber'
   let g:vroom_use_bundle_exec = 1
   let g:vroom_use_dispatch = 1
-  let g:vroom_cucumber_path = 'cucumber'
+  let g:vroom_binstubs_path = 'bin'
 
   let g:dispatch_compilers = {
     \ 'bundle exec': '',
-    \ 'clear': '',
+    \ 'clear;': '',
   \ }
 
   call neobundle#untap()
