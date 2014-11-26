@@ -140,7 +140,6 @@ set regexpengine=1
 
 set sessionoptions-=blank
 set sessionoptions-=help
-set sessionoptions+=resize
 
 " % support
 runtime macros/matchit.vim
