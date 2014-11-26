@@ -349,10 +349,10 @@ endif
 if neobundle#tap('vim-projectionist')
   let g:projectionist_heuristics = {
     \ "features/*": {
-    \   "features/*.feature": {"type": "feature"},
-    \   "features/support/env.rb": {"type": "feature"},
+    \   "features/*.feature": {"type": "feature", "alternate": "features/step_definitions/{}_steps.rb"},
+    \   "features/support/env.rb": {"type": "feature", "alternate": "features/support/hooks.rb"},
     \   "features/step_definitions": {"type": "step"},
-    \   "features/step_definitions/*_steps.rb": {"type": "step"}
+    \   "features/step_definitions/*_steps.rb": {"type": "step", "alternate": "features/{}.feature"}
     \ }
   \ }
 
