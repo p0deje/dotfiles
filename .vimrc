@@ -93,7 +93,7 @@ NeoBundleCheck
 
 set shell=/bin/bash  " fish is too good for plugins
 
-set guifont=Monaco\ for\ Powerline:h12
+set guifont=Monaco\ for\ Powerline:h14
 
 set linespace=1          " increase space between lines
 set number               " show line numbers
@@ -365,6 +365,23 @@ if neobundle#tap('vim-projectionist')
   cnoremap <C-s> <C-b><Del>S<C-e>
   cnoremap <C-v> <C-b><Del>V<C-e>
   cnoremap <C-t> <C-b><Del>T<C-e>
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-projectionist') && neobundle#tap('vim-rails')
+  " Fix incompatibility: tpope/vim-projectionist#36
+  let g:rails_projections = {}
+  let local_projections = deepcopy(g:projectionist_heuristics)
+  for projections in keys(local_projections)
+    for projection in keys(local_projections[projections])
+      if has_key(local_projections[projections][projection], 'alternate')
+        let g:rails_projections[projection] = deepcopy(local_projections[projections][projection])
+        let g:rails_projections[projection]['alternate'] =
+          \ substitute(local_projections[projections][projection]['alternate'], '{}', '%s', '')
+      endif
+    endfor
+  endfor
 
   call neobundle#untap()
 endif
