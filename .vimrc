@@ -249,6 +249,9 @@ if neobundle#tap('syntastic')
   let g:syntastic_java_checkers = []
   let g:syntastic_always_populate_loc_list = 1
 
+  " Disable checkers for schema
+  autocmd BufNewFile,BufReadPost schema.rb let b:syntastic_skip_checks = 1
+
   call neobundle#untap()
 endif
 
