@@ -96,7 +96,6 @@ set shell=/bin/bash  " fish is too good for plugins
 
 set guifont=Monaco\ for\ Powerline:h14
 
-set linespace=1          " increase space between lines
 set number               " show line numbers
 set cursorline           " highlight current line
 set lazyredraw           " faster scrolling
