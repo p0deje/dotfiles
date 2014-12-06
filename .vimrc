@@ -575,6 +575,8 @@ nnoremap N Nzvzz
 nmap <silent> [oq :cwindow<Cr><M-J>
 nnoremap <silent> ]oq :cclose<Cr>
 
+nnoremap j gj
+nnoremap k gk
 
 " Autocommands {{{1
 " -----------------
