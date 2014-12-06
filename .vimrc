@@ -25,7 +25,6 @@ NeoBundle 'bogado/file-line'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'dhruvasagar/vim-table-mode', {'lazy': 1, 'filetypes': 'cucumber'}
 NeoBundle 'dag/vim-fish'
-NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundle 'henrik/vim-qargs', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'JazzCore/ctrlp-cmatcher'
 NeoBundle 'jiangmiao/auto-pairs'
