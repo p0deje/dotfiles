@@ -74,7 +74,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-rbenv'
-NeoBundle 'tpope/vim-surround', {'lazy': 1, 'mappings': [['n', 'cs'], ['n', 'ds'], ['n', 'ys'], ['n', 'yS'], ['v', 'S']]}
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
