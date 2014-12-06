@@ -114,6 +114,7 @@ set history=50           " history size
 set foldcolumn=1         " increase vsplits margin
 set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
+set linebreak
 set hidden
 
 set ignorecase
