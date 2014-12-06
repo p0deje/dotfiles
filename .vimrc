@@ -172,15 +172,24 @@ if neobundle#tap('vim-colors-solarized')
   let g:solarized_hitrail = 1
   let g:solarized_visibility = "low"
 
-  set background=dark
+  set background=light
   colorscheme solarized
 
-  highlight FoldColumn guibg=#002b36
-  highlight LineNr guibg=#002b36
   highlight Search guibg=#222222 guifg=Orange
-  highlight SignColumn guibg=#002b36
-  highlight VertSplit guifg=#073642 guibg=#073642
-  highlight WildMenu guifg=Orange
+  if &background ==# 'dark'
+    highlight FoldColumn guibg=#002b36
+    highlight LineNr guibg=#002b36
+    highlight SignColumn guibg=#002b36
+    highlight VertSplit guifg=#073642 guibg=#073642
+    highlight WildMenu guifg=Orange
+  else
+    highlight FoldColumn guibg=#fdf6e3
+    highlight LineNr guibg=#fdf6e3
+    highlight SignColumn guibg=#fdf6e3
+    highlight VertSplit guifg=#eee8d5 guibg=#eee8d5
+    highlight WildMenu guifg=#fdf6e3 guibg=Black
+    highlight CursorLineNr guibg=#eee8d5
+  endif
 
   call neobundle#untap()
 endif
@@ -271,9 +280,15 @@ if neobundle#tap('vim-signify')
   let g:signify_vcs_list = ['git']
   let g:signify_sign_change = '~'
 
-  highlight SignifySignAdd guibg=#002b36 guifg=#579900
-  highlight SignifySignChange guibg=#002b36 guifg=#b58900
-  highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
+  if &background ==# 'dark'
+    highlight SignifySignAdd guibg=#002b36 guifg=#579900
+    highlight SignifySignChange guibg=#002b36 guifg=#b58900
+    highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
+  else
+    highlight SignifySignAdd guibg=#fdf6e3 guifg=#579900
+    highlight SignifySignChange guibg=#fdf6e3 guifg=#b58900
+    highlight SignifySignDelete guibg=#fdf6e3 guifg=#dc322f
+  endif
 
   autocmd FocusGained,FocusLost * call sy#util#refresh_windows()
 
