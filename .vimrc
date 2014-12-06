@@ -39,6 +39,7 @@ NeoBundle 'mattn/gist-vim', {'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify', '52cb368' " TODO check what's broken in follow-up commit
 NeoBundle 'miyakogi/conoline.vim'
+NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
@@ -113,6 +114,7 @@ set history=50           " history size
 set foldcolumn=1         " increase vsplits margin
 set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
+set hidden
 
 set ignorecase
 set smartcase
