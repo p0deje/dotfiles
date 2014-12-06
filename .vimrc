@@ -38,6 +38,7 @@ NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
 NeoBundle 'mattn/gist-vim', {'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify', '52cb368' " TODO check what's broken in follow-up commit
+NeoBundle 'miyakogi/conoline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
@@ -481,6 +482,12 @@ if neobundle#tap('vim-indent-guides')
   call neobundle#untap()
 endif
 
+if neobundle#tap('conoline.vim')
+  let g:conoline_auto_enable = 1
+  let g:conoline_use_colorscheme_default_normal=1
+
+  call neobundle#untap()
+endif
 
 " Mappings {{{1
 " -------------
