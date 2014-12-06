@@ -31,7 +31,7 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
