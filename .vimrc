@@ -504,12 +504,6 @@ if neobundle#tap('vim-indent-guides')
   call neobundle#untap()
 endif
 
-if neobundle#tap('conoline.vim')
-  let g:conoline_auto_enable = 1
-  let g:conoline_use_colorscheme_default_normal=1
-
-  call neobundle#untap()
-endif
 
 " Mappings {{{1
 " -------------
