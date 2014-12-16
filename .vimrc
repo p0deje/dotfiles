@@ -197,6 +197,7 @@ if neobundle#tap('ag.vim')
   let g:agprg = 'ag --smart-case --column'
 
   nnoremap gag :Ag!<Space>
+  nnoremap <silent> gac :execute 'Ag! ' . shellescape(@+)<Cr>
 
   " Ag operator
   " Taken from http://vimbits.com/bits/153 and slightly modified
