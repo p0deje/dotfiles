@@ -37,8 +37,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
 NeoBundle 'mattn/gist-vim', {'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
-NeoBundle 'mhinz/vim-signify', '52cb368' " TODO check what's broken in follow-up commit
-NeoBundle 'miyakogi/conoline.vim'
+NeoBundle 'mhinz/vim-signify', {'rev': '52cb368'} " TODO check what's broken in follow-up commit
 NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
@@ -58,7 +57,7 @@ NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
 NeoBundle 'skalnik/vim-vroom'
 NeoBundle 'slim-template/vim-slim'
-NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
+NeoBundle 'svermeulen/vim-easyclip', {'rev': 'develop', 'depends': 'tpope/vim-repeat'}
 NeoBundle 'taiansu/nerdtree-ag', {'lazy': 1, 'filetypes': 'nerdtree'}
 NeoBundle 't9md/vim-choosewin', {'lazy': 1, 'mappings': '<Plug>'}
 NeoBundle 'kristijanhusak/vim-multiple-cursors'
