@@ -150,7 +150,7 @@ runtime macros/matchit.vim
 " better completion for cmd mode
 set wildmenu
 set wildignorecase
-set wildmode=longest:list,full
+set wildmode=longest,full
 
 if has('gui_macvim')
   set macmeta
