@@ -43,6 +43,7 @@ NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
+NeoBundle 'p0deje/vim-dispatch', {'rev': 'vimshell', 'depends': 'Shougo/vimshell.vim'}
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundle 'p0deje/vim-ruby-interpolation'
 NeoBundle 'qstrahl/vim-dentures'
@@ -55,7 +56,7 @@ NeoBundle 'Shougo/neocomplete.vim', {'lazy': 1, 'insert': 1}
 NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': 'Shougo/neosnippet-snippets'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
-NeoBundle 'skalnik/vim-vroom', {'depends': 'tpope/vim-dispatch'}
+NeoBundle 'skalnik/vim-vroom'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', 'develop', {'depends': 'tpope/vim-repeat'}
 NeoBundle 'taiansu/nerdtree-ag', {'lazy': 1, 'filetypes': 'nerdtree'}
