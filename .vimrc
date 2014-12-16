@@ -22,16 +22,17 @@ NeoBundle 'AndrewRadev/switch.vim', {'lazy': 1, 'commands': 'Switch'}
 NeoBundle 'AndrewRadev/linediff.vim', {'lazy': 1, 'commands': 'Linediff'}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bogado/file-line'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'dhruvasagar/vim-table-mode', {'lazy': 1, 'filetypes': 'cucumber'}
 NeoBundle 'dag/vim-fish'
 NeoBundle 'henrik/vim-qargs', {'lazy': 1, 'filetypes': 'qf'}
+NeoBundle 'janko-m/vim-test'
 NeoBundle 'JazzCore/ctrlp-cmatcher', {'build': {'mac': './install.sh'}}
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
@@ -55,7 +56,6 @@ NeoBundle 'Shougo/neocomplete.vim', {'lazy': 1, 'insert': 1}
 NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': 'Shougo/neosnippet-snippets'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
-NeoBundle 'skalnik/vim-vroom'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', {'rev': 'develop', 'depends': 'tpope/vim-repeat'}
 NeoBundle 'taiansu/nerdtree-ag', {'lazy': 1, 'filetypes': 'nerdtree'}
@@ -295,17 +295,17 @@ if neobundle#tap('vim-signify')
   call neobundle#untap()
 endif
 
-if neobundle#tap('vim-vroom') && neobundle#tap('vim-dispatch')
-  let g:vroom_clear_screen = 0
-  let g:vroom_cucumber_path = 'cucumber'
-  let g:vroom_use_bundle_exec = 1
-  let g:vroom_use_dispatch = 1
-  let g:vroom_binstubs_path = 'bin'
+if neobundle#tap('vim-dispatch')
+  let g:dispatch_compilers = {'bundle exec': ''}
+  call neobundle#untap()
+endif
 
-  let g:dispatch_compilers = {
-    \ 'bundle exec': '',
-    \ 'clear;': '',
-  \ }
+if neobundle#tap('vim-test')
+  let g:test#strategy = 'dispatch'
+
+  nmap <silent> <Leader>r :TestNearest<Cr>
+  nmap <silent> <Leader>R :TestFile<Cr>
+  nmap <silent> <Leader>l :TestLast<Cr>
 
   call neobundle#untap()
 endif
