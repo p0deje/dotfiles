@@ -379,10 +379,10 @@ if neobundle#tap('vim-projectionist')
   \ }
 
   " quickly switch between E/S/V/T commands
-  cnoremap <C-e> <C-b><Del>E<C-e>
-  cnoremap <C-s> <C-b><Del>S<C-e>
-  cnoremap <C-v> <C-b><Del>V<C-e>
-  cnoremap <C-t> <C-b><Del>T<C-e>
+  cnoremap <C-M-e> <C-b><Del>E<C-e>
+  cnoremap <C-M-s> <C-b><Del>S<C-e>
+  cnoremap <C-M-v> <C-b><Del>V<C-e>
+  cnoremap <C-M-t> <C-b><Del>T<C-e>
 
   call neobundle#untap()
 endif
