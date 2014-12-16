@@ -597,6 +597,7 @@ nnoremap <silent> ]oq :cclose<Cr>
 nnoremap j gj
 nnoremap k gk
 
+
 " Autocommands {{{1
 " -----------------
 
@@ -622,10 +623,10 @@ augroup Filetypes
     \ omap <buffer> ix :normal Vix<Cr>
 
   autocmd FileType cucumber
-    \ nnoremap <buffer> <Leader>gi ^ciwGiven<Esc> |
-    \ nnoremap <buffer> <Leader>wh ^ciwWhen<Esc> |
-    \ nnoremap <buffer> <Leader>th ^ciwThen<Esc> |
-    \ nnoremap <buffer> <Leader>an ^ciwAnd<Esc> |
+    \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc> |
+    \ nmap <silent> <buffer> <Leader>wh ^ciwWhen<Esc> |
+    \ nmap <silent> <buffer> <Leader>th ^ciwThen<Esc> |
+    \ nmap <silent> <buffer> <Leader>an ^ciwAnd<Esc> |
 augroup END
 
 augroup Misc
