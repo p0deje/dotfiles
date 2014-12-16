@@ -68,7 +68,7 @@ NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary', {'lazy': 1, 'mappings': 'gc'}
 NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-endwise', {'lazy': 1, 'filetypes': 'ruby'}
-NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive', {'depends': 'tpope/vim-git'}
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
