@@ -168,9 +168,8 @@ endif
 " -------------------
 
 if neobundle#tap('vim-colors-solarized')
-  let g:solarized_contrast = "high"
-  let g:solarized_hitrail = 1
-  let g:solarized_visibility = "low"
+  let g:solarized_contrast = 'high'
+  let g:solarized_visibility = 'low'
 
   set background=light
   colorscheme solarized
@@ -452,7 +451,11 @@ if neobundle#tap('vim-multiple-cursors')
 endif
 
 if neobundle#tap('vim-choosewin')
-  nmap <Space> <Plug>(choosewin)
+  let g:choosewin_overlay_enable = 1
+  let g:choosewin_statusline_replace = 0
+
+  nmap - <Plug>(choosewin)
+
   call neobundle#untap()
 endif
 
