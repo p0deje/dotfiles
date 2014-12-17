@@ -613,8 +613,8 @@ augroup Filetypes
   " inside regexp text object
   " useful for working with Cucumber step definitions
   autocmd FileType ruby
-    \ vnoremap <buffer> ix :<C-U>silent! normal! ^f^lv$F$h<Cr>|
-    \ omap <buffer> ix :normal Vix<Cr>
+    \ vnoremap <silent> <buffer> ix :<C-U>normal! ^f^lv$F$h<Cr>|
+    \ omap <silent> <buffer> ix :normal Vix<Cr>
 
   autocmd FileType cucumber
     \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc> |
