@@ -506,6 +506,11 @@ if neobundle#tap('vim-indent-guides')
   call neobundle#untap()
 endif
 
+if neobundle#tap('scratch.vim')
+  let g:scratch_no_mapping = 1
+  call neobundle#untap()
+endif
+
 
 " Mappings {{{1
 " -------------
