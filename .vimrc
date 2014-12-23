@@ -511,6 +511,16 @@ if neobundle#tap('scratch.vim')
   call neobundle#untap()
 endif
 
+if neobundle#tap('vimshell.vim')
+  let g:vimshell_escape_colors = [
+    \ '#6c6c6c', '#dc322f', '#859900', '#b58900',
+    \ '#268bd2', '#d33682', '#2aa198', '#c0c0c0',
+    \ '#383838', '#cb4b16', '#586e75', '#cb4b16',
+    \ '#839496', '#d33682', '#2aa198', '#ffffff',
+    \ ]
+  call neobundle#untap()
+endif
+
 
 " Mappings {{{1
 " -------------
