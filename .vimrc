@@ -79,6 +79,7 @@ NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'wellle/targets.vim'
+NeoBundle 'zimbatm/direnv.vim'
 
 call neobundle#end()
 
