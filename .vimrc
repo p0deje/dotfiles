@@ -635,10 +635,10 @@ augroup Filetypes
     \ omap <silent> <buffer> ix :normal Vix<Cr>
 
   autocmd FileType cucumber
-    \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc> |
-    \ nmap <silent> <buffer> <Leader>wh ^ciwWhen<Esc> |
-    \ nmap <silent> <buffer> <Leader>th ^ciwThen<Esc> |
-    \ nmap <silent> <buffer> <Leader>an ^ciwAnd<Esc> |
+    \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc>|
+    \ nmap <silent> <buffer> <Leader>wh ^ciwWhen<Esc>|
+    \ nmap <silent> <buffer> <Leader>th ^ciwThen<Esc>|
+    \ nmap <silent> <buffer> <Leader>an ^ciwAnd<Esc>|
 augroup END
 
 augroup Misc
