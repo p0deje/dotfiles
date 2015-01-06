@@ -304,7 +304,6 @@ endif
 if neobundle#tap('vim-test')
   let g:test#strategy = 'dispatch'
   let g:test#cucumber#options = '--format progress'
-  let g:test#mocha#options = '--reporter dot'
 
   nmap <silent> <Leader>r :TestNearest<Cr>
   nmap <silent> <Leader>R :TestFile<Cr>
