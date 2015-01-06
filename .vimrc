@@ -433,6 +433,7 @@ if neobundle#tap('neocomplete.vim')
 
   " Complete with <Tab>
   imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  imap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
 
   call neobundle#untap()
 endif
