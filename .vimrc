@@ -458,7 +458,7 @@ if neobundle#tap('vim-choosewin')
   let g:choosewin_overlay_enable = 1
   let g:choosewin_statusline_replace = 0
 
-  nmap - <Plug>(choosewin)
+  nmap <Space> <Plug>(choosewin)
 
   call neobundle#untap()
 endif
