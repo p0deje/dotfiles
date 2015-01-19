@@ -143,7 +143,6 @@ set spell
 set regexpengine=1
 
 set sessionoptions-=blank
-set sessionoptions-=help
 
 " % support
 runtime macros/matchit.vim
