@@ -260,6 +260,7 @@ if neobundle#tap('syntastic')
   let g:syntastic_ruby_checkers = ['mri', 'rubocop']
   let g:syntastic_java_checkers = []
   let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_ruby_rubocop_args = '--display-cop-names'
 
   " Disable checkers for schema
   autocmd BufNewFile,BufReadPost schema.rb let b:syntastic_skip_checks = 1
