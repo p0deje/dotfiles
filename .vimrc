@@ -38,7 +38,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
 NeoBundle 'mattn/gist-vim', {'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
-NeoBundle 'mhinz/vim-signify', {'rev': '52cb368'} " TODO check what's broken in follow-up commit
+NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
@@ -291,7 +291,7 @@ if neobundle#tap('vim-signify')
     highlight SignifySignDelete guibg=#fdf6e3 guifg=#dc322f
   endif
 
-  autocmd FocusGained,FocusLost * call sy#util#refresh_windows()
+  autocmd FocusGained,FocusLost,BufEnter * call sy#util#refresh_windows()
 
   call neobundle#untap()
 endif
