@@ -625,6 +625,7 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufReadPost *.jelly set filetype=xml
   autocmd BufNewFile,BufReadPost .envrc set filetype=sh
+  autocmd BufNewFile,BufReadPost inv_* set filetype=cfg
 
   " hit K to get help on current word
   autocmd FileType vim setlocal keywordprg=:help
