@@ -15,7 +15,7 @@ end
 set -x EDITOR mvim
 set -x BUNDLER_EDITOR mvim
 set -x LOLCOMMITS_FORK true
-set -x FZF_DEFAULT_OPTS '-e'
+set -x FZF_DEFAULT_OPTS '-e --reverse'
 set -x Z_SCRIPT_PATH (brew --prefix)/etc/profile.d/z.sh
 set -x JAVA_HOME (/usr/libexec/java_home)
 set -gx PATH $PATH /usr/local/share/npm/bin
