@@ -606,7 +606,7 @@ nnoremap n nzvzz
 nnoremap N Nzvzz
 
 " unimpaired-like mappings for quickfix
-nmap <silent> [oq :cwindow<Cr><M-J>
+nnoremap <silent> [oq :cwindow<Cr>
 nnoremap <silent> ]oq :cclose<Cr>
 
 nnoremap j gj
