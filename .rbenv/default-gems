@@ -3,5 +3,6 @@ debugger-ruby_core_source
 gem-ctags
 lolcommits
 mailcatcher
+rbtrace
 rubocop
 terminal-notifier
