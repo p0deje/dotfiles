@@ -273,7 +273,9 @@ if neobundle#tap('vim-easymotion')
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_use_smartsign_us = 1
 
-  map <Leader> <Plug>(easymotion-prefix)
+  nmap ? <Plug>(easymotion-s)
+  omap ? <Plug>(easymotion-s)
+  vmap ? <Plug>(easymotion-s)
 
   call neobundle#untap()
 endif
