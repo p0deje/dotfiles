@@ -574,6 +574,7 @@ nnoremap <silent> <M-T> :wincmd T<Cr>
 
 nnoremap <M-w> :tabclose<Cr>
 
+nnoremap _ :split<Cr>
 nnoremap <Bar> :vsplit<Cr>
 
 " Visually select the text that was last edited/pasted
