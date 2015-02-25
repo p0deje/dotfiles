@@ -619,9 +619,9 @@ nnoremap k gk
 augroup Filetypes
   autocmd!
 
-  autocmd BufRead,BufNewFile *file set filetype=ruby
-  autocmd BufRead,BufNewFile *.load set filetype=fish
-  autocmd BufRead,BufNewFile *.ejs set filetype=html
+  autocmd BufNewFile,BufReadPost *file set filetype=ruby
+  autocmd BufNewFile,BufReadPost *.load set filetype=fish
+  autocmd BufNewFile,BufReadPost *.ejs set filetype=html
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufReadPost *.jelly set filetype=xml
   autocmd BufNewFile,BufReadPost .envrc set filetype=sh
