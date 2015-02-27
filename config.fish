@@ -23,4 +23,9 @@ alias ve 'vagrant exec'
 alias vim 'mvim'
 alias git 'hub'
 
+# git-modified spec | rspec
+function git modified
+  git ls-files -m $argv | tr "\n" " \0"
+end
+
 eval (direnv hook fish)
