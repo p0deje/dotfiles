@@ -432,12 +432,27 @@ if neobundle#tap('vim-easyclip')
   call neobundle#untap()
 endif
 
-if neobundle#tap('neocomplete.vim')
+if neobundle#tap('neocomplete.vim') && neobundle#tap('neosnippet.vim')
   let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#disable_auto_complete = 1
+  let g:neocomplete#enable_ignore_case = 0
+  let g:neocomplete#enable_fuzzy_completion = 1
+  let g:neocomplete#ctags_command = '/usr/local/bin/ctags'
+  let g:neocomplete#fallback_mappings = ["\<C-x>\<C-k>"]
 
   " Complete with <Tab>
-  imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  imap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+
+  function! s:IsPreviousCharSpace()
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+  endfunction
+
+  imap <expr><Tab>
+        \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+        \   pumvisible() ? "\<C-n>" :
+        \     <SID>IsPreviousCharSpace() ? "\<Tab>" :
+        \       neocomplete#start_manual_complete()
+  imap <expr><M-Tab> "\<C-p>"
 
   call neobundle#untap()
 endif
@@ -474,14 +489,6 @@ endif
 
 if neobundle#tap('vim-fugitive')
   nnoremap gst :Gstatus<Cr>
-  call neobundle#untap()
-endif
-
-if neobundle#tap('neosnippet.vim')
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-
   call neobundle#untap()
 endif
 
