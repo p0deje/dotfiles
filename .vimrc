@@ -131,7 +131,7 @@ set hlsearch
 set incsearch
 
 " Let's not be retarded
-let mapleader = ','
+let g:mapleader = ','
 
 " Cursor customization
 set guicursor+=a:blinkon0  " disable blinking
