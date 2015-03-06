@@ -153,6 +153,12 @@ set wildmenu
 set wildignorecase
 set wildmode=longest,full
 
+let g:markdown_fenced_languages = [
+      \ 'ruby',
+      \ 'sh',
+      \ 'bash=sh',
+      \ ]
+
 if has('gui_macvim')
   set macmeta
   set clipboard=unnamed
@@ -631,7 +637,6 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost *file set filetype=ruby
   autocmd BufNewFile,BufReadPost *.load set filetype=fish
   autocmd BufNewFile,BufReadPost *.ejs set filetype=html
-  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd BufNewFile,BufReadPost *.jelly set filetype=xml
   autocmd BufNewFile,BufReadPost .envrc set filetype=sh
   autocmd BufNewFile,BufReadPost inv_* set filetype=cfg
