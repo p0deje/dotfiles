@@ -16,11 +16,11 @@ var keys = {
   restart: 'r:' + modal,
 
   chrome: 'c:alt',
-  hipchat: 'b:alt',
   iterm: 't:alt',
   macvim: 'v:alt',
   messages: 'm:alt',
   skype: 's:alt',
+  slack: 'b:alt',
 
   grid: 'g:' + modal,
   fullscreen: 'f:' + modal,
@@ -38,11 +38,11 @@ slate.bind(keys.restart, slate.operation('relaunch'));
  */
 
 slate.bind(keys.chrome, slate.operation('focus', { 'app': 'Google Chrome' }));
-slate.bind(keys.hipchat, slate.operation('focus', { 'app': 'HipChat' }));
 slate.bind(keys.iterm, slate.operation('focus', { 'app': 'iTerm2' }));
 slate.bind(keys.macvim, slate.operation('focus', { 'app': 'MacVim' }));
 slate.bind(keys.messages, slate.operation('focus', { 'app': 'Messages' }));
 slate.bind(keys.skype, slate.operation('focus', { 'app': 'Skype' }));
+slate.bind(keys.slack, slate.operation('focus', { 'app': 'Slack' }));
 
 /**
  * Window resizing.
