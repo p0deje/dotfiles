@@ -5,3 +5,14 @@
 --exclude=node_modules
 --exclude=public
 --exclude=tmp
+
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^#[ \t]+(.*)/\1/h,Heading_L1/
+--regex-markdown=/^##[ \t]+(.*)/\1/i,Heading_L2/
+--regex-markdown=/^###[ \t]+(.*)/\1/k,Heading_L3/
+
+--langdef=gherkin
+--langmap=gherkin:.feature
+--regex-gherkin=/^Feature:[ \t]+(.*)/\1/f,Feature/
+--regex-gherkin=/^[ \t]+Scenarios?( Outline)?:[ \t]+(.*)/\2/s,Scenario/

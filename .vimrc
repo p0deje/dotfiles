@@ -539,6 +539,27 @@ if neobundle#tap('vimshell.vim')
   call neobundle#untap()
 endif
 
+if neobundle#tap('tagbar.vim')
+  let g:tagbar_type_markdown = {
+        \ 'ctagstype' : 'markdown',
+        \ 'kinds' : [
+        \   'h:Heading_L1',
+        \   'i:Heading_L2',
+        \   'k:Heading_L3'
+        \   ]
+        \ }
+
+  let g:tagbar_type_cucumber = {
+        \ 'ctagstype' : 'gherkin',
+        \ 'kinds' : [
+        \   'f:Feature',
+        \   's:Scenario',
+        \   ]
+        \ }
+
+  call neobundle#untap()
+endif
+
 
 " Mappings {{{1
 " -------------
