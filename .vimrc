@@ -47,7 +47,7 @@ NeoBundle 'p0deje/vim-dispatch', {'rev': 'vimshell', 'depends': 'Shougo/vimshell
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundle 'p0deje/vim-ruby-interpolation'
 NeoBundle 'qstrahl/vim-dentures'
-NeoBundle 'rking/ag.vim'
+NeoBundle 'rgrinberg/vim-operator-gsearch', {'depends': ['kana/vim-operator-user', 'rking/ag.vim']}
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly', {'lazy': 1, 'commands': 'Bonly'}
 NeoBundle 'scrooloose/nerdtree'
@@ -200,26 +200,12 @@ if neobundle#tap('vim-colors-solarized')
   call neobundle#untap()
 endif
 
-if neobundle#tap('ag.vim')
-  let g:agprg = 'ag --smart-case --column'
+if neobundle#tap('vim-operator-gsearch')
+  let g:gsearch_ag_command = 'Ag!'
 
+  map ga <Plug>(operator-ag)
   nnoremap gag :Ag!<Space>
   nnoremap <silent> gac :execute 'Ag! ' . shellescape(@+)<Cr>
-
-  " Ag operator
-  " Taken from http://vimbits.com/bits/153 and slightly modified
-  function! s:AgMotion(type) abort
-    let reg_save = @@
-    if a:type ==# 'v'
-      silent execute "normal! `<" . a:type . "`>y"
-    elseif a:type ==# 'char'
-      silent execute "normal! `[v`]y"
-    endif
-    execute "normal! :Ag! " . shellescape(@@) . "\<Cr>"
-    let @@ = reg_save
-  endfunction
-  nnoremap <silent> ga :set opfunc=<SID>AgMotion<Cr>g@
-  xnoremap <silent> ga :<C-U>call <SID>AgMotion(visualmode())<Cr>
 
   call neobundle#untap()
 endif
