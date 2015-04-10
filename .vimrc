@@ -67,7 +67,7 @@ NeoBundle 'tommcdo/vim-fugitive-blame-ext', {'lazy': 1, 'filetypes': 'fugitivebl
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary', {'lazy': 1, 'mappings': 'gc'}
-NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'p0deje/vim-cucumber', {'rev': '_merge'}
 NeoBundle 'tpope/vim-endwise', {'lazy': 1, 'filetypes': 'ruby'}
 NeoBundle 'tpope/vim-fugitive', {'depends': 'tpope/vim-git'}
 NeoBundle 'tpope/vim-haystack'
