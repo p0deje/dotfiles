@@ -23,6 +23,11 @@ alias ve 'vagrant exec'
 alias vim 'mvim'
 alias git 'hub'
 
+# https://github.com/nvbn/thefuck
+function fuck
+  eval (thefuck $history[1])
+end
+
 # git-modified spec | rspec
 function git modified
   git ls-files -m $argv | tr "\n" " \0"
