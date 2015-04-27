@@ -36,7 +36,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
-NeoBundle 'mattn/gist-vim', {'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
+NeoBundle 'mattn/gist-vim', {'lazy': 1, 'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mtth/scratch.vim'
