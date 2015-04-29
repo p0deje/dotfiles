@@ -121,6 +121,7 @@ set undodir=~/.vim/undo  " set a directory to store the undo history
 set linebreak
 set virtualedit=block
 set hidden
+set wrap
 
 set ignorecase
 set smartcase
