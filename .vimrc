@@ -528,6 +528,9 @@ if neobundle#tap('vimshell.vim')
     \ '#383838', '#cb4b16', '#586e75', '#cb4b16',
     \ '#839496', '#d33682', '#2aa198', '#ffffff',
     \ ]
+
+  autocmd FileType vimshell setlocal wrap
+
   call neobundle#untap()
 endif
 
