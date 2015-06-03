@@ -29,7 +29,7 @@ function fuck
 end
 
 # git-modified spec | rspec
-function git modified
+function git-modified
   git ls-files -m $argv | tr "\n" " \0"
 end
 
