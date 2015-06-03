@@ -570,7 +570,6 @@ cnoremap %s/ %s/\v
 
 " Disable terrible Ex mode
 nnoremap Q <nop>
-nnoremap q: <nop>
 
 nnoremap <silent> <M-h> :wincmd h<Cr>
 nnoremap <silent> <M-j> :wincmd j<Cr>
