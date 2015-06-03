@@ -159,6 +159,7 @@ set wildignorecase
 set wildmode=longest,full
 
 let g:markdown_fenced_languages = [
+      \ 'cucumber',
       \ 'ruby',
       \ 'sh',
       \ 'bash=sh',
