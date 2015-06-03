@@ -122,6 +122,7 @@ set linebreak
 set virtualedit=block
 set hidden
 set wrap
+set shiftwidth=2
 
 set ignorecase
 set smartcase
