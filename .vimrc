@@ -220,7 +220,7 @@ if neobundle#tap('ctrlp.vim') && neobundle#tap('ctrlp-cmatcher')
   let g:ctrlp_switch_buffer = 'Et'
   let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
   let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
-  let g:ctrlp_map = '<Tab>'
+  let g:ctrlp_map = '<C-p>'
   let g:ctrlp_cmd = 'CtrlPMixed'
 
   call neobundle#untap()
