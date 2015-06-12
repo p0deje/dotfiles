@@ -578,7 +578,7 @@ nnoremap <silent> <M-l> :wincmd l<Cr>
 
 function! s:DoNERDActionAndResize(action) abort
   if a:action ==# 'Find'
-    if !nerdtree#isTreeOpen()
+    if !g:NERDTree.IsOpen()
       execute 'NERDTreeTabsOpen'
       execute 'wincmd p'
     endif
@@ -592,7 +592,7 @@ nnoremap <silent> <Leader>on :call <SID>DoNERDActionAndResize('Toggle')<Cr>
 nnoremap <silent> <Leader>of :call <SID>DoNERDActionAndResize('Find')<Cr>
 
 function! s:MoveWindowAndResize(direction) abort
-  let l:nerd_open = nerdtree#isTreeOpen()
+  let l:nerd_open = g:NERDTree.IsOpen()
   if l:nerd_open
     call s:DoNERDActionAndResize('Close')
   endif
