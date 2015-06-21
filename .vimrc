@@ -106,7 +106,6 @@ set cursorline           " highlight current line
 set lazyredraw           " faster scrolling
 set noswapfile           " no *.swp artifacts
 set scrolloff=10         " Keep at least 10 lines visible when scrolling
-set nowrap               " Disabled wrapping
 set ruler                " show the cursor position all the time
 set laststatus=2         " Always display the status line
 set showcmd              " display incomplete commands
@@ -118,11 +117,15 @@ set history=50           " history size
 set foldcolumn=1         " increase vsplits margin
 set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
-set linebreak
 set virtualedit=block
 set hidden
-set wrap
 set shiftwidth=2
+set colorcolumn=80
+
+" Line wrapping
+set wrap
+set linebreak
+set breakindent
 
 set ignorecase
 set smartcase
