@@ -620,7 +620,7 @@ nnoremap <Bar> :vsplit<Cr>
 nnoremap gV `[v`]
 
 " Clear search
-nnoremap <silent> <C-L> :let @/ = ""<Cr>
+nnoremap <silent> <C-l> :let @/ = ""<Cr>
 
 nnoremap Y y$
 
