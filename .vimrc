@@ -30,7 +30,6 @@ NeoBundle 'henrik/vim-qargs', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'janko-m/vim-test'
 NeoBundle 'JazzCore/ctrlp-cmatcher', {'build': {'mac': './install.sh'}}
 NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kshenoy/vim-signature'
@@ -51,15 +50,14 @@ NeoBundle 'qstrahl/vim-dentures'
 NeoBundle 'rgrinberg/vim-operator-gsearch', {'depends': ['kana/vim-operator-user', 'rking/ag.vim']}
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly', {'lazy': 1, 'commands': 'Bonly'}
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete.vim', {'lazy': 1, 'insert': 1}
 NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': 'Shougo/neosnippet-snippets'}
+NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', {'rev': 'develop', 'depends': 'tpope/vim-repeat'}
-NeoBundle 'taiansu/nerdtree-ag', {'lazy': 1, 'filetypes': 'nerdtree'}
 NeoBundle 't9md/vim-choosewin', {'lazy': 1, 'mappings': '<Plug>'}
 NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
@@ -178,6 +176,10 @@ if has('gui_macvim')
   set transparency=2
   autocmd FocusLost * silent! wa
 endif
+
+" Containers for functions
+let configure = {}
+let helpers = {}
 
 
 " Plugin options {{{1
@@ -333,13 +335,38 @@ if neobundle#tap('DeleteTrailingWhitespace')
   call neobundle#untap()
 endif
 
-if neobundle#tap('nerdtree') && neobundle#tap('vim-nerdtree-tabs')
-  let g:NERDTreeWinSize = 40
-  let NERDTreeIgnore = ['^tags$', '\.DS_Store$']
-  let NERDTreeShowHidden = 1
+if neobundle#tap('vimfiler.vim')
+  let g:vimfiler_as_default_explorer = 1
+  let g:vimfiler_enable_clipboard = 0
+  let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\|tags\)$'
+  let g:vimfiler_quick_look_command = 'qlmanage -p'
+  let g:vimfiler_tree_leaf_icon = ' '
+  let g:vimfiler_tree_opened_icon = '▾'
+  let g:vimfiler_tree_closed_icon = '▸'
+  let g:vimfiler_tree_indentation = 2
 
-  let g:nerdtree_tabs_smart_startup_focus = 2
-  let g:nerdtree_tabs_open_on_gui_startup = 0
+  call vimfiler#custom#profile('default', 'context', {
+        \ 'auto_expand' : 1,
+        \ 'explorer': 1,
+        \ 'parent': 1,
+        \ 'safe' : 0,
+        \ 'winwidth': 40,
+        \ 'winminwidth': 40,
+        \ })
+
+  nnoremap <silent> <Leader>on :VimFiler -explorer -project<Cr><C-W>=
+  nnoremap <silent> <Leader>of :VimFiler -explorer -project -find<Cr><C-W>=
+
+  autocmd FileType vimfiler call configure.vimfiler()
+  function! configure.vimfiler()
+    setlocal nonumber
+    setlocal norelativenumber
+
+    nmap <buffer> <Enter> <Plug>(vimfiler_expand_or_edit)
+    nmap <buffer> v <Plug>(vimfiler_split_edit_file)
+    nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
+    nnoremap <silent><buffer><expr> t vimfiler#do_action('tabopen')
+  endfunction
 
   call neobundle#untap()
 endif
@@ -514,7 +541,7 @@ if neobundle#tap('vim-indent-guides')
   let g:indent_guides_guide_size = 1
   let g:indent_guides_start_level = 2
   let g:indent_guides_color_change_percent = 2
-  let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+  let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 
   call neobundle#untap()
 endif
@@ -579,38 +606,17 @@ nnoremap <silent> <M-j> :wincmd j<Cr>
 nnoremap <silent> <M-k> :wincmd k<Cr>
 nnoremap <silent> <M-l> :wincmd l<Cr>
 
-function! s:DoNERDActionAndResize(action) abort
-  if a:action ==# 'Find'
-    if !g:NERDTree.IsOpen()
-      execute 'NERDTreeTabsOpen'
-      execute 'wincmd p'
-    endif
-    execute 'NERDTreeTabsFind'
-  else
-    execute 'NERDTreeTabs' . a:action
-  endif
+function! helpers.move_window_and_resize(direction) abort
+  execute 'wincmd ' . a:direction
   execute 'wincmd ='
 endfunction
-nnoremap <silent> <Leader>on :call <SID>DoNERDActionAndResize('Toggle')<Cr>
-nnoremap <silent> <Leader>of :call <SID>DoNERDActionAndResize('Find')<Cr>
 
-function! s:MoveWindowAndResize(direction) abort
-  let l:nerd_open = g:NERDTree.IsOpen()
-  if l:nerd_open
-    call s:DoNERDActionAndResize('Close')
-  endif
-  execute 'wincmd ' . a:direction
-  if l:nerd_open
-    call s:DoNERDActionAndResize('Open')
-    execute 'wincmd p'
-  endif
-endfunction
-nnoremap <silent> <M-H> :call <SID>MoveWindowAndResize('H')<Cr>
-nnoremap <silent> <M-J> :call <SID>MoveWindowAndResize('J')<Cr>
-nnoremap <silent> <M-K> :call <SID>MoveWindowAndResize('K')<Cr>
-nnoremap <silent> <M-L> :call <SID>MoveWindowAndResize('L')<Cr>
-nnoremap <silent> <M-T> :wincmd T<Cr>
+nnoremap <silent> <M-H> helpers.move_window_and_resize('H')
+nnoremap <silent> <M-J> helpers.move_window_and_resize('J')
+nnoremap <silent> <M-K> helpers.move_window_and_resize('K')
+nnoremap <silent> <M-L> helpers.move_window_and_resize('L')
 
+nnoremap <M-T> :wincmd T<Cr>
 nnoremap <M-w> :tabclose<Cr>
 
 nnoremap _ :split<Cr>
