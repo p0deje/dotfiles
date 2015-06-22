@@ -348,10 +348,8 @@ if neobundle#tap('vimfiler.vim')
 
   call vimfiler#custom#profile('default', 'context', {
         \ 'auto_expand' : 1,
-        \ 'explorer': 1,
         \ 'parent': 1,
-        \ 'safe' : 0,
-        \ 'winwidth': 40,
+        \ 'safe': 0,
         \ 'winminwidth': 40,
         \ })
 
