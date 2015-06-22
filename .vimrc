@@ -58,7 +58,7 @@ NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', {'rev': 'develop', 'depends': 'tpope/vim-repeat'}
-NeoBundle 't9md/vim-choosewin', {'lazy': 1, 'mappings': '<Plug>'}
+NeoBundle 't9md/vim-choosewin'
 NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tommcdo/vim-fugitive-blame-ext', {'lazy': 1, 'filetypes': 'fugitiveblame'}
