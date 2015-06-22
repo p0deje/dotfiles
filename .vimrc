@@ -343,6 +343,7 @@ if neobundle#tap('vimfiler.vim')
   let g:vimfiler_tree_leaf_icon = ' '
   let g:vimfiler_tree_opened_icon = '▾'
   let g:vimfiler_tree_closed_icon = '▸'
+  let g:vimfiler_readonly_file_icon = '✗'
   let g:vimfiler_tree_indentation = 2
 
   call vimfiler#custom#profile('default', 'context', {
