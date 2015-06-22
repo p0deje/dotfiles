@@ -420,23 +420,6 @@ if neobundle#tap('vim-projectionist')
   call neobundle#untap()
 endif
 
-if neobundle#tap('vim-projectionist') && neobundle#tap('vim-rails')
-  " Fix incompatibility: tpope/vim-projectionist#36
-  let g:rails_projections = {}
-  let local_projections = deepcopy(g:projectionist_heuristics)
-  for projections in keys(local_projections)
-    for projection in keys(local_projections[projections])
-      if has_key(local_projections[projections][projection], 'alternate')
-        let g:rails_projections[projection] = deepcopy(local_projections[projections][projection])
-        let g:rails_projections[projection]['alternate'] =
-          \ substitute(local_projections[projections][projection]['alternate'], '{}', '%s', '')
-      endif
-    endfor
-  endfor
-
-  call neobundle#untap()
-endif
-
 if neobundle#tap('gundo.vim')
   let g:gundo_right = 1
   call neobundle#untap()
