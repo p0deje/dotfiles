@@ -348,20 +348,25 @@ if neobundle#tap('vimfiler.vim')
 
   call vimfiler#custom#profile('default', 'context', {
         \ 'auto_expand' : 1,
+        \ 'columns': '',
         \ 'parent': 1,
         \ 'safe': 0,
         \ 'winminwidth': 40,
         \ })
 
-  nnoremap <silent> <Leader>on :VimFiler -explorer -project<Cr><C-W>=
-  nnoremap <silent> <Leader>of :VimFiler -explorer -project -find<Cr><C-W>=
+  nnoremap <silent> <Leader>on :VimFiler -explorer<Cr><C-W>=
+  nnoremap <silent> <Leader>of :VimFiler -explorer -find<Cr><C-W>=
 
   autocmd FileType vimfiler call configure.vimfiler()
   function! configure.vimfiler()
-    setlocal nonumber
     setlocal norelativenumber
+    setlocal nonumber
 
     nmap <buffer> <Enter> <Plug>(vimfiler_expand_or_edit)
+    nmap <buffer> p <Plug>(vimfiler_quick_look)
+    nmap <buffer> ad <Plug>(vimfiler_make_directory)
+    nmap <buffer> af <Plug>(vimfiler_new_file)
+
     nmap <buffer> v <Plug>(vimfiler_split_edit_file)
     nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
     nnoremap <silent><buffer><expr> t vimfiler#do_action('tabopen')
