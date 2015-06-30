@@ -489,8 +489,9 @@ if neobundle#tap('vim-multiple-cursors')
 endif
 
 if neobundle#tap('vim-choosewin')
-  let g:choosewin_overlay_enable = 1
-  let g:choosewin_statusline_replace = 0
+  let g:choosewin_overlay_enable = 0
+  let g:choosewin_statusline_replace = 1
+  let g:choosewin_keymap = {"\<Space>": 'previous'}
 
   nmap <Space> <Plug>(choosewin)
 
