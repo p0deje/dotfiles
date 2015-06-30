@@ -1,6 +1,7 @@
 bundler
 debugger-ruby_core_source
 gem-ctags
+iStats
 lolcommits
 mailcatcher
 rbtrace
