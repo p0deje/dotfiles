@@ -599,10 +599,10 @@ function! helpers.move_window_and_resize(direction) abort
   execute 'wincmd ='
 endfunction
 
-nnoremap <silent> <M-H> helpers.move_window_and_resize('H')
-nnoremap <silent> <M-J> helpers.move_window_and_resize('J')
-nnoremap <silent> <M-K> helpers.move_window_and_resize('K')
-nnoremap <silent> <M-L> helpers.move_window_and_resize('L')
+nnoremap <silent> <M-H> :call helpers.move_window_and_resize('H')<Cr>
+nnoremap <silent> <M-J> :call helpers.move_window_and_resize('J')<Cr>
+nnoremap <silent> <M-K> :call helpers.move_window_and_resize('K')<Cr>
+nnoremap <silent> <M-L> :call helpers.move_window_and_resize('L')<Cr>
 
 nnoremap <M-T> :wincmd T<Cr>
 nnoremap <M-w> :tabclose<Cr>
