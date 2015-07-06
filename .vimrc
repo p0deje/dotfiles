@@ -578,7 +578,9 @@ if neobundle#tap('tagbar.vim')
 endif
 
 if neobundle#tap('vim-brightest')
-  let g:brightest#highlight_in_cursorline = {"group" : "BrightestNONE"}
+  let g:brightest#highlight_in_cursorline = {'group' : 'BrightestNONE'}
+  autocmd FileType cucumber let b:brightest_ignore_syntax_list = ['Identifier', 'Statement', 'Type']
+
   call neobundle#untap()
 endif
 
