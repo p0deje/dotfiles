@@ -363,6 +363,9 @@ if neobundle#tap('vimfiler.vim')
     setlocal norelativenumber
     setlocal nonumber
 
+    nunmap <buffer> <C-l>
+    nunmap <buffer> <Space>
+
     nmap <buffer> <Enter> <Plug>(vimfiler_expand_or_edit)
     nmap <buffer> p <Plug>(vimfiler_quick_look)
     nmap <buffer> ad <Plug>(vimfiler_make_directory)
