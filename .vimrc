@@ -118,7 +118,8 @@ set undodir=~/.vim/undo  " set a directory to store the undo history
 set virtualedit=block
 set hidden
 set shiftwidth=2
-set colorcolumn=80
+
+let &colorcolumn=join(range(81, 999), ',')
 
 " Line wrapping
 set wrap
