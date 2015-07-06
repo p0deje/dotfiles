@@ -584,6 +584,11 @@ if neobundle#tap('vim-brightest')
   call neobundle#untap()
 endif
 
+if neobundle#tap('vim-yardoc')
+  highlight link yardGenericTag rubyLocalVariableOrMethod
+  call neobundle#untap()
+endif
+
 
 " Mappings {{{1
 " -------------
