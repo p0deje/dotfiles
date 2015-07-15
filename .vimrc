@@ -670,9 +670,6 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost .envrc set filetype=sh
   autocmd BufNewFile,BufReadPost inv_* set filetype=cfg
 
-  " hit K to get help on current word
-  autocmd FileType vim setlocal keywordprg=:help
-
   autocmd FileType puppet set commentstring=#\ %s
 
   " inside regexp text object
