@@ -26,6 +26,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'dhruvasagar/vim-table-mode', {'lazy': 1, 'filetypes': 'cucumber'}
 NeoBundle 'dag/vim-fish'
+NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'henrik/vim-qargs', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'janko-m/vim-test'
 NeoBundle 'JazzCore/ctrlp-cmatcher', {'build': {'mac': './install.sh'}}
@@ -135,7 +136,6 @@ set splitright
 
 " Search tweaks
 set hlsearch
-set incsearch
 
 " Let's not be retarded
 let g:mapleader = ','
@@ -591,12 +591,20 @@ if neobundle#tap('vim-yardoc')
   call neobundle#untap()
 endif
 
+if neobundle#tap('incsearch.vim')
+  let g:incsearch#magic = '\v'
+
+  map / <Plug>(incsearch-forward)
+  map ? <Plug>(incsearch-backward)
+
+  call neobundle#untap()
+endif
+
 
 " Mappings {{{1
 " -------------
 
 " Use very magic
-nnoremap / /\v
 cnoremap %s/ %s/\v
 
 " Disable terrible Ex mode
