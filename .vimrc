@@ -190,7 +190,7 @@ if neobundle#tap('vim-colors-solarized')
   let g:solarized_contrast = 'high'
   let g:solarized_visibility = 'low'
 
-  set background=light
+  set background=dark
   colorscheme solarized
 
   highlight Search guibg=#222222 guifg=Orange
