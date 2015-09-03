@@ -216,7 +216,7 @@ if neobundle#tap('vim-operator-gsearch')
   let g:gsearch_ag_command = 'Ag!'
 
   map ga <Plug>(operator-ag)
-  nnoremap gag :Ag!<Space>
+  nnoremap ga<Space> :Ag!<Space>
   nnoremap <silent> gac :execute 'Ag! ' . shellescape(@+)<Cr>
 
   call neobundle#untap()
