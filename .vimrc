@@ -580,7 +580,7 @@ endif
 if neobundle#tap('vim-brightest')
   let g:brightest#highlight_in_cursorline = {'group' : 'BrightestNONE'}
   let g:brightest#pattern = '\w\+'
-  autocmd FileType cucumber |
+  autocmd FileType cucumber
         \ let b:brightest_ignore_syntax_list = ['Identifier', 'Statement', 'Type']
 
   call neobundle#untap()
