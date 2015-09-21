@@ -30,7 +30,14 @@ function fuck
   eval (thefuck $history[1])
 end
 
-# git-modified spec | rspec
+# Prints list of currently modified files to stdout,
+# formatted for piping to other commands. Useful to rerun all modified tests
+#
+# Usage:
+#   git-modified [directory|files|glob]
+#
+# Examples:
+#   git-modified spec | rspec
 function git-modified
   git ls-files -m $argv | tr "\n" " \0"
 end
