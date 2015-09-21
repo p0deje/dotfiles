@@ -42,4 +42,18 @@ function git-modified
   git ls-files -m $argv | tr "\n" " \0"
 end
 
+# Converts MKV movie to a new one and imports it to iTunes.
+# Once completed, opens iTunes. New movie will be show in "Home Videos" tab.
+#
+# Usage:
+#   mkv-to-itunes [source] [movie-name]
+function mkv-to-itunes
+  set src $argv[1]
+  set name $argv[2]
+  ffmpeg -i $src -c:v copy -c:a aac -b:a 256k -strict -2 $name.mp4
+  mv $name.mp4 ~/Music/iTunes/iTunes\ Media/Automatically\ Add\ to\ iTunes.localized
+  rm $src
+  open /Applications/iTunes.app
+end
+
 eval (direnv hook fish)
