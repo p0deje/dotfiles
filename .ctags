@@ -8,9 +8,9 @@
 
 --langdef=markdown
 --langmap=markdown:.md
---regex-markdown=/^#[ \t]+(.*)/\1/h,Heading_L1/
---regex-markdown=/^##[ \t]+(.*)/\1/i,Heading_L2/
---regex-markdown=/^###[ \t]+(.*)/\1/k,Heading_L3/
+--regex-markdown=/^(#+)[ \t]+([^#]*)/\1 \2/h,heading,Markdown Headers/
+--regex-markdown=/\[([^\[]+)\]\(([^\)]+)\)/\1/l,link,Markdown Links/
+--regex-markdown=/!\[\]\(.*[\/ ](.*\.[a-z]{3})\)/\1/i,image,Markdown Image/
 
 --langdef=gherkin
 --langmap=gherkin:.feature
