@@ -686,6 +686,8 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost *.jelly set filetype=xml
   autocmd BufNewFile,BufReadPost .envrc set filetype=sh
   autocmd BufNewFile,BufReadPost inv_* set filetype=cfg
+  autocmd BufNewFile,BufReadPost Makefile set filetype=make
+  autocmd BufNewFile,BufReadPost Dockerfile* set filetype=dockerfile
 
   autocmd FileType puppet set commentstring=#\ %s
 
