@@ -56,4 +56,10 @@ function mkv-to-itunes
   open /Applications/iTunes.app
 end
 
+# Removes unused containers and images.
+function docker-cleanup
+  docker rm (docker ps -a | grep Exited | awk '{print $1}')
+  docker rmi (docker images -aq)
+end
+
 eval (direnv hook fish)
