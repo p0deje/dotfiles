@@ -15,7 +15,7 @@ var keys = {
   undo: 'z:' + modal,
   restart: 'r:' + modal,
 
-  chrome: 'c:alt',
+  safari: 'c:alt',
   iterm: 't:alt',
   macvim: 'v:alt',
   messages: 'm:alt',
@@ -37,7 +37,7 @@ slate.bind(keys.restart, slate.operation('relaunch'));
  * Application switching.
  */
 
-slate.bind(keys.chrome, slate.operation('focus', { 'app': 'Google Chrome' }));
+slate.bind(keys.safari, slate.operation('focus', { 'app': 'Safari' }));
 slate.bind(keys.iterm, slate.operation('focus', { 'app': 'iTerm2' }));
 slate.bind(keys.macvim, slate.operation('focus', { 'app': 'MacVim' }));
 slate.bind(keys.messages, slate.operation('focus', { 'app': 'Messages' }));
