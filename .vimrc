@@ -367,6 +367,8 @@ if neobundle#tap('vimfiler.vim')
     nunmap <buffer> <C-l>
     nunmap <buffer> <Space>
 
+    nmap <buffer> R <Plug>(vimfiler_redraw_screen)
+
     nmap <buffer> <Enter> <Plug>(vimfiler_smart_l)
     nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_smart_l)
 
