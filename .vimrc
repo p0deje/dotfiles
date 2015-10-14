@@ -47,6 +47,7 @@ NeoBundle 'osyo-manga/vim-brightest'
 NeoBundle 'p0deje/vim-dispatch-vimshell', {'depends': ['tpope/vim-dispatch', 'Shougo/vimshell.vim']}
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundle 'p0deje/vim-ruby-interpolation'
+NeoBundle 'PProvost/vim-ps1'
 NeoBundle 'qstrahl/vim-dentures'
 NeoBundle 'rgrinberg/vim-operator-gsearch', {'depends': ['kana/vim-operator-user', 'rking/ag.vim']}
 NeoBundle 'rodjek/vim-puppet'
