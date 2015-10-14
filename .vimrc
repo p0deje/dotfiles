@@ -458,11 +458,9 @@ endif
 
 if neobundle#tap('neocomplete.vim') && neobundle#tap('neosnippet.vim')
   let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#disable_auto_complete = 1
   let g:neocomplete#enable_ignore_case = 0
   let g:neocomplete#enable_fuzzy_completion = 1
   let g:neocomplete#ctags_command = '/usr/local/bin/ctags'
-  let g:neocomplete#fallback_mappings = ["\<C-x>\<C-k>"]
 
   " Complete with <Tab>
 
