@@ -34,6 +34,9 @@
 [push]
   default = simple
 
+[rebase]
+  autosquash = true
+
 [github]
   user = p0deje
 
