@@ -65,8 +65,8 @@ end
 
 # Removes unused containers and images.
 function docker-cleanup
-  docker rm (docker ps -a | grep Exited | awk '{print $1}')
-  docker rmi (docker images -aq)
+  docker rm --force (docker ps --all --quiet --filter status=exited)
+  docker rmi --force (docker images --all --quiet)
 end
 
 eval (direnv hook fish)
