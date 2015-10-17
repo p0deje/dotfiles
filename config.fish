@@ -56,6 +56,13 @@ function mkv-to-itunes
   open /Applications/iTunes.app
 end
 
+# Loads Docker environment if necessary and delegates execution
+# to Docker exectuable.
+function docker
+  [ "$DOCKER_MACHINE_NAME" = "" ]; and eval (docker-machine env default)
+  eval (which docker) $argv
+end
+
 # Removes unused containers and images.
 function docker-cleanup
   docker rm (docker ps -a | grep Exited | awk '{print $1}')
