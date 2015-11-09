@@ -543,6 +543,8 @@ endif
 
 if neobundle#tap('scratch.vim')
   let g:scratch_no_mappings = 1
+  nmap <Leader>s :Scratch<Cr>
+
   call neobundle#untap()
 endif
 
