@@ -358,6 +358,15 @@ if neobundle#tap('vimfiler.vim')
   nnoremap <silent> <Leader>on :VimFiler -explorer<Cr><C-W>=
   nnoremap <silent> <Leader>of :VimFiler -explorer -find<Cr><C-W>=
 
+  function! helpers.toggle_maximize_vimfiler() abort
+    if winwidth('%') == 100
+      vertical resize 35
+    else
+      vertical resize 100
+    endif
+    call vimfiler#redraw_screen()
+  endfunction
+
   autocmd FileType vimfiler call configure.vimfiler()
   function! configure.vimfiler()
     setlocal norelativenumber
@@ -379,6 +388,9 @@ if neobundle#tap('vimfiler.vim')
     nmap <buffer> v <Plug>(vimfiler_split_edit_file)
     nnoremap <buffer><expr> s vimfiler#do_switch_action('split')
     nnoremap <buffer><expr> t vimfiler#do_action('tabopen')
+
+    nunmap <buffer> g<C-g>
+    nnoremap <buffer> g<C-g> :call helpers.toggle_maximize_vimfiler()<Cr>
   endfunction
 
   call neobundle#untap()
