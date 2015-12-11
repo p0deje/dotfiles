@@ -122,6 +122,7 @@ set undodir=~/.vim/undo  " set a directory to store the undo history
 set virtualedit=block
 set hidden
 set shiftwidth=2
+set modeline
 
 let &colorcolumn=join(range(81, 999), ',')
 
@@ -745,3 +746,6 @@ command! W w
 command! Q q
 command! WQ wq
 command! Wq wq
+
+
+" vim: foldmethod=marker
