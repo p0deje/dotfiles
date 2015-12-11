@@ -53,6 +53,7 @@ function mkv-to-itunes
   ffmpeg -i $src -c:v copy -c:a aac -b:a 256k -strict -2 $name.mp4
   mv $name.mp4 ~/Music/iTunes/iTunes\ Media/Automatically\ Add\ to\ iTunes.localized
   rm $src
+  echo "Movie $name has been added to home videos."
   open /Applications/iTunes.app
 end
 
