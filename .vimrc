@@ -55,7 +55,7 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly', {'lazy': 1, 'commands': 'Bonly'}
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete.vim', {'lazy': 1, 'insert': 1}
-NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': 'Shougo/neosnippet-snippets'}
+NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': ['Shougo/neosnippet-snippets', 'honza/vim-snippets']}
 NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
@@ -473,6 +473,7 @@ if neobundle#tap('neocomplete.vim') && neobundle#tap('neosnippet.vim')
   let g:neocomplete#enable_ignore_case = 0
   let g:neocomplete#enable_fuzzy_completion = 1
   let g:neocomplete#ctags_command = '/usr/local/bin/ctags'
+  let g:neosnippet#enable_snipmate_compatibility = 1
 
   " Complete with <Tab>
 
