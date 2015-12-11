@@ -70,4 +70,9 @@ function docker-cleanup
   docker rmi --force (docker images --all --quiet)
 end
 
+# Finds all terminated GCE instances and removes them.
+function gcloud-destroy-terminated
+  gcloud compute instances list | grep TERMINATED | awk '{ print $1 }' | xargs gcloud compute instances delete --zone us-central1-b
+end
+
 eval (direnv hook fish)
