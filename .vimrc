@@ -693,6 +693,10 @@ nnoremap <silent> ]oq :cclose<Cr>
 nnoremap j gj
 nnoremap k gk
 
+" swap : and ;
+noremap ; :
+noremap : ;
+
 
 " Autocommands {{{1
 " -----------------
