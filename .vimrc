@@ -747,5 +747,6 @@ command! Q q
 command! WQ wq
 command! Wq wq
 
+" }}}
 
 " vim: foldmethod=marker
