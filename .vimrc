@@ -44,7 +44,7 @@ NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
-NeoBundle 'oblitum/rainbow'
+NeoBundle 'luochen1990/rainbow'
 NeoBundle 'osyo-manga/vim-brightest'
 NeoBundle 'p0deje/vim-dispatch-vimshell', {'depends': ['tpope/vim-dispatch', 'Shougo/vimshell.vim']}
 NeoBundle 'p0deje/vim-numbertoggle'
@@ -624,6 +624,8 @@ endif
 
 if neobundle#tap('rainbow')
   let g:rainbow_active = 1
+  let g:rainbow_conf = {'guifgs': ['#cc241d', '#d65d0e', '#458588', '#b16286', '#cc241d', '#d65d0e']}
+
   call neobundle#untap()
 endif
 
