@@ -57,3 +57,6 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
+
+[git-up "bundler"]
+  check = true
