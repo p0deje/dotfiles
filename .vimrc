@@ -228,7 +228,7 @@ endif
 
 if neobundle#tap('ctrlp.vim') && neobundle#tap('ctrlp-cmatcher')
   let g:ctrlp_switch_buffer = 'Et'
-  let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
+  let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
   let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
   let g:ctrlp_map = '<C-p>'
   let g:ctrlp_cmd = 'CtrlPMixed'
@@ -315,9 +315,9 @@ if neobundle#tap('vim-test')
   let g:test#ruby#cucumber#options = '--format progress'
   let g:test#javascript#mocha#options = '--reporter dot'
 
-  nmap <silent> <Leader>r :TestNearest<Cr>
-  nmap <silent> <Leader>R :TestFile<Cr>
-  nmap <silent> <Leader>l :TestLast<Cr>
+  nnoremap <silent> <Leader>r :TestNearest<Cr>
+  nnoremap <silent> <Leader>R :TestFile<Cr>
+  nnoremap <silent> <Leader>l :TestLast<Cr>
 
   call neobundle#untap()
 endif
@@ -350,7 +350,7 @@ if neobundle#tap('vimfiler.vim')
   let g:vimfiler_tree_indentation = 2
 
   call vimfiler#custom#profile('default', 'context', {
-        \ 'auto_expand' : 1,
+        \ 'auto_expand': 1,
         \ 'columns': '',
         \ 'parent': 1,
         \ 'safe': 0,
@@ -558,7 +558,7 @@ endif
 
 if neobundle#tap('scratch.vim')
   let g:scratch_no_mappings = 1
-  nmap <Leader>s :Scratch<Cr>
+  nnoremap <Leader>s :Scratch<Cr>
 
   call neobundle#untap()
 endif
@@ -588,9 +588,9 @@ if neobundle#tap('tagbar')
         \ }
 
   let g:tagbar_type_cucumber = {
-        \ 'ctagstype' : 'gherkin',
+        \ 'ctagstype': 'gherkin',
         \ 'sort': 0,
-        \ 'kinds' : [
+        \ 'kinds': [
         \   'f:Feature',
         \   's:Scenario',
         \   ]
@@ -600,7 +600,7 @@ if neobundle#tap('tagbar')
 endif
 
 if neobundle#tap('vim-brightest')
-  let g:brightest#highlight_in_cursorline = {'group' : 'BrightestNONE'}
+  let g:brightest#highlight_in_cursorline = {'group': 'BrightestNONE'}
   let g:brightest#pattern = '\w\+'
   autocmd FileType cucumber
         \ let b:brightest_ignore_syntax_list = ['Identifier', 'Statement', 'Type']
