@@ -27,7 +27,6 @@ NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'dhruvasagar/vim-table-mode', {'lazy': 1, 'filetypes': 'cucumber'}
 NeoBundle 'dag/vim-fish'
 NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'henrik/vim-qargs', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'janko-m/vim-test'
 NeoBundle 'JazzCore/ctrlp-cmatcher', {'build': {'mac': './install.sh'}}
 NeoBundle 'jiangmiao/auto-pairs'
