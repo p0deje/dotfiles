@@ -2,9 +2,11 @@
 --tag-relative=yes
 --exclude=.git
 --exclude=coverage
+--exclude=engines
 --exclude=node_modules
 --exclude=public
 --exclude=tmp
+--exclude=vendor/bundle
 
 --langdef=markdown
 --langmap=markdown:.md
