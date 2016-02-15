@@ -44,6 +44,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
 NeoBundle 'luochen1990/rainbow'
+NeoBundle 'Olical/vim-enmasse', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'osyo-manga/vim-brightest'
 NeoBundle 'p0deje/vim-dispatch-vimshell', {'depends': ['tpope/vim-dispatch', 'Shougo/vimshell.vim']}
 NeoBundle 'p0deje/vim-numbertoggle'
