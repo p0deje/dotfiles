@@ -20,7 +20,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim', {'lazy': 1, 'mappings': ['gJ', 'gS']}
 NeoBundle 'AndrewRadev/switch.vim', {'lazy': 1, 'commands': 'Switch'}
 NeoBundle 'AndrewRadev/linediff.vim', {'lazy': 1, 'commands': 'Linediff'}
-NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-airline', {'depends': 'vim-airline/vim-airline-themes'}
 NeoBundle 'bogado/file-line'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'DeleteTrailingWhitespace'
