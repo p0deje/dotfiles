@@ -30,8 +30,9 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'janko-m/vim-test'
 NeoBundle 'JazzCore/ctrlp-cmatcher', {'build': {'mac': './install.sh'}}
 NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
+NeoBundle 'junegunn/gv.vim', {'lazy': 1, 'commands': ['GV', 'GV!'], 'depends': 'tpope/vim-fugitive''}
 NeoBundle 'junegunn/limelight.vim', {'lazy': 1, 'commands': 'Limelight'}
+NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
