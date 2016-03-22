@@ -195,7 +195,13 @@ if neobundle#tap('vim-colors-solarized')
   let g:solarized_contrast = 'high'
   let g:solarized_visibility = 'low'
 
-  set background=dark
+  let current_time = strftime('%H:%M:%S.0 %z')
+  if current_time < '20:00:00.0' || current_time > '8:00:00.0'
+    set background=light
+  else
+    set background=dark
+  endif
+
   colorscheme solarized
 
   highlight Search guibg=#222222 guifg=Orange
