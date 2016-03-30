@@ -265,10 +265,15 @@ if neobundle#tap('vim-startify')
     \ 'dir',
   \ ]
 
-  autocmd FileType startify
-        \ setlocal buftype= |
-        \ setlocal cursorline |
-        \ setlocal nospell |
+  autocmd FileType startify call configure.startify()
+  function! configure.startify()
+    setlocal buftype=
+    setlocal cursorline
+    setlocal nospell
+
+    nmap <buffer> l <Enter>
+    nmap <buffer> o <Enter>
+  endfunction
 
   call neobundle#untap()
 endif
