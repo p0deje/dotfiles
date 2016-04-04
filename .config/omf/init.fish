@@ -5,6 +5,8 @@ alias git 'hub'
 alias cat '/usr/local/bin/ccat'
 alias ccat '/bin/cat'
 
+eval (direnv hook fish)
+
 # https://github.com/nvbn/thefuck
 function fuck
   eval (thefuck $history[1])

@@ -1,5 +1,4 @@
 package brew
-package direnv
 package extract
 package rbenv
 package z
