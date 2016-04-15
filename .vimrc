@@ -58,7 +58,8 @@ NeoBundle 'rgrinberg/vim-operator-gsearch', {'depends': ['kana/vim-operator-user
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly', {'lazy': 1, 'commands': 'Bonly'}
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplete.vim', {'lazy': 1, 'insert': 1}
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': ['Shougo/neosnippet-snippets', 'honza/vim-snippets']}
 NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
@@ -165,6 +166,7 @@ runtime macros/matchit.vim
 " better completion for cmd mode
 set wildmenu
 set wildignorecase
+set wildignore=*.pyc
 set wildmode=longest,full
 
 let g:markdown_fenced_languages = [
@@ -355,7 +357,7 @@ endif
 if neobundle#tap('vimfiler.vim')
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_enable_clipboard = 0
-  let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\|tags\)$'
+  let g:vimfiler_ignore_pattern = ['^\%(\.git\|\.DS_Store\|tags\)$', '\.pyc$']
   let g:vimfiler_quick_look_command = 'qlmanage -p'
   let g:vimfiler_tree_leaf_icon = ' '
   let g:vimfiler_tree_opened_icon = '▾'
