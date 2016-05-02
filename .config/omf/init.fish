@@ -56,3 +56,11 @@ end
 function gcloud-destroy-terminated
   gcloud compute instances list | grep TERMINATED | awk '{ print $1 }' | xargs gcloud compute instances delete --zone us-central1-b
 end
+
+# Wrap rbenv so is used with brewed readline.
+#
+# See https://github.com/rbenv/ruby-build/wiki#trouble-with-irb-or-pry.
+function rbenv
+  [ "$RUBY_CONFIGURE_OPTS" ]; and set -x RUBY_CONFIGURE_OPTS --with-readline-dir=(brew --prefix readline)
+  eval (which rbenv) $argv
+end
