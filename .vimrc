@@ -724,6 +724,10 @@ nnoremap k gk
 noremap ; :
 noremap : ;
 
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
 
 " Autocommands {{{1
 " -----------------
