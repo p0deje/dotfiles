@@ -737,11 +737,13 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost Makefile set filetype=make
   autocmd BufNewFile,BufReadPost Dockerfile* set filetype=dockerfile
 
-  autocmd FileType puppet set commentstring=#\ %s
+  autocmd FileType puppet setlocal commentstring=#\ %s
+  autocmd Filetype css setlocal iskeyword+=-
 
-  " inside regexp text object
-  " useful for working with Cucumber step definitions
   autocmd FileType ruby
+    \ setlocal iskeyword+=_
+    " inside regexp text object
+    " useful for working with Cucumber step definitions
     \ vnoremap <silent> <buffer> ix :<C-U>normal! ^f^lv$F$h<Cr>|
     \ omap <silent> <buffer> ix :normal Vix<Cr>
 
