@@ -35,8 +35,10 @@ NeoBundle 'junegunn/gv.vim', {'lazy': 1, 'commands': ['GV', 'GV!'], 'depends': '
 NeoBundle 'junegunn/limelight.vim', {'lazy': 1, 'commands': 'Limelight'}
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'luochen1990/rainbow'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
 NeoBundle 'mattn/gist-vim', {'lazy': 1, 'commands': 'Gist', 'depends': 'mattn/webapi-vim'}
 NeoBundle 'mhinz/vim-startify'
@@ -45,9 +47,9 @@ NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
-NeoBundle 'luochen1990/rainbow'
 NeoBundle 'Olical/vim-enmasse', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'osyo-manga/vim-brightest'
+NeoBundle 'p0deje/vim-cucumber', {'rev': '_merge'}
 NeoBundle 'p0deje/vim-dispatch-vimshell', {'depends': ['tpope/vim-dispatch', 'Shougo/vimshell.vim']}
 NeoBundle 'p0deje/vim-numbertoggle'
 NeoBundle 'p0deje/vim-ruby-interpolation'
@@ -66,13 +68,11 @@ NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'svermeulen/vim-easyclip', {'rev': 'develop', 'depends': 'tpope/vim-repeat'}
 NeoBundle 't9md/vim-choosewin'
-NeoBundle 'kristijanhusak/vim-multiple-cursors'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tommcdo/vim-fugitive-blame-ext', {'lazy': 1, 'filetypes': 'fugitiveblame'}
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary', {'lazy': 1, 'mappings': 'gc'}
-NeoBundle 'p0deje/vim-cucumber', {'rev': '_merge'}
 NeoBundle 'tpope/vim-endwise', {'lazy': 1, 'filetypes': 'ruby'}
 NeoBundle 'tpope/vim-fugitive', {'depends': 'tpope/vim-git'}
 NeoBundle 'tpope/vim-haystack'
