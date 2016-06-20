@@ -190,6 +190,9 @@ endif
 let configure = {}
 let helpers = {}
 
+" remove comment marker when joining lines
+set formatoptions+=j
+
 
 " Plugin options {{{1
 " -------------------
