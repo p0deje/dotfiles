@@ -34,7 +34,6 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/gv.vim', {'lazy': 1, 'commands': ['GV', 'GV!'], 'depends': 'tpope/vim-fugitive'}
 NeoBundle 'junegunn/limelight.vim', {'lazy': 1, 'commands': 'Limelight'}
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
-NeoBundle 'kana/vim-smartword'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -641,15 +640,6 @@ endif
 if neobundle#tap('rainbow')
   let g:rainbow_active = 1
   let g:rainbow_conf = {'guifgs': ['#cc241d', '#d65d0e', '#458588', '#b16286', '#cc241d', '#d65d0e']}
-
-  call neobundle#untap()
-endif
-
-if neobundle#tap('vim-smartword')
-  map w <Plug>(smartword-w)
-  map b <Plug>(smartword-b)
-  map e <Plug>(smartword-e)
-  map ge <Plug>(smartword-ge)
 
   call neobundle#untap()
 endif
