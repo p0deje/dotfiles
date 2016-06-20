@@ -752,6 +752,9 @@ augroup Filetypes
     \ nmap <silent> <buffer> <Leader>wh ^ciwWhen<Esc>|
     \ nmap <silent> <buffer> <Leader>th ^ciwThen<Esc>|
     \ nmap <silent> <buffer> <Leader>an ^ciwAnd<Esc>|
+
+  " Remove service files from buffer list
+  autocmd FileType qf setlocal nobuflisted
 augroup END
 
 augroup Misc
