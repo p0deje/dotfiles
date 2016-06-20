@@ -391,6 +391,7 @@ if neobundle#tap('vimfiler.vim')
   function! configure.vimfiler()
     setlocal norelativenumber
     setlocal nonumber
+    setlocal nobuflisted
 
     nunmap <buffer> <C-l>
     nunmap <buffer> <Space>
