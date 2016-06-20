@@ -183,7 +183,6 @@ if has('gui_macvim')
   set guioptions-=L
   set showtabline=2
   set transparency=2
-  autocmd FocusLost * silent! wa
 endif
 
 " Containers for functions
@@ -763,6 +762,10 @@ augroup Misc
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  " Save buffers and exit insert mode when leaving Vim.
+  autocmd FocusLost * nested silent! wa
+  autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
 augroup END
 
 
