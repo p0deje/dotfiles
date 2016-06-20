@@ -721,6 +721,9 @@ noremap : ;
 vnoremap < <gv
 vnoremap > >gv
 
+" return to previous cursor position when copying from visual selection
+vnoremap y y`]
+
 
 " Autocommands {{{1
 " -----------------
