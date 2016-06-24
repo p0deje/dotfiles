@@ -611,7 +611,19 @@ if neobundle#tap('tagbar')
         \ 'kinds': [
         \   'f:Feature',
         \   's:Scenario',
-        \   ]
+        \ ]
+        \ }
+
+  let g:tagbar_type_ruby = {
+        \ 'ctagstype': 'Ruby',
+        \ 'kinds': [
+        \   'c:classes',
+        \   'f:methods',
+        \   'F:singleton methods',
+        \   'm:modules',
+        \   'n:namespaces',
+        \   't:tasks'
+        \ ]
         \ }
 
   call neobundle#untap()
