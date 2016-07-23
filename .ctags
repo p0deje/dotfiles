@@ -19,5 +19,5 @@
 --regex-gherkin=/^Feature:[ \t]+(.*)/\1/f,Feature/
 --regex-gherkin=/^[ \t]+Scenarios?( Outline)?:[ \t]+(.*)/\2/s,Scenario/
 
---regex-Ruby=/(^|^[[:blank:]]*)task[ \t\:']*([A-Za-z0-9_]*)/\2/t,tasks/
---regex-Ruby=/(^|^[[:blank:]]*)namespace[ \t\:]*([A-Za-z0-9_]*)/\2/n,namespaces/
+--regex-Ruby=/(^|^[[:blank:]]*)task[ \t\:'"][^=]([A-Za-z0-9_]*)/\2/t,tasks/
+--regex-Ruby=/(^|^[[:blank:]]*)namespace[ \t\:'"][^=]([A-Za-z0-9_]*)/\2/n,namespaces/
