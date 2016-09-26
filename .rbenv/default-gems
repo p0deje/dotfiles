@@ -1,6 +1,7 @@
 bundler
 debugger-ruby_core_source
 gem-ctags
+gem-dependent
 git-up
 iStats
 lolcommits
