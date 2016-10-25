@@ -20,6 +20,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'AndrewRadev/splitjoin.vim', {'lazy': 1, 'mappings': ['gJ', 'gS']}
 NeoBundle 'AndrewRadev/switch.vim', {'lazy': 1, 'commands': 'Switch'}
 NeoBundle 'AndrewRadev/linediff.vim', {'lazy': 1, 'commands': 'Linediff'}
+NeoBundle 'AndrewRadev/writable_search.vim', {'lazy': 1, 'commands': ['WritableSearch', 'WritableSearchFromQuickfix']}
 NeoBundle 'bling/vim-airline', {'depends': 'vim-airline/vim-airline-themes'}
 NeoBundle 'bogado/file-line'
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -47,7 +48,6 @@ NeoBundle 'mtth/scratch.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
-NeoBundle 'Olical/vim-enmasse', {'lazy': 1, 'filetypes': 'qf'}
 NeoBundle 'osyo-manga/vim-brightest'
 NeoBundle 'p0deje/vim-cucumber', {'rev': '_merge'}
 NeoBundle 'p0deje/vim-dispatch-vimshell', {'depends': ['tpope/vim-dispatch', 'Shougo/vimshell.vim']}
