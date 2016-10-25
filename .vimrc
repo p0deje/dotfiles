@@ -37,6 +37,7 @@ NeoBundle 'junegunn/limelight.vim', {'lazy': 1, 'commands': 'Limelight'}
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'lifepillar/vim-mucomplete'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'luochen1990/rainbow'
 NeoBundle 'majutsushi/tagbar', {'lazy': 1, 'commands': 'Tagbar'}
@@ -58,9 +59,6 @@ NeoBundle 'rgrinberg/vim-operator-gsearch', {'depends': ['kana/vim-operator-user
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'schickling/vim-bufonly', {'lazy': 1, 'commands': 'Bonly'}
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neoinclude.vim'
-NeoBundle 'Shougo/neosnippet.vim', {'lazy': 1, 'insert': 1, 'depends': ['Shougo/neosnippet-snippets', 'honza/vim-snippets']}
 NeoBundle 'Shougo/vimfiler.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimproc', {'build': {'mac': 'make -f make_mac.mak'}}
 NeoBundle 'sjl/gundo.vim', {'lazy': 1, 'commands': 'GundoToggle'}
@@ -167,6 +165,10 @@ set wildmenu
 set wildignorecase
 set wildignore=*.pyc
 set wildmode=longest,full
+
+" completion improvements
+set completeopt+=menu,menuone
+set shortmess+=c
 
 let g:markdown_fenced_languages = [
       \ 'cucumber',
@@ -489,42 +491,8 @@ if neobundle#tap('vim-easyclip')
   call neobundle#untap()
 endif
 
-if neobundle#tap('neocomplete.vim') && neobundle#tap('neosnippet.vim')
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_ignore_case = 0
-  let g:neocomplete#enable_fuzzy_completion = 1
-  let g:neocomplete#ctags_command = '/usr/local/bin/ctags'
-  let g:neosnippet#enable_snipmate_compatibility = 1
-
-  " Complete with <Tab>
-
-  function! s:IsPreviousCharSpace()
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~ '\s'
-  endfunction
-
-  imap <expr><Tab>
-        \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-        \   pumvisible() ? "\<C-n>" :
-        \     <SID>IsPreviousCharSpace() ? "\<Tab>" :
-        \       neocomplete#start_manual_complete()
-  imap <expr><M-Tab> "\<C-p>"
-
-  call neobundle#untap()
-endif
-
-if neobundle#tap('vim-multiple-cursors')
-  " Enable/disable completion when multiple cursors are used
-  function! Multiple_cursors_before()
-    if exists('g:loaded_neocomplete')
-      exe 'NeoCompleteLock'
-    endif
-  endfunction
-  function! Multiple_cursors_after()
-    if exists('g:loaded_neocomplete')
-      silent exe 'NeoCompleteUnlock'
-    endif
-  endfunction
+if neobundle#tap('vim-mucomplete')
+  let g:mucomplete#enable_auto_at_startup = 1
 
   call neobundle#untap()
 endif
