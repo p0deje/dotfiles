@@ -1,3 +1,5 @@
+set fish_greeting ""
+
 function fish_title
   basename {$PWD}
 end
