@@ -12,6 +12,7 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   ls = ls-files
   ctags = !.git/hooks/ctags
+  up = pull --rebase --autostash --prune
 
 [core]
   excludesfile = ~/.gitignore
