@@ -45,6 +45,7 @@ NeoBundle 'mattn/gist-vim', {'lazy': 1, 'commands': 'Gist', 'depends': 'mattn/we
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mtth/scratch.vim'
+NeoBundle 'mzlogin/vim-markdown-toc', {'lazy': 1, 'filetypes': 'markdown'}
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'nelstrom/vim-textobj-rubyblock', {'lazy': 1, 'filetypes': 'ruby', 'depends': 'kana/vim-textobj-user'}
 NeoBundle 'noprompt/vim-yardoc'
