@@ -725,12 +725,12 @@ augroup Filetypes
   autocmd FileType puppet setlocal commentstring=#\ %s
   autocmd Filetype css setlocal iskeyword+=-
 
+  autocmd FileType ruby setlocal iskeyword+=_
+  " inside regexp text object
+  " useful for working with Cucumber step definitions
   autocmd FileType ruby
-    \ setlocal iskeyword+=_
-    " inside regexp text object
-    " useful for working with Cucumber step definitions
     \ vnoremap <silent> <buffer> ix :<C-U>normal! ^f^lv$F$h<Cr>|
-    \ omap <silent> <buffer> ix :normal Vix<Cr>
+    \ onoremap <silent> <buffer> ix :normal vix<Cr>|
 
   autocmd FileType cucumber
     \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc>|
