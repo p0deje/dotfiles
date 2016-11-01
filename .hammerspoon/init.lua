@@ -17,3 +17,9 @@ bindToLaunchOrFocus("t", "iTerm")
 bindToLaunchOrFocus("v", "MacVim")
 bindToLaunchOrFocus("m", "Messages")
 bindToLaunchOrFocus("b", "Slack")
+
+-- Window moving
+
+hs.hotkey.bind({"alt", "shift"}, "m", function()
+  hs.window.centerOnScreen(hs.window.focusedWindow())
+en
