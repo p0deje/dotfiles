@@ -721,6 +721,7 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost inv_* set filetype=cfg
   autocmd BufNewFile,BufReadPost Makefile set filetype=make
   autocmd BufNewFile,BufReadPost Dockerfile* set filetype=dockerfile
+  autocmd BufNewFile,BufReadPost *.bpf set filetype=json
 
   autocmd FileType puppet setlocal commentstring=#\ %s
   autocmd Filetype css setlocal iskeyword+=-
@@ -752,6 +753,27 @@ augroup Misc
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  " make vim-projectionist and vim-rails compatible (see tpope/vim-projectionist#36)
+  autocmd BufNewFile,BufRead,BufWrite * call helpers.copy_projections()
+  function! helpers.copy_projections() abort
+    if !exists('b:projectionist') || !exists('b:rails_root')
+      return
+    endif
+
+    let g:rails_projections = {}
+    let app_projections = deepcopy(b:projectionist[b:rails_root])
+    for projection_group in app_projections
+      for projection in keys(projection_group)
+        if has_key(projection_group[projection], 'type')
+          let projection_group[projection]['command'] = projection_group[projection]['type']
+          call remove(projection_group[projection], 'type')
+        endif
+
+        let g:rails_projections[projection] = projection_group[projection]
+      endfor
+    endfor
+  endfunction
 
   " Save buffers and exit insert mode when leaving Vim.
   autocmd FocusLost * nested silent! wa
