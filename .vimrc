@@ -17,9 +17,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-rooter'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'AndrewRadev/dsf.vim'
+NeoBundle 'AndrewRadev/linediff.vim', {'lazy': 1, 'commands': 'Linediff'}
 NeoBundle 'AndrewRadev/splitjoin.vim', {'lazy': 1, 'mappings': ['gJ', 'gS']}
 NeoBundle 'AndrewRadev/switch.vim', {'lazy': 1, 'commands': 'Switch'}
-NeoBundle 'AndrewRadev/linediff.vim', {'lazy': 1, 'commands': 'Linediff'}
 NeoBundle 'AndrewRadev/writable_search.vim', {'lazy': 1, 'commands': ['WritableSearch', 'WritableSearchFromQuickfix']}
 NeoBundle 'bling/vim-airline', {'depends': 'vim-airline/vim-airline-themes'}
 NeoBundle 'bogado/file-line'
