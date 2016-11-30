@@ -1,3 +1,5 @@
+require "clipboard"
+
 -- Window hints
 
 hs.hotkey.bind({"cmd"}, "e", function()
