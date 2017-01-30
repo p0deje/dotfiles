@@ -1,5 +1,9 @@
 require "clipboard"
 
+-- Configuration
+
+hs.window.animationDuration = 0
+
 -- Window hints
 
 hs.hotkey.bind({"cmd"}, "e", function()
