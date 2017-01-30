@@ -36,6 +36,7 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'junegunn/gv.vim', {'lazy': 1, 'commands': ['GV', 'GV!'], 'depends': 'tpope/vim-fugitive'}
 NeoBundle 'junegunn/limelight.vim', {'lazy': 1, 'commands': 'Limelight'}
 NeoBundle 'junegunn/vim-easy-align', {'lazy': 1, 'mappings': '<Plug>(EasyAlign)'}
+NeoBundle 'keith/swift.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'lifepillar/vim-mucomplete'
