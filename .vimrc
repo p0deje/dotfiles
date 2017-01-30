@@ -105,7 +105,7 @@ NeoBundleCheck
 
 set shell=/bin/bash  " fish is too good for plugins
 
-set guifont=Monaco\ for\ Powerline:h14
+set guifont=Fira\ Code:h14
 
 set number               " show line numbers
 set cursorline           " highlight current line
@@ -181,6 +181,7 @@ let g:markdown_fenced_languages = [
       \ ]
 
 if has('gui_macvim')
+  set macligatures
   set macmeta
   set clipboard=unnamed
   set guioptions-=R
@@ -188,6 +189,7 @@ if has('gui_macvim')
   set guioptions-=L
   set showtabline=2
   set transparency=2
+  set linespace=1
 endif
 
 " Containers for functions
