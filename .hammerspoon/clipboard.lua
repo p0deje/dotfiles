@@ -40,12 +40,15 @@ function clearLastItem()
 end
 
 function pasteboardToClipboard(item)
-  -- remove old history elements
-  while (#clipboardHistory >= historySize) do
-    table.remove(clipboardHistory, 1)
+  -- ignore if last copied item is the same
+  if (clipboardHistory[#clipboardHistory] ~= item) then
+    -- remove old history elements
+    while (#clipboardHistory >= historySize) do
+      table.remove(clipboardHistory, 1)
+    end
+    table.insert(clipboardHistory, item)
+    hs.settings.set(settingsPath, clipboardHistory)
   end
-  table.insert(clipboardHistory, item)
-  hs.settings.set(settingsPath, clipboardHistory)
 end
 
 function storeCopy()
@@ -79,7 +82,7 @@ populateMenu = function(key)
         title = string.sub(title, 0, labelLength) .. "…"
       end
 
-      table.insert(menuData, 1, { title = title, fn = function() putOnPaste(value, key) end })
+      table.insert(menuData, 1, {title = title, fn = function() putOnPaste(value, key) end})
     end
   end
 
