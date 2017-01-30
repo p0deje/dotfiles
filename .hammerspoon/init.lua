@@ -27,5 +27,13 @@ bindToLaunchOrFocus("b", "Slack")
 -- Window moving
 
 hs.hotkey.bind({"alt", "shift"}, "m", function()
-  hs.window.centerOnScreen(hs.window.focusedWindow())
-en
+  hs.window.focusedWindow():centerOnScreen()
+end)
+
+hs.hotkey.bind({"alt", "shift"}, "h", function()
+  hs.window.focusedWindow():moveToUnit(hs.layout.left50)
+end)
+
+hs.hotkey.bind({"alt", "shift"}, "l", function()
+  hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+end)
