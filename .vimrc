@@ -780,6 +780,9 @@ augroup Misc
   " Save buffers and exit insert mode when leaving Vim.
   autocmd FocusLost * nested silent! wa
   autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
+
+  " make sure exrc is loaded for session
+  autocmd SessionLoadPost * if filereadable('.vimrc') | source .vimrc | endif
 augroup END
 
 
