@@ -8,10 +8,10 @@ if has('vim_starting')
   filetype on                    " required!: filetype detection
   filetype off                   " required!: filetype detection
 
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/neobundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/neobundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -524,10 +524,10 @@ endif
 
 if neobundle#tap('vim-unimpaired')
   " Bubble lines
-  nmap <C-M-k> [e
-  nmap <C-M-j> ]e
-  vmap <C-M-k> [egv
-  vmap <C-M-j> ]egv
+  nmap <C-M-k> zi[ezi
+  nmap <C-M-j> zi]ezi
+  vmap <C-M-k> zi[egvzi
+  vmap <C-M-j> zi]egvzi
 
   call neobundle#untap()
 endif
