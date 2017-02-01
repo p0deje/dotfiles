@@ -226,7 +226,41 @@ set formatoptions+=j
 " Plugin options {{{1
 " -------------------
 
-" vim-colors-solarized {{{2
+" }}} airline {{{2
+
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
+
+" }}} auto-pairs {{{2
+
+" Clear <M-p> mapping
+let g:AutoPairsShortcutToggle = ''
+
+" Autoclose pipe in Ruby
+autocmd FileType ruby
+      \ let b:AutoPairs = {'|': '|'} |
+      \ for key in keys(g:AutoPairs) |
+      \   let b:AutoPairs[key] = g:AutoPairs[key] |
+      \ endfor
+
+" }}} brightest {{{2
+
+let g:brightest#highlight_in_cursorline = {'group': 'BrightestNONE'}
+let g:brightest#pattern = '\w\+'
+autocmd FileType cucumber
+      \ let b:brightest_ignore_syntax_list = ['Identifier', 'Statement', 'Type']
+
+" }}} choosewin {{{2
+
+let g:choosewin_overlay_enable = 0
+let g:choosewin_statusline_replace = 1
+let g:choosewin_keymap = {"\<Space>": 'previous'}
+
+nmap <Space> <Plug>(choosewin)
+
+" colors-solarized {{{2
+
 let g:solarized_contrast = 'high'
 let g:solarized_visibility = 'low'
 
@@ -255,14 +289,6 @@ else
   highlight CursorLineNr guibg=#eee8d5
 endif
 
-" }}} vim-operator-gsearch {{{2
-
-let g:gsearch_ag_command = 'Ag!'
-
-map ga <Plug>(operator-ag)
-nnoremap ga<Space> :Ag!<Space>
-nnoremap <silent> gac :execute 'Ag! ' . shellescape(@+)<Cr>
-
 " }}} ctrlp {{{2
 
 let g:ctrlp_switch_buffer = 'Et'
@@ -271,13 +297,118 @@ let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
-" }}} vim-airline {{{2
+" }}} DeleteTrailingWhitespace {{{2
 
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 1
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
 
-" }}} vim-startify {{{2
+" }}} dispatch {{{2
+
+let g:dispatch_compilers = {'bundle exec': ''}
+
+" }}} easy-align {{{2
+
+vmap E <Plug>(EasyAlign)
+
+" }}} easyclip {{{2
+
+let g:EasyClipAutoFormat = 1
+let g:EasyClipDoSystemSync = 0
+
+nmap M m$
+
+nmap <M-p> <plug>EasyClipSwapPasteForward
+nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
+
+" Substitute operator
+nmap <silent> gr <plug>SubstituteOverMotionMap
+nmap grr <plug>SubstituteLine
+xmap gr <plug>XEasyClipPaste
+
+" }}} easymotion {{{2
+
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+
+map gj <Plug>(easymotion-s2)
+
+" }}} fugitive {{{2
+
+nnoremap gst :Gstatus<Cr>
+
+" }}} gist-vim {{{2
+
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+
+" }}} gundo {{{2
+
+let g:gundo_right = 1
+
+" }}} incsearch {{{2
+
+let g:incsearch#magic = '\v'
+
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+
+" }}} indent-guides {{{2
+
+let g:indent_guides_default_mapping = 0
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_color_change_percent = 2
+let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
+
+" }}} mucomplete {{{2
+
+let g:mucomplete#enable_auto_at_startup = 1
+
+" }}} operator-gsearch {{{2
+
+let g:gsearch_ag_command = 'Ag!'
+
+map ga <Plug>(operator-ag)
+nnoremap ga<Space> :Ag!<Space>
+nnoremap <silent> gac :execute 'Ag! ' . shellescape(@+)<Cr>
+
+" }}} projectionist {{{2
+
+let g:projectionist_heuristics = {
+      \ "features/*": {
+      \   "features/*.feature": {"type": "feature", "alternate": "features/step_definitions/{}_steps.rb"},
+      \   "features/support/env.rb": {"type": "feature", "alternate": "features/support/hooks.rb"},
+      \   "features/support/hooks.rb": {"alternate": "features/support/env.rb"},
+      \   "features/step_definitions": {"type": "step"},
+      \   "features/step_definitions/*_steps.rb": {"type": "step", "alternate": "features/{}.feature"}
+      \ }
+      \ }
+
+" quickly switch between E/S/V/T commands
+cnoremap <C-M-e> <C-b><Del>E<C-e>
+cnoremap <C-M-s> <C-b><Del>S<C-e>
+cnoremap <C-M-v> <C-b><Del>V<C-e>
+cnoremap <C-M-t> <C-b><Del>T<C-e>
+
+" }}} rainbow {{{2
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {'guifgs': ['#cc241d', '#d65d0e', '#458588', '#b16286', '#cc241d', '#d65d0e']}
+
+" }}} scratch {{{2
+
+let g:scratch_no_mappings = 1
+nnoremap <Leader>s :Scratch<Cr>
+
+" }}} signature {{{2
+
+" Leave "m" for vim-easyclip
+let g:SignatureMap = {'Leader': 'gm'}
+
+" }}} startify {{{2
 
 let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_session_persistence = 1
@@ -301,6 +432,10 @@ function! configure.startify()
   nmap <buffer> o <Enter>
 endfunction
 
+" }}} surround {{{2
+
+autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
+
 " }}} syntastic {{{2
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
@@ -312,18 +447,48 @@ let g:syntastic_ruby_rubocop_args = '--display-cop-names'
 " Disable checkers for schema
 autocmd BufNewFile,BufReadPost schema.rb let b:syntastic_skip_checks = 1
 
-" }}} vim-easymotion {{{2
+" }}} table-mode {{{2
 
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
+let g:table_mode_disable_mappings = 1
 
-map gj <Plug>(easymotion-s2)
+autocmd FileType cucumber silent! :TableModeEnable
+autocmd FileType cucumber command! AlignBars :normal viiE*\|
+autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
 
-" }}} vim-dispatch {{{2
+" }}} tagbar {{{2
 
-let g:dispatch_compilers = {'bundle exec': ''}
+let g:tagbar_type_markdown = {
+      \ 'ctagstype': 'markdown',
+      \ 'sort': 0,
+      \ 'kinds': [
+      \   'h:headings',
+      \   'l:links',
+      \   'i:images'
+      \ ]
+      \ }
 
-" }}} vim-test {{{2
+let g:tagbar_type_cucumber = {
+      \ 'ctagstype': 'gherkin',
+      \ 'sort': 0,
+      \ 'kinds': [
+      \   'f:Feature',
+      \   's:Scenario',
+      \ ]
+      \ }
+
+let g:tagbar_type_ruby = {
+      \ 'ctagstype': 'Ruby',
+      \ 'kinds': [
+      \   'c:classes',
+      \   'f:methods',
+      \   'F:singleton methods',
+      \   'm:modules',
+      \   'n:namespaces',
+      \   't:tasks'
+      \ ]
+      \ }
+
+" }}} test {{{2
 
 let g:test#strategy = 'dispatch'
 let g:test#ruby#cucumber#options = '--format progress'
@@ -333,19 +498,15 @@ nnoremap <silent> <Leader>r :TestNearest<Cr>
 nnoremap <silent> <Leader>R :TestFile<Cr>
 nnoremap <silent> <Leader>l :TestLast<Cr>
 
-" }}} gist-vim {{{2
+" }}} unimpaired {{{2
 
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+" Bubble lines
+nmap <C-M-k> zi[ezi
+nmap <C-M-j> zi]ezi
+vmap <C-M-k> zi[egvzi
+vmap <C-M-j> zi]egvzi
 
-" }}} DeleteTrailingWhitespace {{{2
-
-let g:DeleteTrailingWhitespace = 1
-let g:DeleteTrailingWhitespace_Action = 'delete'
-
-" }}} vimfiler.vim {{{2
+" }}} vimfiler {{{2
 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_clipboard = 0
@@ -404,115 +565,7 @@ function! configure.vimfiler()
   nnoremap <buffer> g<C-g> :call helpers.toggle_maximize_vimfiler()<Cr>
 endfunction
 
-" }}} auto-pairs {{{2
-
-" Clear <M-p> mapping
-let g:AutoPairsShortcutToggle = ''
-
-" Autoclose pipe in Ruby
-autocmd FileType ruby
-      \ let b:AutoPairs = {'|': '|'} |
-      \ for key in keys(g:AutoPairs) |
-      \   let b:AutoPairs[key] = g:AutoPairs[key] |
-      \ endfor
-
-" }}} vim-signature {{{2
-
-" Leave "m" for vim-easyclip
-let g:SignatureMap = {'Leader': 'gm'}
-
-" }}} vim-table-mode {{{2
-
-let g:table_mode_disable_mappings = 1
-
-autocmd FileType cucumber silent! :TableModeEnable
-autocmd FileType cucumber command! AlignBars :normal viiE*\|
-autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
-
-" }}} vim-projectionist {{{2
-
-let g:projectionist_heuristics = {
-  \ "features/*": {
-  \   "features/*.feature": {"type": "feature", "alternate": "features/step_definitions/{}_steps.rb"},
-  \   "features/support/env.rb": {"type": "feature", "alternate": "features/support/hooks.rb"},
-  \   "features/support/hooks.rb": {"alternate": "features/support/env.rb"},
-  \   "features/step_definitions": {"type": "step"},
-  \   "features/step_definitions/*_steps.rb": {"type": "step", "alternate": "features/{}.feature"}
-  \ }
-\ }
-
-" quickly switch between E/S/V/T commands
-cnoremap <C-M-e> <C-b><Del>E<C-e>
-cnoremap <C-M-s> <C-b><Del>S<C-e>
-cnoremap <C-M-v> <C-b><Del>V<C-e>
-cnoremap <C-M-t> <C-b><Del>T<C-e>
-
-" }}} gundo.vim {{{2
-
-let g:gundo_right = 1
-
-" }}} vim-easyclip {{{2
-
-let g:EasyClipAutoFormat = 1
-let g:EasyClipDoSystemSync = 0
-
-nmap M m$
-
-nmap <M-p> <plug>EasyClipSwapPasteForward
-nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
-
-" Substitute operator
-nmap <silent> gr <plug>SubstituteOverMotionMap
-nmap grr <plug>SubstituteLine
-xmap gr <plug>XEasyClipPaste
-
-" }}} vim-mucomplete {{{2
-
-let g:mucomplete#enable_auto_at_startup = 1
-
-" }}} vim-choosewin {{{2
-
-let g:choosewin_overlay_enable = 0
-let g:choosewin_statusline_replace = 1
-let g:choosewin_keymap = {"\<Space>": 'previous'}
-
-nmap <Space> <Plug>(choosewin)
-
-" }}} vim-easy-align {{{2
-
-vmap E <Plug>(EasyAlign)
-
-" }}} vim-fugitive {{{2
-
-nnoremap gst :Gstatus<Cr>
-
-" }}} vim-unimpaired {{{2
-
-" Bubble lines
-nmap <C-M-k> zi[ezi
-nmap <C-M-j> zi]ezi
-vmap <C-M-k> zi[egvzi
-vmap <C-M-j> zi]egvzi
-
-" }}} vim-surround {{{2
-
-autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
-
-" }}} vim-indent-guides {{{2
-
-let g:indent_guides_default_mapping = 0
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_color_change_percent = 2
-let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
-
-" }}} scratch.vim {{{2
-
-let g:scratch_no_mappings = 1
-nnoremap <Leader>s :Scratch<Cr>
-
-" }}} vimshell.vim {{{2
+" }}} vimshell {{{2
 
 let g:vimshell_escape_colors = [
   \ '#6c6c6c', '#dc322f', '#859900', '#b58900',
@@ -523,61 +576,9 @@ let g:vimshell_escape_colors = [
 
 autocmd FileType vimshell setlocal wrap
 
-" }}} tagbar {{{2
-
-let g:tagbar_type_markdown = {
-      \ 'ctagstype': 'markdown',
-      \ 'sort': 0,
-      \ 'kinds': [
-      \   'h:headings',
-      \   'l:links',
-      \   'i:images'
-      \ ]
-      \ }
-
-let g:tagbar_type_cucumber = {
-      \ 'ctagstype': 'gherkin',
-      \ 'sort': 0,
-      \ 'kinds': [
-      \   'f:Feature',
-      \   's:Scenario',
-      \ ]
-      \ }
-
-let g:tagbar_type_ruby = {
-      \ 'ctagstype': 'Ruby',
-      \ 'kinds': [
-      \   'c:classes',
-      \   'f:methods',
-      \   'F:singleton methods',
-      \   'm:modules',
-      \   'n:namespaces',
-      \   't:tasks'
-      \ ]
-      \ }
-
-" }}} vim-brightest {{{2
-
-let g:brightest#highlight_in_cursorline = {'group': 'BrightestNONE'}
-let g:brightest#pattern = '\w\+'
-autocmd FileType cucumber
-      \ let b:brightest_ignore_syntax_list = ['Identifier', 'Statement', 'Type']
-
-" }}} vim-yardoc {{{2
+" }}} yardoc {{{2
 
 highlight link yardGenericTag rubyLocalVariableOrMethod
-
-" }}} incsearch.vim {{{2
-
-let g:incsearch#magic = '\v'
-
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-
-" }}} rainbow {{{2
-
-let g:rainbow_active = 1
-let g:rainbow_conf = {'guifgs': ['#cc241d', '#d65d0e', '#458588', '#b16286', '#cc241d', '#d65d0e']}
 
 " }}}
 
