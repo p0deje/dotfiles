@@ -87,10 +87,10 @@ Plug 'vim-ruby/vim-ruby'
 " }}} UI {{{2
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline' " depends: vim-airline-themes
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'luochen1990/rainbow'
-Plug 'mhinz/vim-signify', {'tag': 'v1.9'}
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'osyo-manga/vim-brightest'
@@ -318,23 +318,6 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
 map gj <Plug>(easymotion-s2)
-
-" }}} vim-signify {{{2
-
-let g:signify_vcs_list = ['git']
-let g:signify_sign_change = '~'
-
-if &background ==# 'dark'
-  highlight SignifySignAdd guibg=#002b36 guifg=#579900
-  highlight SignifySignChange guibg=#002b36 guifg=#b58900
-  highlight SignifySignDelete guibg=#002b36 guifg=#dc322f
-else
-  highlight SignifySignAdd guibg=#fdf6e3 guifg=#579900
-  highlight SignifySignChange guibg=#fdf6e3 guifg=#b58900
-  highlight SignifySignDelete guibg=#fdf6e3 guifg=#dc322f
-endif
-
-autocmd FocusGained,FocusLost,BufEnter * call sy#util#refresh_windows()
 
 " }}} vim-dispatch {{{2
 
