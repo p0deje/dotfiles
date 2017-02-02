@@ -30,7 +30,7 @@ Plug 'zimbatm/direnv.vim'
 Plug 'janko-m/vim-test'
 Plug 'p0deje/vim-dispatch-vimshell' " depends: vim-dispatch, vimshell.vim
 Plug 'scrooloose/syntastic'
-Plug 'Shougo/vimproc', {'build': 'make -f make_mac.mak'}
+Plug 'Shougo/vimproc', {'do': 'make -f make_mac.mak'}
 Plug 'Shougo/vimshell.vim'
 Plug 'tpope/vim-dispatch'
 
@@ -53,7 +53,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
 Plug 'bogado/file-line'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher', {'build': './install.sh'} " depends: ctrlp.vim
+Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim' " depends: unite.vim
 Plug 'tpope/vim-haystack'
