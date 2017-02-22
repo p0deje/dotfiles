@@ -59,9 +59,6 @@
   smudge = git lfs smudge %f
   required = true
 
-[git-up "bundler"]
-  check = true
-
 [pager]
   diff = diff-so-fancy | less --tabs=4 -RFX
   show = diff-so-fancy | less --tabs=4 -RFX
