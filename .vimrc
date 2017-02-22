@@ -194,6 +194,7 @@ set wildmode=longest,full
 set completeopt+=menu
 set completeopt+=menuone
 set completeopt+=noinsert
+set completeopt+=noselect
 set shortmess+=c
 
 let g:markdown_fenced_languages = [
