@@ -28,8 +28,8 @@ Plug 'zimbatm/direnv.vim'
 " }}} Linting, testing {{{2
 
 Plug 'janko-m/vim-test'
+Plug 'neomake/neomake'
 Plug 'p0deje/vim-dispatch-vimshell' " depends: vim-dispatch, vimshell.vim
-Plug 'scrooloose/syntastic'
 Plug 'Shougo/vimproc', {'do': 'make -f make_mac.mak'}
 Plug 'Shougo/vimshell.vim'
 Plug 'tpope/vim-dispatch'
@@ -367,6 +367,13 @@ let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 
 let g:mucomplete#enable_auto_at_startup = 1
 
+" }}} neomake {{{2
+
+let g:neomake_warning_sign = {'text': '!', 'texthl': 'WarningMsg'}
+let g:neomake_error_sign = {'text': 'x', 'texthl': 'WarningMsg'}
+
+autocmd! BufWritePost,BufEnter * Neomake
+
 " }}} operator-gsearch {{{2
 
 let g:gsearch_ag_command = 'Ag!'
@@ -435,17 +442,6 @@ endfunction
 " }}} surround {{{2
 
 autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
-
-" }}} syntastic {{{2
-
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_java_checkers = []
-let g:syntastic_sh_checkers = ['sh', 'shellcheck']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_ruby_rubocop_args = '--display-cop-names'
-
-" Disable checkers for schema
-autocmd BufNewFile,BufReadPost schema.rb let b:syntastic_skip_checks = 1
 
 " }}} table-mode {{{2
 
