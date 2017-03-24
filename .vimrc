@@ -367,6 +367,10 @@ let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 " }}} mucomplete {{{2
 
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#chains = {
+      \ 'default': ['path', 'keyn', 'omni', 'dict'],
+      \ 'cucumber' : ['keyn', 'dict', 'line', 'uspl']
+      \ }
 
 " }}} neomake {{{2
 
