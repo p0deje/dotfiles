@@ -37,7 +37,6 @@ Plug 'tpope/vim-dispatch'
 " }}} Motions and operators {{{2
 
 Plug 'AndrewRadev/dsf.vim'
-Plug 'junegunn/vim-easy-align', {'on': '<Plug>(EasyAlign)'}
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'Lokaltog/vim-easymotion'
@@ -45,6 +44,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'} " depends: vim-textobj-us
 Plug 'qstrahl/vim-dentures'
 Plug 'wellle/targets.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
@@ -307,10 +307,6 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:dispatch_compilers = {'bundle exec': ''}
 
-" }}} easy-align {{{2
-
-vmap E <Plug>(EasyAlign)
-
 " }}} easyclip {{{2
 
 let g:EasyClipAutoFormat = 1
@@ -453,7 +449,6 @@ autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
 let g:table_mode_disable_mappings = 1
 
 autocmd FileType cucumber silent! :TableModeEnable
-autocmd FileType cucumber command! AlignBars :normal viiE*\|
 autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
 
 " }}} tagbar {{{2
