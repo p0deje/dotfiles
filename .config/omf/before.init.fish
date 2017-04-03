@@ -12,4 +12,4 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 set -x LOLCOMMITS_FORK true
 set -x Z_SCRIPT_PATH (brew --prefix)/etc/profile.d/z.sh
 
-set -gx PATH $PATH /usr/local/share/npm/bin
+set -gx PATH $PATH /usr/local/share/npm/bin /opt/puppetlabs/bin
