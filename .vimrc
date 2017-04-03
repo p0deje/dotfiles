@@ -69,6 +69,7 @@ Plug 'tpope/vim-abolish'
 
 " }}} Syntax and filetypes {{{2
 
+Plug 'bazelbuild/vim-ft-bzl' " Buck and CrazyFun
 Plug 'dag/vim-fish'
 Plug 'dhruvasagar/vim-table-mode', {'for': 'cucumber'}
 Plug 'elixir-lang/vim-elixir'
@@ -671,6 +672,7 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost Makefile set filetype=make
   autocmd BufNewFile,BufReadPost Dockerfile* set filetype=dockerfile
   autocmd BufNewFile,BufReadPost *.bpf set filetype=json
+  autocmd BufNewFile,BufReadPost BUCK,build.desc set filetype=bzl
 
   autocmd FileType puppet setlocal commentstring=#\ %s
   autocmd Filetype css setlocal iskeyword+=-
