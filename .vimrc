@@ -21,8 +21,9 @@ Plug 'junegunn/gv.vim', {'on': ['GV', 'GV!']} " depends: vim-fugitive
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim', {'on': 'Gist'} " depends: webapi-vim
 Plug 'tommcdo/vim-fugitive-blame-ext', {'for': 'fugitiveblame'}
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive' " depends: vim-git
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rhubarb'
 Plug 'zimbatm/direnv.vim'
 
 " }}} Linting, testing {{{2
@@ -366,7 +367,8 @@ let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = {
       \ 'default': ['path', 'keyn', 'omni', 'dict'],
-      \ 'cucumber' : ['keyn', 'dict', 'line', 'uspl']
+      \ 'cucumber' : ['keyn', 'dict', 'line', 'uspl'],
+      \ 'gitcommit' : ['keyn', 'dict', 'uspl']
       \ }
 
 " }}} neomake {{{2
