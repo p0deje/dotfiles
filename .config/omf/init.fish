@@ -43,6 +43,7 @@ end
 function docker-cleanup
   docker rm --force (docker ps --all --quiet --filter status=exited)
   docker rmi --force (docker images --all --quiet)
+  rm -i $HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
 end
 
 # Finds all terminated GCE instances and removes them.
