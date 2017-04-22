@@ -96,6 +96,7 @@ Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'osyo-manga/vim-brightest'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
 " }}} Vim improved (again) {{{2
@@ -128,7 +129,7 @@ call plug#end()
 
 set shell=/bin/bash  " fish is too good for plugins
 
-set guifont=Fira\ Code:h14
+set guifont=FuraCode\ Nerd\ Font:h14
 
 set number               " show line numbers
 set cursorline           " highlight current line
