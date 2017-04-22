@@ -481,7 +481,10 @@ let g:tagbar_type_ruby = {
       \   'F:singleton methods',
       \   'm:modules',
       \   'n:namespaces',
-      \   't:tasks'
+      \   't:tasks',
+      \   'd:describes',
+      \   'C:contexts',
+      \   'e:examples'
       \ ]
       \ }
 
