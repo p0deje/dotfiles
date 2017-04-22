@@ -3,7 +3,6 @@ gem-ctags
 gem-dependent
 iStats
 lolcommits
-mailcatcher
 rbtrace
 rubocop
 terminal-notifier
