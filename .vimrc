@@ -302,6 +302,8 @@ let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
+nnoremap gb :CtrlPBuffer<Cr>
+
 " }}} DeleteTrailingWhitespace {{{2
 
 let g:DeleteTrailingWhitespace = 1
