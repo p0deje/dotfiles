@@ -109,6 +109,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 Plug 'mtth/scratch.vim'
 Plug 'p0deje/vim-numbertoggle'
+Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'schickling/vim-bufonly', {'on': 'Bonly'}
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 Plug 'svermeulen/vim-easyclip', {'branch': 'develop'} " depends: vim-repeat
