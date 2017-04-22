@@ -1,6 +1,22 @@
+set fish_greeting ""
+
+function fish_title
+  basename {$PWD}
+end
+
+set -x ANSIBLE_NOCOWS 1
+set -x BUNDLER_EDITOR mvim
+set -x EDITOR mvim
+set -x JAVA_HOME (/usr/libexec/java_home)
+set -x LOLCOMMITS_FORK true
+
+set -U FZF_DEFAULT_OPTS "--reverse"
+set -U FZF_LEGACY_KEYBINDINGS 0
+
+set -gx PATH $PATH /usr/local/share/npm/bin /opt/puppetlabs/bin
+
 alias be 'bundle exec'
 alias ve 'vagrant exec'
-alias vim 'mvim'
 alias git 'hub'
 alias cat '/usr/local/bin/ccat'
 alias ccat '/bin/cat'
@@ -49,12 +65,4 @@ end
 # Finds all terminated GCE instances and removes them.
 function gcloud-destroy-terminated
   gcloud compute instances list | grep TERMINATED | awk '{ print $1 }' | xargs gcloud compute instances delete --zone us-central1-b
-end
-
-# Wrap rbenv so is used with brewed readline.
-#
-# See https://github.com/rbenv/ruby-build/wiki#trouble-with-irb-or-pry.
-function rbenv
-  [ "$RUBY_CONFIGURE_OPTS" ]; and set -x RUBY_CONFIGURE_OPTS --with-readline-dir=(brew --prefix readline)
-  eval (which rbenv) $argv
 end

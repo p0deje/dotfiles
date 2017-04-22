@@ -1,6 +1,0 @@
-package brew
-package extract
-package rbenv
-package z
-theme default
-theme nai
