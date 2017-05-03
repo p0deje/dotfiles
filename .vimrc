@@ -145,7 +145,6 @@ set autoread             " Automatically reload changed files
 set exrc                 " enable per-directory .vimrc files
 set secure               " disable unsafe commands in local .vimrc files
 set history=50           " history size
-set foldcolumn=1         " increase vsplits margin
 set undofile             " tell it to use an undo file
 set undodir=~/.vim/undo  " set a directory to store the undo history
 set virtualedit=block
@@ -200,6 +199,11 @@ set completeopt+=menuone
 set completeopt+=noinsert
 set completeopt+=noselect
 set shortmess+=c
+
+" folding
+set foldcolumn=2         " increase vsplits margin
+set foldlevelstart=99    " show folds but don't collapse
+set foldmethod=syntax
 
 let g:markdown_fenced_languages = [
       \ 'cucumber',
@@ -280,13 +284,13 @@ colorscheme solarized
 
 highlight Search guibg=#222222 guifg=Orange
 if &background ==# 'dark'
-  highlight FoldColumn guibg=#002b36
+  highlight FoldColumn guibg=#002b36 guifg=#002b36
   highlight LineNr guibg=#002b36
   highlight SignColumn guibg=#002b36
   highlight VertSplit guifg=#073642 guibg=#073642
   highlight WildMenu guifg=Orange
 else
-  highlight FoldColumn guibg=#fdf6e3
+  highlight FoldColumn guibg=#fdf6e3 guifg=#fdf6e3
   highlight LineNr guibg=#fdf6e3
   highlight SignColumn guibg=#fdf6e3
   highlight VertSplit guifg=#eee8d5 guibg=#eee8d5
