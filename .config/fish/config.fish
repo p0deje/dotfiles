@@ -10,10 +10,12 @@ set -x EDITOR mvim
 set -x JAVA_HOME (/usr/libexec/java_home)
 set -x LOLCOMMITS_FORK true
 
-set -U FZF_DEFAULT_OPTS "--reverse"
-set -U FZF_LEGACY_KEYBINDINGS 0
+set -x FZF_DEFAULT_OPTS "--reverse --exact"
+set -x FZF_LEGACY_KEYBINDINGS 0
 
-set -gx PATH $PATH /usr/local/share/npm/bin /opt/puppetlabs/bin
+set -g fish_user_paths /usr/local/sbin $fish_user_paths
+set -g fish_user_paths /usr/local/share/npm/bin $fish_user_paths
+set -g fish_user_paths /opt/puppetlabs/bin $fish_user_paths
 
 alias be 'bundle exec'
 alias ve 'vagrant exec'
