@@ -317,6 +317,10 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:dispatch_compilers = {'bundle exec': ''}
 
+" }}} devicons {{{2
+
+let g:webdevicons_enable_vimfiler = 0
+
 " }}} easyclip {{{2
 
 let g:EasyClipAutoFormat = 1
@@ -531,6 +535,7 @@ let g:vimfiler_tree_indentation = 2
 call vimfiler#custom#profile('default', 'context', {
       \ 'auto_expand': 1,
       \ 'columns': '',
+      \ 'explorer_columns': 'devicons',
       \ 'parent': 1,
       \ 'safe': 0,
       \ 'winminwidth': 40,
