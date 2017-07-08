@@ -383,7 +383,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = {
       \ 'default': ['path', 'keyn', 'omni', 'dict'],
       \ 'cucumber' : ['keyn', 'dict', 'line', 'uspl'],
-      \ 'gitcommit' : ['keyn', 'dict', 'uspl']
+      \ 'gitcommit' : ['keyn', 'dict', 'uspl'],
+      \ 'ruby': ['path', 'dict'],
       \ }
 
 " }}} neomake {{{2
