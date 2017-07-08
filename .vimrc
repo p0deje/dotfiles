@@ -718,6 +718,9 @@ augroup Filetypes
 
   " Remove service files from buffer list
   autocmd FileType qf setlocal nobuflisted
+
+  " Collapse folds in commits
+  autocmd FileType git setlocal foldlevel=0
 augroup END
 
 augroup Misc
@@ -773,4 +776,4 @@ command! Wq wq
 
 " }}}
 
-" vim: foldmethod=marker
+" vim: foldmethod=marker foldlevel=0
