@@ -152,6 +152,9 @@ set hidden
 set shiftwidth=2
 set modeline
 
+set noerrorbells
+set visualbell
+
 let &colorcolumn=join(range(81, 999), ',')
 
 " Line wrapping
