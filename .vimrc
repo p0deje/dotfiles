@@ -563,8 +563,12 @@ function! configure.vimfiler()
   setlocal nonumber
   setlocal nobuflisted
 
-  nunmap <buffer> <C-l>
-  nunmap <buffer> <Space>
+  try
+    nunmap <buffer> <C-l>
+    nunmap <buffer> <Space>
+  catch
+    " race condition
+  endtry
 
   nmap <buffer> R <Plug>(vimfiler_redraw_screen)
   nmap <buffer> C <Plug>(vimfiler_cd_file)
