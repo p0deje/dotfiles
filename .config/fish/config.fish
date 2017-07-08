@@ -16,6 +16,7 @@ set -x FZF_LEGACY_KEYBINDINGS 0
 set -g fish_user_paths /usr/local/sbin $fish_user_paths
 set -g fish_user_paths /usr/local/share/npm/bin $fish_user_paths
 set -g fish_user_paths /opt/puppetlabs/bin $fish_user_paths
+set -g fish_user_paths /usr/local/opt/node@6/bin $fish_user_paths
 
 alias be 'bundle exec'
 alias ve 'vagrant exec'
