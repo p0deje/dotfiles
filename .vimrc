@@ -392,7 +392,7 @@ let g:mucomplete#chains = {
 let g:neomake_warning_sign = {'text': '!', 'texthl': 'WarningMsg'}
 let g:neomake_error_sign = {'text': 'x', 'texthl': 'WarningMsg'}
 
-autocmd! BufWritePost,BufEnter * Neomake
+autocmd! BufWritePost * Neomake
 
 " }}} operator-gsearch {{{2
 
