@@ -105,10 +105,10 @@ Plug 'AndrewRadev/linediff.vim', {'on': 'Linediff'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
 Plug 'DeleteTrailingWhitespace'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 Plug 'mtth/scratch.vim'
-Plug 'p0deje/vim-numbertoggle'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'schickling/vim-bufonly', {'on': 'Bonly'}
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
