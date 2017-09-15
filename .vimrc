@@ -112,7 +112,7 @@ Plug 'mtth/scratch.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'schickling/vim-bufonly', {'on': 'Bonly'}
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
-Plug 'svermeulen/vim-easyclip', {'branch': 'develop'} " depends: vim-repeat
+Plug 'svermeulen/vim-easyclip' " depends: vim-repeat
 Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-repeat'
