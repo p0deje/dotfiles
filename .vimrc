@@ -205,8 +205,6 @@ set shortmess+=c
 
 " folding
 set foldcolumn=2         " increase vsplits margin
-set foldlevelstart=99    " show folds but don't collapse
-set foldmethod=syntax
 
 let g:markdown_fenced_languages = [
       \ 'cucumber',
@@ -718,9 +716,6 @@ augroup Filetypes
 
   " Remove service files from buffer list
   autocmd FileType qf setlocal nobuflisted
-
-  " Collapse folds in commits
-  autocmd FileType git setlocal foldlevel=0
 augroup END
 
 augroup Misc
