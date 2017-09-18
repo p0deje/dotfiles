@@ -2,6 +2,7 @@ bundler
 gem-ctags
 gem-dependent
 iStats
+irbtools
 lolcommits
 rbtrace
 rubocop
