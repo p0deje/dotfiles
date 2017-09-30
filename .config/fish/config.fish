@@ -26,11 +26,6 @@ alias ccat '/bin/cat'
 
 eval (direnv hook fish)
 
-# https://github.com/nvbn/thefuck
-function fuck
-  eval (thefuck $history[1])
-end
-
 # Prints list of currently modified files to stdout,
 # formatted for piping to other commands. Useful to rerun all modified tests
 #
