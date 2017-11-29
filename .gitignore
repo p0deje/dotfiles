@@ -15,5 +15,5 @@ tmtags
 tmtagsHistory
 .tm_properties
 .vimrc
-vendor/
+/vendor/
 .zeus.sock
