@@ -129,8 +129,6 @@ call plug#end()
 " Vim options {{{1
 " ----------------
 
-set shell=/bin/bash  " fish is too good for plugins
-
 set guifont=FuraCode\ Nerd\ Font:h14
 
 set number               " show line numbers
