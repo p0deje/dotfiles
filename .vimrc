@@ -135,12 +135,8 @@ set number               " show line numbers
 set cursorline           " highlight current line
 set lazyredraw           " faster scrolling
 set noswapfile           " no *.swp artifacts
-set scrolloff=10         " Keep at least 10 lines visible when scrolling
-set ruler                " show the cursor position all the time
-set laststatus=2         " Always display the status line
 set showcmd              " display incomplete commands
 set autowrite            " Automatically :write before running commands
-set autoread             " Automatically reload changed files
 set exrc                 " enable per-directory .vimrc files
 set secure               " disable unsafe commands in local .vimrc files
 set history=50           " history size
@@ -190,7 +186,6 @@ set sessionoptions-=blank
 runtime macros/matchit.vim
 
 " better completion for cmd mode
-set wildmenu
 set wildignorecase
 set wildignore=*.pyc
 set wildmode=longest,full
@@ -227,9 +222,6 @@ endif
 " Containers for functions
 let configure = {}
 let helpers = {}
-
-" remove comment marker when joining lines
-set formatoptions+=j
 
 
 " Plugin options {{{1
