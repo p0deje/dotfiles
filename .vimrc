@@ -688,6 +688,7 @@ augroup Filetypes
   autocmd BufNewFile,BufReadPost inv_* set filetype=cfg
   autocmd BufNewFile,BufReadPost Makefile set filetype=make
   autocmd BufNewFile,BufReadPost Dockerfile* set filetype=dockerfile
+  autocmd BufNewFile,BufReadPost Jenkinsfile set filetype=groovy
   autocmd BufNewFile,BufReadPost *.bpf set filetype=json
   autocmd BufNewFile,BufReadPost BUCK,build.desc set filetype=bzl
 
