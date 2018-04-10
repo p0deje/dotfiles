@@ -8,6 +8,7 @@ call plug#begin()
 " Development {{{2
 
 Plug 'lifepillar/vim-mucomplete'
+Plug 'bergercookie/vim-debugstring'
 Plug 'keith/investigate.vim'
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 Plug 'tpope/vim-bundler'
