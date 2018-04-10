@@ -52,7 +52,6 @@ Plug 'tpope/vim-surround'
 " }}} Navigation {{{2
 
 Plug 'airblade/vim-rooter'
-Plug 'bogado/file-line'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
 Plug 'Shougo/unite.vim'
@@ -107,6 +106,7 @@ Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
 Plug 'DeleteTrailingWhitespace'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
+Plug 'kopischke/vim-fetch'
 Plug 'kshenoy/vim-signature'
 Plug 'mtth/scratch.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
