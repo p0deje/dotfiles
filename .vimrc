@@ -8,6 +8,7 @@ call plug#begin()
 " Development {{{2
 
 Plug 'lifepillar/vim-mucomplete'
+Plug 'keith/investigate.vim'
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
@@ -376,6 +377,7 @@ let g:indent_guides_color_change_percent = 2
 let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 
 " }}} mucomplete {{{2
+" }}} investigate {{{2
 
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = {
@@ -384,6 +386,7 @@ let g:mucomplete#chains = {
       \ 'gitcommit' : ['keyn', 'dict', 'uspl'],
       \ 'ruby': ['path', 'dict'],
       \ }
+let g:investigate_use_dash = 1
 
 " }}} neomake {{{2
 
