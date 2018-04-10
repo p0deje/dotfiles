@@ -1,5 +1,3 @@
-require "clipboard"
-
 -- Configuration
 
 hs.window.animationDuration = 0
