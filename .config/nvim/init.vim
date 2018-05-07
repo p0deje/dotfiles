@@ -1,13 +1,18 @@
-" ~/.vimrc
+" init.vim
 
 " Plugins management {{{1
 " -----------------------
 
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Development {{{2
+" Completion {{{2
 
-Plug 'lifepillar/vim-mucomplete'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'yami-beta/asyncomplete-omni.vim'
+
+" }}} Development {{{2
+
 Plug 'bergercookie/vim-debugstring'
 Plug 'keith/investigate.vim'
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
@@ -19,23 +24,22 @@ Plug 'tpope/vim-scriptease'
 
 " }}} Integrations {{{2
 
+Plug 'direnv/direnv.vim'
 Plug 'junegunn/gv.vim', {'on': ['GV', 'GV!']} " depends: vim-fugitive
-Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim', {'on': 'Gist'} " depends: webapi-vim
+Plug 'mattn/webapi-vim'
 Plug 'tommcdo/vim-fugitive-blame-ext', {'for': 'fugitiveblame'}
 Plug 'tpope/vim-fugitive' " depends: vim-git
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-rhubarb'
-Plug 'zimbatm/direnv.vim'
 
 " }}} Linting, testing {{{2
 
 Plug 'janko-m/vim-test'
-Plug 'neomake/neomake'
-Plug 'p0deje/vim-dispatch-vimshell' " depends: vim-dispatch, vimshell.vim
+Plug 'radenling/vim-dispatch-neovim' " depends: vim-dispatch
 Plug 'Shougo/vimproc', {'do': 'make -f make_mac.mak'}
-Plug 'Shougo/vimshell.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'w0rp/ale'
 
 " }}} Motions and operators {{{2
 
@@ -55,7 +59,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'airblade/vim-rooter'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
+" Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
+Plug '/usr/local/opt/fzf'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim' " depends: unite.vim
 Plug 'tpope/vim-haystack'
@@ -65,8 +70,7 @@ Plug 'tpope/vim-projectionist' " depends: vim-haystack
 
 Plug 'AndrewRadev/writable_search.vim', {'on': ['WritableSearch', 'WritableSearchFromQuickfix']}
 Plug 'haya14busa/incsearch.vim'
-Plug 'rgrinberg/vim-operator-gsearch' " depends: 'vim-operator-user', 'ag.vim
-Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'tpope/vim-abolish'
 
 " }}} Syntax and filetypes {{{2
@@ -89,9 +93,10 @@ Plug 'vim-ruby/vim-ruby'
 
 " }}} UI {{{2
 
-Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline' " depends: vim-airline-themes
+Plug 'fourjay/vim-flexagon'
+Plug 'icymind/NeoSolarized'
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
@@ -105,7 +110,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'AndrewRadev/linediff.vim', {'on': 'Linediff'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
-Plug 'DeleteTrailingWhitespace'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kopischke/vim-fetch'
@@ -121,6 +125,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/DeleteTrailingWhitespace'
 
 " }}}
 
@@ -130,34 +135,28 @@ call plug#end()
 " Vim options {{{1
 " ----------------
 
-set guifont=FuraCode\ Nerd\ Font:h14
-
-set number               " show line numbers
-set cursorline           " highlight current line
-set lazyredraw           " faster scrolling
-set noswapfile           " no *.swp artifacts
-set showcmd              " display incomplete commands
 set autowrite            " Automatically :write before running commands
+set clipboard=unnamed    " Use system clipboard
+set cursorline           " highlight current line
 set exrc                 " enable per-directory .vimrc files
+set foldcolumn=1         " increase vsplits margin
+set hidden               " abandon hidden buffers
+set inccommand=nosplit   " live-preview of substitution
+set lazyredraw           " faster scrolling
+set noshowcmd            " hide expanded mappings
+set noswapfile           " no *.swp artifacts
+set number               " show line numbers
 set secure               " disable unsafe commands in local .vimrc files
-set history=50           " history size
+set shiftwidth=2         " autoindent level
+set showtabline=2        " always show tabline
 set undofile             " tell it to use an undo file
-set undodir=~/.vim/undo  " set a directory to store the undo history
-set virtualedit=block
-set hidden
-set shiftwidth=2
-set modeline
-
-set noerrorbells
-set visualbell
-
-let &colorcolumn=join(range(81, 999), ',')
+set virtualedit=block    " allow selecting beyond line end
 
 " Line wrapping
-set wrap
 set linebreak
 set breakindent
 
+" Better search
 set ignorecase
 set smartcase
 
@@ -165,60 +164,37 @@ set smartcase
 set splitbelow
 set splitright
 
-" Search tweaks
-set hlsearch
-
-" Let's not be retarded
-let g:mapleader = ','
-
-" Cursor customization
-set guicursor+=a:blinkon0  " disable blinking
-
 " Enable spelling check
 set spell
 
-" Use old regexp engine
-" This speeds up Ruby syntax highlighting
-set regexpengine=1
-
+" Do not save empty windows
 set sessionoptions-=blank
 
-" % support
-runtime macros/matchit.vim
-
-" better completion for cmd mode
+" Better completion for cmd mode
 set wildignorecase
 set wildignore=*.pyc
 set wildmode=longest,full
 
-" completion improvements
+" Completion improvements
 set completeopt+=menu
 set completeopt+=menuone
 set completeopt+=noinsert
 set completeopt+=noselect
 set shortmess+=c
 
-" folding
-set foldcolumn=2         " increase vsplits margin
+" Let's not be retarded
+let g:mapleader = ','
 
+" Highlight long lines
+let &colorcolumn=join(range(81, 999), ',')
+
+" Syntax Highlighting in Markdown
 let g:markdown_fenced_languages = [
       \ 'cucumber',
       \ 'ruby',
       \ 'sh',
       \ 'bash=sh',
       \ ]
-
-if has('gui_macvim')
-  set macligatures
-  set macmeta
-  set clipboard=unnamed
-  set guioptions-=R
-  set guioptions-=r
-  set guioptions-=L
-  set showtabline=2
-  set transparency=2
-  set linespace=1
-endif
 
 " Containers for functions
 let configure = {}
@@ -234,6 +210,41 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 1
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#exclude_preview = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#ignore_bufadd_pat = '\c\vgundo|vimfiler|tagbar'
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#show_tab_type = 0
+
+" }}} ale {{{2
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '!'
+let g:ale_ruby_rubocop_options = '--no-display-cop-names'
+let g:ale_warn_about_trailing_whitespace = 0
+let g:airline#extensions#ale#enabled = 1
+
+" }}} AnsiEsc {{{2
+"
+let g:no_cecutil_maps = 1
+
+" }}} asyncomplete {{{2
+
+let g:asyncomplete_remove_duplicates = 1
+
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+      \ 'name': 'buffer',
+      \ 'whitelist': ['*'],
+      \ 'completor': function('asyncomplete#sources#buffer#completor'),
+      \ }))
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " }}} auto-pairs {{{2
 
 " Clear <M-p> mapping
@@ -246,7 +257,7 @@ autocmd FileType ruby
       \   let b:AutoPairs[key] = g:AutoPairs[key] |
       \ endfor
 
-" }}} brightest {{{2
+" " }}} brightest {{{2
 
 let g:brightest#highlight_in_cursorline = {'group': 'BrightestNONE'}
 let g:brightest#pattern = '\w\+'
@@ -261,41 +272,11 @@ let g:choosewin_keymap = {"\<Space>": 'previous'}
 
 nmap <Space> <Plug>(choosewin)
 
-" colors-solarized {{{2
-
-let g:solarized_contrast = 'high'
-let g:solarized_visibility = 'low'
-
-let current_time = strftime('%H:%M:%S.0 %z')
-if current_time < '20:00:00.0' || current_time > '8:00:00.0'
-  set background=light
-else
-  set background=dark
-endif
-
-colorscheme solarized
-
-highlight Search guibg=#222222 guifg=Orange
-if &background ==# 'dark'
-  highlight FoldColumn guibg=#002b36 guifg=#002b36
-  highlight LineNr guibg=#002b36
-  highlight SignColumn guibg=#002b36
-  highlight VertSplit guifg=#073642 guibg=#073642
-  highlight WildMenu guifg=Orange
-else
-  highlight FoldColumn guibg=#fdf6e3 guifg=#fdf6e3
-  highlight LineNr guibg=#fdf6e3
-  highlight SignColumn guibg=#fdf6e3
-  highlight VertSplit guifg=#eee8d5 guibg=#eee8d5
-  highlight WildMenu guifg=#fdf6e3 guibg=Black
-  highlight CursorLineNr guibg=#eee8d5
-endif
-
 " }}} ctrlp {{{2
 
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
-let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
+" let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
+" let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
@@ -347,6 +328,17 @@ let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
+" }}} grepper {{{2
+
+let g:grepper = {"highlight": 1, "open": 0, "tools": ['rg']}
+autocmd User Grepper copen
+
+nmap ga <Plug>(GrepperOperator)
+xmap ga <Plug>(GrepperOperator)
+
+nnoremap ga<Space> :GrepperRg<Space>
+nnoremap <silent> gac :execute 'GrepperRg ' . shellescape(@+)<Cr>
+
 " }}} gundo {{{2
 
 let g:gundo_right = 1
@@ -367,32 +359,39 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_color_change_percent = 2
 let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 
-" }}} mucomplete {{{2
 " }}} investigate {{{2
 
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#chains = {
-      \ 'default': ['path', 'keyn', 'omni', 'dict'],
-      \ 'cucumber' : ['keyn', 'dict', 'line', 'uspl'],
-      \ 'gitcommit' : ['keyn', 'dict', 'uspl'],
-      \ 'ruby': ['path', 'dict'],
-      \ }
 let g:investigate_use_dash = 1
 
-" }}} neomake {{{2
 
-let g:neomake_warning_sign = {'text': '!', 'texthl': 'WarningMsg'}
-let g:neomake_error_sign = {'text': 'x', 'texthl': 'WarningMsg'}
+" NeoSolarized {{{2
 
-autocmd! BufWritePost * Neomake
+let current_time = strftime('%H:%M:%S.0 %z')
+if current_time < '20:00:00.0' || current_time > '8:00:00.0'
+  set background=light
+else
+  set background=dark
+endif
 
-" }}} operator-gsearch {{{2
+colorscheme NeoSolarized
 
-let g:gsearch_ag_command = 'Ag!'
-
-map ga <Plug>(operator-ag)
-nnoremap ga<Space> :Ag!<Space>
-nnoremap <silent> gac :execute 'Ag! ' . shellescape(@+)<Cr>
+highlight Search guibg=#222222 guifg=Orange
+if &background ==# 'dark'
+  highlight EndOfBuffer guifg=#002b36 guibg=#002b36
+  highlight FoldColumn guibg=#002b36 guifg=#002b36
+  highlight LineNr guibg=#002b36
+  highlight SignColumn guibg=#002b36
+  highlight VertSplit guifg=#073642 guibg=#073642
+  highlight WildMenu guifg=Orange
+else
+  highlight EndOfBuffer guifg=#fdf6e3 guibg=#fdf6e3
+  highlight FoldColumn guibg=#fdf6e3 guifg=#fdf6e3
+  highlight LineNr guibg=#fdf6e3
+  highlight SignColumn guibg=#fdf6e3
+  highlight VertSplit guifg=#eee8d5 guibg=#eee8d5
+  highlight WildMenu guifg=#fdf6e3 guibg=Black
+  highlight CursorLineNr guibg=#eee8d5
+endif
 
 " }}} projectionist {{{2
 
@@ -429,17 +428,17 @@ let g:SignatureMap = {'Leader': 'gm'}
 
 " }}} startify {{{2
 
-let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_session_dir = '~/.local/share/nvim/sessions'
 let g:startify_session_persistence = 1
 let g:startify_relative_path = 1
 let g:startify_list_order = [
-  \ ['   Sessions:'],
-  \ 'sessions',
-  \ ['   Recent files:'],
-  \ 'files',
-  \ ['   Recent files in current directory:'],
-  \ 'dir',
-\ ]
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Recent files:'],
+      \ 'files',
+      \ ['   Recent files in current directory:'],
+      \ 'dir',
+      \ ]
 
 autocmd FileType startify call configure.startify()
 function! configure.startify()
@@ -508,14 +507,6 @@ nnoremap <silent> <Leader>r :TestNearest<Cr>
 nnoremap <silent> <Leader>R :TestFile<Cr>
 nnoremap <silent> <Leader>l :TestLast<Cr>
 
-" }}} unimpaired {{{2
-
-" Bubble lines
-nmap <C-M-k> zi[ezi
-nmap <C-M-j> zi]ezi
-vmap <C-M-k> zi[egvzi
-vmap <C-M-j> zi]egvzi
-
 " }}} vimfiler {{{2
 
 let g:vimfiler_as_default_explorer = 1
@@ -580,17 +571,6 @@ function! configure.vimfiler()
   nnoremap <buffer> g<C-g> :call helpers.toggle_maximize_vimfiler()<Cr>
 endfunction
 
-" }}} vimshell {{{2
-
-let g:vimshell_escape_colors = [
-  \ '#6c6c6c', '#dc322f', '#859900', '#b58900',
-  \ '#268bd2', '#d33682', '#2aa198', '#c0c0c0',
-  \ '#383838', '#cb4b16', '#586e75', '#cb4b16',
-  \ '#839496', '#d33682', '#2aa198', '#ffffff',
-  \ ]
-
-autocmd FileType vimshell setlocal wrap
-
 " }}} yardoc {{{2
 
 highlight link yardGenericTag rubyLocalVariableOrMethod
@@ -617,12 +597,13 @@ function! helpers.move_window_and_resize(direction) abort
   execute 'wincmd ='
 endfunction
 
-nnoremap <silent> <M-H> :call helpers.move_window_and_resize('H')<Cr>
-nnoremap <silent> <M-J> :call helpers.move_window_and_resize('J')<Cr>
-nnoremap <silent> <M-K> :call helpers.move_window_and_resize('K')<Cr>
-nnoremap <silent> <M-L> :call helpers.move_window_and_resize('L')<Cr>
+" TODO: remove?
+nnoremap <silent> <M-S-h> :call helpers.move_window_and_resize('H')<Cr>
+nnoremap <silent> <M-S-j> :call helpers.move_window_and_resize('J')<Cr>
+nnoremap <silent> <M-S-k> :call helpers.move_window_and_resize('K')<Cr>
+nnoremap <silent> <M-S-l> :call helpers.move_window_and_resize('L')<Cr>
 
-nnoremap <M-T> :wincmd T<Cr>
+nnoremap <M-S-t> :wincmd T<Cr>
 nnoremap <M-w> :tabclose<Cr>
 
 nnoremap _ :split<Cr>
@@ -674,6 +655,30 @@ vnoremap > >gv
 " return to previous cursor position when copying from visual selection
 vnoremap y y`]
 
+if has("gui_vimr")
+  nnoremap <D-S-{> gT
+  nnoremap <D-S-}> gt
+
+  nnoremap <D-S-w> :qa<Cr>
+
+  inoremap <D-Left> <C-o>^
+  cnoremap <D-Left> <C-b>
+
+  inoremap <D-Right> <C-o>$
+  cnoremap <D-Right> <C-e>
+
+  inoremap <D-Backspace> <C-u>
+  cnoremap <D-Backspace> <C-u>
+
+  inoremap <M-Left> <C-o>b
+  cnoremap <M-Left> <M-S-Left>
+
+  inoremap <M-Right> <C-o>w
+  cnoremap <M-Right> <M-S-Right>
+
+  inoremap <M-Backspace> <C-w>
+  cnoremap <M-Backspace> <C-w>
+endif
 
 " Autocommands {{{1
 " -----------------
@@ -700,14 +705,14 @@ augroup Filetypes
   " inside regexp text object
   " useful for working with Cucumber step definitions
   autocmd FileType ruby
-    \ vnoremap <silent> <buffer> ix :<C-U>normal! ^f^lv$F$h<Cr>|
-    \ onoremap <silent> <buffer> ix :normal vix<Cr>|
+        \ vnoremap <silent> <buffer> ix :<C-U>normal! ^f^lv$F$h<Cr>|
+        \ onoremap <silent> <buffer> ix :normal vix<Cr>|
 
   autocmd FileType cucumber
-    \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc>|
-    \ nmap <silent> <buffer> <Leader>wh ^ciwWhen<Esc>|
-    \ nmap <silent> <buffer> <Leader>th ^ciwThen<Esc>|
-    \ nmap <silent> <buffer> <Leader>an ^ciwAnd<Esc>|
+        \ nmap <silent> <buffer> <Leader>gi ^ciwGiven<Esc>|
+        \ nmap <silent> <buffer> <Leader>wh ^ciwWhen<Esc>|
+        \ nmap <silent> <buffer> <Leader>th ^ciwThen<Esc>|
+        \ nmap <silent> <buffer> <Leader>an ^ciwAnd<Esc>|
 
   " Remove service files from buffer list
   autocmd FileType qf setlocal nobuflisted
@@ -720,9 +725,9 @@ augroup Misc
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+       \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+       \   exe "normal g`\"" |
+       \ endif
 
   " make vim-projectionist and vim-rails compatible (see tpope/vim-projectionist#36)
   autocmd BufNewFile,BufRead,BufWrite * call helpers.copy_projections()

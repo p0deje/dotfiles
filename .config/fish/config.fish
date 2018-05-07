@@ -5,8 +5,8 @@ function fish_title
 end
 
 set -x ANSIBLE_NOCOWS 1
-set -x BUNDLER_EDITOR mvim
-set -x EDITOR mvim
+set -x BUNDLER_EDITOR vimr
+set -x EDITOR vimr
 set -x JAVA_HOME (/usr/libexec/java_home)
 set -x LOLCOMMITS_FORK true
 

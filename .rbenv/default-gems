@@ -1,6 +1,7 @@
 gem-ctags
 irbtools
 lolcommits
+neovim
 rbtrace
 rubocop
 terminal-notifier

@@ -18,7 +18,7 @@ end
 
 bindToLaunchOrFocus("s", "Safari")
 bindToLaunchOrFocus("t", "iTerm")
-bindToLaunchOrFocus("v", "MacVim")
+bindToLaunchOrFocus("v", "VimR")
 bindToLaunchOrFocus("m", "Messages")
 bindToLaunchOrFocus("b", "Slack")
 
