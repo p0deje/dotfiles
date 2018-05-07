@@ -101,7 +101,6 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'osyo-manga/vim-brightest'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -257,13 +256,6 @@ autocmd FileType ruby
       \   let b:AutoPairs[key] = g:AutoPairs[key] |
       \ endfor
 
-" " }}} brightest {{{2
-
-let g:brightest#highlight_in_cursorline = {'group': 'BrightestNONE'}
-let g:brightest#pattern = '\w\+'
-autocmd FileType cucumber
-      \ let b:brightest_ignore_syntax_list = ['Identifier', 'Statement', 'Type']
-
 " }}} choosewin {{{2
 
 let g:choosewin_overlay_enable = 0
@@ -364,7 +356,7 @@ let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 let g:investigate_use_dash = 1
 
 
-" NeoSolarized {{{2
+" }}} NeoSolarized {{{2
 
 let current_time = strftime('%H:%M:%S.0 %z')
 if current_time < '20:00:00.0' || current_time > '8:00:00.0'
