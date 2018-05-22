@@ -13,6 +13,7 @@
   ls = ls-files
   ctags = !.git/hooks/ctags
   up = pull --rebase --autostash --prune
+  done = "!branch=$(git symbolic-ref --short HEAD); git checkout master; git up; git br -D $branch"
 
 [core]
   excludesfile = ~/.gitignore
