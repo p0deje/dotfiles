@@ -71,6 +71,7 @@ Plug 'tpope/vim-projectionist' " depends: vim-haystack
 Plug 'AndrewRadev/writable_search.vim', {'on': ['WritableSearch', 'WritableSearchFromQuickfix']}
 Plug 'haya14busa/incsearch.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'osyo-manga/vim-anzu'
 Plug 'tpope/vim-abolish'
 
 " }}} Syntax and filetypes {{{2
