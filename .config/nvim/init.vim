@@ -124,6 +124,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'yssl/QFEnter'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 
 " }}}
@@ -312,6 +313,10 @@ map gj <Plug>(easymotion-s2)
 " }}} fugitive {{{2
 
 nnoremap gst :Gstatus<Cr>
+
+" }}} flexagon {{{2
+
+let g:flexagon_disable_foldtext = 1
 
 " }}} gist-vim {{{2
 
