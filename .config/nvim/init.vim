@@ -410,6 +410,15 @@ cnoremap <C-M-s> <C-b><Del>S<C-e>
 cnoremap <C-M-v> <C-b><Del>V<C-e>
 cnoremap <C-M-t> <C-b><Del>T<C-e>
 
+" }}} QFEnter {{{2
+
+let g:qfenter_keymap = {
+      \ "open": ['<CR>', '<2-LeftMouse>'],
+      \ "vopen": ['v'],
+      \ "hopen": ['s'],
+      \ "topen": ['t'],
+      \ }
+
 " }}} rainbow {{{2
 
 let g:rainbow_active = 1
