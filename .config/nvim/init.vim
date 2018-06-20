@@ -226,6 +226,7 @@ let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '!'
 let g:ale_ruby_rubocop_options = '--no-display-cop-names'
 let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 let g:airline#extensions#ale#enabled = 1
 
 " }}} AnsiEsc {{{2
