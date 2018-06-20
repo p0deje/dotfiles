@@ -330,7 +330,7 @@ let g:gist_post_private = 1
 " }}} grepper {{{2
 
 let g:grepper = {"highlight": 1, "open": 0, "tools": ['rg']}
-autocmd User Grepper copen
+autocmd User Grepper copen | call helpers.move_window_and_resize('J')
 
 nmap ga <Plug>(GrepperOperator)
 xmap ga <Plug>(GrepperOperator)
