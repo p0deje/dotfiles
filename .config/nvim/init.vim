@@ -57,7 +57,7 @@ Plug 'tpope/vim-surround'
 
 " }}} Navigation {{{2
 
-Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-rooter', {'commit': '3509dfb'}
 Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
 Plug '/usr/local/opt/fzf'
@@ -423,6 +423,10 @@ let g:qfenter_keymap = {
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {'guifgs': ['#cc241d', '#d65d0e', '#458588', '#b16286', '#cc241d', '#d65d0e']}
+
+" }}} rooter {{{2
+
+let g:rooter_silent_chdir = 1
 
 " }}} scratch {{{2
 
