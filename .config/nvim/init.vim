@@ -78,7 +78,7 @@ Plug 'tpope/vim-abolish'
 
 Plug 'bazelbuild/vim-ft-bzl' " Buck and CrazyFun
 Plug 'dag/vim-fish'
-Plug 'dhruvasagar/vim-table-mode', {'for': 'cucumber'}
+Plug 'dhruvasagar/vim-table-mode', {'for': ['cucumber', 'markdown']}
 Plug 'elixir-lang/vim-elixir'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keith/swift.vim'
@@ -466,8 +466,8 @@ autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
 
 let g:table_mode_disable_mappings = 1
 
-autocmd FileType cucumber silent! :TableModeEnable
-autocmd FileType cucumber imap <buffer> <Bar> <Plug>(table-mode-tableize)
+autocmd FileType cucumber,markdown silent! :TableModeEnable
+autocmd FileType cucumber,markdown imap <buffer> <Bar> <Plug>(table-mode-tableize)
 
 " }}} tagbar {{{2
 
