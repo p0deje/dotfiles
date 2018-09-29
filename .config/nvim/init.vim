@@ -110,6 +110,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'AndrewRadev/linediff.vim', {'on': 'Linediff'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
+Plug 'AndrewRadev/whitespaste.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kopischke/vim-fetch'
@@ -117,6 +118,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'mtth/scratch.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'schickling/vim-bufonly', {'on': 'Bonly'}
+Plug 'sickill/vim-pasta'
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 Plug 'svermeulen/vim-easyclip' " depends: vim-repeat
 Plug 't9md/vim-choosewin'
@@ -292,8 +294,7 @@ let g:webdevicons_enable_vimfiler = 0
 
 " }}} easyclip {{{2
 
-let g:EasyClipAutoFormat = 1
-let g:EasyClipDoSystemSync = 0
+let g:EasyClipUsePasteDefaults = 0
 
 nmap M m$
 
