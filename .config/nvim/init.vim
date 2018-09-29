@@ -772,6 +772,9 @@ augroup Misc
 
   " make sure exrc is loaded for session
   autocmd SessionLoadPost * if filereadable('.vimrc') | source .vimrc | endif
+
+  " Workaround for broken autoread: neovim/neovim#1936
+  autocmd FocusGained * :checktime
 augroup END
 
 
