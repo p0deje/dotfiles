@@ -109,7 +109,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'AndrewRadev/linediff.vim', {'on': 'Linediff'}
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'AndrewRadev/switch.vim', {'on': 'Switch'}
+Plug 'AndrewRadev/switch.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kopischke/vim-fetch'
@@ -465,6 +465,10 @@ endfunction
 " }}} surround {{{2
 
 autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
+
+" }}} switch {{{2
+
+let g:switch_mapping = "gsw"
 
 " }}} table-mode {{{2
 
