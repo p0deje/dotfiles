@@ -8,6 +8,7 @@ set -x ANSIBLE_NOCOWS 1
 set -x BUNDLER_EDITOR vimr
 set -x EDITOR vimr
 set -x JAVA_HOME (/usr/libexec/java_home)
+set -x LANG en_US.UTF-8
 set -x LOLCOMMITS_FORK true
 
 set -x FZF_DEFAULT_OPTS "--reverse --exact"
