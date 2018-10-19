@@ -35,6 +35,7 @@ Plug 'tommcdo/vim-fugitive-blame-ext', {'for': 'fugitiveblame'}
 Plug 'tpope/vim-fugitive' " depends: vim-git
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-rhubarb'
+Plug 'whiteinge/diffconflicts', {'on': 'DiffConflicts'}
 
 " }}} Linting, testing {{{2
 
