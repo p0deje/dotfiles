@@ -97,11 +97,11 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline' " depends: vim-airline-themes
 Plug 'fourjay/vim-flexagon'
-Plug 'icymind/NeoSolarized'
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -189,7 +189,7 @@ set shortmess+=c
 let g:mapleader = ','
 
 " Highlight long lines
-let &colorcolumn=join(range(81, 999), ',')
+let &colorcolumn=81
 
 " Syntax Highlighting in Markdown
 let g:markdown_fenced_languages = [
@@ -339,6 +339,36 @@ xmap ga <Plug>(GrepperOperator)
 nnoremap ga<Space> :GrepperRg<Space>
 nnoremap <silent> gac :execute 'GrepperRg ' . shellescape(@+)<Cr>
 
+" }}} gruvbox {{{2
+
+function! configure.colors() abort
+  colorscheme gruvbox
+
+  let current_time = strftime('%H:%M:%S.0 %z')
+  if current_time < '20:00:00.0' || current_time > '8:00:00.0'
+    set background=light
+  else
+    set background=dark
+  endif
+
+  highlight CursorLineNr guibg=g:terminal_color_0
+  highlight FoldColumn guibg=g:terminal_color_0
+  highlight SignColumn guibg=g:terminal_color_0
+
+  highlight GitGutterAdd guibg=g:terminal_color_0
+  highlight GitGutterChange guibg=g:terminal_color_0
+  highlight GitGutterChangeDelete guibg=g:terminal_color_0
+  highlight GitGutterDelete guibg=g:terminal_color_0
+
+  highlight ALEErrorSign guibg=g:terminal_color_0
+  highlight ALEWarningSign guibg=g:terminal_color_0
+  highlight ALEInfoSign guibg=g:terminal_color_0
+  highlight ALEStyleErrorSign guibg=g:terminal_color_0
+  highlight ALEStyleWarningSign guibg=g:terminal_color_0
+endfunction
+
+call configure.colors()
+
 " }}} gundo {{{2
 
 let g:gundo_right = 1
@@ -364,34 +394,6 @@ let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
 let g:investigate_use_dash = 1
 
 
-" }}} NeoSolarized {{{2
-
-let current_time = strftime('%H:%M:%S.0 %z')
-if current_time < '20:00:00.0' || current_time > '8:00:00.0'
-  set background=light
-else
-  set background=dark
-endif
-
-colorscheme NeoSolarized
-
-highlight Search guibg=#222222 guifg=Orange
-if &background ==# 'dark'
-  highlight EndOfBuffer guifg=#002b36 guibg=#002b36
-  highlight FoldColumn guibg=#002b36 guifg=#002b36
-  highlight LineNr guibg=#002b36
-  highlight SignColumn guibg=#002b36
-  highlight VertSplit guifg=#073642 guibg=#073642
-  highlight WildMenu guifg=Orange
-else
-  highlight EndOfBuffer guifg=#fdf6e3 guibg=#fdf6e3
-  highlight FoldColumn guibg=#fdf6e3 guifg=#fdf6e3
-  highlight LineNr guibg=#fdf6e3
-  highlight SignColumn guibg=#fdf6e3
-  highlight VertSplit guifg=#eee8d5 guibg=#eee8d5
-  highlight WildMenu guifg=#fdf6e3 guibg=Black
-  highlight CursorLineNr guibg=#eee8d5
-endif
 
 " }}} projectionist {{{2
 
