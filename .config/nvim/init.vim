@@ -7,9 +7,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Completion {{{2
 
+Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim' " depends: vim-lsp
+Plug 'prabirshrestha/vim-lsp' " depends: async.vim
 
 " }}} Development {{{2
 
@@ -183,6 +186,7 @@ set completeopt+=menu
 set completeopt+=menuone
 set completeopt+=noinsert
 set completeopt+=noselect
+set completeopt-=preview
 set shortmess+=c
 
 " Let's not be retarded
@@ -239,12 +243,22 @@ let g:no_cecutil_maps = 1
 " }}} asyncomplete {{{2
 
 let g:asyncomplete_remove_duplicates = 1
+let g:asyncomplete_smart_completion = 1
 
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-      \ 'name': 'buffer',
-      \ 'whitelist': ['*'],
-      \ 'completor': function('asyncomplete#sources#buffer#completor'),
-      \ }))
+function! configure.asyncomplete_sources() abort
+  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+        \ 'name': 'buffer',
+        \ 'whitelist': ['*'],
+        \ 'completor': function('asyncomplete#sources#buffer#completor'),
+        \ }))
+  call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+        \ 'name': 'file',
+        \ 'whitelist': ['*'],
+        \ 'completor': function('asyncomplete#sources#file#completor')
+        \ }))
+endfunction
+
+autocmd User asyncomplete_setup call configure.asyncomplete_sources()
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -390,7 +404,14 @@ let g:indentLine_bufTypeExclude = ['help']
 
 let g:investigate_use_dash = 1
 
+" }}} lsp {{{2
 
+autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'solargraph',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+          \ 'initialization_options': {"diagnostics": "true"},
+          \ 'whitelist': ['ruby'],
+          \ })
 
 " }}} projectionist {{{2
 
