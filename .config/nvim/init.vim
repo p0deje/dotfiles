@@ -473,6 +473,7 @@ let g:switch_mapping = "gsw"
 " }}} table-mode {{{2
 
 let g:table_mode_disable_mappings = 1
+let g:table_mode_corner = '|'
 
 autocmd FileType cucumber,markdown silent! :TableModeEnable
 autocmd FileType cucumber,markdown imap <buffer> <Bar> <Plug>(table-mode-tableize)
