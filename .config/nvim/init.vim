@@ -100,10 +100,10 @@ Plug 'fourjay/vim-flexagon'
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 
 " }}} Vim improved (again) {{{2
 
@@ -380,14 +380,11 @@ let g:incsearch#magic = '\v'
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 
-" }}} indent-guides {{{2
+" }}} indentLine {{{2
 
-let g:indent_guides_default_mapping = 0
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_color_change_percent = 2
-let g:indent_guides_exclude_filetypes = ['help', 'vimfiler']
+let g:indentLine_char = '│'
+let g:indentLine_bufNameExclude = ['vimfiler:explorer', 'startify']
+let g:indentLine_bufTypeExclude = ['help']
 
 " }}} investigate {{{2
 
