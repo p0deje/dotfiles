@@ -63,8 +63,7 @@ Plug 'tpope/vim-surround'
 
 Plug 'airblade/vim-rooter', {'commit': '3509dfb'}
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
-Plug '/usr/local/opt/fzf'
+Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim' " depends: unite.vim
 Plug 'tpope/vim-haystack'
@@ -287,10 +286,9 @@ nmap <Space> <Plug>(choosewin)
 " }}} ctrlp {{{2
 
 let g:ctrlp_switch_buffer = 'Et'
-" let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
-" let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor -g ""'
+let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
 
 nnoremap gb :CtrlPBuffer<Cr>
 
