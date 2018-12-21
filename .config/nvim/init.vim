@@ -125,6 +125,7 @@ Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 Plug 'svermeulen/vim-easyclip' " depends: vim-repeat
 Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
