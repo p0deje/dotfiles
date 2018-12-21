@@ -369,17 +369,11 @@ function! configure.colors() abort
   highlight CursorLineNr guibg=g:terminal_color_0
   highlight FoldColumn guibg=g:terminal_color_0
   highlight SignColumn guibg=g:terminal_color_0
-
-  highlight GitGutterAdd guibg=g:terminal_color_0
-  highlight GitGutterChange guibg=g:terminal_color_0
-  highlight GitGutterChangeDelete guibg=g:terminal_color_0
-  highlight GitGutterDelete guibg=g:terminal_color_0
-
-  highlight ALEErrorSign guibg=g:terminal_color_0
-  highlight ALEWarningSign guibg=g:terminal_color_0
-  highlight ALEInfoSign guibg=g:terminal_color_0
-  highlight ALEStyleErrorSign guibg=g:terminal_color_0
-  highlight ALEStyleWarningSign guibg=g:terminal_color_0
+  highlight GruvboxAquaSign guibg=g:terminal_color_0
+  highlight GruvboxBlueSign guibg=g:terminal_color_0
+  highlight GruvboxGreenSign guibg=g:terminal_color_0
+  highlight GruvboxRedSign guibg=g:terminal_color_0
+  highlight GruvboxYellowSign guibg=g:terminal_color_0
 endfunction
 
 call configure.colors()
