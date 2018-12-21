@@ -79,7 +79,6 @@ Plug 'tpope/vim-abolish'
 
 " }}} Syntax and filetypes {{{2
 
-Plug 'bazelbuild/vim-ft-bzl' " Buck and CrazyFun
 Plug 'dag/vim-fish'
 Plug 'dhruvasagar/vim-table-mode', {'for': ['cucumber', 'markdown']}
 Plug 'elixir-lang/vim-elixir'
@@ -237,7 +236,7 @@ let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 let g:airline#extensions#ale#enabled = 1
 
 " }}} AnsiEsc {{{2
-"
+
 let g:no_cecutil_maps = 1
 
 " }}} asyncomplete {{{2
