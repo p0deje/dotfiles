@@ -9,6 +9,7 @@ pkg/
 .project
 .settings/
 .smartgf_tags*
+.solargraph.yml
 tags
 tmp/
 tmtags
