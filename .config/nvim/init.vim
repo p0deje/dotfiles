@@ -716,6 +716,13 @@ endif
 " Autocommands {{{1
 " -----------------
 
+augroup AutoSaveFolds
+  autocmd!
+
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent loadview
+augroup END
+
 augroup Filetypes
   autocmd!
 
@@ -807,4 +814,4 @@ command! Wq wq
 
 " }}}
 
-" vim: foldmethod=marker foldlevel=0
+" vim: foldmethod=marker
