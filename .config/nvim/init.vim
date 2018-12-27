@@ -7,12 +7,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Completion {{{2
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim' " depends: vim-lsp
-Plug 'prabirshrestha/vim-lsp' " depends: async.vim
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neco-vim'
+Plug 'Shougo/neoinclude.vim'
 
 " }}} Development {{{2
 
@@ -242,29 +241,6 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:no_cecutil_maps = 1
 
-" }}} asyncomplete {{{2
-
-let g:asyncomplete_remove_duplicates = 1
-let g:asyncomplete_smart_completion = 1
-
-function! configure.asyncomplete_sources() abort
-  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-        \ 'name': 'buffer',
-        \ 'whitelist': ['*'],
-        \ 'completor': function('asyncomplete#sources#buffer#completor'),
-        \ }))
-  call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-        \ 'name': 'file',
-        \ 'whitelist': ['*'],
-        \ 'completor': function('asyncomplete#sources#file#completor')
-        \ }))
-endfunction
-
-autocmd User asyncomplete_setup call configure.asyncomplete_sources()
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " }}} auto-pairs {{{2
 
 " Clear <M-p> mapping
@@ -299,13 +275,25 @@ nnoremap gb :CtrlPBuffer<Cr>
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-" }}} dispatch {{{2
+" }}} deoplete {{{2
 
-let g:dispatch_compilers = {'bundle exec': ''}
+let g:deoplete#enable_at_startup = 1
+
+function! helpers.close_complete_and_add_newline() abort
+  return deoplete#close_popup() . "\<Cr>"
+endfunction
+
+inoremap <silent> <Cr> <C-r>=helpers.close_complete_and_add_newline()<Cr>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " }}} devicons {{{2
 
 let g:webdevicons_enable_vimfiler = 0
+
+" }}} dispatch {{{2
+
+let g:dispatch_compilers = {'bundle exec': ''}
 
 " }}} easyclip {{{2
 
@@ -399,14 +387,11 @@ let g:indentLine_bufTypeExclude = ['help']
 
 let g:investigate_use_dash = 1
 
-" }}} lsp {{{2
+" }}} LanguageClient {{{2
 
-autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'solargraph',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-          \ 'initialization_options': {"diagnostics": "true"},
-          \ 'whitelist': ['ruby'],
-          \ })
+let g:LanguageClient_serverCommands = {
+      \ 'ruby': ['solargraph', 'stdio'],
+      \ }
 
 " }}} projectionist {{{2
 
