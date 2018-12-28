@@ -705,7 +705,7 @@ augroup AutoSaveFolds
   autocmd!
 
   autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter *.* silent loadview
+  autocmd BufWinEnter *.* silent! loadview
 augroup END
 
 augroup Filetypes
