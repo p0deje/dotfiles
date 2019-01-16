@@ -43,7 +43,11 @@ end
 
 hs.hotkey.bind({"alt", "shift"}, "m", function()
   undo:push()
-  hs.window.focusedWindow():centerOnScreen()
+  local screenFrame = hs.screen.mainScreen():frame()
+  local windowFrame = hs.window.focusedWindow():frame()
+  windowFrame.x = ((screenFrame.w - windowFrame.w) / 2) + screenFrame.x
+  windowFrame.y = ((screenFrame.h - windowFrame.h) / 2) + screenFrame.y
+  hs.window.focusedWindow():setFrame(windowFrame)
 end)
 
 hs.hotkey.bind({"alt", "shift"}, "f", function()
