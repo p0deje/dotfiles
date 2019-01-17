@@ -333,7 +333,12 @@ let g:gist_post_private = 1
 
 " }}} grepper {{{2
 
-let g:grepper = {"highlight": 1, "open": 0, "tools": ['rg']}
+let g:grepper = {
+      \ 'highlight': 1,
+      \ 'open': 0,
+      \ 'tools': ['rg'],
+      \ 'rg': {'grepprg': 'rg --with-filename --smart-case --sort path --no-heading --vimgrep'}
+      \ }
 autocmd User Grepper copen | call helpers.move_window_and_resize('J')
 
 nmap ga <Plug>(GrepperOperator)
