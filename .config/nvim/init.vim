@@ -418,6 +418,7 @@ cnoremap <C-M-t> <C-b><Del>T<C-e>
 
 " }}} QFEnter {{{2
 
+let g:qfenter_enable_autoquickfix = 1
 let g:qfenter_keymap = {
       \ "open": ['<CR>', '<2-LeftMouse>'],
       \ "vopen": ['v'],
