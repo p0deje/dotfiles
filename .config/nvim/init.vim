@@ -122,7 +122,9 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'schickling/vim-bufonly', {'on': 'Bonly'}
 Plug 'sickill/vim-pasta'
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
-Plug 'svermeulen/vim-easyclip' " depends: vim-repeat
+Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-subversive'
+Plug 'svermeulen/vim-yoink'
 Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
@@ -270,6 +272,13 @@ let g:ctrlp_map = '<C-p>'
 
 nnoremap gb :CtrlPBuffer<Cr>
 
+" }}} cutlass {{{2
+
+nnoremap m d
+xnoremap m d
+nnoremap mm dd
+nnoremap M D
+
 " }}} DeleteTrailingWhitespace {{{2
 
 let g:DeleteTrailingWhitespace = 1
@@ -294,20 +303,6 @@ let g:webdevicons_enable_vimfiler = 0
 " }}} dispatch {{{2
 
 let g:dispatch_compilers = {'bundle exec': ''}
-
-" }}} easyclip {{{2
-
-let g:EasyClipUsePasteDefaults = 0
-
-nmap M m$
-
-nmap <M-p> <plug>EasyClipSwapPasteForward
-nmap <M-S-p> <plug>EasyClipSwapPasteBackwards
-
-" Substitute operator
-nmap <silent> gr <plug>SubstituteOverMotionMap
-nmap grr <plug>SubstituteLine
-xmap gr <plug>XEasyClipPaste
 
 " }}} easymotion {{{2
 
@@ -469,6 +464,11 @@ function! configure.startify()
   nmap <buffer> o <Enter>
 endfunction
 
+" }}} subversive {{{2
+
+nmap gr <Plug>(SubversiveSubstitute)
+nmap grr <Plug>(SubversiveSubstituteLine)
+
 " }}} surround {{{2
 
 autocmd FileType ruby let b:surround_{char2nr('r')} = "do \r end"
@@ -599,7 +599,15 @@ endfunction
 
 highlight link yardGenericTag rubyLocalVariableOrMethod
 
-" }}}
+" }}} yoink {{{2
+
+let g:yoinkIncludeDeleteOperations = 1
+
+nmap <M-p> <Plug>(YoinkPostPasteSwapBack)
+nmap <M-S-p> <Plug>(YoinkPostPasteSwapForward)
+
+nmap p <Plug>(YoinkPaste_p)
+nmap P <Plug>(YoinkPaste_P)
 
 
 " Mappings {{{1
