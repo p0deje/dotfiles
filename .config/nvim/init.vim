@@ -64,7 +64,7 @@ Plug 'airblade/vim-rooter', {'commit': '3509dfb'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim' " depends: unite.vim
+Plug 'Shougo/vimfiler.vim' " Replace with defx.nvim once it supports choosewin and tree-like mode; depends: unite.vim
 Plug 'tpope/vim-haystack'
 Plug 'tpope/vim-projectionist' " depends: vim-haystack
 
