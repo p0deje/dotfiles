@@ -829,6 +829,7 @@ command! WQ wq
 command! Wq wq
 
 command! Only :silent only | :silent tabonly | :silent Bonly
+command! CopyFilePath :silent let @+ = expand("%:p")
 
 " }}}
 
