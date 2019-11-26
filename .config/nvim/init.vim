@@ -368,7 +368,7 @@ function! configure.colors() abort
   colorscheme gruvbox
 
   let current_time = strftime('%H:%M:%S.0 %z')
-  if current_time < '20:00:00.0' || current_time > '8:00:00.0'
+  if (current_time < '20:00:00.0' || current_time > '8:00:00.0') && has("gui_vimr")
     set background=light
   else
     set background=dark
