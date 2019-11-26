@@ -159,6 +159,7 @@ set number               " show line numbers
 set secure               " disable unsafe commands in local .vimrc files
 set shiftwidth=2         " autoindent level
 set showtabline=2        " always show tabline
+set termguicolors        " fix colors for airline
 set undofile             " tell it to use an undo file
 set virtualedit=block    " allow selecting beyond line end
 
