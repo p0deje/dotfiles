@@ -1,0 +1,4 @@
+--langdef=gherkin
+--langmap=gherkin:.feature
+--regex-gherkin=/^Feature:[ \t]+(.*)/\1/f,Feature/
+--regex-gherkin=/^[ \t]+Scenarios?( Outline)?:[ \t]+(.*)/\2/s,Scenario/

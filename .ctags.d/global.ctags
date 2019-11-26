@@ -1,0 +1,8 @@
+--recurse=yes
+--tag-relative=always
+--exclude=.git
+--exclude=coverage
+--exclude=node_modules
+--exclude=public/assets
+--exclude=tmp
+--exclude=vendor/bundle

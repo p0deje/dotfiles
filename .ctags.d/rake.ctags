@@ -1,0 +1,2 @@
+--regex-ruby=/(^|^[[:blank:]]*)task[ \t][\:'"]([A-Za-z0-9_]*)/\2/t,tasks/
+--regex-ruby=/(^|^[[:blank:]]*)namespace[ \t][\:'"]([A-Za-z0-9_]*)/\2/n,namespaces/
