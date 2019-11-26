@@ -41,13 +41,37 @@ function undo:pop()
   end
 end
 
-hs.hotkey.bind({"alt", "shift"}, "m", function()
-  undo:push()
+window = {}
+
+function window:center()
   local screenFrame = hs.screen.mainScreen():frame()
   local windowFrame = hs.window.focusedWindow():frame()
   windowFrame.x = ((screenFrame.w - windowFrame.w) / 2) + screenFrame.x
   windowFrame.y = ((screenFrame.h - windowFrame.h) / 2) + screenFrame.y
   hs.window.focusedWindow():setFrame(windowFrame)
+end
+
+hs.hotkey.bind({"alt", "shift"}, "m", function()
+  undo:push()
+  window:center()
+end)
+
+hs.hotkey.bind({"alt", "shift"}, "-", function()
+  undo:push()
+  local windowFrame = hs.window.focusedWindow():frame()
+  windowFrame.w = windowFrame.w - windowFrame.w * 0.05
+  windowFrame.h = windowFrame.h - windowFrame.h * 0.05
+  hs.window.focusedWindow():setFrame(windowFrame)
+  window:center()
+end)
+
+hs.hotkey.bind({"alt", "shift"}, "=", function()
+  undo:push()
+  local windowFrame = hs.window.focusedWindow():frame()
+  windowFrame.w = windowFrame.w + windowFrame.w * 0.05
+  windowFrame.h = windowFrame.h + windowFrame.h * 0.05
+  hs.window.focusedWindow():setFrame(windowFrame)
+  window:center()
 end)
 
 hs.hotkey.bind({"alt", "shift"}, "f", function()
