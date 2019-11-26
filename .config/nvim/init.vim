@@ -429,6 +429,10 @@ let g:LanguageClient_serverCommands = {
       \ 'ruby': ['solargraph', 'stdio'],
       \ }
 
+" }}} lion {{{2
+
+let g:lion_squeeze_spaces = 1
+
 " }}} projectionist {{{2
 
 let g:projectionist_heuristics = {
