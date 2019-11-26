@@ -83,10 +83,12 @@ Plug 'dhruvasagar/vim-table-mode', {'for': ['cucumber', 'markdown']}
 Plug 'elixir-lang/vim-elixir'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keith/swift.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'noprompt/vim-yardoc'
 Plug 'p0deje/vim-cucumber', {'branch': '_merge'}
 Plug 'p0deje/vim-ruby-interpolation', {'for': 'ruby'}
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'PProvost/vim-ps1'
 Plug 'rodjek/vim-puppet'
 Plug 'slim-template/vim-slim'
