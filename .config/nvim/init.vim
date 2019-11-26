@@ -38,11 +38,11 @@ Plug 'whiteinge/diffconflicts', {'on': 'DiffConflicts'}
 
 " }}} Linting, testing {{{2
 
+Plug 'dense-analysis/ale'
 Plug 'janko-m/vim-test'
 Plug 'radenling/vim-dispatch-neovim' " depends: vim-dispatch
 Plug 'Shougo/vimproc', {'do': 'make -f make_mac.mak'}
 Plug 'tpope/vim-dispatch'
-Plug 'w0rp/ale'
 
 " }}} Motions and operators {{{2
 
@@ -240,10 +240,15 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '!'
-let g:ale_ruby_rubocop_options = '--no-display-cop-names'
 let g:ale_warn_about_trailing_whitespace = 0
-let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 let g:airline#extensions#ale#enabled = 1
+
+let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
+let g:ale_ruby_rubocop_options = '--no-display-cop-names'
+
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = '=> '
+let g:ale_virtualtext_delay = 100
 
 " }}} AnsiEsc {{{2
 
@@ -376,6 +381,10 @@ function! configure.colors() abort
   else
     set background=dark
   endif
+
+  highlight ALEVirtualTextError guifg=gray
+  highlight ALEVirtualTextWarning guifg=gray
+  highlight ALEVirtualTextStyleError guifg=gray
 
   highlight CursorLineNr guibg=g:terminal_color_0
   highlight FoldColumn guibg=g:terminal_color_0
