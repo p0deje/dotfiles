@@ -104,6 +104,7 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
+Plug 'RRethy/vim-illuminate'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
