@@ -20,8 +20,6 @@ set -x PATH /opt/puppetlabs/bin $PATH
 alias be 'bundle exec'
 alias ve 'vagrant exec'
 alias git 'hub'
-alias cat '/usr/local/bin/ccat'
-alias ccat '/bin/cat'
 
 eval (direnv hook fish)
 
