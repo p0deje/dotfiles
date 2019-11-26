@@ -290,6 +290,8 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 let g:deoplete#enable_at_startup = 1
 
+call deoplete#custom#source('file', 'rank', 1000)
+
 function! helpers.close_complete_and_add_newline() abort
   return deoplete#close_popup() . "\<Cr>"
 endfunction
