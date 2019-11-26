@@ -629,6 +629,7 @@ nmap <M-S-p> <Plug>(YoinkPostPasteSwapForward)
 nmap p <Plug>(YoinkPaste_p)
 nmap P <Plug>(YoinkPaste_P)
 
+" }}}
 
 " Mappings {{{1
 " -------------
