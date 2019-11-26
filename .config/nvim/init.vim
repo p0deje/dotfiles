@@ -106,6 +106,7 @@ Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'RRethy/vim-illuminate'
 Plug 'ryanoasis/vim-devicons'
+Plug 'TaDaa/vimade'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 
