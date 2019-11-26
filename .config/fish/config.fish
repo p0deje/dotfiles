@@ -14,10 +14,8 @@ set -x LOLCOMMITS_FORK true
 set -x FZF_DEFAULT_OPTS "--reverse --exact"
 set -x FZF_LEGACY_KEYBINDINGS 0
 
-set -g fish_user_paths /usr/local/sbin $fish_user_paths
-set -g fish_user_paths /usr/local/share/npm/bin $fish_user_paths
-set -g fish_user_paths /opt/puppetlabs/bin $fish_user_paths
-set -g fish_user_paths /usr/local/opt/node@8/bin $fish_user_paths
+set -x PATH /usr/local/sbin $PATH
+set -x PATH /opt/puppetlabs/bin $PATH
 
 alias be 'bundle exec'
 alias ve 'vagrant exec'
