@@ -11,7 +11,8 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 set -x LANG en_US.UTF-8
 set -x LOLCOMMITS_FORK true
 
-set -x FZF_DEFAULT_OPTS "--reverse --exact"
+set -x FZF_DEFAULT_COMMAND 'fd --type f'
+set -x FZF_DEFAULT_OPTS "--history=$HOME/.fzf_history --reverse"
 set -x FZF_LEGACY_KEYBINDINGS 0
 
 set -x PATH /usr/local/sbin $PATH

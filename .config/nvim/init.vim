@@ -61,8 +61,8 @@ Plug 'tpope/vim-surround'
 " }}} Navigation {{{2
 
 Plug 'airblade/vim-rooter', {'commit': '3509dfb'}
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " depends: ctrlp.vim
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim' " Replace with defx.nvim once it supports choosewin and tree-like mode; depends: unite.vim
 Plug 'tpope/vim-haystack'
@@ -263,15 +263,6 @@ let g:choosewin_keymap = {"\<Space>": 'previous'}
 
 nmap <Space> <Plug>(choosewin)
 
-" }}} ctrlp {{{2
-
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-let g:ctrlp_map = '<C-p>'
-
-nnoremap gb :CtrlPBuffer<Cr>
-
 " }}} cutlass {{{2
 
 nnoremap m d
@@ -311,13 +302,36 @@ let g:EasyMotion_use_smartsign_us = 1
 
 map gj <Plug>(easymotion-s2)
 
+" }}} flexagon {{{2
+
+let g:flexagon_disable_foldtext = 1
+
 " }}} fugitive {{{2
 
 nnoremap gst :Gstatus<Cr>
 
-" }}} flexagon {{{2
+" }}} fzf {{{2
 
-let g:flexagon_disable_foldtext = 1
+let g:fzf_buffers_jump = 1
+let g:fzf_layout = {'down': '~20%'}
+let g:fzf_colors = {
+      \ 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment']
+      \ }
+
+nnoremap <C-P> :Files<Cr>
+nnoremap gb :Buffers<Cr>
 
 " }}} gist-vim {{{2
 
