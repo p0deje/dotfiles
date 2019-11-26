@@ -828,6 +828,8 @@ command! Q q
 command! WQ wq
 command! Wq wq
 
+command! Only :silent only | :silent tabonly | :silent Bonly
+
 " }}}
 
 " vim: foldmethod=marker
