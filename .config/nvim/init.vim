@@ -194,6 +194,9 @@ set completeopt+=noselect
 set completeopt-=preview
 set shortmess+=c
 
+" Support Fugitive tags
+set tags^=./.git/tags;
+
 " Let's not be retarded
 let g:mapleader = ','
 
