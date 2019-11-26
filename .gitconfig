@@ -14,6 +14,7 @@
   ctags = !.git/hooks/ctags
   up = pull --rebase --autostash --prune
   done = "!branch=$(git symbolic-ref --short HEAD); git checkout master; git up; git br -D $branch"
+  squash-branch = "!git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))"
 
 [core]
   excludesfile = ~/.gitignore
