@@ -51,11 +51,13 @@ function mkv-to-itunes
   open /Applications/iTunes.app
 end
 
-# Removes unused containers and images.
-function docker-cleanup
-  docker rm --force (docker ps --all --quiet --filter status=exited)
-  docker rmi --force (docker images --all --quiet)
-  rm -i $HOME/Library/Containers/com.docker.docker/Data/vms/0/Docker.raw
+# Removes unused containers, images, etc.
+function docker-prune
+  docker builder prune --force
+  docker container prune --force
+  docker image prune --force
+  docker network prune --force
+  docker volume prune --force
 end
 
 # Finds all terminated GCE instances and removes them.
