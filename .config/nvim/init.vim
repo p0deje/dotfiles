@@ -415,9 +415,10 @@ map ? <Plug>(incsearch-backward)
 
 " }}} indentLine {{{2
 
-let g:indentLine_char = '│'
+let g:indentLine_char = '┊'
 let g:indentLine_bufNameExclude = ['vimfiler:explorer.*', 'startify']
 let g:indentLine_bufTypeExclude = ['help']
+let g:indentLine_fileTypeExclude = ['json']
 
 " }}} investigate {{{2
 
