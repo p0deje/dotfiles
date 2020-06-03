@@ -376,31 +376,44 @@ nnoremap <silent> gac :execute 'GrepperRg ' . shellescape(@+)<Cr>
 
 " }}} gruvbox {{{2
 
-function! configure.colors() abort
-  colorscheme gruvbox
+colorscheme gruvbox
 
-  let current_time = strftime('%H:%M:%S.0 %z')
-  if (current_time < '20:00:00.0' || current_time > '8:00:00.0') && has("gui_vimr")
-    set background=light
-  else
-    set background=dark
+function! init#configure_colors(...) abort
+  if !has("gui_vimr")
+    return 1
   endif
 
-  highlight ALEVirtualTextError guifg=gray
-  highlight ALEVirtualTextWarning guifg=gray
-  highlight ALEVirtualTextStyleError guifg=gray
+  let s:os_mode = systemlist('defaults read -g AppleInterfaceStyle')[0]
+  if s:os_mode ==? 'dark'
+    if &background != 'dark'
+      set background=dark
+    else
+      return 1
+    endif
+  else
+    if &background != 'light'
+      set background=light
+    else
+      return 1
+    endif
+  endif
 
-  highlight CursorLineNr guibg=g:terminal_color_0
-  highlight FoldColumn guibg=g:terminal_color_0
-  highlight SignColumn guibg=g:terminal_color_0
-  highlight GruvboxAquaSign guibg=g:terminal_color_0
-  highlight GruvboxBlueSign guibg=g:terminal_color_0
-  highlight GruvboxGreenSign guibg=g:terminal_color_0
-  highlight GruvboxRedSign guibg=g:terminal_color_0
-  highlight GruvboxYellowSign guibg=g:terminal_color_0
+  highlight! ALEVirtualTextError guifg=gray
+  highlight! ALEVirtualTextWarning guifg=gray
+  highlight! ALEVirtualTextStyleError guifg=gray
+
+  highlight! CursorLineNr guibg=g:terminal_color_0
+  highlight! FoldColumn guibg=g:terminal_color_0
+  highlight! SignColumn guibg=g:terminal_color_0
+  highlight! GruvboxAquaSign guibg=g:terminal_color_0
+  highlight! GruvboxBlueSign guibg=g:terminal_color_0
+  highlight! GruvboxGreenSign guibg=g:terminal_color_0
+  highlight! GruvboxRedSign guibg=g:terminal_color_0
+  highlight! GruvboxYellowSign guibg=g:terminal_color_0
 endfunction
 
-call configure.colors()
+call init#configure_colors()
+call timer_start(30000, 'init#configure_colors', {'repeat': -1})
 
 " }}} gundo {{{2
 
