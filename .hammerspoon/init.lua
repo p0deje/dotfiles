@@ -92,3 +92,18 @@ end)
 hs.hotkey.bind({"alt", "shift"}, "z", function()
   undo:pop()
 end)
+
+-- Layouts
+
+hs.hotkey.bind({"alt", "shift"}, "n", function()
+  hs.application.launchOrFocus("iTerm")
+  hs.application.launchOrFocus("Slack")
+  hs.application.launchOrFocus("VimR")
+
+  local windowLayout = {
+    {"VimR",   nil, nil, hs.geometry.rect(0.0, 0.0, 0.6, 1.0), nil, nil},
+    {"iTerm2", nil, nil, hs.geometry.rect(0.6, 0.5, 0.4, 0.5), nil, nil},
+    {"Slack",  nil, nil, hs.geometry.rect(0.6, 0.0, 0.4, 0.5), nil, nil},
+  }
+  hs.layout.apply(windowLayout)
+end)
