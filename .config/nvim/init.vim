@@ -759,6 +759,8 @@ if has("gui_vimr")
 
   inoremap <M-Backspace> <C-w>
   cnoremap <M-Backspace> <C-w>
+
+  nnoremap <D-;> :Commands<Cr>
 endif
 
 " Autocommands {{{1
