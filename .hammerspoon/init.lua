@@ -21,6 +21,7 @@ bindToLaunchOrFocus("t", "iTerm")
 bindToLaunchOrFocus("v", "VimR")
 bindToLaunchOrFocus("m", "Messages")
 bindToLaunchOrFocus("b", "Slack")
+bindToLaunchOrFocus("z", "zoom.us")
 
 -- Window moving
 
