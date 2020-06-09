@@ -379,22 +379,20 @@ nnoremap <silent> gac :execute 'GrepperRg ' . shellescape(@+)<Cr>
 colorscheme gruvbox
 
 function! init#configure_colors(...) abort
-  if !has("gui_vimr")
-    return 1
-  endif
-
-  let s:os_mode = systemlist('defaults read -g AppleInterfaceStyle')[0]
-  if s:os_mode ==? 'dark'
-    if &background != 'dark'
-      set background=dark
+  if has("gui_vimr")
+    let s:os_mode = systemlist('defaults read -g AppleInterfaceStyle')[0]
+    if s:os_mode ==? 'dark'
+      if &background != 'dark'
+        set background=dark
+      else
+        return 1
+      endif
     else
-      return 1
-    endif
-  else
-    if &background != 'light'
-      set background=light
-    else
-      return 1
+      if &background != 'light'
+        set background=light
+      else
+        return 1
+      endif
     endif
   endif
 
