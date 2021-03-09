@@ -16,6 +16,7 @@ Plug 'Shougo/neoinclude.vim'
 " }}} Development {{{2
 
 Plug 'bergercookie/vim-debugstring'
+Plug 'hwartig/vim-seeing-is-believing', {'for': 'ruby'}
 Plug 'keith/investigate.vim'
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
 Plug 'tpope/vim-bundler'
@@ -857,6 +858,16 @@ augroup Misc
   autocmd FocusGained * :checktime
 augroup END
 
+augroup SeeingIsBelievingSettings
+  autocmd!
+
+  autocmd FileType ruby nmap <buffer> <Leader>m <Plug>(seeing-is-believing-mark)
+  autocmd FileType ruby xmap <buffer> <Leader>m <Plug>(seeing-is-believing-mark)
+  autocmd FileType ruby imap <buffer> <Leader>m <Plug>(seeing-is-believing-mark)
+
+  autocmd FileType ruby nmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
+  autocmd FileType ruby imap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
+augroup END
 
 " Commands {{{1
 " -------------
