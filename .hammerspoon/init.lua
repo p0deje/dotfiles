@@ -118,3 +118,24 @@ end)
 hs.hotkey.bind({"alt", "shift"}, "]", function()
   hs.window.focusedWindow():moveOneScreenEast(false, true)
 end)
+
+-- Mouse
+
+hs.eventtap.new({hs.eventtap.event.types.otherMouseUp}, function(event)
+  local buttonNumber = event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber)
+  local currentApp = hs.application.frontmostApplication()
+
+  print(buttonNumber)
+
+  if currentApp == hs.application.find("Spark") then
+    hs.eventtap.leftClick(hs.mouse.getAbsolutePosition(), 1000)
+    hs.eventtap.keyStroke({}, "return")
+    return
+  end
+
+  if buttonNumber == 4 then
+    hs.eventtap.keyStroke({"cmd"}, "[")
+  elseif button == 3 then
+    hs.eventtap.keyStroke({"cmd"}, "]")
+  end
+end):start()
