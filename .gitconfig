@@ -12,7 +12,7 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   ls = ls-files
   ctags = !.git/hooks/ctags
-  up = pull --rebase --autostash --prune
+  up = pull --rebase --autostash --prune --tags
   done = "!branch=$(git symbolic-ref --short HEAD); git checkout master; git up; git br -D $branch"
   squash-branch = "!git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))"
 
