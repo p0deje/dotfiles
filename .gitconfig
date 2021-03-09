@@ -69,3 +69,6 @@
 
 [commit]
   verbose = true
+
+[diff]
+  algorithm = patience
