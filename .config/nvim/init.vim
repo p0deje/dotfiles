@@ -94,6 +94,7 @@ Plug 'PProvost/vim-ps1'
 Plug 'rodjek/vim-puppet'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
+Plug 'vim-crystal/vim-crystal'
 Plug 'vim-ruby/vim-ruby'
 
 " }}} UI {{{2
