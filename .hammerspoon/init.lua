@@ -113,10 +113,12 @@ end)
 
 hs.hotkey.bind({"alt", "shift"}, "[", function()
   hs.window.focusedWindow():moveOneScreenWest(false, true)
+  hs.window.focusedWindow():focus()
 end)
 
 hs.hotkey.bind({"alt", "shift"}, "]", function()
   hs.window.focusedWindow():moveOneScreenEast(false, true)
+  hs.window.focusedWindow():focus()
 end)
 
 -- Mouse
