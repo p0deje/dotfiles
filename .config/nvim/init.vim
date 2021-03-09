@@ -380,24 +380,26 @@ nnoremap <silent> gac :execute 'GrepperRg ' . shellescape(@+)<Cr>
 
 colorscheme gruvbox
 
-function! init#configure_colors(...) abort
-  if has("gui_vimr")
-    let s:os_mode = systemlist('defaults read -g AppleInterfaceStyle')[0]
-    if s:os_mode ==? 'dark'
-      if &background != 'dark'
-        set background=dark
-      else
-        return 1
-      endif
-    else
-      if &background != 'light'
-        set background=light
-      else
-        return 1
-      endif
-    endif
+function! init#configure_background(...) abort
+  if !has("gui_vimr")
+    return
   endif
 
+  let s:os_mode = systemlist('defaults read -g AppleInterfaceStyle')[0]
+  if s:os_mode ==? 'dark'
+    if &background != 'dark'
+      set background=dark
+      call init#configure_colors()
+    endif
+  else
+    if &background != 'light'
+      set background=light
+      call init#configure_colors()
+    endif
+  endif
+endfunction
+
+function! init#configure_colors() abort
   highlight! ALEVirtualTextError guifg=gray
   highlight! ALEVirtualTextWarning guifg=gray
   highlight! ALEVirtualTextStyleError guifg=gray
@@ -412,8 +414,9 @@ function! init#configure_colors(...) abort
   highlight! GruvboxYellowSign guibg=g:terminal_color_0
 endfunction
 
+call init#configure_background()
 call init#configure_colors()
-call timer_start(30000, 'init#configure_colors', {'repeat': -1})
+call timer_start(30000, 'init#configure_background', {'repeat': -1})
 
 " }}} gundo {{{2
 
