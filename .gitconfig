@@ -17,6 +17,7 @@
   squash-branch = "!git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))"
 
 [core]
+  attributesfile = ~/.gitattributes
   excludesfile = ~/.gitignore
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = nvim
