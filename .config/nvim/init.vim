@@ -19,6 +19,7 @@ Plug 'bergercookie/vim-debugstring'
 Plug 'hwartig/vim-seeing-is-believing', {'for': 'ruby'}
 Plug 'keith/investigate.vim'
 Plug 'majutsushi/tagbar', {'on': 'Tagbar'}
+Plug 'pechorin/any-jump.vim', {'on': 'AnyJump'}
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
@@ -697,6 +698,9 @@ nnoremap <Bar> :vsplit<Cr>
 
 " Visually select the text that was last edited/pasted
 nnoremap gV `[v`]
+
+" Alternative to built-in tags
+nnoremap <D-]> :AnyJump<Cr>
 
 " Clear search
 nnoremap <silent> <C-l> :let @/ = ""<Cr>
