@@ -325,7 +325,7 @@ let g:flexagon_disable_foldtext = 1
 
 " }}} fugitive {{{2
 
-nnoremap gst :Gstatus<Cr>
+nnoremap gG :G<Cr>
 
 " }}} fzf {{{2
 
