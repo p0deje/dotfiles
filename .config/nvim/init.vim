@@ -417,6 +417,7 @@ call timer_start(30000, 'init#configure_colors', {'repeat': -1})
 
 " }}} gundo {{{2
 
+let g:gundo_prefer_python3 = 1
 let g:gundo_right = 1
 
 " }}} incsearch {{{2
