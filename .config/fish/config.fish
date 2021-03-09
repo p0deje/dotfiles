@@ -7,7 +7,6 @@ end
 set -x ANSIBLE_NOCOWS 1
 set -x BUNDLER_EDITOR vimr
 set -x EDITOR vimr
-set -x JAVA_HOME (/usr/libexec/java_home)
 set -x LANG en_US.UTF-8
 set -x LOLCOMMITS_FORK true
 
@@ -17,6 +16,7 @@ set -x FZF_LEGACY_KEYBINDINGS 0
 
 set -x PATH /usr/local/sbin $PATH
 set -x PATH /opt/puppetlabs/bin $PATH
+set -x PATH /usr/local/opt/openjdk/bin $PATH
 
 alias be 'bundle exec'
 alias ve 'vagrant exec'
