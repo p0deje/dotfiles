@@ -108,3 +108,13 @@ hs.hotkey.bind({"alt", "shift"}, "n", function()
   }
   hs.layout.apply(windowLayout)
 end)
+
+-- Monitors
+
+hs.hotkey.bind({"alt", "shift"}, "[", function()
+  hs.window.focusedWindow():moveOneScreenWest(false, true)
+end)
+
+hs.hotkey.bind({"alt", "shift"}, "]", function()
+  hs.window.focusedWindow():moveOneScreenEast(false, true)
+end)
