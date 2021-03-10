@@ -227,9 +227,29 @@ let helpers = {}
 
 " }}} airline {{{2
 
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+" https://awesomeopensource.com/project/ryanoasis/powerline-extra-symbols
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep = "\uE0B8"
+let g:airline_left_alt_sep = "\uE0B9"
+let g:airline_right_sep = "\uE0Ba"
+let g:airline_right_alt_sep = "\uE0Bb"
+let g:airline_symbols = {"dirty": " \u26a1"}
+
+let g:airline_skip_empty_sections = 1
+let g:airline_section_a = airline#section#create(['mode', 'crypt', 'paste', 'iminsert'])
+let g:airline_section_x = airline#section#create(['filetype'])
+let g:airline_section_y = airline#section#create([])
+let g:airline_section_z = airline#section#create([])
+let g:airline_filetype_overrides = {
+      \ 'gundo': ['Gundo', ''],
+      \ 'help':  ['Help', '%f'],
+      \ 'startify': ['Startify', ''],
+      \ 'vim-plug': ['Plugins', ''],
+      \ 'vimfiler': ['%{vimfiler#get_status_string()}', ''],
+      \ }
+
+let g:airline#extensions#branch#displayed_head_limit = 20
+let g:airline#extensions#hunks#enabled = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#exclude_preview = 1
