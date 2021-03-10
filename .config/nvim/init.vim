@@ -281,6 +281,11 @@ let g:ale_virtualtext_delay = 100
 
 let g:no_cecutil_maps = 1
 
+" }}} any-jump {{{2
+
+let g:any_jump_disable_default_keybindings = 1
+let g:any_jump_window_width_ratio = 0.8
+
 " }}} auto-pairs {{{2
 
 " Clear <M-p> mapping
