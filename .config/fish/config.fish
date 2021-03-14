@@ -24,6 +24,9 @@ alias git 'hub'
 
 eval (direnv hook fish)
 
+source /Applications/Docker.app/Contents/Resources/etc/docker.fish-completion
+source /Applications/Docker.app/Contents/Resources/etc/docker-compose.fish-completion
+
 # Prints list of currently modified files to stdout,
 # formatted for piping to other commands. Useful to rerun all modified tests
 #
