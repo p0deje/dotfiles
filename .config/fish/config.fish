@@ -5,6 +5,7 @@ function fish_title
 end
 
 set -x ANSIBLE_NOCOWS 1
+set -x BAT_THEME ansi
 set -x BUNDLER_EDITOR vimr
 set -x EDITOR vimr
 set -x LANG en_US.UTF-8
@@ -19,8 +20,9 @@ set -x PATH /opt/puppetlabs/bin $PATH
 set -x PATH /usr/local/opt/openjdk/bin $PATH
 
 alias be 'bundle exec'
-alias ve 'vagrant exec'
+alias cat 'bat'
 alias git 'hub'
+alias ve 'vagrant exec'
 
 eval (direnv hook fish)
 
