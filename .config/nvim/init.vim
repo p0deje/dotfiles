@@ -412,10 +412,6 @@ nnoremap <silent> gac :execute 'GrepperRg ' . shellescape(@+)<Cr>
 colorscheme gruvbox
 
 function! init#configure_background(...) abort
-  if !has("gui_vimr")
-    return
-  endif
-
   let s:os_mode = systemlist('defaults read -g AppleInterfaceStyle')[0]
   if s:os_mode ==? 'dark'
     if &background != 'dark'
