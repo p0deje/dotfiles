@@ -16,14 +16,14 @@ set -x FZF_DEFAULT_OPTS "--history=$HOME/.fzf_history --reverse"
 set -x FZF_LEGACY_KEYBINDINGS 0
 
 set -x PATH /usr/local/sbin $PATH
-set -x PATH /opt/puppetlabs/bin $PATH
-set -x PATH /usr/local/opt/openjdk/bin $PATH
+set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
 
 alias be 'bundle exec'
 alias cat 'bat'
 alias git 'hub'
 alias ve 'vagrant exec'
 
+eval (/opt/homebrew/bin/brew shellenv)
 eval (direnv hook fish)
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish

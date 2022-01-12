@@ -63,7 +63,7 @@ Plug 'tpope/vim-surround'
 " }}} Navigation {{{2
 
 Plug 'airblade/vim-rooter', {'commit': '3509dfb'}
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim' " Replace with defx.nvim once it supports choosewin and tree-like mode; depends: unite.vim
@@ -354,11 +354,13 @@ let g:flexagon_disable_foldtext = 1
 " }}} fugitive {{{2
 
 nnoremap gG :G<Cr>
+autocmd! FileType fugitive nmap <silent> <buffer> q gq
 
 " }}} fzf {{{2
 
 let g:fzf_buffers_jump = 1
-let g:fzf_layout = {'down': '~20%'}
+let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.9}}
+let g:fzf_preview_window = []
 let g:fzf_colors = {
       \ 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
@@ -392,8 +394,8 @@ let g:grepper = {
       \ 'open': 0,
       \ 'tools': ['rg'],
       \ 'rg': {
-      \   'grepprg': 'rg --with-filename --smart-case --no-heading --vimgrep $* | sort',
-      \   'escape': 0
+      \   'grepprg': 'rg --with-filename --smart-case --no-heading --vimgrep $* . | sort',
+      \   'escape': 0,
       \ }
       \ }
 autocmd User Grepper copen | call helpers.move_window_and_resize('J')
