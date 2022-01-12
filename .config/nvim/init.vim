@@ -84,6 +84,7 @@ Plug 'dag/vim-fish'
 Plug 'dhruvasagar/vim-table-mode', {'for': ['cucumber', 'markdown']}
 Plug 'elixir-lang/vim-elixir'
 Plug 'jparise/vim-graphql'
+Plug 'jvirtanen/vim-hcl'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keith/swift.vim'
 Plug 'leafgarland/typescript-vim'
