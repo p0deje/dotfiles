@@ -24,6 +24,7 @@ alias git 'hub'
 
 eval (direnv hook fish)
 
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source /Applications/Docker.app/Contents/Resources/etc/docker.fish-completion
 source /Applications/Docker.app/Contents/Resources/etc/docker-compose.fish-completion
 

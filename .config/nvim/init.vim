@@ -657,6 +657,7 @@ function! configure.vimfiler()
   setlocal nobuflisted
 
   try
+    nmap <buffer> <C-^> <Nop>
     nunmap <buffer> <C-l>
     nunmap <buffer> <Space>
   catch
@@ -673,7 +674,7 @@ function! configure.vimfiler()
   nmap <buffer> ad <Plug>(vimfiler_make_directory)
   nmap <buffer> af <Plug>(vimfiler_new_file)
 
-  nmap <buffer> v <Plug>(vimfiler_split_edit_file)
+  nnoremap <buffer><expr> v vimfiler#do_switch_action('vsplit')
   nnoremap <buffer><expr> s vimfiler#do_switch_action('split')
   nnoremap <buffer><expr> t vimfiler#do_action('tabopen')
 
