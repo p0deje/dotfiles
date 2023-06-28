@@ -61,3 +61,25 @@ end
 function gcloud-destroy-terminated
   gcloud compute instances list | grep TERMINATED | awk '{ print $1 }' | xargs gcloud compute instances delete --zone us-central1-b
 end
+# Convert input video for Mac App Store preview format:
+# - generates silent audio track
+# - scales to 1920x1080 and fills the background with white
+# - forces 30 FPS
+function convert-to-mac-app-preview
+  ffmpeg -f lavfi -i anullsrc -i $argv[1] \
+         -vf scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:-1:-1:color=white,setsar=1,fps=30 \
+         -c:a aac -map 0:a -map 1:v -shortest Preview.mp4
+end
+
+function maccy-backup
+  cp -R \
+    "$HOME/Library/Containers/org.p0deje.Maccy/Data/Library/Application Support/Maccy/" \
+    "$HOME/Downloads/maccy.backup"
+end
+
+function maccy-restore
+  cp -R \
+    "$HOME/Downloads/maccy.backup/" \
+    "$HOME/Library/Containers/org.p0deje.Maccy/Data/Library/Application Support/Maccy/"
+  rm -r "$HOME/Downloads/maccy.backup/"
+end
