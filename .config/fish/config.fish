@@ -57,15 +57,6 @@ function mkv-to-itunes
   open /Applications/iTunes.app
 end
 
-# Removes unused containers, images, etc.
-function docker-prune
-  docker builder prune --force
-  docker container prune --force
-  docker image prune --force
-  docker network prune --force
-  docker volume prune --force
-end
-
 # Finds all terminated GCE instances and removes them.
 function gcloud-destroy-terminated
   gcloud compute instances list | grep TERMINATED | awk '{ print $1 }' | xargs gcloud compute instances delete --zone us-central1-b
