@@ -11,7 +11,6 @@
   co = checkout
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   ls = ls-files
-  ctags = !.git/hooks/ctags
   up = pull --rebase --autostash --prune --tags
   done = "!branch=$(git symbolic-ref --short HEAD); git checkout $(git remote show origin | awk '/HEAD branch/ {print $NF}'); git up; git br -D $branch"
   squash-branch = "!git reset $(git merge-base $(git remote show origin | awk '/HEAD branch/ {print $NF}') $(git rev-parse --abbrev-ref HEAD))"

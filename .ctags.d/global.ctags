@@ -1,6 +1,7 @@
 --recurse=yes
 --tag-relative=always
 --exclude=.git
+--exclude=apps
 --exclude=coverage
 --exclude=node_modules
 --exclude=public/assets
