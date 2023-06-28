@@ -44,9 +44,6 @@
 [github]
   user = p0deje
 
-[init]
-  templatedir = ~/.git_template
-
 [filter "media"]
   required = true
   clean = git media clean %f
