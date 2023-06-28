@@ -3,7 +3,6 @@
 .bundle
 coverage/
 .envrc
-Gemfile.lock
 .idea/
 pkg/
 .project
