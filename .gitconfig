@@ -20,6 +20,7 @@
   excludesfile = ~/.gitignore
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = nvim
+  autocrlf = input
 
 [color]
   ui = auto
@@ -68,3 +69,6 @@
 
 [diff]
   algorithm = patience
+
+[includeIf "gitdir:~/Work/Toptal/"]
+  path = ~/Work/Toptal/.gitconfig
