@@ -11,6 +11,7 @@ set -x EDITOR vimr
 set -x LANG en_US.UTF-8
 set -x LOLCOMMITS_DEVICE "FaceTime HD Camera"
 set -x LOLCOMMITS_FORK true
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 set -x FZF_DEFAULT_COMMAND 'fd --type f'
 set -x FZF_DEFAULT_OPTS "--history=$HOME/.fzf_history --reverse"
