@@ -2,16 +2,10 @@
 
 hs.window.animationDuration = 0
 
--- Window hints
-
-hs.hotkey.bind({"cmd"}, "e", function()
-  hs.hints.windowHints()
-end)
-
 -- Application switching
 
 local bindToLaunchOrFocus = function(key, application)
-  hs.hotkey.bind({"alt"}, key, function()
+  hs.hotkey.bind({ "alt" }, key, function()
     hs.application.launchOrFocus(application)
   end)
 end
@@ -25,7 +19,7 @@ bindToLaunchOrFocus("z", "zoom.us")
 
 -- Window moving
 
-undo = {}
+local undo = {}
 
 function undo:push()
   local win = hs.window.focusedWindow()
@@ -42,7 +36,7 @@ function undo:pop()
   end
 end
 
-window = {}
+local window = {}
 
 function window:center()
   local screenFrame = hs.screen.mainScreen():frame()
@@ -52,51 +46,62 @@ function window:center()
   hs.window.focusedWindow():setFrame(windowFrame)
 end
 
-hs.hotkey.bind({"alt", "shift"}, "m", function()
+hs.hotkey.bind({ "alt", "shift" }, "m", function()
   undo:push()
   window:center()
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "-", function()
+hs.hotkey.bind({ "alt", "shift" }, "-", function()
   undo:push()
   local windowFrame = hs.window.focusedWindow():frame()
   windowFrame.w = windowFrame.w - windowFrame.w * 0.05
   windowFrame.h = windowFrame.h - windowFrame.h * 0.05
   hs.window.focusedWindow():setFrame(windowFrame)
+  hs.timer.usleep(0.4 * 1000 * 1000)
   window:center()
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "=", function()
+hs.hotkey.bind({ "alt", "shift" }, "=", function()
   undo:push()
   local windowFrame = hs.window.focusedWindow():frame()
   windowFrame.w = windowFrame.w + windowFrame.w * 0.05
   windowFrame.h = windowFrame.h + windowFrame.h * 0.05
   hs.window.focusedWindow():setFrame(windowFrame)
+  hs.timer.usleep(0.4 * 1000 * 1000)
   window:center()
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "f", function()
+hs.hotkey.bind({ "alt", "shift" }, "f", function()
   undo:push()
-  hs.window.focusedWindow():moveToUnit(hs.layout.maximized)
+  local stageManager = hs.execute("defaults read com.apple.WindowManager GloballyEnabled")
+  if stageManager == "1\n" then
+    local screenFrame = hs.screen.mainScreen():frame()
+    screenFrame.w = screenFrame.w * 0.85
+    hs.window.focusedWindow():setFrame(screenFrame)
+    hs.timer.usleep(0.4 * 1000 * 1000)
+    window:center()
+  else
+    hs.window.focusedWindow():maximize(0)
+  end
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "h", function()
+hs.hotkey.bind({ "alt", "shift" }, "h", function()
   undo:push()
   hs.window.focusedWindow():moveToUnit(hs.layout.left50)
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "l", function()
+hs.hotkey.bind({ "alt", "shift" }, "l", function()
   undo:push()
   hs.window.focusedWindow():moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "z", function()
+hs.hotkey.bind({ "alt", "shift" }, "z", function()
   undo:pop()
 end)
 
 -- Layouts
 
-hs.hotkey.bind({"alt", "shift"}, "n", function()
+hs.hotkey.bind({ "alt", "shift" }, "n", function()
   hs.application.launchOrFocus("iTerm")
   hs.application.launchOrFocus("Slack")
   hs.application.launchOrFocus("VimR")
@@ -111,33 +116,39 @@ end)
 
 -- Monitors
 
-hs.hotkey.bind({"alt", "shift"}, "[", function()
-  hs.window.focusedWindow():moveOneScreenWest(false, true)
+hs.hotkey.bind({ "alt", "shift" }, "[", function()
+  hs.window.focusedWindow():moveOneScreenWest(true, true)
   hs.window.focusedWindow():focus()
 end)
 
-hs.hotkey.bind({"alt", "shift"}, "]", function()
-  hs.window.focusedWindow():moveOneScreenEast(false, true)
+hs.hotkey.bind({ "alt", "shift" }, "]", function()
+  hs.window.focusedWindow():moveOneScreenEast(true, true)
   hs.window.focusedWindow():focus()
 end)
 
 -- Mouse
 
-hs.eventtap.new({hs.eventtap.event.types.otherMouseUp}, function(event)
-  local buttonNumber = event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber)
-  local currentApp = hs.application.frontmostApplication()
+hs.hotkey.bind({ "alt", "shift" }, "j", function()
+  hs.eventtap.leftClick(hs.mouse.absolutePosition())
+end)
 
-  print(buttonNumber)
+hs.eventtap
+  .new({ hs.eventtap.event.types.otherMouseUp }, function(event)
+    local buttonNumber = event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber)
+    local currentApp = hs.application.frontmostApplication()
 
-  if currentApp == hs.application.find("Spark") then
-    hs.eventtap.leftClick(hs.mouse.getAbsolutePosition(), 1000)
-    hs.eventtap.keyStroke({}, "return")
-    return
-  end
+    print(buttonNumber)
 
-  if buttonNumber == 4 then
-    hs.eventtap.keyStroke({"cmd"}, "[")
-  elseif button == 3 then
-    hs.eventtap.keyStroke({"cmd"}, "]")
-  end
-end):start()
+    if currentApp == hs.application.find("Spark") then
+      hs.eventtap.leftClick(hs.mouse.getAbsolutePosition(), 1000)
+      hs.eventtap.keyStroke({}, "return")
+      return
+    end
+
+    if buttonNumber == 4 then
+      hs.eventtap.keyStroke({ "cmd" }, "[")
+    elseif buttonNumber == 3 then
+      hs.eventtap.keyStroke({ "cmd" }, "]")
+    end
+  end)
+  :start()
