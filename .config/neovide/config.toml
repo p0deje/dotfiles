@@ -1,0 +1,3 @@
+frame = "Buttonless"
+multigrid = true
+neovim_bin = "/opt/homebrew/bin/nvim"

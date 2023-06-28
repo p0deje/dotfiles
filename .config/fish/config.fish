@@ -61,6 +61,7 @@ end
 function gcloud-destroy-terminated
   gcloud compute instances list | grep TERMINATED | awk '{ print $1 }' | xargs gcloud compute instances delete --zone us-central1-b
 end
+
 # Convert input video for Mac App Store preview format:
 # - generates silent audio track
 # - scales to 1920x1080 and fills the background with white

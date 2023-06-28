@@ -12,7 +12,7 @@ end
 
 bindToLaunchOrFocus("s", "Safari")
 bindToLaunchOrFocus("t", "iTerm")
-bindToLaunchOrFocus("v", "VimR")
+bindToLaunchOrFocus("v", "Neovide")
 bindToLaunchOrFocus("m", "Messages")
 bindToLaunchOrFocus("b", "Slack")
 bindToLaunchOrFocus("z", "zoom.us")
@@ -104,12 +104,12 @@ end)
 hs.hotkey.bind({ "alt", "shift" }, "n", function()
   hs.application.launchOrFocus("iTerm")
   hs.application.launchOrFocus("Slack")
-  hs.application.launchOrFocus("VimR")
+  hs.application.launchOrFocus("Neovide")
 
   local windowLayout = {
-    {"VimR",   nil, nil, hs.geometry.rect(0.0, 0.0, 0.6, 1.0), nil, nil},
-    {"iTerm2", nil, nil, hs.geometry.rect(0.6, 0.5, 0.4, 0.5), nil, nil},
-    {"Slack",  nil, nil, hs.geometry.rect(0.6, 0.0, 0.4, 0.5), nil, nil},
+    { "Neovide", nil, nil, hs.geometry.rect(0.0, 0.0, 0.6, 1.0), nil, nil },
+    { "iTerm2", nil, nil, hs.geometry.rect(0.6, 0.5, 0.4, 0.5), nil, nil },
+    { "Slack", nil, nil, hs.geometry.rect(0.6, 0.0, 0.4, 0.5), nil, nil },
   }
   hs.layout.apply(windowLayout)
 end)
