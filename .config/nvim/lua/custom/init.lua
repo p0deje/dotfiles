@@ -20,12 +20,18 @@ if vim.g.neovide then
   vim.g.neovide_theme = "auto"
   vim.g.neovide_underline_automatic_scaling = true
 
-  vim.keymap.set("v", "<D-c>", '"+y') -- Copy
-  vim.keymap.set({ "n", "v" }, "<D-v>", '"+P') -- Paste normal/visual mode
-  vim.keymap.set({ "i", "c" }, "<D-v>", "<C-r>+") -- Paste command/insert mode
+  vim.keymap.set("v", "<D-c>", '"+y', { desc = "Copy" })
+  vim.keymap.set({ "n", "v" }, "<D-v>", '"+P', { desc = "Paste", noremap = true })
+  vim.keymap.set({ "i", "c" }, "<D-v>", "<C-r>+", { desc = "Paste", noremap = true })
 end
 
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Command mode", noremap = false })
+vim.keymap.set({ "n", "x", "o" }, "H", "^", { desc = "Go to beginning of line" })
+vim.keymap.set({ "n", "x", "o" }, "L", "$", { desc = "Go to end of line" })
+
+-- Don't leave visual mode when changing indent
+vim.keymap.set("x", ">", ">gv", { desc = "Indent selection", noremap = true })
+vim.keymap.set("x", "<", "<gv", { desc = "De-indent selection", noremap = true })
 
 -- Splits
 vim.keymap.set("n", "_", "<CMD>split<CR>", { desc = "Horizontal split", silent = true })
@@ -34,21 +40,31 @@ vim.keymap.set("n", "|", "<CMD>vsplit<CR>", { desc = "Vertical split", silent = 
 -- macOS
 vim.keymap.set({ "n", "i" }, "<D-s>", "<CMD>w!<CR>", { desc = "Save buffer" })
 vim.keymap.set("n", "<D-a>", "ggVG", { desc = "Select all", silent = true })
-vim.keymap.set("n", "<D-t>", "<CMD>tabnew<CR>", { desc = "New tab", silent = true })
-vim.keymap.set("n", "<D-S-w>", "<CMD>qa<CR>", { desc = "Close tab", silent = true })
+vim.keymap.set("n", "<D-t>", "<CMD>enew<CR>", { desc = "New buffer", silent = true })
+vim.keymap.set("n", "<D-S-w>", "<CMD>qall<CR>", { desc = "Close tab", silent = true })
 vim.keymap.set("i", "<D-Left>", "<C-o>^", { desc = "Move to beginning of line" })
 vim.keymap.set("i", "<D-Right>", "<C-o>$", { desc = "Move to end of line" })
 vim.keymap.set("c", "<D-Left>", "<C-b>", { desc = "Move to beginning of line" })
 vim.keymap.set("c", "<D-Right>", "<C-e>", { desc = "Move to end of line" })
-vim.keymap.set({ "c", "i" }, "<A-Left>", "<A-S-Left>", { desc = "Move to previous word" })
-vim.keymap.set({ "c", "i" }, "<A-Right>", "<A-S-Right>", { desc = "Move to next word" })
+vim.keymap.set("n", "<D-Left>", "^", { desc = "Move to beginning of line" })
+vim.keymap.set("n", "<D-Right>", "$", { desc = "Move to end of line" })
+vim.keymap.set({ "c", "i", "n" }, "<A-Left>", "<A-S-Left>", { desc = "Move to previous word" })
+vim.keymap.set({ "c", "i", "n" }, "<A-Right>", "<A-S-Right>", { desc = "Move to next word" })
 vim.keymap.set({ "c", "i" }, "<D-Backspace>", "<C-u>", { desc = "Remove to beginning of line" })
 vim.keymap.set({ "c", "i" }, "<A-Backspace>", "<C-w>", { desc = "Remove to previous word" })
+vim.keymap.set("n", "<D-z>", "u", { desc = "Undo", silent = true })
+vim.keymap.set("n", "<S-D-z>", "<C-r>", { desc = "Redo", silent = true })
+vim.keymap.set("n", "<D-n>", "<CMD>silent !open -na Neovide<CR>", { desc = "New window", silent = true })
+vim.keymap.set({ "n", "t" }, "<D-w>", function()
+  local ft = vim.bo[vim.api.nvim_win_get_buf(0)].ft
+  if ft == "fugitive" or ft == "terminal" or ft == "qf" then
+    vim.cmd("q")
+  else
+    require("nvchad_ui.tabufline").close_buffer()
+  end
+end, { desc = "Close buffer" })
 
 -- Tabufline
-vim.keymap.set("n", "<D-w>", function()
-  require("nvchad_ui.tabufline").close_buffer()
-end, { desc = "Close buffer" })
 vim.keymap.set("n", "<D-[>", function()
   require("nvchad_ui.tabufline").tabuflinePrev()
 end, { desc = "Go to previous buffer" })
@@ -57,7 +73,17 @@ vim.keymap.set("n", "<D-]>", function()
 end, { desc = "Go to previous buffer" })
 
 -- Window movements
-vim.keymap.set({ "n", "t" }, "<A-h>", "<C-w>h", { desc = "Left window", silent = false })
+vim.keymap.set({ "n", "t" }, "<A-h>", "<CMD>wincmd h<CR>", { desc = "Left window", silent = true })
 vim.keymap.set({ "n", "t" }, "<A-j>", "<CMD>wincmd j<CR>", { desc = "Down window", silent = true })
 vim.keymap.set({ "n", "t" }, "<A-k>", "<CMD>wincmd k<CR>", { desc = "Up window", silent = true })
 vim.keymap.set({ "n", "t" }, "<A-l>", "<CMD>wincmd l<CR>", { desc = "Right window", silent = true })
+
+-- Quickfix improvements
+vim.keymap.set("n", "[oq", "<CMD>cwindow<CR>", { desc = "Open quickfix", silent = true })
+vim.keymap.set("n", "]oq", "<CMD>cclose<CR>", { desc = "Close quickfix", silent = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "q", "<CMD>q<CR>", { desc = "Quit", buffer = true, silent = true })
+  end,
+})
