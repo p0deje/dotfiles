@@ -1,10 +1,13 @@
 ---@type ChadrcConfig
 local M = {}
 M.ui = {
+  extended_integrations = { "notify" },
+  lsp_semantic_tokens = true,
   theme = "gruvbox_light",
   theme_toggle = { "gruvbox", "gruvbox_light" },
   statusline = {
-    separator_style = "block",
+    theme = "default",
+    separator_style = "round",
   },
   tabufline = {
     lazyload = false,
@@ -13,20 +16,21 @@ M.ui = {
     load_on_startup = true,
 
     header = {
-      " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-      " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-      " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-      " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-      " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-      " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+      " ███╗   ██╗ ██╗   ██╗ ██╗ ███╗   ███╗",
+      " ████╗  ██║ ██║   ██║ ██║ ████╗ ████║",
+      " ██╔██╗ ██║ ██║   ██║ ██║ ██╔████╔██║",
+      " ██║╚██╗██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+      " ██║ ╚████║  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+      " ╚═╝  ╚═══╝   ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
     },
 
     buttons = {
       {
         "󰈚  Sessions",
-        "Spc f s",
+        "Enter",
         function()
-          require("auto-session.session-lens").search_session()
+          require("telescope").load_extension("possession")
+          require("telescope").extensions.possession.list()
         end,
       },
       { "  Find File", "Spc f f", "Telescope find_files" },

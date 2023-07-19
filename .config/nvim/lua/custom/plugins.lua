@@ -69,16 +69,19 @@ local plugins = {
     end,
   },
 
+  -- LSP package manager.
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "buildifier",
+        "graphql-language-service-cli",
         "lua-language-server",
         "solargraph",
         "standardrb",
         "starlark_rust",
         "stylua",
+        "typescript-language-server",
       },
     },
   },
