@@ -1,25 +1,42 @@
 local plugins = {
+  -- Remove trailing whitespaces.
   {
     "mcauley-penney/tidy.nvim",
     event = "BufWritePre",
-    config = true,
+    opts = {},
   },
 
+  -- Autosave buffers.
   {
-    "rmagatti/auto-session",
+    "tmillr/sos.nvim",
+    event = { "BufLeave", "FocusLost" },
+    opts = {},
+  },
+
+  -- Session management.
+  {
+    "jedrzejboczar/possession.nvim",
     lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
-      log_level = "error",
-      session_lens = {
-        load_on_setup = true,
-        theme_conf = {
-          border = true,
-        },
-        previewer = false,
+      autosave = {
+        current = true,
+        on_quit = true,
       },
     },
   },
 
+  -- Undo tree in Telescope.
+  {
+    "debugloop/telescope-undo.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("telescope").load_extension("undo")
+    end,
+  },
+
+  -- Fuzzy finder and picker.
   {
     "nvim-telescope/telescope.nvim",
     opts = {
@@ -29,16 +46,20 @@ local plugins = {
             ["<ESC>"] = function(...)
               require("telescope.actions").close(...)
             end,
+            ["<C-p>"] = function(...)
+              require("telescope.actions").cycle_history_prev(...)
+            end,
           },
         },
       },
     },
     keys = {
-      { "<D-S-p>", "<CMD>Telescope commands<CR>", desc = "Command palette" },
+      { "<S-D-p>", "<CMD>Telescope commands<CR>", desc = "Command palette" },
       { "<D-p>", "<CMD>Telescope find_files<CR>", desc = "Go to file" },
     },
   },
 
+  -- Language Server Protocol.
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -103,16 +124,35 @@ local plugins = {
     },
   },
 
+  -- Surround operator.
   {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = true,
+    opts = {},
   },
 
+  -- Git plugins.
   {
     "tpope/vim-fugitive",
-    cmd = { "G" },
+    cmd = { "G", "Git", "Gread", "GBrowse" },
+    dependencies = { "tpope/vim-rhubarb" },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "fugitive" },
+        callback = function()
+          vim.bo.buflisted = false
+          vim.keymap.set("n", "q", "<CMD>q<CR>", { desc = "Quit", buffer = true, silent = true })
+          vim.keymap.set("n", "gp", "<CMD>Git push<CR>", { desc = "Push", buffer = true })
+          vim.keymap.set(
+            "n",
+            "gP",
+            "<CMD>Git push --force-with-lease<CR>",
+            { desc = "Push (force-with-lease)", buffer = true }
+          )
+        end,
+      })
+    end,
     keys = {
       {
         "<Leader>g",
@@ -129,23 +169,67 @@ local plugins = {
             ]])
           end
         end,
-        desc = "Fugitive",
+        desc = "Git",
         nowait = true,
       },
     },
   },
 
+  -- Detect tabstop and shiftwidth automatically.
   {
-    "tpope/vim-rhubarb",
-    cmd = { "GBrowse" },
-    dependencies = "tpope/vim-fugitive",
+    "tpope/vim-sleuth",
+    event = "VeryLazy",
   },
 
+  -- Support .projectionist.json.
+  {
+    "tpope/vim-projectionist",
+    event = "VeryLazy",
+  },
+
+  -- Better folds.
   {
     "kevinhwang91/nvim-ufo",
-    dependencies = "kevinhwang91/promise-async",
+    event = "VeryLazy",
+    init = function()
+      vim.o.foldenable = true -- enable fold for nvim-ufo
+      vim.o.foldlevel = 99 -- set high foldlevel for nvim-ufo
+      vim.o.foldlevelstart = 99 -- start with all code unfolded
+      vim.o.foldcolumn = "1"
+      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      vim.api.nvim_set_hl(0, "FoldColumn", { link = "Normal" })
+      vim.api.nvim_create_autocmd("BufWritePost", {
+        callback = function()
+          vim.api.nvim_set_hl(0, "FoldColumn", { link = "Normal" })
+        end,
+      })
+    end,
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          local builtin = require("statuscol.builtin")
+          require("statuscol").setup({
+            relculright = true,
+            segments = {
+              { text = { builtin.foldfunc }, click = "v:lua.ScFa", hl = "Normal" },
+              { text = { " " }, click = "v:lua.ScSa" },
+              { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+              { text = { "%s" }, click = "v:lua.ScSa" },
+            },
+          })
+        end,
+      },
+    },
+    opts = {
+      provider_selector = function(_, _, _)
+        return { "treesitter", "indent" }
+      end,
+    },
   },
 
+  -- Diagnostics panel.
   {
     "folke/trouble.nvim",
     cmd = { "Trouble", "TroubleToggle" },
@@ -154,32 +238,45 @@ local plugins = {
     },
   },
 
+  -- Smart split/join.
   {
-    "bennypowers/splitjoin.nvim",
+    "Wansmer/treesj",
     keys = {
       {
         "gJ",
         function()
-          require("splitjoin").join()
+          require("treesj").join()
         end,
         desc = "Join the object under cursor",
       },
       {
         "gS",
         function()
-          require("splitjoin").split()
+          require("treesj").split()
         end,
         desc = "Split the object under cursor",
       },
     },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 
+  -- Scrollbar with diagnostics and Git signs.
   {
     "petertriho/nvim-scrollbar",
     lazy = false,
-    config = true,
+    opts = {
+      folds = 0,
+      excluded_buftypes = {
+        "nofile",
+        "terminal",
+      },
+      handlers = {
+        gitsigns = true,
+      },
+    },
   },
 
+  -- Automatically jump to last place in file.
   {
     "ethanholz/nvim-lastplace",
     opts = {
@@ -189,18 +286,22 @@ local plugins = {
     },
   },
 
+  -- Highlight changes in undo.
   {
     "tzachar/highlight-undo.nvim",
-    config = true,
+    opts = {},
   },
 
+  -- Search/replace respecting case.
   {
     "tpope/vim-abolish",
     event = "VeryLazy",
   },
 
+  -- Substitute/exchange operators.
   {
     "gbprod/substitute.nvim",
+    opts = {},
     keys = {
       {
         "cx",
@@ -227,6 +328,7 @@ local plugins = {
     },
   },
 
+  -- Movements on steroids.
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -285,13 +387,7 @@ local plugins = {
   --   },
   -- },
 
-  {
-    "lewis6991/gitsigns.nvim",
-    configs = function()
-      require("scrollbar.handlers.gitsigns").setup()
-    end,
-  },
-
+  -- Search using Ripgrep and quickfix.
   {
     "mhinz/vim-grepper",
     cmd = { "Grepper", "GrepperRg" },
@@ -300,13 +396,22 @@ local plugins = {
       { "ga<SPACE>", ":GrepperRg<SPACE>", desc = "Start grep prompt" },
       { "gac", "<CMD>execute 'GrepperRg ' . shellescape(@+)<CR>", desc = "Grep copy", silent = true },
     },
+    init = function()
+      vim.g.grepper = { open = false }
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "Grepper",
+        command = ":copen",
+      })
+    end,
   },
 
+  -- Replace buffers in quickfix.
   {
     "stefandtw/quickfix-reflector.vim",
     ft = "qf",
   },
 
+  -- Move lines up/down.
   {
     "booperlv/nvim-gomove",
     opts = {
@@ -320,25 +425,241 @@ local plugins = {
     },
   },
 
+  -- Common brackets mappings.
   {
-    "tummetott/unimpaired.nvim",
+    "tpope/vim-unimpaired",
     event = "VeryLazy",
+  },
+
+  -- Autocomplete for commands and search.
+  {
+    "gelguy/wilder.nvim",
+    event = "VeryLazy",
+    init = function()
+      local wilder = require("wilder")
+      wilder.set_option(
+        "renderer",
+        wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
+          highlights = {
+            border = "Normal", -- highlight to use for the border
+          },
+          -- 'single', 'double', 'rounded' or 'solid'
+          -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
+          border = "rounded",
+        }))
+      )
+      -- wilder.set_option(
+      --   "renderer",
+      --   wilder.popupmenu_renderer(wilder.popupmenu_palette_theme({
+      --     -- 'single', 'double', 'rounded' or 'solid'
+      --     -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
+      --     border = "rounded",
+      --     max_height = "75%",
+      --     min_height = 0,
+      --     prompt_position = "top",
+      --     reverse = 0,
+      --   }))
+      -- )
+    end,
     opts = {
-      keymaps = {
-        exchange_above = false,
-        exchange_below = false,
-        exchange_section_above = false,
-        exchange_section_below = false,
+      modes = { ":", "/", "?" },
+    },
+  },
+
+  -- Multiple cursors a-la Sublime Text.
+  {
+    "smoka7/multicursors.nvim",
+    opts = {},
+    keys = {
+      {
+        "<C-n>",
+        "<CMD>MCstart<CR>",
+        desc = "Create a selection for word under the cursor",
       },
     },
   },
 
+  -- ASCII table formatter.
   {
-    "gelguy/wilder.nvim",
+    "dhruvasagar/vim-table-mode",
+    ft = { "cucumber", "markdown" },
+    init = function()
+      vim.g.table_mode_disable_mappings = 1
+      vim.g.table_mode_corner = "|"
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "cucumber", "markdown" },
+        callback = function(_)
+          vim.cmd("silent! :TableModeEnable")
+          vim.keymap.set("i", "<Bar>", "<Plug>(table-mode-tableize)", { buffer = true })
+        end,
+      })
+    end,
+  },
+
+  -- Alignment operator.
+  {
+    "Vonr/align.nvim",
+    keys = {
+      {
+        "gl",
+        function()
+          local align = require("align")
+          align.operator(align.align_to_char, { length = 1, reverse = false, preview = false })
+        end,
+        desc = "Align text object",
+      },
+    },
+  },
+
+  -- Notifications.
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  -- Rails development.
+  {
+    "tpope/vim-rails",
+    event = "VeryLazy",
+  },
+
+  -- Automatic completion of pairs.
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {
+      check_ts = true,
+    },
+    config = function(_, opts)
+      local npairs = require("nvim-autopairs")
+      npairs.setup(opts)
+
+      -- endwise
+      npairs.add_rules(require("nvim-autopairs.rules.endwise-elixir"))
+      npairs.add_rules(require("nvim-autopairs.rules.endwise-lua"))
+      npairs.add_rules(require("nvim-autopairs.rules.endwise-ruby"))
+
+      -- setup cmp for autopairs
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
+  },
+
+  -- Treesitter.
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    opts = {
+      auto_install = true,
+      ensure_installed = {
+        "comment",
+        "css",
+        "dockerfile",
+        "fish",
+        "go",
+        "graphql",
+        "html",
+        "java",
+        "javascript",
+        "json",
+        "lua",
+        "markdown_inline",
+        "python",
+        "ruby",
+        "rust",
+        "terraform",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        -- "yaml",
+      },
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+        disable = { "ruby" },
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<CR>",
+          node_incremental = "<CR>",
+          node_decremental = "<BS>",
+        },
+      },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+          keymaps = {
+            ["aa"] = "@parameter.outer",
+            ["ia"] = "@parameter.inner",
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true,
+          goto_next_start = {
+            ["]m"] = "@function.outer",
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
+      },
+    },
+  },
+
+  -- Indentation text object.
+  {
+    "michaeljsmith/vim-indent-object",
+    event = "VeryLazy",
+  },
+
+  -- Commenting.
+  {
+    "numToStr/Comment.nvim",
+    keys = {
+      { "gcc", mode = "n" },
+      { "gc", mode = { "n", "v" } },
+    },
+  },
+
+  -- Automatically switch to nearest root.
+  {
+    "notjedi/nvim-rooter.lua",
     event = "VeryLazy",
     opts = {
-      modes = { ":", "/", "?" },
+      update_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_cwd = true,
+      },
     },
+  },
+
+  -- gist.github.com integration.
+  {
+    "Rawnly/gist.nvim",
+    cmd = { "GistCreate", "GistCreateFromFile", "GistsList" },
+    opts = {},
   },
 }
 
