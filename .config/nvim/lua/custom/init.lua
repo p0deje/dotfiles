@@ -1,13 +1,23 @@
+vim.o.exrc = true
 vim.o.swapfile = false
 vim.o.sessionoptions = "curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- Automatically read/write files from/to disk.
+vim.o.autoread = true
+vim.o.autowrite = true
+vim.o.autowriteall = true
+vim.api.nvim_create_autocmd("FocusGained", { command = ":checktime" })
+
 if vim.g.neovide then
+  -- vim.o.background = "auto"
   vim.o.guifont = "FiraCode Nerd Font:h16"
 
+  vim.g.neovide_confirm_quit = true
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_input_macos_alt_is_meta = true
   vim.g.neovide_input_use_logo = true
   vim.g.neovide_remember_window_size = true
+  vim.g.neovide_theme = "auto"
   vim.g.neovide_underline_automatic_scaling = true
 
   vim.keymap.set("v", "<D-c>", '"+y') -- Copy
