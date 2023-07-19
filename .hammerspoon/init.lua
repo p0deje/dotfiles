@@ -38,12 +38,29 @@ end
 
 local window = {}
 
+function window:disableAccessibility(callback)
+  local app = hs.window.focusedWindow():application()
+  local axApp = hs.axuielement.applicationElement(app)
+  local wasEnhanced = axApp.AXEnhancedUserInterface
+  if wasEnhanced then
+    axApp.AXEnhancedUserInterface = false
+  end
+
+  callback()
+
+  if wasEnhanced then
+    axApp.AXEnhancedUserInterface = true
+  end
+end
+
 function window:center()
-  local screenFrame = hs.screen.mainScreen():frame()
-  local windowFrame = hs.window.focusedWindow():frame()
-  windowFrame.x = ((screenFrame.w - windowFrame.w) / 2) + screenFrame.x
-  windowFrame.y = ((screenFrame.h - windowFrame.h) / 2) + screenFrame.y
-  hs.window.focusedWindow():setFrame(windowFrame)
+  window:disableAccessibility(function()
+    local screenFrame = hs.screen.mainScreen():frame()
+    local windowFrame = hs.window.focusedWindow():frame()
+    windowFrame.x = ((screenFrame.w - windowFrame.w) / 2) + screenFrame.x
+    windowFrame.y = ((screenFrame.h - windowFrame.h) / 2) + screenFrame.y
+    hs.window.focusedWindow():setFrame(windowFrame)
+  end)
 end
 
 hs.hotkey.bind({ "alt", "shift" }, "m", function()
@@ -52,51 +69,60 @@ hs.hotkey.bind({ "alt", "shift" }, "m", function()
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "-", function()
-  undo:push()
-  local windowFrame = hs.window.focusedWindow():frame()
-  windowFrame.w = windowFrame.w - windowFrame.w * 0.05
-  windowFrame.h = windowFrame.h - windowFrame.h * 0.05
-  hs.window.focusedWindow():setFrame(windowFrame)
-  hs.timer.usleep(0.4 * 1000 * 1000)
-  window:center()
+  window:disableAccessibility(function()
+    undo:push()
+    local windowFrame = hs.window.focusedWindow():frame()
+    windowFrame.w = windowFrame.w - windowFrame.w * 0.05
+    windowFrame.h = windowFrame.h - windowFrame.h * 0.05
+    hs.window.focusedWindow():setFrame(windowFrame)
+    window:center()
+  end)
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "=", function()
-  undo:push()
-  local windowFrame = hs.window.focusedWindow():frame()
-  windowFrame.w = windowFrame.w + windowFrame.w * 0.05
-  windowFrame.h = windowFrame.h + windowFrame.h * 0.05
-  hs.window.focusedWindow():setFrame(windowFrame)
-  hs.timer.usleep(0.4 * 1000 * 1000)
-  window:center()
+  window:disableAccessibility(function()
+    undo:push()
+    local windowFrame = hs.window.focusedWindow():frame()
+    windowFrame.w = windowFrame.w + windowFrame.w * 0.05
+    windowFrame.h = windowFrame.h + windowFrame.h * 0.05
+    hs.window.focusedWindow():setFrame(windowFrame)
+    window:center()
+  end)
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "f", function()
-  undo:push()
-  local stageManager = hs.execute("defaults read com.apple.WindowManager GloballyEnabled")
-  if stageManager == "1\n" then
-    local screenFrame = hs.screen.mainScreen():frame()
-    screenFrame.w = screenFrame.w * 0.85
-    hs.window.focusedWindow():setFrame(screenFrame)
-    hs.timer.usleep(0.4 * 1000 * 1000)
-    window:center()
-  else
-    hs.window.focusedWindow():maximize(0)
-  end
+  window:disableAccessibility(function()
+    undo:push()
+    local stageManager = hs.execute("defaults read com.apple.WindowManager GloballyEnabled")
+    if stageManager == "1\n" then
+      local screenFrame = hs.screen.mainScreen():frame()
+      screenFrame.w = screenFrame.w * 0.85
+      hs.window.focusedWindow():setFrame(screenFrame)
+      window:center()
+    else
+      hs.window.focusedWindow():maximize(0)
+    end
+  end)
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "h", function()
-  undo:push()
-  hs.window.focusedWindow():moveToUnit(hs.layout.left50)
+  window:disableAccessibility(function()
+    undo:push()
+    hs.window.focusedWindow():moveToUnit(hs.layout.left50)
+  end)
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "l", function()
-  undo:push()
-  hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+  window:disableAccessibility(function()
+    undo:push()
+    hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+  end)
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "z", function()
-  undo:pop()
+  window:disableAccessibility(function()
+    undo:pop()
+  end)
 end)
 
 -- Layouts
@@ -117,13 +143,17 @@ end)
 -- Monitors
 
 hs.hotkey.bind({ "alt", "shift" }, "[", function()
-  hs.window.focusedWindow():moveOneScreenWest(true, true)
-  hs.window.focusedWindow():focus()
+  window:disableAccessibility(function()
+    hs.window.focusedWindow():moveOneScreenWest(true, true)
+    hs.window.focusedWindow():focus()
+  end)
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "]", function()
-  hs.window.focusedWindow():moveOneScreenEast(true, true)
-  hs.window.focusedWindow():focus()
+  window:disableAccessibility(function()
+    hs.window.focusedWindow():moveOneScreenEast(true, true)
+    hs.window.focusedWindow():focus()
+  end)
 end)
 
 -- Mouse
