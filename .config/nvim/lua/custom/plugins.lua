@@ -53,13 +53,30 @@ local plugins = {
     end,
   },
 
+  -- File explorer.
   {
     "nvim-tree/nvim-tree.lua",
     opts = {
+      git = {
+        enable = true,
+      },
+      sync_root_with_cwd = true,
       tab = {
         sync = {
           open = true,
           close = true,
+        },
+      },
+      view = {
+        centralize_selection = true,
+        preserve_window_proportions = true,
+        signcolumn = "no",
+      },
+      renderer = {
+        full_name = true,
+        highlight_git = true,
+        icons = {
+          symlink_arrow = " -> ",
         },
       },
     },
