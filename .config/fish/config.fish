@@ -6,8 +6,8 @@ end
 
 set -x ANSIBLE_NOCOWS 1
 set -x BAT_THEME ansi
-set -x BUNDLER_EDITOR vimr
-set -x EDITOR vimr
+set -x BUNDLER_EDITOR nvim
+set -x EDITOR nvim
 set -x LANG en_US.UTF-8
 set -x LOLCOMMITS_DEVICE "FaceTime HD Camera"
 set -x LOLCOMMITS_FORK true
