@@ -1,5 +1,3 @@
-vim.g.nvim_tree_disable_netrw = 0 -- for rhubarb.vim
-
 local timer = vim.uv.new_timer()
 timer:start(2000, 1, function()
   require("nvim-tree.api").tree.reload()

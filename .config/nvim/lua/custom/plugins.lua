@@ -15,15 +15,9 @@ local plugins = {
 
   -- Session management.
   {
-    "jedrzejboczar/possession.nvim",
+    "olimorris/persisted.nvim",
     lazy = false,
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      autosave = {
-        current = true,
-        on_quit = true,
-      },
-    },
+    opts = {},
   },
 
   -- Undo tree in Telescope.

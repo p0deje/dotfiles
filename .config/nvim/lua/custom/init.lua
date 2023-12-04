@@ -1,6 +1,9 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.o.exrc = true
+vim.o.sessionoptions = "buffers,curdir,folds,tabpages,terminal,winpos,winsize"
 vim.o.swapfile = false
-vim.o.sessionoptions = "curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Automatically read/write files from/to disk.
 vim.o.autoread = true

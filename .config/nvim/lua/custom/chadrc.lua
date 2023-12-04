@@ -29,8 +29,8 @@ M.ui = {
         "󰈚  Sessions",
         "Enter",
         function()
-          require("telescope").load_extension("possession")
-          require("telescope").extensions.possession.list()
+          require("telescope").load_extension("persisted")
+          vim.cmd.Telescope("persisted")
         end,
       },
       { "  Find File", "Spc f f", "Telescope find_files" },
