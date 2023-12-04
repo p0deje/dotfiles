@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
-local servers = { "graphql", "sourcekit", "solargraph", "tsserver" }
+local servers = { "graphql", "jsonls", "sourcekit", "solargraph", "terraformls", "tsserver" }
 
 lspconfig.lua_ls.setup({
   on_attach = on_attach,

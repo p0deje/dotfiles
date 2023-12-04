@@ -1,9 +1,19 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.o.colorcolumn = 120
 vim.o.exrc = true
 vim.o.sessionoptions = "buffers,curdir,folds,tabpages,terminal,winpos,winsize"
 vim.o.swapfile = false
+vim.o.spell = true
+
+-- Set filetypes.
+local filetypes_group = vim.api.nvim_create_augroup("FileTypes", {})
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+  pattern = ".envrc",
+  command = "set filetype=sh",
+  group = filetypes_group,
+})
 
 -- Automatically read/write files from/to disk.
 vim.o.autoread = true
@@ -68,6 +78,7 @@ vim.keymap.set({ "n", "t" }, "<D-w>", function()
     require("nvchad.tabufline").close_buffer()
   end
 end, { desc = "Close buffer" })
+vim.keymap.set("n", "<D-M-w>", "<CMD>%bd<CR><C-o>", { desc = "Close other buffers", silent = true })
 
 -- Tabufline
 vim.keymap.set("n", "<D-[>", function()
@@ -86,6 +97,9 @@ vim.keymap.set({ "n", "t" }, "<A-l>", "<CMD>wincmd l<CR>", { desc = "Right windo
 -- Quickfix improvements
 vim.keymap.set("n", "[oq", "<CMD>cwindow<CR>", { desc = "Open quickfix", silent = true })
 vim.keymap.set("n", "]oq", "<CMD>cclose<CR>", { desc = "Close quickfix", silent = true })
+
+-- LSP
+vim.keymap.set("n", "<Leader>lr", "<CMD>Telescope lsp_references<CR>", { desc = "LSP References", silent = true })
 
 -- Text objects for custom characters.
 -- https://thevaluable.dev/vim-create-text-objects

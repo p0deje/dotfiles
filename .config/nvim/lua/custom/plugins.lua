@@ -6,6 +6,12 @@ local plugins = {
     opts = {},
   },
 
+  -- Support RBS.
+  {
+    "jlcrochet/vim-rbs",
+    event = "VeryLazy",
+  },
+
   -- Autosave buffers.
   {
     "tmillr/sos.nvim",
@@ -46,11 +52,34 @@ local plugins = {
           },
         },
       },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+      },
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+        },
+      },
     },
     keys = {
       { "<S-D-p>", "<CMD>Telescope commands<CR>", desc = "Command palette" },
       { "<D-p>", "<CMD>Telescope find_files<CR>", desc = "Go to file" },
     },
+  },
+
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    dependencies = { "telescope.nvim" },
+    event = "VeryLazy",
+    build = "make",
+    config = function()
+      require("telescope").load_extension("fzf")
+    end,
   },
 
   -- Language Server Protocol.
@@ -71,6 +100,7 @@ local plugins = {
   -- File explorer.
   {
     "nvim-tree/nvim-tree.lua",
+    lazy = false,
     opts = {
       git = {
         enable = true,
@@ -110,7 +140,7 @@ local plugins = {
         "graphql-language-service-cli",
         "lua-language-server",
         "solargraph",
-        "standardrb",
+        "standardrb", -- disabled by default
         "starlark_rust",
         "stylua",
         "typescript-language-server",
@@ -132,20 +162,8 @@ local plugins = {
     cmd = { "G", "Git", "Gread", "GBrowse" },
     dependencies = { "tpope/vim-rhubarb" },
     init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "fugitive" },
-        callback = function()
-          vim.bo.buflisted = false
-          vim.keymap.set("n", "q", "<CMD>q<CR>", { desc = "Quit", buffer = true, silent = true })
-          vim.keymap.set("n", "gp", "<CMD>Git push<CR>", { desc = "Push", buffer = true })
-          vim.keymap.set(
-            "n",
-            "gP",
-            "<CMD>Git push --force-with-lease<CR>",
-            { desc = "Push (force-with-lease)", buffer = true }
-          )
-        end,
-      })
+      -- Netrw is disabled by NvimTree
+      vim.cmd("command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)")
     end,
     keys = {
       {
@@ -166,7 +184,17 @@ local plugins = {
         desc = "Git",
         nowait = true,
       },
+      { "y<C-g>", desc = "Copy path to Git file" },
     },
+  },
+
+  {
+    name = "tabby",
+    dir = "~/tabby/clients/vim",
+    event = "VeryLazy",
+    -- config = function(plugin)
+    --   vim.opt.rtp:append(plugin.dir .. "/custom-rtp")
+    -- end,
   },
 
   -- Detect tabstop and shiftwidth automatically.
@@ -228,8 +256,29 @@ local plugins = {
     "folke/trouble.nvim",
     cmd = { "Trouble", "TroubleToggle" },
     keys = {
+      { "<Leader>tr", "<CMD>TroubleToggle<CR>", desc = "Trouble" },
       { "<D-S-m>", "<CMD>TroubleToggle<CR>", desc = "Trouble" },
     },
+  },
+
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    event = "VeryLazy",
+    opts = {},
+    init = function()
+      -- Use autocmd to override NvChad configuration.
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(_)
+          vim.diagnostic.config({
+            virtual_lines = true,
+            virtual_text = false,
+          })
+        end,
+
+        -- https://github.com/folke/lazy.nvim/issues/620
+        vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns),
+      })
+    end,
   },
 
   -- Smart split/join.
@@ -329,57 +378,12 @@ local plugins = {
     opts = {
       modes = {
         char = {
+          jump_labels = true,
           keys = { "f", "F", "t", "T" },
         },
       },
     },
   },
-
-  -- {
-  --   "kevinhwang91/nvim-hlslens",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("scrollbar.handlers.search").setup()
-  --   end,
-  --   keys = {
-  --     {
-  --       "n",
-  --       [[
-  --         <CMD>execute('normal! ' . v:count1 . 'n')<CR>
-  --         <CMD>lua require('hlslens').start()<CR>
-  --       ]],
-  --       desc = "Next search",
-  --     },
-  --     {
-  --       "N",
-  --       [[
-  --         <CMD>execute('normal! ' . v:count1 . 'N')<CR>
-  --         <CMD>lua require('hlslens').start()<CR>
-  --       ]],
-  --       desc = "Previous search",
-  --     },
-  --     {
-  --       "*",
-  --       "*<CMD>lua require('hlslens').start()<CR>",
-  --       desc = "Search next current word ",
-  --     },
-  --     {
-  --       "#",
-  --       "#<CMD>lua require('hlslens').start()<CR>",
-  --       desc = "Search previous current word",
-  --     },
-  --     {
-  --       "g*",
-  --       "g*<CMD>lua require('hlslens').start()<CR>",
-  --       desc = "Search next current word partially ",
-  --     },
-  --     {
-  --       "g#",
-  --       "g#<CMD>lua require('hlslens').start()<CR>",
-  --       desc = "Search previous current word partially",
-  --     },
-  --   },
-  -- },
 
   -- Search using Ripgrep and quickfix.
   {
@@ -390,8 +394,15 @@ local plugins = {
       { "ga<SPACE>", ":GrepperRg<SPACE>", desc = "Start grep prompt" },
       { "gac", "<CMD>execute 'GrepperRg ' . shellescape(@+)<CR>", desc = "Grep copy", silent = true },
     },
-    init = function()
-      vim.g.grepper = { open = false }
+    config = function()
+      vim.g.grepper = {
+        highlight = true,
+        open = false,
+        tools = { "rg" },
+        rg = {
+          grepprg = "rg --sort-files --with-filename --smart-case --no-heading --vimgrep $*",
+        },
+      }
       vim.api.nvim_create_autocmd("User", {
         pattern = "Grepper",
         command = ":copen",
@@ -463,11 +474,18 @@ local plugins = {
   -- Multiple cursors a-la Sublime Text.
   {
     "smoka7/multicursors.nvim",
-    opts = {},
+    event = "VeryLazy",
+    dependencies = {
+      "smoka7/hydra.nvim",
+    },
+    opts = {
+      hint_config = false,
+    },
     keys = {
       {
         "<C-n>",
         "<CMD>MCstart<CR>",
+        mode = { "v", "n" },
         desc = "Create a selection for word under the cursor",
       },
     },
@@ -505,13 +523,6 @@ local plugins = {
     },
   },
 
-  -- Notifications.
-  {
-    "rcarriga/nvim-notify",
-    event = "VeryLazy",
-    opts = {},
-  },
-
   -- Rails development.
   {
     "tpope/vim-rails",
@@ -540,41 +551,65 @@ local plugins = {
     end,
   },
 
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   config = function(_, opts)
+  --     local cmp = require("cmp")
+  --     local luasnip = require("luasnip")
+  --
+  --     opts.mapping = cmp.mapping.preset.insert({
+  --       ["<Tab>"] = cmp.mapping(function(fallback)
+  --         if luasnip.expandable() then
+  --           luasnip.expand()
+  --         elseif cmp.visible() then
+  --           cmp.select_next_item()
+  --         elseif luasnip.jumpable(1) then
+  --           luasnip.jump(1)
+  --         else
+  --           fallback()
+  --         end
+  --       end, { "i", "s" }),
+  --       ["<S-Tab>"] = cmp.mapping(function(fallback)
+  --         if cmp.visible() then
+  --           cmp.select_prev_item()
+  --         elseif luasnip.jumpable(-1) then
+  --           luasnip.jump(-1)
+  --         else
+  --           fallback()
+  --         end
+  --       end, { "i", "s" }),
+  --     })
+  --
+  --     cmp.setup(opts)
+  --   end,
+  -- },
+
+  {
+    "tzachar/local-highlight.nvim",
+    opts = {},
+  },
+
   -- Treesitter.
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     opts = {
       auto_install = true,
       ensure_installed = {
         "comment",
-        "css",
-        "dockerfile",
-        "fish",
-        "go",
-        "graphql",
-        "html",
-        "java",
-        "javascript",
-        "json",
-        "lua",
         "markdown_inline",
-        "python",
-        "ruby",
-        "rust",
-        "terraform",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        -- "yaml",
       },
       highlight = {
         enable = true,
       },
       indent = {
         enable = true,
-        disable = { "ruby" },
+        disable = {
+          "ruby",
+          "yaml",
+        },
       },
       incremental_selection = {
         enable = true,
@@ -587,7 +622,7 @@ local plugins = {
       textobjects = {
         select = {
           enable = true,
-          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
           keymaps = {
             ["aa"] = "@parameter.outer",
             ["ia"] = "@parameter.inner",
@@ -654,6 +689,65 @@ local plugins = {
     "Rawnly/gist.nvim",
     cmd = { "GistCreate", "GistCreateFromFile", "GistsList" },
     opts = {},
+  },
+
+  -- UI customization.
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "teal" })
+    end,
+    opts = {
+      cmdline = {
+        view = "cmdline",
+      },
+      lsp = {
+        hover = {
+          enabled = false,
+        },
+        signature = {
+          enabled = false,
+        },
+      },
+      routes = {
+        {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        },
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          render = "minimal",
+          top_down = false,
+        },
+        init = function()
+          vim.api.nvim_set_hl(0, "NotifyINFOIcon", { fg = "green" })
+          vim.api.nvim_set_hl(0, "NotifyINFOTitle", { fg = "green" })
+        end,
+      },
+    },
+  },
+
+  -- Load files with line/column number.
+  {
+    "wsdjeg/vim-fetch",
+    lazy = false,
+  },
+
+  -- Symbols outline.
+  {
+    "stevearc/aerial.nvim",
+    cmd = { "AerialToggle" },
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 }
 
