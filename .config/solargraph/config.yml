@@ -4,9 +4,6 @@ include:
 exclude:
 - spec/**/*
 - test/**/*
-- vendor/**/*
-- ".bundle/**/*"
-- ".testbox-apps/**/*"
 require: []
 domains: []
 reporters:
