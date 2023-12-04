@@ -9,20 +9,22 @@ vim.o.autowriteall = true
 vim.api.nvim_create_autocmd("FocusGained", { command = ":checktime" })
 
 if vim.g.neovide then
-  -- vim.o.background = "auto"
   vim.o.guifont = "FiraCode Nerd Font:h16"
 
   vim.g.neovide_confirm_quit = true
-  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_hide_mouse_when_typing = false
+  vim.g.neovide_input_ime = true
   vim.g.neovide_input_macos_alt_is_meta = true
   vim.g.neovide_input_use_logo = true
   vim.g.neovide_remember_window_size = true
+  vim.g.neovide_scroll_animation_length = 0.1
   vim.g.neovide_theme = "auto"
   vim.g.neovide_underline_automatic_scaling = true
 
   vim.keymap.set("v", "<D-c>", '"+y', { desc = "Copy" })
   vim.keymap.set({ "n", "v" }, "<D-v>", '"+P', { desc = "Paste", noremap = true })
   vim.keymap.set({ "i", "c" }, "<D-v>", "<C-r>+", { desc = "Paste", noremap = true })
+  vim.keymap.set("t", "<D-v>", '<C-\\><C-n>"+pa', { desc = "Paste", noremap = true })
 end
 
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Command mode", noremap = false })
