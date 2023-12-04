@@ -19,6 +19,9 @@ set -x FZF_LEGACY_KEYBINDINGS 0
 
 set -x PATH /usr/local/sbin $PATH
 set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
+set -x PATH $HOME/.cargo/bin $PATH
+# Created by `pipx` on 2023-10-26 15:12:05
+set -x PATH $HOME/.local/bin $PATH
 
 alias be 'bundle exec'
 alias cat 'bat'
