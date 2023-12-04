@@ -57,7 +57,7 @@ vim.keymap.set("n", "<S-D-z>", "<C-r>", { desc = "Redo", silent = true })
 vim.keymap.set("n", "<D-n>", "<CMD>silent !open -na Neovide<CR>", { desc = "New window", silent = true })
 vim.keymap.set({ "n", "t" }, "<D-w>", function()
   local ft = vim.bo[vim.api.nvim_win_get_buf(0)].ft
-  if ft == "fugitive" or ft == "terminal" or ft == "qf" then
+  if ft == "fugitive" or ft == "fugitiveblame" or ft == "terminal" or ft == "qf" or ft == "git" then
     vim.cmd("q")
   else
     require("nvchad.tabufline").close_buffer()
@@ -81,12 +81,6 @@ vim.keymap.set({ "n", "t" }, "<A-l>", "<CMD>wincmd l<CR>", { desc = "Right windo
 -- Quickfix improvements
 vim.keymap.set("n", "[oq", "<CMD>cwindow<CR>", { desc = "Open quickfix", silent = true })
 vim.keymap.set("n", "]oq", "<CMD>cclose<CR>", { desc = "Close quickfix", silent = true })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.keymap.set("n", "q", "<CMD>q<CR>", { desc = "Quit", buffer = true, silent = true })
-  end,
-})
 
 -- Text objects for custom characters.
 -- https://thevaluable.dev/vim-create-text-objects
