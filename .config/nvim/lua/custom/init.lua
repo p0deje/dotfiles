@@ -60,16 +60,16 @@ vim.keymap.set({ "n", "t" }, "<D-w>", function()
   if ft == "fugitive" or ft == "terminal" or ft == "qf" then
     vim.cmd("q")
   else
-    require("nvchad_ui.tabufline").close_buffer()
+    require("nvchad.tabufline").close_buffer()
   end
 end, { desc = "Close buffer" })
 
 -- Tabufline
 vim.keymap.set("n", "<D-[>", function()
-  require("nvchad_ui.tabufline").tabuflinePrev()
+  require("nvchad.tabufline").tabuflinePrev()
 end, { desc = "Go to previous buffer" })
 vim.keymap.set("n", "<D-]>", function()
-  require("nvchad_ui.tabufline").tabuflineNext()
+  require("nvchad.tabufline").tabuflineNext()
 end, { desc = "Go to previous buffer" })
 
 -- Window movements
